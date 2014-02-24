@@ -1,6 +1,8 @@
 Hours
 =====
 
+[![Build Status](https://magnum.travis-ci.com/DefactoSoftware/Hours.png?token=A49pyqNGPBpMX52bcsLm)](https://magnum.travis-ci.com/DefactoSoftware/Hours)
+
 System Dependencies
 -------------------
 - Ruby 2.1.0 (install with [rbenv](https://github.com/sstephenson/rbenv))
