@@ -1,0 +1,6 @@
+test:
+  adapter: postgresql
+  username: postgres
+  password:
+  database: hours_test
+  min_messages: ERROR
