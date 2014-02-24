@@ -29,6 +29,9 @@ GEM
     airbrake (3.1.15)
       builder
       multi_json
+    annotate (2.6.1)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (4.0.2)
     atomic (1.1.14)
     better_errors (1.1.0)
@@ -208,6 +211,7 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake
+  annotate
   better_errors
   binding_of_caller
   bourbon
