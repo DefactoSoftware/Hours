@@ -9,6 +9,11 @@ set -e
 # Set up Ruby dependencies via Bundler
 bundle install
 
+# Set up database.yml
+if [ ! -f config/database.yml ]; then
+  cp config/database.yml.example
+fi
+
 # Set up the database
 bundle exec rake db:setup
 
