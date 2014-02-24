@@ -39,6 +39,10 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bitters (0.9.2)
+      bourbon (>= 3.1)
+      sass (>= 3.2)
+      thor
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
@@ -214,6 +218,7 @@ DEPENDENCIES
   annotate
   better_errors
   binding_of_caller
+  bitters
   bourbon
   capybara-webkit (>= 1.0.0)
   coffee-rails
