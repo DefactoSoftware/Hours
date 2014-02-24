@@ -1,6 +1,6 @@
 development: &default
   adapter: postgresql
-  database: Hours_development
+  database: hours_development
   encoding: utf8
   min_messages: warning
   pool: 2
@@ -8,4 +8,4 @@ development: &default
 
 test:
   <<: *default
-  database: Hours_test
+  database: hours_test
