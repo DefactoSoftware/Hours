@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: accounts
+# Table name: public.accounts
 #
 #  id         :integer          not null, primary key
 #  subdomain  :string(255)      default(""), not null
