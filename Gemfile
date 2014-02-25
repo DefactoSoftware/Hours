@@ -22,6 +22,7 @@ gem "title"
 gem "uglifier"
 gem "unicorn"
 gem "devise", "~> 3.2.3"
+gem "apartment", "~> 0.24.2"
 
 group :development do
   gem "better_errors"

@@ -1,4 +1,10 @@
 en:
+  titles:
+    application: Hours
+    accounts:
+      new: Registration
+    projects:
+      index: Projects
   date:
     formats:
       default: '%m/%d/%Y'
@@ -14,3 +20,4 @@ en:
       user:
         create: "Create Account"
   sign_up: Sign Up
+  account_created_successfully: Signed up successfully

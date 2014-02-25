@@ -1,0 +1,17 @@
+<title><%= title %></title>
+
+<%= simple_form_for(@account) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for :owner do |o| %>
+      <%= o.input :first_name, :required => true %>
+      <%= o.input :last_name, :required => true %>
+      <%= o.input :email, :required => true %>
+      <%= o.input :password, :required => true %>
+      <%= o.input :password_confirmation, :required => true %>
+    <% end %>
+    <%= f.input :subdomain, :required => true %>
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -3,4 +3,7 @@ test:
   username: postgres
   password:
   database: hours_test
-  min_messages: ERROR
+  encoding: utf8
+  min_messages: warning
+  pool: 2
+  timeout: 5000
