@@ -6,5 +6,28 @@
 @import "bitters/bitters";
 @import "neat";
 @import "navigation";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 ///////////////////////////////////////////////////////////////////////////////
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.7em;
+}
+
+.container {
+  background: rgba(247, 246, 240, 1);
+  margin: 5% auto;
+  border-bottom-width: 2px;
+  width: 60%;
+  min-height: 200px;
+  position: relative;
+  padding: 25px;
+}
+
+.button {
+  @extend %button;
+  &:hover {
+    color: white;
+  }
+}
