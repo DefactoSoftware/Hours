@@ -28,4 +28,5 @@ RSpec.configure do |config|
 end
 
 Capybara.javascript_driver = :webkit
+Capybara.app_host = "http://hours.dev"
 WebMock.disable_net_connect!(allow_localhost: true)
