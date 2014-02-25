@@ -9,6 +9,7 @@ System Dependencies
 - Rubygems
 - Bundler (`gem install bundler`)
 - PostgreSQL
+- qmake (`brew install qt`) or read extensive instructions [here](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
 
 Getting Started
 ---------------
