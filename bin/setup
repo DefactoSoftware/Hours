@@ -11,7 +11,7 @@ bundle install
 
 # Set up database.yml
 if [ ! -f config/database.yml ]; then
-  cp config/database.yml.example
+  cp config/database.yml.example config/database.yml
 fi
 
 # Set up the database
