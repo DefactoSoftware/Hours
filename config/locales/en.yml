@@ -19,5 +19,9 @@ en:
     submit:
       user:
         create: "Create Account"
+      project:
+        create: "Create Project"
   sign_up: Sign Up
   account_created_successfully: Signed up successfully
+  new_project: New Project
+  project_created: Project successfully created

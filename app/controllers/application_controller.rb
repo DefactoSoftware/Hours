@@ -6,12 +6,15 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def current_account
+    @current_account ||= Account.find_by(subdomain: request.subdomain)
+  end
+
   def load_schema
     Apartment::Database.switch("public")
     return unless request.subdomain.present?
 
-    account = Account.find_by(subdomain: request.subdomain)
-    if account
+    if current_account
       Apartment::Database.switch(request.subdomain)
     else
       redirect_to root_url(subdomain: false)
