@@ -21,6 +21,7 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "unicorn"
+gem "devise", "~> 3.2.3"
 
 group :development do
   gem "better_errors"
