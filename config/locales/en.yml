@@ -3,6 +3,8 @@ en:
     application: Hours
     accounts:
       new: Registration
+    projects:
+      index: Projects
   date:
     formats:
       default: '%m/%d/%Y'
