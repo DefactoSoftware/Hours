@@ -25,6 +25,26 @@ RSpec.configure do |config|
   config.order = "random"
   config.use_transactional_fixtures = false
   config.treat_symbols_as_metadata_keys_with_true_values = true
+
+  config.after(:each) do
+    Apartment::Database.reset
+    drop_schemas
+  end
+end
+
+def drop_schemas
+  connection = ActiveRecord::Base.connection.raw_connection
+  schemas = connection.query(%Q{
+    SELECT 'drop schema ' || nspname || ' cascade;'
+    FROM pg_namespace
+    WHERE nspname != 'public'
+    AND nspname NOT LIKE 'pg_%'
+    AND nspname != 'information_schema';
+  })
+
+  schemas.each do |schema|
+    connection.query(schema.values.first)
+  end
 end
 
 Capybara.javascript_driver = :webkit

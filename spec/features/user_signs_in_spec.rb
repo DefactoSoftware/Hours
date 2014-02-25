@@ -1,8 +1,8 @@
 require "spec_helper"
 
 feature "User signs in" do
-  let(:user) { create(:user) }
-  let(:account) { create(:account, owner: user) }
+  let(:user) { build(:user) }
+  let!(:account) { create(:account_with_schema, owner: user) }
 
   scenario "signs in with valid credentials" do
     sign_in_user(user, subdomain: account.subdomain)
@@ -18,10 +18,14 @@ feature "User signs in" do
     expect { visit new_user_session_path }.to raise_error ActionController::RoutingError
   end
 
-  def sign_in_user(user, opts={})
-    visit new_user_session_url(subdomain: opts[:subdomain])
-    fill_in "Email", with: user.email
-    fill_in "Password", with: (opts[:password] || user.password)
-    click_button "Sign in"
+  scenario "does not allow users to sign in on someone elses subdomain" do
+    user2 = build(:user)
+    account2 = create(:account_with_schema, owner: user2)
+
+    sign_in_user(user2, subdomain: account2.subdomain)
+    expect(page).to have_content("Signed in successfully")
+
+    sign_in_user(user2, subdomain: account.subdomain)
+    expect(page).to have_content("Invalid email or password")
   end
 end
