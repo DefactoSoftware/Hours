@@ -20,6 +20,7 @@ FactoryGirl.define do
 
     factory :account_with_schema do
       after(:build) do |account|
+        ActiveRecord::Base.connection.clear_cache!
         Apartment::Database.create(account.subdomain)
         Apartment::Database.switch(account.subdomain)
       end
