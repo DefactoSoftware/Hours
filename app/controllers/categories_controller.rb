@@ -1,4 +1,8 @@
 class CategoriesController < ApplicationController
+  def index
+    @categories = Category.all
+  end
+
   def new
     @category = Category.new
   end
@@ -6,7 +10,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to root_path, notice: I18n.t(:category_created)
+      redirect_to categories_path, notice: I18n.t(:category_created)
     else
       render action: "new"
     end

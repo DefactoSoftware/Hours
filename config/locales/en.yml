@@ -6,6 +6,9 @@ en:
     projects:
       index: Projects
       new: New Project
+    categories:
+      index: Categories
+      new: New Category
   date:
     formats:
       default: '%m/%d/%Y'
@@ -26,6 +29,5 @@ en:
         new: "Create Category"
   sign_up: Sign Up
   account_created_successfully: Signed up successfully
-  new_project: New Project
   project_created: Project successfully created
   category_created: Category successfully created
