@@ -8,6 +8,9 @@
 @import "navbar";
 @import "progress-bars";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import "pikaday";
+@import "entries";
+
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -43,7 +46,6 @@ body {
 
 .active-people {
   img {
-  width: 35px;
+    width: 35px;
+  }
 }
-}
-

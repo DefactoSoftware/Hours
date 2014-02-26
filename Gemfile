@@ -23,6 +23,8 @@ gem "uglifier"
 gem "unicorn"
 gem "devise", "~> 3.2.3"
 gem "apartment", "~> 0.24.2"
+gem "pikaday-gem", "~> 1.1.0.0"
+gem "momentjs-rails"
 
 group :development do
   gem "better_errors"

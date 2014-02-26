@@ -12,4 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require moment
+//= require pikaday
 //= require_tree .
+
+var picker = new Pikaday({
+  field: $('#datepicker')[0],
+  format: 'DD/MM/YYYY'
+});
