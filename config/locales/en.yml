@@ -9,6 +9,7 @@ en:
     categories:
       index: Categories
       new: New Category
+    activities: Activities
   date:
     formats:
       default: '%m/%d/%Y'
@@ -34,3 +35,4 @@ en:
   category_created: Category successfully created
   entry_created: Entry successfully created
   entry_failed: Something went wrong saving your entry
+  entry_activity: "%{user} spent %{hours} hours on %{category} for %{project} "

@@ -16,5 +16,3 @@ class EntriesController < ApplicationController
     params.require(:entry).permit(:project_id, :category_id, :hours, :date)
   end
 end
-
-

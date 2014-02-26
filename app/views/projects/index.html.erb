@@ -3,8 +3,9 @@
     <hr>
     <%= render partial: "application/entry_form" %>
 
-    <h1><%= title %></h1>
     <ul><%= render partial: "project", collection: @projects %></ul>
     <hr>
     <%= link_to t("titles.projects.new"), new_project_path, class: "button create" %>
 </div>
+<h1><%= t("titles.activities") %></h1>
+<ul><%= render partial: "entry", collection: @activities %></ul>
