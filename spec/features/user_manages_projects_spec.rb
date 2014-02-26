@@ -27,4 +27,15 @@ feature "User manages projects" do
     sign_in_user(user, subdomain: subdomain2)
     expect(Project.count).to eq(0)
   end
+
+  scenario "displays a list of projects" do
+    create(:project, name: "Hours")
+    create(:project, name: "Capollo13")
+
+    visit root_url(subdomain: subdomain)
+    within ".projects" do
+      expect(page).to have_content("Hours")
+      expect(page).to have_content("Capollo13")
+    end
+  end
 end
