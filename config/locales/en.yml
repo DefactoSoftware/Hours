@@ -5,6 +5,7 @@ en:
       new: Registration
     projects:
       index: Projects
+      new: New Project
   date:
     formats:
       default: '%m/%d/%Y'
