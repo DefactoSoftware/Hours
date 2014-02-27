@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140226170441) do
   end
 
   create_table "categories", force: true do |t|
-    t.string   "name"
+    t.string   "name",       default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
