@@ -25,13 +25,23 @@
   }
 }
 
+.wrapper {
+  @include outer-container;
+}
+
 #new_entry {
-  background-color: whiteSmoke;
-  display: inline-block;
+  @include span-columns(12);
+  @include shift(1);
   padding: 10px;
 
   .input {
     float: left;
     margin: 10px;
+    input, select {
+      height: 30px;
+    }
+  }
+  .button {
+    margin-top: 40px;
   }
 }

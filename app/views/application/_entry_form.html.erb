@@ -1,5 +1,6 @@
+<div class="wrapper" %>
 <%= simple_form_for(@entry) do |f| %>
-  <%= f.error_notification %>
+    <%= f.error_notification %>
 
   <%= f.association :project, required: true %>
   <%= f.association :category, required: true %>
@@ -7,3 +8,4 @@
   <%= f.input :date, required: true, as: :string, input_html: { value: Date.today.strftime("%d/%m/%Y"), id: "datepicker"} %>
   <%= f.button :submit %>
 <% end %>
+</div>

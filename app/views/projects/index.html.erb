@@ -1,7 +1,8 @@
 <div class="container">
+    <%= render partial: "application/entry_form" %>
+    <hr>
     <h1><%= title %></h1>
     <hr>
-    <%= render partial: "application/entry_form" %>
 
     <ul><%= render partial: "project", collection: @projects %></ul>
     <hr>
