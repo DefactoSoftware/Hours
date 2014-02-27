@@ -1,4 +1,8 @@
-<h1><%= title %></h1>
-<ul><%= render partial: "project", collection: @projects %></ul>
-<%= link_to t("titles.projects.new"), new_project_path %>
+<div class="container">
+    <h1><%= title %></h1>
+    <hr>
+    <ul><%= render partial: "project", collection: @projects %></ul>
 
+    <hr>
+    <%= link_to t("titles.projects.new"), new_project_path, class: "button create" %>
+</div>

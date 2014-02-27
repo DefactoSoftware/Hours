@@ -1,10 +1,12 @@
-<h1><%= title %></h1>
+<div class="container">
+  <h1><%= title %></h1>
 
-<%= simple_form_for(@category) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(@category) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name, required: true %>
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-inputs">
+      <%= f.input :name, required: true %>
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
