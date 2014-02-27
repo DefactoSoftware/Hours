@@ -1,10 +1,27 @@
+.pika-next, .pika-prev {
+  box-shadow: none;
+  border: none;
+
+  &:hover {
+    background-color: transparent!important;
+    background-image: none!important;
+    box-shadow: none!important;
+    color: black!important;
+  }
+
+}
+
 .pika-table {
   border-collapse: collapse;
   border-spacing: 0;
 
   td {
     padding: 0;
-    border-radius: none;
+    background-color: rgb(245, 245, 245);
+    .pika-button {
+      box-shadow: none;
+      text-align: center;
+    }
   }
 }
 
