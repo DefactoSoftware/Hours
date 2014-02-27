@@ -11,6 +11,8 @@ en:
       new: New Category
     activities: Activities
   date:
+    today: today
+    date_ago: "%{date} ago"
     formats:
       default: '%m/%d/%Y'
       with_weekday: '%a %m/%d/%y'
@@ -35,4 +37,4 @@ en:
   category_created: Category successfully created
   entry_created: Entry successfully created
   entry_failed: Something went wrong saving your entry
-  entry_activity: "%{user} spent %{hours} hours on %{category} for %{project} "
+  entry_activity: "%{user} spent %{hours} hours doing %{category} on %{project} %{time_ago}"

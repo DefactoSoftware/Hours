@@ -4,6 +4,6 @@
   <%= f.association :project, required: true %>
   <%= f.association :category, required: true %>
   <%= f.input :hours, required: true %>
-  <%= f.input :date, required: true, as: :string, input_html: { id: "datepicker"} %>
+  <%= f.input :date, required: true, as: :string, input_html: { value: Date.today.strftime("%d/%m/%Y"), id: "datepicker"} %>
   <%= f.button :submit %>
 <% end %>
