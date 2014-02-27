@@ -1,9 +1,6 @@
 <div class="container">
     <%= render partial: "application/entry_form" %>
     <hr>
-    <h1><%= title %></h1>
-    <hr>
-
     <ul><%= render partial: "project", collection: @projects %></ul>
     <hr>
     <%= link_to t("titles.projects.new"), new_project_path, class: "button create" %>
