@@ -1,0 +1,49 @@
+
+
+<div class="container">
+  <div>
+    <h1>Overview</h1>
+    <hr>
+    <!-- even nicer -->
+    <div class="project">
+      <h2>Conversations</h2>
+      <p>
+        <div class="activities-overview">
+        <ol class="activities">
+          <li>
+                <span class="color-block color" style="background-color:#abc55c;"></span>
+                <span class="activity">Development</span>
+                <span class="percent">75.6%</span>
+          </li>
+          <li>
+                <span class="color-block color" style="background-color:#6a40fd;"></span>
+                <span class="activity">Design</span>
+                <span class="percent">15.4%</span>
+          </li>
+          <li>
+                <span class="color-block color" style="background-color:#f15501;"></span>
+                <span class="activity">QA</span>
+                <span class="percent">7.8%</span>
+          </li>
+        </ol>
+        </div>
+        <div class="bar">
+          <a href="#" class="graph" style="">
+          <span class="activity-color" style="width:75.6%; background-color:#abc55c;" itemprop="keywords"></span>
+          <span class="activity-color" style="width:15.4%; background-color:#6a40fd;" itemprop="keywords"></span>
+          <span class="activity-color" style="width:7.8%; background-color:#f15501;" itemprop="keywords"></span>
+          </a>
+        </div>
+
+        <strong>3 People</strong> spent <span class="hours">14 hours</span> working on <strong>Conversations</strong> in the last 7 days.    <div class="active-people">
+          <%= image_tag "romke.jpg", class: "image-circle" %>
+          <%= image_tag "jurre.jpg", class: "image-circle" %>
+
+        </div>
+      </p>
+    </div>
+
+    <hr>
+    <%= link_to t("New project"), new_user_registration_path, class: "button create" %>
+  </div>
+</div>

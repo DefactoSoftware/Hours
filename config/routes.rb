@@ -22,4 +22,7 @@ Hours::Application.routes.draw do
     root "landing#index"
     resource :accounts, only: [:new, :create]
   end
+  devise_for :users
+  root to: "landing#index"
+  get '/overview', :to => "landing#overview"
 end

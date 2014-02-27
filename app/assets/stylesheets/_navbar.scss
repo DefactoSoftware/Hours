@@ -1,0 +1,72 @@
+#navbar {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 50px;
+  background: #f5f5f5;
+  border: none;
+}
+
+#navbar .navbar-brand {
+  font-weight: 300;
+}
+#navbar a.navbar-brand {
+  color: inherit;
+}
+#navbar .navbar-nav {
+  margin-left: 15px;
+}
+#navbar .nav > li > a {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 50px;
+  border-left: 1px solid #ddd;
+  color: #555;
+  -webkit-transition: background .3s;
+     -moz-transition: background .3s;
+          transition: background .3s;
+}
+#navbar .nav > li > a:hover {
+  color: #333;
+}
+#navbar .nav .dropdown-menu {
+  border: 1px solid #ddd;
+}
+#navbar .nav > li > a [class*='fui-'],
+#navbar .nav > li > a .glyphicon {
+  line-height: 1;
+}
+#navbar .profile-info {
+  padding-top: 10px;
+  text-align: center;
+}
+#navbar .profile-img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
+#navbar .profile-user {
+  display: block;
+  padding-top: 5px;
+}
+#navbar .app-icon {
+  float: left;
+  padding: 0 14px 0 16px;
+  line-height: 49px;
+  font-size: 16px;
+  font-weight: 300;
+  color: #ccc;
+}
+#navbar a.app-icon {
+  width: auto;
+  padding: 0 16px;
+  border-right: 1px solid #ddd;
+  text-decoration: none;
+  color: #555;
+}
+#navbar a.app-icon:hover {
+  background-color: #eee;
+  color: #333;
+}
