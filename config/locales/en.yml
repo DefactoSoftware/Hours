@@ -22,12 +22,13 @@ en:
   helpers:
     submit:
       user:
-        create: "Create Account"
+        create: Create Account
       project:
-        create: "Create Project"
+        create: Create Project
       category:
-        new: "Create Category"
+        new: Create Category
   sign_up: Sign Up
+  sign_out: Sign Out
   account_created_successfully: Signed up successfully
   project_created: Project successfully created
   category_created: Category successfully created

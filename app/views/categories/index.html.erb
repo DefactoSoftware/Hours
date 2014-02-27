@@ -1,3 +1,7 @@
-<h1><%= title %></h1>
-<ul><%= render partial: "category", collection: @categories %></ul>
-<%= link_to t("titles.categories.new"), new_category_path %>
+<div class="container">
+  <h1><%= title %></h1>
+  <hr>
+  <ul><%= render partial: "category", collection: @categories %></ul>
+  <hr>
+  <%= link_to t("titles.categories.new"), new_category_path, class: "button create" %>
+</div>

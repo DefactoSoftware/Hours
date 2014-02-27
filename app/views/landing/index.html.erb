@@ -1,3 +1,12 @@
 <div>
-  <%= link_to t("sign_up"), new_accounts_path %>
+
+<div class="container">
+  <div>
+    <h1><%= title %></h1>
+    <p>
+      Hours puts the <strong>our</strong> back into attendance management. We'll help you to take both the <em>attendance</em> and the <em>management</em> out of it, so you can focus on doing great work and having fun.
+    </p>
+    <%= link_to t("sign_up"), new_accounts_path, class: "button" %> or
+    <%= link_to t("read more"), "#" %>
+  </div>
 </div>
