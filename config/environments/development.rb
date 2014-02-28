@@ -30,6 +30,15 @@ Hours::Application.configure do
   # a parameter is not explcitly permitted but is passed anyway.
   config.action_controller.action_on_unpermitted_parameters = :raise
 
-
   config.action_mailer.default_url_options = { host: "hours.dev" }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+    address:              "smtp.gmail.com",
+    port:                 587,
+    domain:               "example.com",
+    user_name:            ENV["GMAIL_USERNAME"],
+    password:             ENV["GMAIL_PASSWORD"],
+    authentication:       "plain",
+    enable_starttls_auto: true
+  }
 end
