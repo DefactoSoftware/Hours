@@ -53,7 +53,7 @@ body {
 
 .form-inputs {
   @include outer-container;
-  
+
   .input {
     @include span-columns(9);
     @include omega();
@@ -63,5 +63,13 @@ body {
     @include span-columns(2);
     @include shift(1);
     @include omega();
+  }
+}
+
+.activities-overview, .categories-overview {
+  span {
+    .color {
+      display: inline-block;
+    }
   }
 }

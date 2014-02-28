@@ -44,6 +44,6 @@ en:
   category_created: Category successfully created
   entry_created: Entry successfully created
   entry_failed: Something went wrong saving your entry
-  entry_activity:
+  entry_activity_html:
     one: "%{user} spent one hour doing %{category} on %{project} %{time_ago}"
     other: "%{user} spent %{count} hours doing %{category} on %{project} %{time_ago}"
