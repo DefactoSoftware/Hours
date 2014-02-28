@@ -10,8 +10,10 @@ feature "Account Creation" do
 
   context "with the organizations email" do
     scenario "allows a guest to create an account" do
-      sign_up(subdomain)
-      expect(page).to have_content("Welcome! You have signed up successfully.")
+      expect {
+        sign_up(subdomain)
+      }.to change { User.count }
+      expect(page).to have_content("You need to sign in or sign up")
     end
   end
 
