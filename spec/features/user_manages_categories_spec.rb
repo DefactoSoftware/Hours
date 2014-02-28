@@ -10,7 +10,7 @@ feature "User manages categories" do
   end
 
   scenario "creates an category" do
-    visit new_category_url(subdomain: subdomain)
+    visit categories_url(subdomain: subdomain)
 
     fill_in "Name", with: "Software Development"
     click_button "Create Category"

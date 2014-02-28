@@ -3,5 +3,5 @@
   <hr>
   <ul><%= render partial: "category", collection: @categories %></ul>
   <hr>
-  <%= link_to t("titles.categories.new"), new_category_path, class: "button create" %>
+  <%= render partial: "form" %>
 </div>
