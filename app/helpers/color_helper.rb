@@ -4,8 +4,8 @@ module ColorHelper
     total_offset = 164
     hex_value = [
       0,
-      hash(string) % total_offset,
-      hash(string) & total_offset,
+      hash_code(string) % total_offset,
+      hash_code(string) & total_offset,
       total_offset
     ].sort.each_cons(2).map do |a, b|
       "%02x" % (start_color + b - a)
@@ -15,7 +15,7 @@ module ColorHelper
 
   private
 
-  def hash(string)
+  def hash_code(string)
     string.split("").reduce do |memo, obj|
       hash = ((memo.ord << 5) - memo.ord) + obj.ord
       (hash & hash).abs
