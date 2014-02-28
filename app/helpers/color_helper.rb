@@ -1,7 +1,7 @@
 module ColorHelper
   def pastel_color(string)
-    start_color = 100
-    total_offset = 164
+    start_color = 92
+    total_offset = 156
     hex_value = [
       0,
       hash_code(string) % total_offset,
@@ -17,7 +17,7 @@ module ColorHelper
 
   def hash_code(string)
     string.split("").reduce do |memo, obj|
-      hash = ((memo.ord << 5) - memo.ord) + obj.ord
+      hash = ((memo.ord << 3) - memo.ord) + obj.ord
       (hash & hash).abs
     end
   end
