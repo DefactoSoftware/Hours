@@ -1,15 +1,9 @@
 <div id="navbar">
   <div class="nav">
     <ul>
-      <li>
-        <%= link_to t("titles.projects.index"), root_path %>
-      </li>
-      <li>
-        <%= link_to t("titles.categories.index"), categories_path %>
-      </li>
-      <li>
-        <%= link_to t("sign_out"), destroy_user_session_path, method: :delete %>
-      </li>
+        <%= nav_path t("titles.projects.index"), root_path %>
+        <%= nav_path t("titles.categories.index"), categories_path %>
+        <%= nav_path t("sign_out"), destroy_user_session_path, method: :delete %>
     </ul>
   </div>
 </div>

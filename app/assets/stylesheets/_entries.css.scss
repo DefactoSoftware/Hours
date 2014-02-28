@@ -1,0 +1,47 @@
+.pika-next, .pika-prev {
+  box-shadow: none;
+  border: none;
+
+  &:hover {
+    background-color: transparent!important;
+    background-image: none!important;
+    box-shadow: none!important;
+    color: black!important;
+  }
+
+}
+
+.pika-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  td {
+    padding: 0;
+    background-color: rgb(245, 245, 245);
+    .pika-button {
+      box-shadow: none;
+      text-align: center;
+    }
+  }
+}
+
+.wrapper {
+  @include outer-container;
+}
+
+#new_entry {
+  @include span-columns(12);
+  @include shift(1);
+  padding: 10px;
+
+  .input {
+    float: left;
+    margin: 10px;
+    input, select {
+      height: 30px;
+    }
+  }
+  .button {
+    margin-top: 40px;
+  }
+}

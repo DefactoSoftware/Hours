@@ -10,33 +10,33 @@
   }
 
   ol {
-  display: block;
-  list-style-type: none;
-  margin-before: 1em;
-  margin-after: 1em;
-  margin-start: 0px;
-  margin-end: 0px;
-  padding-start: 40px;
+    display: block;
+    list-style-type: none;
+    margin-before: 1em;
+    margin-after: 1em;
+    margin-start: 0px;
+    margin-end: 0px;
+    padding-start: 40px;
   }
 
 }
 
-.project {
-  .hours {
-  color: green;
-}
-
-.bar {
-    position: relative;
-    width: 100%;
-    display:block;
-  }
-
-  .color {
+.color {
   display: inline-block;
   width: 10px;
   height: 10px;
   border-radius: 50%;
+}
+
+.project {
+  .hours {
+    color: green;
+  }
+
+  .bar {
+    position: relative;
+    width: 100%;
+    display:block;
   }
 }
 
@@ -47,18 +47,18 @@
 .percent {
   float: none;
   color: #999999;
-font-weight: bold;
+  font-weight: bold;
 }
 
 .graph {
-display: block;
-width: 100%;
-height: auto;
-line-height: 12px;
-white-space: nowrap;
-border-bottom-left-radius: 3px;
-border-bottom-right-radius: 3px;
-overflow: hidden;
+  display: block;
+  width: 100%;
+  height: auto;
+  line-height: 12px;
+  white-space: nowrap;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow: hidden;
 }
 
 .activity-color {

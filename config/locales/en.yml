@@ -9,7 +9,10 @@ en:
     categories:
       index: Categories
       new: New Category
+    activities: Activities
   date:
+    today: today
+    date_ago: "%{date} ago"
     formats:
       default: '%m/%d/%Y'
       with_weekday: '%a %m/%d/%y'
@@ -27,8 +30,20 @@ en:
         create: Create Project
       category:
         new: Create Category
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid_email: "%{attribute} does not match organization email"
   sign_up: Sign Up
   sign_out: Sign Out
   account_created_successfully: Signed up successfully
   project_created: Project successfully created
   category_created: Category successfully created
+  entry_created: Entry successfully created
+  entry_failed: Something went wrong saving your entry
+  entry_activity_html:
+    one: "%{user} spent one hour doing %{category} on %{project} %{time_ago}"
+    other: "%{user} spent %{count} hours doing %{category} on %{project} %{time_ago}"

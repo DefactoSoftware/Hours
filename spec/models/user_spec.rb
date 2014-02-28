@@ -15,8 +15,13 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  organization_id        :integer
 #
 
 require "spec_helper"
@@ -27,8 +32,27 @@ describe User do
     it { should validate_presence_of :last_name }
     it { should validate_presence_of :email }
     it { should validate_presence_of :password }
+
+    describe "email domain" do
+      let(:subdomain) { generate(:subdomain) }
+      let(:owner) { build(:user, email: "admin@defacto.nl") }
+      let(:account) { create(:account_with_schema, owner: owner, subdomain: subdomain) }
+
+      it "is not valid if the email domain is different from the account owner" do
+        user = build(:user, email: "admin@example.com", organization: account)
+        expect(user).to_not be_valid
+        expect(user.errors[:email]).to include("Email does not match organization email")
+      end
+
+      it "is not valid if the email domain is different from the account owner" do
+        user = build(:user, email: "test@defacto.nl", organization: account)
+        expect(user).to be_valid
+      end
+    end
   end
 
   describe "associations" do
+    it { should have_one :account }
+    it { should belong_to :organization }
   end
 end

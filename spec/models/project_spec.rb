@@ -4,7 +4,6 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)      default(""), not null
-#  account_id :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -12,10 +11,41 @@
 require 'spec_helper'
 
 describe Project do
+  let(:project) { create(:project) }
+
   describe "validations" do
     it { should validate_presence_of :name }
   end
 
   describe "associations" do
+    it { should have_many :users }
+  end
+
+  describe "#hours_spent" do
+
+    context "with no entries" do
+      it "returns 0" do
+        expect(project.hours_spent).to eq(0)
+      end
+    end
+
+    context "with entries" do
+      it "returns the hours spent" do
+        create(:entry, hours: 2, project: project)
+        create(:entry, hours: 3, project: project)
+        expect(project.hours_spent).to eq(5)
+      end
+    end
+  end
+
+  describe "#percetange_spent_on(category)" do
+    context "with entries in this category" do
+      it "returns the percentage of hours spent" do
+        category = create(:category)
+        create(:entry, hours: 2, project: project, category: category)
+        create(:entry, hours: 2, project: project, category: create(:category))
+        expect(project.percentage_spent_on(category)).to eq(50)
+      end
+    end
   end
 end

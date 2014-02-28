@@ -4,11 +4,33 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)      default(""), not null
-#  account_id :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 class Project < ActiveRecord::Base
   validates :name, presence: true
+  has_many :entries
+  has_many :users, -> { uniq }, through: :entries
+  has_many :categories, -> { uniq }, through: :entries
+
+  def sorted_categories
+    categories.sort_by do |category|
+      percentage_spent_on(category)
+    end.reverse
+  end
+
+  def hours_spent
+    hours_spent_on_entries(entries)
+  end
+
+  def percentage_spent_on(category)
+    (hours_spent_on_entries(entries.where(category: category)).to_f / hours_spent * 100).round
+  end
+
+  private
+
+  def hours_spent_on_entries(entries)
+    entries.map(&:hours).reduce(0, :+)
+  end
 end

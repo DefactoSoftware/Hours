@@ -2,8 +2,14 @@
   background: $color;
   color: darken($color, 60);
   font-weight: bold;
-  margin-bottom: $base-line-height / 2;
+  margin-left: 0px;
+  top: 50px;
+  left: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
   padding: $base-line-height / 2;
+  text-align: center;
 
   a {
     color: darken($color, 70);

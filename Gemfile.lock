@@ -103,6 +103,7 @@ GEM
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
+    gravatar_image_tag (1.2.0)
     high_voltage (2.1.0)
     hike (1.2.3)
     i18n (0.6.9)
@@ -120,6 +121,8 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
+    momentjs-rails (2.5.1)
+      railties (>= 3.1)
     multi_json (1.8.4)
     neat (1.5.0)
       bourbon (>= 2.1)
@@ -129,6 +132,8 @@ GEM
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
+    pikaday-gem (1.1.0.0)
+      railties (>= 3.1)
     polyglot (0.3.4)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -246,12 +251,15 @@ DEPENDENCIES
   factory_girl_rails
   flutie
   foreman
+  gravatar_image_tag
   high_voltage
   jquery-rails
   launchy
+  momentjs-rails
   neat
   newrelic_rpm (>= 3.6.7)
   pg
+  pikaday-gem (~> 1.1.0.0)
   pry-rails
   rack-timeout
   rails (>= 4.0.0)

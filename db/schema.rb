@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226170441) do
+ActiveRecord::Schema.define(version: 20140227211619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140226170441) do
   end
 
   create_table "categories", force: true do |t|
-    t.string   "name"
+    t.string   "name",       default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,6 +45,20 @@ ActiveRecord::Schema.define(version: 20140226170441) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "entries", force: true do |t|
+    t.integer  "project_id",  null: false
+    t.integer  "category_id", null: false
+    t.integer  "user_id",     null: false
+    t.integer  "hours",       null: false
+    t.date     "date",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entries", ["category_id"], name: "index_entries_on_category_id", using: :btree
+  add_index "entries", ["project_id"], name: "index_entries_on_project_id", using: :btree
+  add_index "entries", ["user_id"], name: "index_entries_on_user_id", using: :btree
+
   create_table "projects", force: true do |t|
     t.string   "name",       default: "", null: false
     t.datetime "created_at"
@@ -64,8 +78,13 @@ ActiveRecord::Schema.define(version: 20140226170441) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "organization_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

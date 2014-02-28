@@ -2,33 +2,26 @@
   <h2><%= project.name %></h2>
     <div class="activities-overview">
       <ol class="activities">
-        <li>
-              <span class="color-block color" style="background-color:#abc55c;"></span>
-              <span class="activity">Development</span>
-              <span class="percent">75.6%</span>
-        </li>
-        <li>
-              <span class="color-block color" style="background-color:#6a40fd;"></span>
-              <span class="activity">Design</span>
-              <span class="percent">15.4%</span>
-        </li>
-        <li>
-              <span class="color-block color" style="background-color:#f15501;"></span>
-              <span class="activity">QA</span>
-              <span class="percent">7.8%</span>
-        </li>
-      </ol>
+        <% project.sorted_categories.each do |category| %>
+          <li>
+          <span class="color" style="background-color:<%= pastel_color(category.name) %>;"></span>
+            <span class="activity"><%= category.name %></span>
+            <span class="percent"><%= project.percentage_spent_on(category) %>%</span>
+          </li>
+        <% end %>
+    </ol>
     </div>
     <div class="bar">
       <a href="#" class="graph" style="">
-      <span class="activity-color" style="width:75.6%; background-color:#abc55c;" itemprop="keywords"></span>
-      <span class="activity-color" style="width:15.4%; background-color:#6a40fd;" itemprop="keywords"></span>
-      <span class="activity-color" style="width:7.8%; background-color:#f15501;" itemprop="keywords"></span>
+      <% project.sorted_categories.each do |category| %>
+        <span class="activity-color" style="width:<%= project.percentage_spent_on(category) %>%; background-color:<%= pastel_color(category.name) %>;" itemprop="keywords"></span>
+      <% end %>
       </a>
     </div>
-    <strong>3 People</strong> spent <span class="hours">14 hours</span> working on <strong>Conversations</strong> in the last 7 days.
+    <strong><%= project.users.count %> people</strong> spent <span class="hours"> <%= project.hours_spent %> hours</span> working on <strong><%= project.name %></strong>
     <div class="active-people">
-      <%= image_tag "romke.jpg", class: "image-circle" %>
-      <%= image_tag "jurre.jpg", class: "image-circle" %>
+      <% project.users.each do |user| %>
+        <%= gravatar_image_tag user.email, class: "image-circle" %>
+      <% end %>
     </div>
 </div>
