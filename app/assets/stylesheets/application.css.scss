@@ -51,18 +51,23 @@ body {
   }
 }
 
-.form-inputs {
-  @include outer-container;
+.categories {
+  .form-inputs {
+    @include outer-container;
+    position: relative;
 
-  .input {
-    @include span-columns(9);
-    @include omega();
-  }
+    .input {
+      @include span-columns(9);
+      @include omega();
+    }
 
-  .button {
-    @include span-columns(2);
-    @include shift(1);
-    @include omega();
+    .button {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 14px;
+      margin-left: 20px;
+      @include omega();
+    }
   }
 }
 
