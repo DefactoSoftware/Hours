@@ -55,4 +55,11 @@ describe User do
     it { should have_one :account }
     it { should belong_to :organization }
   end
+
+  describe ".full_name" do
+    it "returns the users full name" do
+      user = create(:user, first_name: "John", last_name: "Doe")
+      expect(user.full_name).to eq("John Doe")
+    end
+  end
 end

@@ -42,6 +42,10 @@ en:
   account_created_successfully: Signed up successfully
   project_created: Project successfully created
   category_created: Category successfully created
+  no_hours_registered: "Nobody spent any time on %{project} yet"
+  project_activity_html:
+    one: "%{full_name} spent %{hours} hours working on %{project}"
+    other: "%{count} people spent %{hours} hours working on %{project}"
   entry_created: Entry successfully created
   entry_failed: Something went wrong saving your entry
   entry_activity_html:
