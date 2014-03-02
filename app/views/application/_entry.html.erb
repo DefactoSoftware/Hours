@@ -1,1 +1,1 @@
-<li><%= t(:entry_activity_html, time_ago: date_ago_in_words(entry.date), user: entry.user.first_name, count: entry.hours, category: "<span style='font-weight: bold; color:#{pastel_color(entry.category.name)};'>#{entry.category.name}</span>".html_safe, project: entry.project.name ) %></li>
+<li><%= t(:entry_activity_html, time_ago: date_ago_in_words(entry.date), user: entry.user.first_name, count: entry.hours, category: "<span style='font-weight: bold; color:#{entry.category.name.pastel_color};'>#{entry.category.name}</span>".html_safe, project: entry.project.name ) %></li>

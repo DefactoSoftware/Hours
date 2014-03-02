@@ -4,7 +4,7 @@
       <ol class="activities">
         <% project.sorted_categories.each do |category| %>
           <li>
-          <span class="color" style="background-color:<%= pastel_color(category.name) %>;"></span>
+          <span class="color" style="background-color:<%= category.name.pastel_color %>;"></span>
             <span class="activity"><%= category.name %></span>
             <span class="percent"><%= project.percentage_spent_on(category) %>%</span>
           </li>
@@ -14,7 +14,7 @@
     <div class="bar">
       <a href="#" class="graph" style="">
       <% project.sorted_categories.each do |category| %>
-        <span class="activity-color" style="width:<%= project.percentage_spent_on(category) %>%; background-color:<%= pastel_color(category.name) %>;" itemprop="keywords"></span>
+        <span class="activity-color" style="width:<%= project.percentage_spent_on(category) %>%; background-color:<%= category.name.pastel_color %>;" itemprop="keywords"></span>
       <% end %>
       </a>
     </div>
