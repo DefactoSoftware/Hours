@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
 
   belongs_to :organization, class_name: "Account", inverse_of: :users
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
   def email_matches_account_owners

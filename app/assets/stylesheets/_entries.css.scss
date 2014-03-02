@@ -31,7 +31,6 @@
 
 #new_entry {
   @include span-columns(12);
-  @include shift(1);
   padding: 10px;
 
   .input {

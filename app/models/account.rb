@@ -20,7 +20,7 @@ class Account < ActiveRecord::Base
                         format: { with: /\A[\w\-]+\Z/i, message: "contains invalid characters" },
                         exclusion: { in: RESTRICTED_SUBDOMAINS, message: "restricted" }
 
-  belongs_to :owner, class_name: "User"#, inverse_of: :account
+  belongs_to :owner, class_name: "User"
 
   has_many :users, inverse_of: :organization
 
