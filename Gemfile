@@ -26,7 +26,7 @@ gem "apartment", "~> 0.24.2"
 gem "pikaday-gem", "~> 1.1.0.0"
 gem "momentjs-rails"
 gem "gravatar_image_tag"
-gem "hashtel", "~> 0.0.1"
+gem "hashtel", "~> 0.0.2"
 
 group :development do
   gem "better_errors"

@@ -104,7 +104,7 @@ GEM
       dotenv (>= 0.7)
       thor (>= 0.13.6)
     gravatar_image_tag (1.2.0)
-    hashtel (0.0.1)
+    hashtel (0.0.2)
     high_voltage (2.1.0)
     hike (1.2.3)
     i18n (0.6.9)
@@ -253,7 +253,7 @@ DEPENDENCIES
   flutie
   foreman
   gravatar_image_tag
-  hashtel (~> 0.0.1)
+  hashtel (~> 0.0.2)
   high_voltage
   jquery-rails
   launchy
