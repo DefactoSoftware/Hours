@@ -1,7 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @new_category = Category.new
-    @categories = Category.all
+    set_index_params
   end
 
   def create
@@ -9,11 +8,17 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_path, notice: I18n.t(:category_created)
     else
-      render action: "new"
+      set_index_params
+      redirect_to categories_path, notice: @category.errors.full_messages.join(" ")
     end
   end
 
   private
+
+  def set_index_params
+    @new_category = Category.new
+    @categories = Category.all
+  end
 
   def category_params
     params.require(:category).permit(:name)

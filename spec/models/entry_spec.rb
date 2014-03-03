@@ -28,5 +28,33 @@ describe Entry do
     it { should belong_to :project }
     it { should belong_to :category }
     it { should belong_to :user }
+    it { should have_many :taggings }
+    it { should have_many :tags }
+  end
+
+  describe "#tag_list" do
+    it "returns a string of comma separated values" do
+      tagging = create(:tagging)
+      tag = tagging.tag
+      entry = tagging.entry
+      tag2 = create(:tagging, entry: entry).tag
+      expect(entry.tag_list).to eq("#{tag.name}, #{tag2.name}")
+    end
+  end
+
+  describe "#taglist=" do
+    it "takes a strint of comma separated values and sets the tags" do
+      entry = create(:entry)
+      existing_tag = create(:tag)
+      entry.tag_list = "#{existing_tag.name}, New Tag"
+      expect(entry.tag_list).to eq("#{existing_tag.name}, New Tag")
+    end
+
+    it "removes any tagging that is left out" do
+      entry = create(:entry)
+      entry.tag_list = "tag1, tag2, tag3, tag4"
+      entry.tag_list = "tag1, tag3"
+      expect(entry.tag_list).to eq("tag1, tag3")
+    end
   end
 end

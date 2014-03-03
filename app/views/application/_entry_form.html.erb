@@ -6,6 +6,8 @@
   <%= f.association :category, required: true %>
   <%= f.input :hours, required: true %>
   <%= f.input :date, required: true, as: :string, input_html: { value: Date.today.strftime("%d/%m/%Y"), id: "datepicker"} %>
+  <span id="tag-data" data-tags=<%= Tag.list.to_json %>></span>
+  <%= f.input :tag_list, label: "Tags", input_html: { data: { data: Tag.list } } %>
   <%= f.button :submit %>
 <% end %>
 </div>
