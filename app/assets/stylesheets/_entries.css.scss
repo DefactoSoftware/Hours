@@ -31,15 +31,27 @@
 
 #new_entry {
   @include span-columns(12);
-  padding: 10px;
 
   .input {
-    float: left;
+    display: inline-block;
     margin: 10px;
-    input, select {
-      height: 30px;
+    input {
+      resize: none;
     }
   }
+
+  .entry_hours {
+    width: 100px;
+  }
+
+  .entry_date {
+    width: 120px;
+  }
+
+  .entry_tag_list {
+    width: 200px;
+  }
+
   .button {
     margin-top: 40px;
   }

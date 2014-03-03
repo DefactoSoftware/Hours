@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require moment
 //= require pikaday
+//= require selectize
 //= require_tree .
 
 var picker = new Pikaday({
@@ -25,4 +26,29 @@ $(".alert").ready(function() {
   setTimeout(function() {
     $("#flash").fadeOut();
   }, 5000);
+});
+
+$(".entry_tag_list").selectize({
+  valueField: 'tag',
+  labelField: 'tag',
+  searchField: 'tag',
+  plugins: ['remove_button'],
+  delimiter: ',',
+  createOnBlur: true,
+  create: function(input) {
+    return {
+      value: input,
+      tag: input
+    }
+  },
+  load: function(query, callback) {
+    var data = $('#tag-data').data('tags');
+    if (!query.length) {
+      return callback(data);
+    }
+    var result = $.grep(data, function(e) {
+      return e.tag.indexOf(query) === 0;
+    });
+    return callback(result);
+  }
 });

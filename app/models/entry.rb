@@ -16,6 +16,8 @@ class Entry < ActiveRecord::Base
   belongs_to :project
   belongs_to :category
   belongs_to :user
+  has_many :taggings
+  has_many :tags, through: :taggings
 
   validates :user, presence: true
   validates :project, presence: true
@@ -23,4 +25,14 @@ class Entry < ActiveRecord::Base
   validates :hours, presence: true,
                     numericality: { greater_than: 0 }
   validates :date, presence: true
+
+  def tag_list
+    tags.map(&:name).join(", ")
+  end
+
+  def tag_list=(names)
+    self.tags = names.split(",").map do |n|
+      Tag.where(name: n.strip).first_or_create!
+    end
+  end
 end

@@ -7,9 +7,6 @@ feature "User registers time" do
     user = build(:user)
     create(:account_with_schema, subdomain: subdomain, owner: user)
     sign_in_user(user, subdomain: subdomain)
-  end
-
-  scenario "track time for a project" do
     create(:project, name: "Conversations")
     create(:project, name: "CAPP11")
 
@@ -17,16 +14,37 @@ feature "User registers time" do
     create(:category, name: "Consultancy")
 
     visit root_url(subdomain: subdomain)
+  end
 
-    within "#new_entry" do
-      select "Conversations", from: "Project"
-      select "Design", from: "Category"
-      fill_in "Hours", with: 4
-      fill_in "Date", with: "01/02/2014"
+  context "without taggings" do
+    scenario "track time for a project" do
 
-      click_button "Create Entry"
+      within "#new_entry" do
+        fill_in_entry
+        click_button "Create Entry"
+      end
+
+      expect(page).to have_content "Entry successfully created"
     end
+  end
 
-    expect(page).to have_content "Entry successfully created"
+  context "with taggings" do
+    scenario "track time for a project with tags" do
+      within "#new_entry" do
+        fill_in_entry
+        fill_in "Tags", with: "Internal, Pair Programming"
+
+        click_button "Create Entry"
+      end
+
+      expect(page).to have_content "Entry successfully created"
+    end
+  end
+
+  def fill_in_entry
+    select "Conversations", from: "Project"
+    select "Design", from: "Category"
+    fill_in "Hours", with: 4
+    fill_in "Date", with: "01/02/2014"
   end
 end
