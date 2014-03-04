@@ -14,7 +14,7 @@ Hours::Application.routes.draw do
   constraints(SubdomainPresent) do
     root "projects#index", as: :subdomain_root
     devise_for :users, :controllers => { registrations: "users/registrations" }
-    resources :projects, only: [:index, :new, :create]
+    resources :projects, only: [:index, :new, :create, :show]
     resources :categories, only: [:index, :create]
     resources :entries, only: [:create]
   end

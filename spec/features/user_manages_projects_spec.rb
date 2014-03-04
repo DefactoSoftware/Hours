@@ -38,4 +38,12 @@ feature "User manages projects" do
       expect(page).to have_content("Capollo13")
     end
   end
+
+  scenario "views a single project" do
+    project = create(:project_with_entries)
+
+    visit root_url(subdomain: subdomain)
+    click_link project.name
+    expect(current_url).to eq(project_url(project, subdomain: subdomain))
+  end
 end

@@ -13,5 +13,11 @@
 FactoryGirl.define do
   factory :project do
     sequence(:name) { |n| "project#{n}" }
+
+    factory :project_with_entries do
+      after(:create) do |project|
+        create_list(:entry, 5, project: project)
+      end
+    end
   end
 end

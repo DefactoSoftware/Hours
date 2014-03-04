@@ -1,5 +1,7 @@
 <div class="project">
-  <h2><%= project.name %></h2>
+  <%= link_to project_path(project) do %>
+    <h2><%= project.name %></h2>
+  <% end %>
     <div class="activities-overview">
       <ol class="activities">
         <% project.sorted_categories.each do |category| %>

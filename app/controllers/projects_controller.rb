@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
     @activities = Entry.last(10).reverse
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   def new
     @project = Project.new
   end
