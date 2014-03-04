@@ -9,12 +9,15 @@ feature "User manages categories" do
     sign_in_user(user, subdomain: subdomain)
   end
 
-  scenario "creates an category" do
-    visit categories_url(subdomain: subdomain)
-
-    fill_in "Name", with: "Software Development"
-    click_button "Create Category"
+  scenario "creates a category" do
+    create_category("New Category")
     expect(page).to have_content("Category successfully created")
+  end
+
+  scenario "creates a category with a duplicate name" do
+    create(:category, name: "duplicate name")
+    create_category("Duplicate name")
+    expect(page).to have_content("Name has already been taken")
   end
 
   scenario "displays a list of categories" do
@@ -26,5 +29,11 @@ feature "User manages categories" do
       expect(page).to have_content("Software Development")
       expect(page).to have_content("Consultancy")
     end
+  end
+
+  def create_category(name)
+    visit categories_url(subdomain: subdomain)
+    fill_in "Name", with: name
+    click_button "Create Category"
   end
 end
