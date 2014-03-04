@@ -38,6 +38,7 @@ feature "User registers time" do
       end
 
       expect(page).to have_content "Entry successfully created"
+      expect(Entry.last.tags.count).to eq(2)
     end
   end
 
