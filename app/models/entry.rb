@@ -16,7 +16,7 @@ class Entry < ActiveRecord::Base
   belongs_to :project
   belongs_to :category
   belongs_to :user
-  has_many :taggings
+  has_many :taggings, inverse_of: :entry
   has_many :tags, through: :taggings
 
   validates :user, presence: true
@@ -25,6 +25,7 @@ class Entry < ActiveRecord::Base
   validates :hours, presence: true,
                     numericality: { greater_than: 0 }
   validates :date, presence: true
+  accepts_nested_attributes_for :taggings
 
   def tag_list
     tags.map(&:name).join(", ")

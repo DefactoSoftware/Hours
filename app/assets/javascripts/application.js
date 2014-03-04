@@ -28,21 +28,22 @@ $(".alert").ready(function() {
   }, 5000);
 });
 
-$(".entry_tag_list").selectize({
+$("#entry_tag_list").selectize({
   valueField: 'tag',
   labelField: 'tag',
   searchField: 'tag',
   plugins: ['remove_button'],
   delimiter: ',',
   createOnBlur: true,
+  persist: false,
   create: function(input) {
     return {
       value: input,
       tag: input
-    }
+    };
   },
   load: function(query, callback) {
-    var data = $('#tag-data').data('tags');
+    var data = $('#entry_tag_list').data('tags');
     if (!query.length) {
       return callback(data);
     }
