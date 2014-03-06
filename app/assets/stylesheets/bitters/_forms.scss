@@ -76,7 +76,10 @@ input[type="file"] {
 
 select {
   width: auto;
-  margin-bottom: $base-line-height;
+  border: 1px solid $form-border-color;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  height: 36px;
 }
 
 button,
