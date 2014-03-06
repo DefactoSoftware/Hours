@@ -1,7 +1,7 @@
 <%= render partial: "project", locals: { project: @project } %>
-<ul>
+<ul class="tags">
   <% @project.tags.each do |tag| %>
-    <li><%= tag.name %></li>
+    <li class="tag"><a href="#"><%= tag.name %></a></li>
   <% end %>
 </ul>
 
