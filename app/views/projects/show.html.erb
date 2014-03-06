@@ -4,5 +4,29 @@
     <li class="tag"><a href="#"><%= tag.name %></a></li>
   <% end %>
 </ul>
+<div class="hours-per-user-overview">
+  <canvas id="hours-per-user" data-data="<%= @project.hours_per_user.to_json %>" width="400" height="400"></canvas>
+  <ul class="user">
+    <% @project.users.each do |user| %>
+    <li>
+      <span class="color" style="background-color:<%= user.full_name.pastel_color %>"></span>
+      <span><%= user.full_name %> (<%= user.hours_spent_on(@project) %> <%= t(:hours) %>)</span>
+    </li>
+    <% end %>
+  </ul>
+</div>
 
-
+<table>
+  <tbody>
+    <tr>
+      <th>Tag</th>
+      <th>Hours</th>
+    </tr>
+    <% @project.tags.each do |tag| %>
+      <tr>
+        <td><%= tag.name %></td>
+        <td><%= tag.hours_for(@project) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -51,3 +51,4 @@ en:
   entry_activity_html:
     one: "%{user} spent one hour doing %{category} on %{project} %{time_ago}"
     other: "%{user} spent %{count} hours doing %{category} on %{project} %{time_ago}"
+  hours: hours

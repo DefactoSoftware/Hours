@@ -27,6 +27,7 @@ gem "pikaday-gem", "~> 1.1.0.0"
 gem "momentjs-rails"
 gem "gravatar_image_tag"
 gem "hashtel", "~> 0.0.2"
+gem "chart-js-rails"
 
 group :development do
   gem "better_errors"

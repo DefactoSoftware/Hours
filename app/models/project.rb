@@ -26,10 +26,20 @@ class Project < ActiveRecord::Base
   end
 
   def percentage_spent_on(category)
-    (hours_spent_on_entries(entries.where(category: category)).to_f / hours_spent * 100).round
+    (hours_spent_on(category).to_f / hours_spent * 100).round
+  end
+
+  def hours_per_user
+    users.map do |user|
+      { value: user.hours_spent_on(self), color: user.full_name.pastel_color }
+    end
   end
 
   private
+
+  def hours_spent_on(category)
+    hours_spent_on_entries(entries.where(category: category))
+  end
 
   def hours_spent_on_entries(entries)
     entries.map(&:hours).reduce(0, :+)

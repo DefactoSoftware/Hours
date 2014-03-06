@@ -25,7 +25,6 @@ describe Project do
   end
 
   describe "#hours_spent" do
-
     context "with no entries" do
       it "returns 0" do
         expect(project.hours_spent).to eq(0)
@@ -49,6 +48,19 @@ describe Project do
         create(:entry, hours: 2, project: project, category: create(:category))
         expect(project.percentage_spent_on(category)).to eq(50)
       end
+    end
+  end
+
+  describe "#hours_per_user" do
+    it "returns the hours spent per category" do
+      user1 = create(:user)
+      user2 = create(:user)
+      create(:entry, hours: 4, project: project, user: user1)
+      create(:entry, hours: 3, project: project, user: user2)
+      expect(project.hours_per_user).to eq([
+        { value: 4, color: user1.full_name.pastel_color },
+        { value: 3, color: user2.full_name.pastel_color }
+      ])
     end
   end
 end

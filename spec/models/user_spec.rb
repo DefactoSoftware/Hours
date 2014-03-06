@@ -54,12 +54,24 @@ describe User do
   describe "associations" do
     it { should have_one :account }
     it { should belong_to :organization }
+    it { should have_many :entries }
   end
 
-  describe ".full_name" do
+  describe "#full_name" do
     it "returns the users full name" do
       user = create(:user, first_name: "John", last_name: "Doe")
       expect(user.full_name).to eq("John Doe")
+    end
+  end
+
+  describe "#hours_spent_on" do
+    it "calculates the total hours spent" do
+      user = create(:user)
+      project = create(:project)
+      create(:entry, hours: 2, user: user, project: project)
+      create(:entry, hours: 3, user: user, project: project)
+      create(:entry, hours: 5, user: user)
+      expect(user.hours_spent_on(project)).to eq(5)
     end
   end
 end
