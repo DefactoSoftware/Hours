@@ -19,6 +19,9 @@ describe Project do
 
   describe "associations" do
     it { should have_many :users }
+    it { should have_many :categories }
+    it { should have_many :entries }
+    it { should have_many :tags }
   end
 
   describe "#hours_spent" do

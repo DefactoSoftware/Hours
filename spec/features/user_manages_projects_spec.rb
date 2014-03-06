@@ -41,9 +41,12 @@ feature "User manages projects" do
 
   scenario "views a single project" do
     project = create(:project_with_entries)
+    entry = project.entries.last
+    entry.tag_list = "TDD"
 
     visit root_url(subdomain: subdomain)
     click_link project.name
     expect(current_url).to eq(project_url(project, subdomain: subdomain))
+    expect(page).to have_content("TDD")
   end
 end

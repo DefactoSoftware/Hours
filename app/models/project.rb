@@ -13,6 +13,7 @@ class Project < ActiveRecord::Base
   has_many :entries
   has_many :users, -> { uniq }, through: :entries
   has_many :categories, -> { uniq }, through: :entries
+  has_many :tags, -> { uniq }, through: :entries
 
   def sorted_categories
     categories.sort_by do |category|
