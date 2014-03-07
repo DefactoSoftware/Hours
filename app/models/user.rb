@@ -32,11 +32,15 @@ class User < ActiveRecord::Base
   validate :email_matches_account_owners
 
   has_one :account, foreign_key: "owner_id", inverse_of: :owner
-
   belongs_to :organization, class_name: "Account", inverse_of: :users
+  has_many :entries
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def hours_spent_on(project)
+    entries.where(project: project).map(&:hours).reduce(0, :+)
   end
 
   private

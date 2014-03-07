@@ -26,7 +26,7 @@
 }
 
 .wrapper {
-  @include outer-container;
+  margin: 20px;
 }
 
 #new_entry {
@@ -50,9 +50,5 @@
 
   .entry_tag_list {
     width: 200px;
-  }
-
-  .button {
-    margin-top: 40px;
   }
 }

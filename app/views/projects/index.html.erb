@@ -1,11 +1,8 @@
-<div class="container">
+<div class="projects-overview">
     <%= render partial: "application/entry_form" %>
-    <hr>
     <ul><%= render partial: "project", collection: @projects %></ul>
-    <hr>
     <%= link_to t("titles.projects.new"), new_project_path, class: "button create" %>
 </div>
 <div class="activity-feed">
-  <h1><%= t("titles.activities") %></h1>
   <ul><%= render partial: "entry", collection: @activities %></ul>
 </div>

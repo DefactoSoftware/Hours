@@ -12,12 +12,19 @@
 @import "entries";
 @import "activity-feed";
 @import "selectize";
+@import "projects";
 
 ///////////////////////////////////////////////////////////////////////////////
+
+html {
+  height: 100%;
+}
 
 body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.7em;
+  padding-top: 40px;
+  height: 100%;
 }
 
 
@@ -26,6 +33,8 @@ body {
   background: rgba(247, 246, 240, 1);
   margin: 5% auto;
   border-bottom-width: 2px;
+  box-shadow: 0px 2px 2px rgba(83, 63, 63, 0.3);
+  border-radius: $base-border-radius;
   width: 60%;
   min-height: 200px;
   position: relative;

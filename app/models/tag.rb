@@ -14,8 +14,13 @@ class Tag < ActiveRecord::Base
 
   has_many :taggings
   has_many :entries, through: :taggings
+  belongs_to :project
 
   def self.list
     Tag.order(:name).map { |t| { tag: t.name } }
+  end
+
+  def hours_for(project)
+    entries.where(project: project).map(&:hours).reduce(0, :+)
   end
 end

@@ -1,5 +1,12 @@
 <div class="project">
-  <h2><%= project.name %></h2>
+  <%= link_to project_path(project) do %>
+    <h2><%= project.name %></h2>
+  <% end %>
+  <ul class="tags">
+    <% project.tags.each do |tag| %>
+      <li class="tag"><a href="#"><%= tag.name %></a></li>
+    <% end %>
+  </ul>
     <div class="activities-overview">
       <ol class="activities">
         <% project.sorted_categories.each do |category| %>
@@ -18,14 +25,16 @@
       <% end %>
       </a>
     </div>
-    <% if project.users.count > 0 %>
-      <%= t(:project_activity_html, full_name: "<strong> #{project.users.first.full_name} </strong>".html_safe, count: project.users.count, hours: "<strong>#{project.hours_spent}</strong>".html_safe, project: "<strong>#{project.name}</strong>".html_safe) %>
-    <% else %>
-      <%= t(:no_hours_registered, project: project.name) %>
-    <% end %>
-    <div class="active-people">
-      <% project.users.each do |user| %>
-        <%= gravatar_image_tag user.email, class: "image-circle" %>
+    <div class="activity-description">
+      <% if project.users.count > 0 %>
+        <%= t(:project_activity_html, full_name: "<strong> #{project.users.first.full_name} </strong>".html_safe, count: project.users.count, hours: "<strong>#{project.hours_spent}</strong>".html_safe, project: "<strong>#{project.name}</strong>".html_safe) %>
+      <% else %>
+        <%= t(:no_hours_registered, project: project.name) %>
       <% end %>
+      <div class="active-people">
+        <% project.users.each do |user| %>
+          <%= gravatar_image_tag user.email, class: "image-circle" %>
+        <% end %>
     </div>
+  </div>
 </div>
