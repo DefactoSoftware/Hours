@@ -26,12 +26,11 @@
 }
 
 .wrapper {
-  @include outer-container;
+  margin: 20px;
 }
 
 #new_entry {
   @include span-columns(12);
-  margin-top: 20px;
 
   .input {
     display: inline-block;

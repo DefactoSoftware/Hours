@@ -85,7 +85,8 @@
   }
 
   .projects-overview {
-    @include span-columns(10);
+    @include span-columns(9);
+    @include shift(1);
     height: 100%;
 
     .project {
