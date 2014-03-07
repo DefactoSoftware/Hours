@@ -35,11 +35,12 @@ class Project < ActiveRecord::Base
     end
   end
 
-  private
-
   def hours_spent_on(category)
     hours_spent_on_entries(entries.where(category: category))
   end
+
+
+  private
 
   def hours_spent_on_entries(entries)
     entries.map(&:hours).reduce(0, :+)
