@@ -10,6 +10,8 @@ en:
       index: Categories
       new: New Category
     activities: Activities
+    entries:
+      index: My Hours
   date:
     today: today
     date_ago: "%{date} ago"

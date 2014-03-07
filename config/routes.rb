@@ -16,7 +16,10 @@ Hours::Application.routes.draw do
     devise_for :users, :controllers => { registrations: "users/registrations" }
     resources :projects, only: [:index, :new, :create, :show]
     resources :categories, only: [:index, :create]
-    resources :entries, only: [:create]
+    resources :entries, only: [:create, :destroy]
+    resources :users, only: [] do
+      resources :entries, only: :index
+    end
   end
 
   constraints(SubdomainBlank) do
