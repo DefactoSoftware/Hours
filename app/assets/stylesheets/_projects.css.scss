@@ -2,7 +2,7 @@
   margin:0;
   padding:0;
   right:24px;
-  bottom:-12px;
+  /* bottom:-12px; */
   list-style:none;
 }
 
@@ -54,3 +54,63 @@
 
 .tags a:hover:before{border-color:transparent #555 transparent transparent;}
 
+.hours-per-user-overview {
+  clear: left;
+  padding-top: 40px;
+  width: 80%;
+  margin-left: auto;
+
+  #hours-per-user {
+    float: left;
+  }
+
+  .legend {
+    clear: right;
+    float: left;
+    .image-circle {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      margin: 5px;
+    }
+  }
+}
+
+.projects {
+  @include outer-container;
+  max-width: 100%;
+
+
+  .projects-overview {
+    @include span-columns(10);
+    height: 100%;
+
+    .project {
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .activity-feed {
+    @include span-columns(2);
+    @include omega();
+    border-left: 1px solid #ddd;
+
+    li {
+      padding: 15px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.9em;
+      text-align: center;
+      .image-circle {
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+        margin-left: -33px;
+      }
+    }
+  }
+}
+
+.activity-description {
+  text-align: right;
+}

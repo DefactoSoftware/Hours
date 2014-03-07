@@ -1,3 +1,4 @@
+<div class="container">
 <%= render partial: "project", locals: { project: @project } %>
 <ul class="tags">
   <% @project.tags.each do |tag| %>
@@ -5,11 +6,11 @@
   <% end %>
 </ul>
 <div class="hours-per-user-overview">
-  <canvas id="hours-per-user" data-data="<%= @project.hours_per_user.to_json %>" width="400" height="400"></canvas>
-  <ul class="user">
+  <canvas id="hours-per-user" data-data="<%= @project.hours_per_user.to_json %>" width="300" height="300"></canvas>
+  <ul class="legend">
     <% @project.users.each do |user| %>
     <li>
-      <span class="color" style="background-color:<%= user.full_name.pastel_color %>"></span>
+      <%= gravatar_image_tag user.email, class: "image-circle", style: "border: 3px solid #{user.full_name.pastel_color}"%>
       <span><%= user.full_name %> (<%= user.hours_spent_on(@project) %> <%= t(:hours) %>)</span>
     </li>
     <% end %>
@@ -30,3 +31,4 @@
     <% end %>
   </tbody>
 </table>
+</div>

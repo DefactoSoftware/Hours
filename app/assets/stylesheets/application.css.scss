@@ -16,9 +16,15 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.7em;
+  padding-top: 40px;
+  height: 100%;
 }
 
 
