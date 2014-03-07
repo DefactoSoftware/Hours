@@ -2,8 +2,8 @@
   margin:0;
   padding:0;
   right:24px;
-  /* bottom:-12px; */
   list-style:none;
+  float: right;
 }
 
 .tags li, .tags a {
@@ -80,6 +80,9 @@
   @include outer-container;
   max-width: 100%;
 
+  h2 {
+    display: inline-block;
+  }
 
   .projects-overview {
     @include span-columns(10);
@@ -88,6 +91,7 @@
     .project {
       padding: 20px;
       margin-bottom: 40px;
+
     }
   }
 

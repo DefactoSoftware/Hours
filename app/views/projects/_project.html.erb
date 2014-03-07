@@ -2,6 +2,11 @@
   <%= link_to project_path(project) do %>
     <h2><%= project.name %></h2>
   <% end %>
+  <ul class="tags">
+    <% project.tags.each do |tag| %>
+      <li class="tag"><a href="#"><%= tag.name %></a></li>
+    <% end %>
+  </ul>
     <div class="activities-overview">
       <ol class="activities">
         <% project.sorted_categories.each do |category| %>

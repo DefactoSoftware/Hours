@@ -1,10 +1,5 @@
 <div class="container">
 <%= render partial: "project", locals: { project: @project } %>
-<ul class="tags">
-  <% @project.tags.each do |tag| %>
-    <li class="tag"><a href="#"><%= tag.name %></a></li>
-  <% end %>
-</ul>
 <div class="hours-per-user-overview">
   <canvas id="hours-per-user" data-data="<%= @project.hours_per_user.to_json %>" width="300" height="300"></canvas>
   <ul class="legend">
