@@ -13,6 +13,7 @@
 @import "activity-feed";
 @import "selectize";
 @import "projects";
+@import "dc";
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -88,5 +89,15 @@ body {
     .color {
       display: inline-block;
     }
+  }
+}
+
+.dc-chart {
+  strong {
+    display: block;
+  }
+
+  g.row text {
+    fill: #333;
   }
 }

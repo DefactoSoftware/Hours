@@ -15,9 +15,12 @@
 //= require moment
 //= require pikaday
 //= require selectize
-//= require_tree .
 //= require Chart
 //= require projects
+//= require d3
+//= require crossfilter
+//= require dc
+//= require_tree .
 
 var picker = new Pikaday({
   field: $('#datepicker')[0],

@@ -12,6 +12,8 @@ en:
     activities: Activities
     entries:
       index: My Hours
+    reports:
+      index: Reports
   date:
     today: today
     date_ago: "%{date} ago"
