@@ -3,6 +3,17 @@ parseDate = d3.time.format("%Y-%m-%d").parse
 formatDate = (date) ->
   new Date(date.getFullYear(), date.getMonth(), date.getDate(), 11, 50, 50)
 
+formatRowChart = (chart, group, dimension) ->
+  chart
+    .width(300)
+    .height(200)
+    .margins({top: 20, left: 10, right: 10, bottom: 20})
+    .group(group)
+    .dimension(dimension)
+    .renderLabel(true)
+    .elasticX(true)
+    .xAxis().ticks(4)
+
 $.get "api/entries", (data) ->
   data.forEach (d) ->
     d.date = parseDate(d.date)
@@ -30,34 +41,12 @@ $.get "api/entries", (data) ->
   ])).round(d3.time.day.round).xUnits(d3.time.days)
 
   projectDimension = entries.dimension (data) -> data.project
-
   hoursPerProject = projectDimension.group().reduceSum(dc.pluck('hours'))
-
-  projectsChart = dc.rowChart("#project-rowchart")
-  projectsChart
-    .width(300)
-    .height(200)
-    .margins({top: 20, left: 10, right: 10, bottom: 20})
-    .group(hoursPerProject)
-    .dimension(projectDimension)
-    .renderLabel(true)
-    .elasticX(true)
-    .xAxis().ticks(4)
+  formatRowChart(dc.rowChart("#project-rowchart"), hoursPerProject, projectDimension)
 
   categoryDimension = entries.dimension (data) -> data.category
-
   hoursPerCategory = categoryDimension.group().reduceSum(dc.pluck('hours'))
-
-  categoriesChart = dc.rowChart("#category-rowchart")
-  categoriesChart
-    .width(300)
-    .height(200)
-    .margins({top: 20, left: 10, right: 10, bottom: 20})
-    .group(hoursPerCategory)
-    .dimension(categoryDimension)
-    .renderLabel(true)
-    .elasticX(true)
-    .xAxis().ticks(4)
+  formatRowChart(dc.rowChart("#category-rowchart"), hoursPerCategory, categoryDimension)
 
   dc.dataTable("#data-table").dimension(dateDimension).group((d) ->
     format = d3.format("02d")
