@@ -6,13 +6,30 @@ formatDate = (date) ->
 formatRowChart = (chart, group, dimension) ->
   chart
     .width(300)
-    .height(200)
+    .height((group.all().length + 1) * 40)
     .margins({top: 20, left: 10, right: 10, bottom: 20})
     .group(group)
     .dimension(dimension)
     .renderLabel(true)
     .elasticX(true)
     .xAxis().ticks(4)
+
+groupHoursBy = (dimension) ->
+  dimension.group().reduceSum(dc.pluck('hours'))
+
+reduceAdd = (p, v) ->
+  v.tags.forEach (val, idx) ->
+    p[val] = (p[val] or 0) + 1
+    return
+  p
+
+reduceRemove = (p, v) ->
+  v.tags.forEach (val, idx) ->
+    p[val] = (p[val] or 0) - 1 #decrement counts
+    return
+  p
+
+reduceInitial = -> {}
 
 $.get "api/entries", (data) ->
   data.forEach (d) ->
@@ -41,12 +58,43 @@ $.get "api/entries", (data) ->
   ])).round(d3.time.day.round).xUnits(d3.time.days)
 
   projectDimension = entries.dimension (data) -> data.project
-  hoursPerProject = projectDimension.group().reduceSum(dc.pluck('hours'))
+  hoursPerProject = groupHoursBy(projectDimension)
   formatRowChart(dc.rowChart("#project-rowchart"), hoursPerProject, projectDimension)
 
   categoryDimension = entries.dimension (data) -> data.category
-  hoursPerCategory = categoryDimension.group().reduceSum(dc.pluck('hours'))
+  hoursPerCategory = groupHoursBy(categoryDimension)
   formatRowChart(dc.rowChart("#category-rowchart"), hoursPerCategory, categoryDimension)
+
+  userDimension = entries.dimension (data) -> data.user
+  hoursPerUser = groupHoursBy(userDimension)
+  formatRowChart(dc.rowChart("#users-rowchart"), hoursPerUser, userDimension)
+
+  tagsDimension = entries.dimension (data) -> data.tags
+
+  tagsGroup = tagsDimension.groupAll().reduce(reduceAdd, reduceRemove, reduceInitial).value()
+
+  tagsGroup.all = ->
+    newObject = []
+    for key of this
+      if @hasOwnProperty(key) and key isnt "all"
+        newObject.push
+          key: key
+          value: this[key]
+    newObject
+
+  tagsChart = dc.rowChart("#tags-rowchart")
+  tagsChart
+    .width(300)
+    .height((tagsGroup.all().length + 1) * 40)
+    .margins({top: 20, left: 10, right: 10, bottom: 20})
+    .renderLabel(true)
+    .dimension(tagsDimension)
+    .group(tagsGroup)
+    .filterHandler((dimension, filter) ->
+      dimension.filter (d) ->
+        (if tagsChart.filter()? then d.indexOf(tagsChart.filter()) >= 0 else true)
+      filter
+    ).xAxis().ticks(4)
 
   dc.dataTable("#data-table").dimension(dateDimension).group((d) ->
     format = d3.format("02d")
@@ -62,8 +110,6 @@ $.get "api/entries", (data) ->
     (d) -> return d.tags
   ]).sortBy((d) ->
     d.date
-  ).order(d3.ascending).renderlet (table) ->
-    table.selectAll(".dc-table-group").classed "info", true
-    return
+  ).order(d3.ascending)
 
   dc.renderAll()

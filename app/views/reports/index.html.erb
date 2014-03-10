@@ -1,30 +1,48 @@
 <h1><%= title %></h1>
 
-<div id="chart-line-hoursperday">
-  <strong>Timeline</strong>
+<div class="outer-container">
+  <div id="chart-line-hoursperday">
+    <strong>Timeline</strong>
+  </div>
 </div>
 
-<div id="project-rowchart">
-  <strong>Projects</strong>
-</div>
+<div class="outer-container">
+  <div class="sidebar">
+    <div id="project-rowchart">
+      <strong>Projects</strong>
+    </div>
 
-<div id="category-rowchart">
-  <strong>
-    Categories
-  </strong>
-</div>
+    <div id="category-rowchart">
+      <strong>
+        Categories
+      </strong>
+    </div>
 
-<table id="data-table">
-  <!-- create a custom header -->
-  <thead>
-    <tr class="header">
-      <th>Date</th>
-      <th>Project</th>
-      <th>Category</th>
-      <th>Hours</th>
-      <th>User</th>
-      <th>Tags</th>
-    </tr>
-  </thead>
-  <!-- data rows will filled in here -->
-</table>
+    <div id="users-rowchart">
+      <strong>
+        Users
+      </strong>
+    </div>
+
+    <div id="tags-rowchart">
+      <strong>Tags</strong>
+    </div>
+  </div>
+
+  <div class="data-table">
+    <table id="data-table">
+      <!-- create a custom header -->
+      <thead>
+        <tr class="header">
+          <th>Date</th>
+          <th>Project</th>
+          <th>Category</th>
+          <th>Hours</th>
+          <th>User</th>
+          <th>Tags</th>
+        </tr>
+      </thead>
+      <!-- data rows will filled in here -->
+    </table>
+  </div>
+</div>
