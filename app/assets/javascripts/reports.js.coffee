@@ -1,5 +1,8 @@
 parseDate = d3.time.format("%Y-%m-%d").parse
 
+formatDate = (date) ->
+  new Date(date.getFullYear(), date.getMonth(), date.getDate(), 11, 50, 50)
+
 $.get "api/entries", (data) ->
   data.forEach (d) ->
     d.date = parseDate(d.date)
@@ -11,8 +14,9 @@ $.get "api/entries", (data) ->
     data.date
 
   hours = dateDimension.group().reduceSum(dc.pluck('hours'))
-  minDate = dateDimension.bottom(1)[0].date
-  maxDate = dateDimension.top(1)[0].date
+  minDate = formatDate(dateDimension.bottom(1)[0].date)
+  maxDate = formatDate(dateDimension.top(1)[0].date)
+
 
   hoursChart  = dc.barChart("#chart-line-hoursperday")
   hoursChart.width(990).height(200).margins(
@@ -23,7 +27,7 @@ $.get "api/entries", (data) ->
   ).dimension(dateDimension).group(hours).centerBar(true).gap(2).x(d3.time.scale().domain([
     minDate
     maxDate
-  ])).round(d3.time.day.round).alwaysUseRounding(false).xUnits d3.time.days
+  ])).round(d3.time.day.round).xUnits(d3.time.days)
 
   projectDimension = entries.dimension (data) -> data.project
 
