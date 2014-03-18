@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <%= render 'menu' if current_user %>
+  <%= render 'navbar' if current_user %>
   <%= render 'flashes' -%>
   <%= yield %>
   <%= render 'javascript' %>
