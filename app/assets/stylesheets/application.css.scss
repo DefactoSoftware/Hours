@@ -21,13 +21,12 @@ html {
 }
 
 body {
+  height: 100%;
+  margin: 0;
+  padding-top: 60px;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.7em;
-  padding-top: 40px;
-  height: 100%;
 }
-
-
 
 .container {
   background: rgba(247, 246, 240, 1);
