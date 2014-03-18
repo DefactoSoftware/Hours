@@ -89,6 +89,11 @@
     @include shift(1);
     height: 100%;
 
+    .entry_tag_list .selectize-input {
+      // Fix the tags input position
+      overflow: visible;
+    }
+
     .project {
       padding: 20px;
       margin-bottom: 40px;
