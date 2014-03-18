@@ -1,29 +1,30 @@
 <div class="container">
-<%= render partial: "project", locals: { project: @project } %>
-<div class="hours-per-user-overview">
-  <canvas id="hours-per-user" data-data="<%= @project.hours_per_user.to_json %>" width="300" height="300"></canvas>
-  <ul class="legend">
-    <% @project.users.each do |user| %>
-    <li>
-      <%= gravatar_image_tag user.email, class: "image-circle", style: "border: 3px solid #{user.full_name.pastel_color}"%>
-      <span><%= user.full_name %> (<%= user.hours_spent_on(@project) %> <%= t(:hours) %>)</span>
-    </li>
-    <% end %>
-  </ul>
-</div>
+  <%= render partial: "project", locals: { project: @project } %>
 
-<table>
-  <tbody>
-    <tr>
-      <th>Tag</th>
-      <th>Hours</th>
-    </tr>
-    <% @project.tags.each do |tag| %>
+  <div class="hours-per-user-overview">
+    <canvas id="hours-per-user" data-data="<%= @project.hours_per_user.to_json %>" width="300" height="300"></canvas>
+    <ul class="legend">
+      <% @project.users.each do |user| %>
+      <li>
+        <%= gravatar_image_tag user.email, class: "image-circle", style: "border: 3px solid #{user.full_name.pastel_color}"%>
+        <span><%= user.full_name %> (<%= user.hours_spent_on(@project) %> <%= t(:hours) %>)</span>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <table>
+    <tbody>
       <tr>
-        <td><%= tag.name %></td>
-        <td><%= tag.hours_for(@project) %></td>
+        <th>Tag</th>
+        <th>Hours</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% @project.tags.each do |tag| %>
+        <tr>
+          <td><%= tag.name %></td>
+          <td><%= tag.hours_for(@project) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

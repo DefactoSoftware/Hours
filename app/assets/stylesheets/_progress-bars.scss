@@ -44,11 +44,6 @@
   color: #333333;
 }
 
-.percent {
-  float: none;
-  color: #999999;
-  font-weight: bold;
-}
 
 .graph {
   display: block;
@@ -71,3 +66,40 @@
   text-indent: -9999px;
   white-space: nowrap;
 }
+
+.activities-overview {
+  .spent {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 0;
+    font-size: 1em;
+    font-weight: 100;
+    color: #999;
+    text-align: center;
+
+    .spent-chart {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .spent-info {
+      position: relative;
+      top: 24px;
+
+      .hours {
+        display: block;
+        //font-weight: 100;
+        font-size: 2em;
+        color: #333 !important;
+        letter-spacing: -2px;
+      }
+      .percent {
+        display: block;
+        margin-top: 2px;
+        color: #999;
+      }
+    }
+  }
+}
+
