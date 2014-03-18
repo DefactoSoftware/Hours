@@ -6,7 +6,7 @@ formatDate = (date) ->
 formatRowChart = (chart, group, dimension) ->
   chart
     .width(300)
-    .height((group.all().length + 1) * 40)
+    .height((group.all().length + 1) * 30)
     .margins({top: 20, left: 10, right: 10, bottom: 20})
     .group(group)
     .dimension(dimension)
@@ -47,15 +47,17 @@ $.get "api/entries", (data) ->
 
 
   hoursChart  = dc.barChart("#chart-line-hoursperday")
-  hoursChart.width(990).height(200).margins(
-    top: 0
-    right: 50
-    bottom: 20
-    left: 40
-  ).dimension(dateDimension).group(hours).centerBar(true).gap(2).x(d3.time.scale().domain([
-    minDate
-    maxDate
-  ])).round(d3.time.day.round).xUnits(d3.time.days)
+  hoursChart
+    .width(990)
+    .height(200)
+    .margins({top: 0, right: 50, bottom: 20, left: 40})
+    .dimension(dateDimension)
+    .group(hours)
+    .centerBar(true)
+    .gap(2)
+    .x(d3.time.scale().domain([minDate, maxDate]))
+    .round(d3.time.day.round)
+    .xUnits(d3.time.days)
 
   projectDimension = entries.dimension (data) -> data.project
   hoursPerProject = groupHoursBy(projectDimension)
@@ -85,7 +87,7 @@ $.get "api/entries", (data) ->
   tagsChart = dc.rowChart("#tags-rowchart")
   tagsChart
     .width(300)
-    .height((tagsGroup.all().length + 1) * 40)
+    .height((tagsGroup.all().length + 1) * 30)
     .margins({top: 20, left: 10, right: 10, bottom: 20})
     .renderLabel(true)
     .dimension(tagsDimension)
