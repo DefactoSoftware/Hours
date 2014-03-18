@@ -39,6 +39,14 @@ en:
           attributes:
             email:
               invalid_email: "%{attribute} does not match organization email"
+
+  entries:
+    index:
+      date: Date
+      project: Project
+      hours: Hours
+      category: Category
+
   sign_up: Sign Up
   sign_out: Sign Out
   account_created_successfully: Signed up successfully

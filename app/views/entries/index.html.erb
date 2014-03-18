@@ -4,10 +4,10 @@
   <table>
     <thead>
       <tr>
-        <th>Date</th>
-        <th>Project</th>
-        <th>Hours</th>
-        <th>Category</th>
+        <th><%= t("entries.index.date") %></th>
+        <th><%= t("entries.index.project") %></th>
+        <th><%= t("entries.index.hours") %></th>
+        <th><%= t("entries.index.category") %></th>
         <% if @user == current_user %>
           <th></th>
       <% end %>
