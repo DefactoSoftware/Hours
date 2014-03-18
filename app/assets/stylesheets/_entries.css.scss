@@ -8,7 +8,6 @@
     box-shadow: none!important;
     color: black!important;
   }
-
 }
 
 .pika-table {
@@ -25,30 +24,34 @@
   }
 }
 
-.wrapper {
-  margin: 20px;
-}
+.new_entry_wrapper {
+  padding: 15px 30px;
+  background: #fff;
+  border-bottom: 3px solid darken(#E9E8E6, .1);
+  //background: #2f353e;
+  //background: #72d0eb;
+  //background: #ede8df;
+  //border-top: 4px solid #e4ddd1;
 
-#new_entry {
-  @include span-columns(12);
-
-  .input {
-    display: inline-block;
-    margin: 10px;
-    input {
-      resize: none;
+  #new_entry {
+    .input {
+      display: inline-block;
+      margin: 10px;
+      input {
+        resize: none;
+      }
     }
-  }
 
-  .entry_hours {
-    width: 100px;
-  }
+    .entry_hours {
+      width: 100px;
+    }
 
-  .entry_date {
-    width: 120px;
-  }
+    .entry_date {
+      width: 120px;
+    }
 
-  .entry_tag_list {
-    width: 200px;
+    .entry_tag_list {
+      width: 200px;
+    }
   }
 }

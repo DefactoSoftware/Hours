@@ -18,6 +18,7 @@
 
 html {
   height: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -26,6 +27,8 @@ body {
   padding-top: 60px;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.7em;
+  //background: #f6f6f8;
+  background: #f7f6f0;
 }
 
 .container {
@@ -38,6 +41,7 @@ body {
   min-height: 200px;
   position: relative;
   padding: 25px;
+
 }
 
 .button {
