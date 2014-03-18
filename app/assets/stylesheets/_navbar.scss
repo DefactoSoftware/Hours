@@ -9,19 +9,37 @@
   height: 50px;
   background: #f5f5f5;
   border: none;
-  box-shadow: inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
   text-align: center;
 
   li {
-    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
     display: table-cell;
-    padding: 0 50px;
-    line-height: 47px;
-    box-sizing: border-box;
+
+    a {
+      display: inline-block;
+      padding: 0 30px;
+      line-height: 50px;
+      height: 50px;
+    }
 
     &.current {
-      border-bottom: 3px solid $blue;
+      a {
+        border-bottom: 3px solid $blue;
+      }
+    }
+  }
+
+  .nav {
+    float: left;
+  }
+
+  .nav-user {
+    float: right;
+
+    li {
+      border-right: none;
+      border-left: 1px solid #ddd;
     }
   }
 }
-
