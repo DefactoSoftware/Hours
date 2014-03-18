@@ -33,7 +33,9 @@
       <% end %>
       <div class="active-people">
         <% project.users.each do |user| %>
-          <%= gravatar_image_tag user.email, class: "image-circle" %>
+          <%= link_to user_entries_path(user) do %>
+            <%= gravatar_image_tag user.email, class: "image-circle" %>
+          <% end %>
         <% end %>
     </div>
   </div>

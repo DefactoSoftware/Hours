@@ -10,6 +10,17 @@ class EntriesController < ApplicationController
     end
   end
 
+  def index
+    @user = User.find(params[:user_id])
+    @entries = @user.entries
+  end
+
+  def destroy
+    @entry = current_user.entries.find(params[:id])
+    @entry.destroy
+    redirect_to user_entries_path(current_user), notice: "Entry successfully deleted"
+  end
+
   private
 
   def entry_params

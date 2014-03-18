@@ -1,0 +1,35 @@
+<div class="container">
+  <h1><%= @user.first_name %>'s hours</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th><%= t("entries.index.date") %></th>
+        <th><%= t("entries.index.project") %></th>
+        <th><%= t("entries.index.hours") %></th>
+        <th><%= t("entries.index.category") %></th>
+        <% if @user == current_user %>
+          <th></th>
+      <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+      <td><%= entry.date %></td>
+      <td><%= link_to entry.project.name, entry.project %></td>
+      <td><%= entry.hours %></td>
+      <td>
+        <div class="project">
+          <span class="color" style="background-color:<%= entry.category.name.pastel_color %>;"></span>
+          <span><%= entry.category.name %></span>
+        </div>
+      </td>
+      <% if @user == current_user %>
+        <td><%= link_to "delete", entry, method: :delete, class: :destroy %></td>
+      <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
