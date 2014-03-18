@@ -2,16 +2,18 @@
   <h1><%= @user.first_name %>'s hours</h1>
 
   <table>
-    <tbody>
-    <tr>
-      <th>Date</th>
-      <th>Project</th>
-      <th>Hours</th>
-      <th>Category</th>
-      <% if @user == current_user %>
-        <th></th>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Project</th>
+        <th>Hours</th>
+        <th>Category</th>
+        <% if @user == current_user %>
+          <th></th>
       <% end %>
-    </tr>
+      </tr>
+    </thead>
+    <tbody>
     <% @entries.each do |entry| %>
       <tr>
       <td><%= entry.date %></td>
@@ -26,8 +28,8 @@
       <% if @user == current_user %>
         <td><%= link_to "delete", entry, method: :delete, class: :destroy %></td>
       <% end %>
+      </tr>
     <% end %>
-    </tr>
-      </tbody>
-    </table>
-  </div>
+    </tbody>
+  </table>
+</div>
