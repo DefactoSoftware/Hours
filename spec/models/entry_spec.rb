@@ -43,18 +43,26 @@ describe Entry do
   end
 
   describe "#taglist=" do
+    let(:entry) { create(:entry) }
     it "takes a strint of comma separated values and sets the tags" do
-      entry = create(:entry)
       existing_tag = create(:tag)
       entry.tag_list = "#{existing_tag.name}, New Tag"
       expect(entry.tag_list).to eq("#{existing_tag.name}, New Tag")
     end
 
     it "removes any tagging that is left out" do
-      entry = create(:entry)
       entry.tag_list = "tag1, tag2, tag3, tag4"
       entry.tag_list = "tag1, tag3"
       expect(entry.tag_list).to eq("tag1, tag3")
+    end
+
+    it "finds the tag case insensitive" do
+      entry.tag_list = "tdd"
+      expect {
+        entry.tag_list = "TDD"
+      }.to_not raise_error
+      expect(Tag.last.name).to eq("TDD")
+      expect(entry.reload.tag_list).to include("TDD")
     end
   end
 end
