@@ -43,6 +43,17 @@ feature "User registers time" do
     end
   end
 
+  scenario "remembers the selected project and category" do
+    within "#new_entry" do
+      fill_in_entry
+      click_button "Create Entry"
+
+
+      expect(page).to have_select('Project', selected: 'Conversations')
+      expect(page).to have_select('Category', selected: 'Design')
+    end
+  end
+
   scenario "orders by the latest updated project" do
     create(:entry)
     fill_in_entry

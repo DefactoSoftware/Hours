@@ -4,9 +4,11 @@ class EntriesController < ApplicationController
     @entry.user = current_user
     @entry.date = Date.strptime(entry_params[:date], "%d/%m/%Y")
     if @entry.save
-      redirect_to root_path, notice: I18n.t(:entry_created)
+      redirect_to root_path(project:entry_params[:project_id], category:entry_params[:category_id]),
+                  notice: I18n.t(:entry_created)
     else
-      redirect_to root_path, notice: @entry.errors.full_messages.join(" ")
+      redirect_to root_path(project:entry_params[:project_id], category:entry_params[:category_id]),
+                  notice: @entry.errors.full_messages.join(" ")
     end
   end
 
