@@ -2,11 +2,11 @@
   <div class="projects-overview">
   	<%= render partial: "application/entry_form" %>
 
+    <%= link_to t("titles.projects.new"), new_project_path, id: "new-project-button", class: "button create" %>
+
   	<ul class="project-list">
       <%= render partial: "project", collection: @projects %>
     </ul>
-
-  	<%= link_to t("titles.projects.new"), new_project_path, class: "button create" %>
   </div>
 
   <div class="activity-feed">
