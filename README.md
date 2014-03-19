@@ -21,8 +21,13 @@ This repository comes equipped with a self-setup script:
 After setting up, you can run the application using [foreman]:
 
     % foreman start
+    
+Since we're using subdomains to point to accounts, you can't run the app on localhost.
+If you have [pow] set up, it will be automatically configured by the setup script, otherwise
+you need to point apache/nginx to the port foreman is running the app on (7000 by default).
 
 [foreman]: http://ddollar.github.io/foreman/
+[pow]: http://pow.cx
 
 Guidelines
 ----------
