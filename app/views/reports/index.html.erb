@@ -1,0 +1,50 @@
+<h1><%= title %></h1>
+
+<div class="outer-container">
+  <div id="chart-line-hoursperday">
+    <strong>Timeline</strong>
+  </div>
+</div>
+
+<div class="outer-container">
+  <div class="sidebar">
+    <div id="project-rowchart">
+      <strong>Projects</strong>
+    </div>
+
+    <div id="category-rowchart">
+      <strong>
+        Categories
+      </strong>
+    </div>
+
+    <div id="users-rowchart">
+      <strong>
+        Users
+      </strong>
+    </div>
+
+    <div id="tags-rowchart">
+      <strong>Tags</strong>
+    </div>
+  </div>
+  <div id="data-count">
+    <%= t("reports.data_count_html") %> | <a href="javascript:dc.filterAll();dc.renderAll();"> <%= t("reports.reset_all") %></a>
+  </div>
+  <div class="data-table">
+    <table id="data-table">
+      <!-- create a custom header -->
+      <thead>
+        <tr class="header">
+          <th><%= t("reports.date") %></th>
+          <th><%= t("reports.project") %></th>
+          <th><%= t("reports.category") %></th>
+          <th><%= t("reports.hours") %></th>
+          <th><%= t("reports.user") %></th>
+          <th><%= t("reports.tags") %></th>
+        </tr>
+      </thead>
+      <!-- data rows will filled in here -->
+    </table>
+  </div>
+</div>

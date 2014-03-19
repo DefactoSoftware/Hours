@@ -12,6 +12,8 @@ en:
     activities: Activities
     entries:
       index: My Hours
+    reports:
+      index: Reports
   date:
     today: today
     date_ago: "%{date} ago"
@@ -62,3 +64,13 @@ en:
     one: "%{user} spent one hour doing %{category} on %{project} %{time_ago}"
     other: "%{user} spent %{count} hours doing %{category} on %{project} (%{time_ago})"
   hours: hours
+  
+  reports:
+    data_count_html: <span class="filter-count"></span> selected out of <span class="total-count"></span> entries
+    reset_all: Reset All
+    date: Date
+    project: Project
+    category: Category
+    hours: Hours
+    user: User
+    tags: Tags

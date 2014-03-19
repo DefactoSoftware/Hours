@@ -28,6 +28,11 @@ gem "momentjs-rails"
 gem "gravatar_image_tag"
 gem "hashtel", "~> 0.0.2"
 gem "chart-js-rails"
+gem "active_model_serializers"
+
+# reporting
+gem "crossfilter-rails"
+gem "d3_rails"
 
 group :development do
   gem "better_errors"

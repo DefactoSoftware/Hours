@@ -1,0 +1,28 @@
+.reports {
+  .outer-container {
+    @include outer-container();
+    max-width: 90em;
+
+    #chart-line-hoursperday {
+      @include span-columns(12);
+      text-align: center;
+    }
+
+    .sidebar {
+      @include span-columns(3);
+    }
+
+    .data-table {
+      @include span-columns(9);
+    }
+  }
+
+  #data-count {
+    float: right;
+
+    .filter-count, .total-count {
+      color: #477dca;
+      font-weight: bold;
+    }
+  }
+}
