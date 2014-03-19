@@ -59,6 +59,7 @@ en:
     one: "%{full_name} spent %{hours} hours working on %{project}"
     other: "%{count} people spent %{hours} hours working on %{project}"
   entry_created: Entry successfully created
+  entry_saved: Entry successfully saved
   entry_failed: Something went wrong saving your entry
   entry_activity_html:
     one: "%{user} spent one hour doing %{category} on %{project} %{time_ago}"
