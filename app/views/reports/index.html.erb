@@ -1,36 +1,29 @@
 
 <div class="outer-container">
-  <div id="chart-line-hoursperday">
+<div id="chart-line-hoursperday" class="filter">
     <strong>Timeline</strong>
+
+  <p id="data-count">
+      <%= t("reports.data_count_html") %> | <a href="javascript:dc.filterAll();dc.renderAll();"> <%= t("reports.reset_all") %></a>
+    </p>
   </div>
 </div>
-
 <div class="outer-container">
-  <div class="sidebar">
-    <div id="project-rowchart">
+  <div class="sidebar filter">
+    <div id="project-rowchart" >
       <strong>Projects</strong>
     </div>
-
-    <div id="category-rowchart">
-      <strong>
-        Categories
-      </strong>
-    </div>
-
-    <div id="users-rowchart">
+    <div id="users-rowchart" >
       <strong>
         Users
       </strong>
     </div>
-
-    <div id="tags-rowchart">
+    <div id="tags-rowchart" >
       <strong>Tags</strong>
     </div>
   </div>
-  <div id="data-count">
-    <%= t("reports.data_count_html") %> | <a href="javascript:dc.filterAll();dc.renderAll();"> <%= t("reports.reset_all") %></a>
-  </div>
-  <div class="data-table">
+  <div class="data-table container">
+
     <table id="data-table">
       <!-- create a custom header -->
       <thead>
@@ -47,3 +40,4 @@
     </table>
   </div>
 </div>
+
