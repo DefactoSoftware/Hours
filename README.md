@@ -24,7 +24,7 @@ After setting up, you can run the application using [foreman]:
     
 Since we're using subdomains to point to accounts, you can't run the app on localhost.
 If you have [pow] set up, it will be automatically configured by the setup script, otherwise
-you need to point apache/nginx to the port foreman is running the app on (7000 by default).
+you need to point apache/nginx to the port foreman is running the app on (7000 by default). With pow the app will run on http://hours.dev
 
 [foreman]: http://ddollar.github.io/foreman/
 [pow]: http://pow.cx
