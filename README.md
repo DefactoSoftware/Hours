@@ -13,14 +13,15 @@ System Dependencies
 
 Getting Started
 ---------------
-For local mail support you need to enter your gmail address and password in .sample.env file.
-
-    GMAIL_USERNAME="example@mail.com"
-    GMAIL_PASSWORD="password"
 
 This repository comes equipped with a self-setup script:
 
     % ./bin/setup
+
+For local mail support you need to enter your gmail address and password in .env file.
+
+    GMAIL_USERNAME="example@mail.com"
+    GMAIL_PASSWORD="password"
 
 After setting up, you can run the application using [foreman]:
 
