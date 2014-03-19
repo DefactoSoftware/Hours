@@ -8,9 +8,9 @@ module ApplicationHelper
     end
   end
 
-  def user_image_link(user, border, &block)
+  def user_image_link(user, opts={}, &block)
     link_to user_entries_path(user) do
-      if border
+      if opts[:border]
         concat gravatar_image_tag user.email, class: "image-circle", style: "border: 3px solid #{user.full_name.pastel_color}"
       else
         concat gravatar_image_tag user.email, class: "image-circle"
