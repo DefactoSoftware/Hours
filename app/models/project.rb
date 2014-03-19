@@ -15,6 +15,8 @@ class Project < ActiveRecord::Base
   has_many :categories, -> { uniq }, through: :entries
   has_many :tags, -> { uniq }, through: :entries
 
+  scope :by_last_updated, -> { order("updated_at DESC") }
+
   def sorted_categories
     categories.sort_by do |category|
       percentage_spent_on(category)
