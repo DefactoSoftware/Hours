@@ -10,7 +10,7 @@
   <div class="nav-user">
     <ul>
         <%= nav_path t("sign_out"), destroy_user_session_path, method: :delete %>
-        <li><%= gravatar_image_tag current_user.email, class: "image-circle" %></li>
+        <li><%= user_image_link(current_user, false) %></li>
     </ul>
   </div>
 </div>

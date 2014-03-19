@@ -28,7 +28,7 @@
 
       a {
         display: inline-block;
-        padding: 0 15px;
+        padding: 0 10px;
         line-height: 60px;
         height: 60px;
         border-bottom: 3px solid transparent;
@@ -54,11 +54,15 @@
   .nav-user {
     float: right;
 
+    .navigation a {
+      margin-top:-7px;
+    }
+
     .image-circle {
       display: block;
       width: 40px;
       height: 40px;
-      margin-right: 10px;
+      margin-top:10px;
     }
   }
 }

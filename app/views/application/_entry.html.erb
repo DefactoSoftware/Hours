@@ -1,9 +1,7 @@
 <li style="border-right: 6px solid <%= entry.category.name.pastel_color %>;">
   <div class="avatar-container">
     <div class="avatar">
-      <%= link_to user_entries_path(entry.user) do %>
-        <%= gravatar_image_tag entry.user.email, class: "image-circle", style: "border: 3px solid #{entry.user.full_name.pastel_color}"%>
-      <% end %>
+      <%= user_image_link(entry.user, true) %>
     </div>
   </div>
   <div clas="entry">
