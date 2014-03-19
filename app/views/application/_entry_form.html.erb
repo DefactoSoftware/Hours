@@ -1,8 +1,8 @@
 <div class="new_entry_wrapper">
   <%= simple_form_for(@entry) do |f| %>
   <%= f.error_notification %>
-      <%= f.association :project, required: true %>
-      <%= f.association :category, required: true %>
+      <%= f.association :project, required: true, selected: params[:project] %>
+      <%= f.association :category, required: true, selected: params[:category] %>
       <%= f.input :hours, required: true %>
       <%= f.input :date, required: true, as: :string, input_html: { value: Date.today.strftime("%d/%m/%Y"), id: "datepicker"} %>
       <%= f.input :tag_list, label: "Tags", input_html: { data: { data: Tag.list } } %>
