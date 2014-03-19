@@ -1,5 +1,5 @@
 <div class="container">
-  <%= render partial: "project", locals: { project: @project } %>
+  <%= render partial: "project_detail", locals: { project: @project } %>
 
   <div class="hours-per-user-overview">
     <canvas id="hours-per-user" data-data="<%= @project.hours_per_user.to_json %>" width="300" height="300"></canvas>

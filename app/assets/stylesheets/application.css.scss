@@ -18,19 +18,20 @@
 
 html {
   height: 100%;
+  min-height: 100%;
 }
 
 body {
+  height: 100%;
+  margin: 0;
+  padding-top: 60px;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.7em;
-  padding-top: 40px;
-  height: 100%;
+  background: #f7f6f0;
 }
 
-
-
 .container {
-  background: rgba(247, 246, 240, 1);
+  background: #fff; //rgba(247, 246, 240, 1);
   margin: 5% auto;
   border-bottom-width: 2px;
   box-shadow: 0px 2px 2px rgba(83, 63, 63, 0.3);
@@ -39,6 +40,7 @@ body {
   min-height: 200px;
   position: relative;
   padding: 25px;
+  margin-bottom: 15px;
 }
 
 .button {
