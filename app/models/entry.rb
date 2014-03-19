@@ -13,7 +13,7 @@
 #
 
 class Entry < ActiveRecord::Base
-  belongs_to :project
+  belongs_to :project, touch: true
   belongs_to :category
   belongs_to :user
   has_many :taggings, inverse_of: :entry

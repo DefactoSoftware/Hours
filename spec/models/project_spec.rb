@@ -66,4 +66,15 @@ describe Project do
       )
     end
   end
+
+  describe "#by_last_updated" do
+    it "orders the projects by last updated first" do
+      create(:project)
+      project = create(:project)
+      create(:project)
+      project.touch
+
+      expect(Project.by_last_updated.first).to eq(project)
+    end
+  end
 end

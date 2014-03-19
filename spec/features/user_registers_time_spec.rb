@@ -7,8 +7,9 @@ feature "User registers time" do
     user = build(:user)
     create(:account_with_schema, subdomain: subdomain, owner: user)
     sign_in_user(user, subdomain: subdomain)
-    create(:project, name: "Conversations")
+
     create(:project, name: "CAPP11")
+    create(:project, name: "Conversations")
 
     create(:category, name: "Design")
     create(:category, name: "Consultancy")
@@ -40,6 +41,13 @@ feature "User registers time" do
       expect(page).to have_content "Entry successfully created"
       expect(Entry.last.tags.count).to eq(2)
     end
+  end
+
+  scenario "orders by the latest updated project" do
+    create(:entry)
+    fill_in_entry
+    click_button "Create Entry"
+    expect(page).to have_selector("ul.project-list li:first-child", text: "Conversations")
   end
 
   def fill_in_entry
