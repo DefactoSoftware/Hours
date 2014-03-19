@@ -28,18 +28,20 @@
       <strong>Tags</strong>
     </div>
   </div>
-
+  <div id="data-count">
+    <%= t("reports.data_count_html") %> | <a href="javascript:dc.filterAll();dc.renderAll();"> <%= t("reports.reset_all") %></a>
+  </div>
   <div class="data-table">
     <table id="data-table">
       <!-- create a custom header -->
       <thead>
         <tr class="header">
-          <th>Date</th>
-          <th>Project</th>
-          <th>Category</th>
-          <th>Hours</th>
-          <th>User</th>
-          <th>Tags</th>
+          <th><%= t("reports.date") %></th>
+          <th><%= t("reports.project") %></th>
+          <th><%= t("reports.category") %></th>
+          <th><%= t("reports.hours") %></th>
+          <th><%= t("reports.user") %></th>
+          <th><%= t("reports.tags") %></th>
         </tr>
       </thead>
       <!-- data rows will filled in here -->

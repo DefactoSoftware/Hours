@@ -98,6 +98,10 @@ $.get "api/entries", (data) ->
       filter
     ).xAxis().ticks(4)
 
+  dc.dataCount("#data-count")
+    .dimension(entries)
+    .group(entries.groupAll())
+
   dc.dataTable("#data-table").dimension(dateDimension).group((d) ->
     format = d3.format("02d")
     d.date.getFullYear() + "/" + format((d.date.getMonth() + 1))

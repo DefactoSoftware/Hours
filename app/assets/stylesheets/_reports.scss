@@ -16,4 +16,13 @@
       @include span-columns(9);
     }
   }
+
+  #data-count {
+    float: right;
+
+    .filter-count, .total-count {
+      color: #477dca;
+      font-weight: bold;
+    }
+  }
 }
