@@ -1,14 +1,14 @@
 <li style="border-right: 6px solid <%= entry.category.name.pastel_color %>;">
   <div class="avatar-container">
     <div class="avatar">
-      <%= gravatar_image_tag entry.user.email, class: "image-circle", style: "border: 3px solid #{entry.user.full_name.pastel_color}"%>
+      <%= user_image_link(entry.user, border: true) %>
     </div>
   </div>
   <div clas="entry">
-    <%= t(:entry_activity_html, time_ago: date_ago_in_words(entry.date), 
+    <%= t(:entry_activity_html, time_ago: date_ago_in_words(entry.date),
           user: entry.user.first_name,
         count: entry.hours,
-        category: "<span style='font-weight: bold; color:#{entry.category.name.pastel_color};'>#{entry.category.name}</span>".html_safe, 
+        category: "<span style='font-weight: bold; color:#{entry.category.name.pastel_color};'>#{entry.category.name}</span>".html_safe,
         project: entry.project.name ) %>
   </div>
 </li>

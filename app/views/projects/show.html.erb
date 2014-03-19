@@ -6,8 +6,9 @@
     <ul class="legend">
       <% @project.users.each do |user| %>
       <li>
-        <%= gravatar_image_tag user.email, class: "image-circle", style: "border: 3px solid #{user.full_name.pastel_color}"%>
-        <span><%= user.full_name %> (<%= user.hours_spent_on(@project) %> <%= t(:hours) %>)</span>
+        <%= user_image_link(user, border: true) do
+          content_tag(:span, "#{user.full_name} ( #{user.hours_spent_on(@project)} #{t(:hours)} )")
+        end %>
       </li>
       <% end %>
     </ul>
