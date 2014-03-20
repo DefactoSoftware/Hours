@@ -48,7 +48,7 @@ $("#entry_tag_list").selectize({
     };
   },
   load: function(query, callback) {
-    var data = $('#entry_tag_list').data('tags');
+    var data = $('#entry_tag_list').data('data');
     if (!query.length) {
       return callback(data);
     }
