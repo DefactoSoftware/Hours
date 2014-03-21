@@ -4,7 +4,7 @@
       <%= f.association :project, required: true %>
       <%= f.association :category, required: true %>
       <%= f.input :hours, required: true %>
-      <%= f.input :date, required: true, as: :string, input_html: { value: Date.today.strftime("%d/%m/%Y"), id: "datepicker"} %>
+      <%= f.input :date, required: true, as: :string, input_html: { value: (@entry.date || Date.today).strftime("%d/%m/%Y"), id: "datepicker"} %>
       <%= f.input :tag_list, label: "Tags", input_html: { data: { data: Tag.list } } %>
       <%= f.button :submit %>
   <% end %>

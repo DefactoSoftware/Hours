@@ -1,13 +1,5 @@
 <div class="container">
   <h1><%= current_user.first_name %>'s hours</h1>
 
-  <%= simple_form_for(@entry) do |f| %>
-    <%= f.error_notification %>
-    <%= f.association :project, required: true %>
-    <%= f.association :category, required: true %>
-    <%= f.input :hours, required: true %>
-    <%= f.input :date, required: true, as: :string, input_html: { value: @entry.date.strftime("%d/%m/%Y"), id: "datepicker" } %>
-    <%= f.input :tag_list, label: "Tags", input_html: { data: { data: Tag.list } } %>
-    <%= f.button :submit %>
-  <% end %>
+  <%= render "application/entry_form" %>
 </div>
