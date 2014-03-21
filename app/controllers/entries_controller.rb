@@ -13,7 +13,7 @@ class EntriesController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @entries = @user.entries
+    @entries = @user.entries.reverse
   end
 
   def update
@@ -50,6 +50,6 @@ class EntriesController < ApplicationController
   end
 
   def entry
-    current_user.entries.find(params[:id])  
-  end    
+    current_user.entries.find(params[:id])
+  end
 end
