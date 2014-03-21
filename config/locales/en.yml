@@ -48,6 +48,7 @@ en:
       project: Project
       hours: Hours
       category: Category
+      tags: Tags
 
   confirm: Are you sure?
   sign_up: Sign Up
@@ -66,7 +67,7 @@ en:
     one: "%{user} spent one hour doing %{category} on %{project} %{time_ago}"
     other: "%{user} spent %{count} hours doing %{category} on %{project} (%{time_ago})"
   hours: hours
-  
+
   reports:
     data_count_html: <span class="filter-count"></span> selected out of <span class="total-count"></span> entries
     reset_all: Reset All

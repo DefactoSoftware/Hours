@@ -2,9 +2,9 @@ require "spec_helper"
 
 feature "User manages projects" do
   let(:subdomain) { generate(:subdomain) }
+  let(:user) { build(:user) }
 
   before(:each) do
-    user = build(:user)
     create(:account_with_schema, subdomain: subdomain, owner: user)
     sign_in_user(user, subdomain: subdomain)
   end
@@ -48,5 +48,20 @@ feature "User manages projects" do
     click_link project.name
     expect(current_url).to eq(project_url(project, subdomain: subdomain))
     expect(page).to have_content("TDD")
+  end
+
+  scenario "views his own hours" do
+    project = create(:project)
+    tag = create(:tag)
+    entry = create(:entry, project: project, user: user)
+    entry.tags << tag
+
+
+    visit root_url(subdomain: subdomain)
+    click_link "My Hours"
+
+    expect(page).to have_content(project.name)
+    expect(page).to have_content(project.entries.last.category.name)
+    expect(page).to have_content(tag.name)
   end
 end

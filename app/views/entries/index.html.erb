@@ -1,13 +1,14 @@
 <div class="container">
   <h1><%= @user.first_name %>'s hours</h1>
 
-  <table>
+  <table class="entries">
     <thead>
       <tr>
         <th><%= t("entries.index.date") %></th>
         <th><%= t("entries.index.project") %></th>
         <th><%= t("entries.index.hours") %></th>
         <th><%= t("entries.index.category") %></th>
+        <th><%= t("entries.index.tags")%></th>
         <% if @user == current_user %>
           <th></th>
           <th></td>
@@ -25,6 +26,13 @@
           <span class="color" style="background-color:<%= entry.category.name.pastel_color %>;"></span>
           <span><%= entry.category.name %></span>
         </div>
+      </td>
+      <td>
+        <ul class="tags">
+        <% entry.tags.each do |tag| %>
+          <li class="tag"><a href="#"><%= tag.name %></a></li>
+        <% end %>
+        </ul>
       </td>
       <% if @user == current_user %>
         <td><%= link_to "delete", entry, method: :delete, class: :destroy, data: { confirm: t(:confirm) } %></td>

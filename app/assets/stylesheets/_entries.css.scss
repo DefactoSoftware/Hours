@@ -24,6 +24,20 @@
   }
 }
 
+.entries {
+  .tags {
+    float: none;
+
+    a {
+      margin-left: 12px;
+    }
+
+    li {
+      margin: 0px 2px 3px 0px;
+    }
+  }
+}
+
 .new_entry_wrapper {
   padding: 15px 30px;
   background: #fff;
