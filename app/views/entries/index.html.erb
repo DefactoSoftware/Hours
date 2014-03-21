@@ -10,6 +10,7 @@
         <th><%= t("entries.index.category") %></th>
         <% if @user == current_user %>
           <th></th>
+          <th></td>
       <% end %>
       </tr>
     </thead>
@@ -27,6 +28,7 @@
       </td>
       <% if @user == current_user %>
         <td><%= link_to "delete", entry, method: :delete, class: :destroy %></td>
+        <td><%= link_to "edit", edit_entry_path(entry) %></td>
       <% end %>
       </tr>
     <% end %>
