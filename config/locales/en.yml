@@ -49,6 +49,7 @@ en:
       hours: Hours
       category: Category
 
+  confirm: Are you sure?
   sign_up: Sign Up
   sign_out: Sign Out
   account_created_successfully: Signed up successfully
