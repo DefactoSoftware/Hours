@@ -28,9 +28,7 @@
         </td>
         <td>
           <div class="table-tags">
-            <% entry.tags.each do |tag| %>
-              <a href="#"><%= tag.name %></a><%= "," unless tag == entry.tags.last %>
-            <% end %>
+            <%= entry.tag_list %>
           </div>
         </td>
         <% if @user == current_user %>
