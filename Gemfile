@@ -29,6 +29,7 @@ gem "gravatar_image_tag"
 gem "hashtel", "~> 0.0.2"
 gem "chart-js-rails"
 gem "active_model_serializers"
+gem 'will_paginate', '~> 3.0'
 
 # reporting
 gem "crossfilter-rails"
