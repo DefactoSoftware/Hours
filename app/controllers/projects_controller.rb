@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.by_last_updated
     @entry = Entry.new
-    @activities = Entry.last(10).reverse
+    @activities = Entry.last(20).reverse
   end
 
   def show
