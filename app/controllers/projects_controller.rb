@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.by_last_updated
+    @projects = Project.by_last_updated.paginate(page: params[:page], per_page: 7)
     @entry = Entry.new
-    @activities = Entry.last(10).reverse
+    @activities = Entry.by_last_created_at.limit(20)
   end
 
   def show

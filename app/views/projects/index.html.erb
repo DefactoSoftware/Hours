@@ -5,7 +5,7 @@
     <%= link_to t("titles.projects.new"), new_project_path, id: "new-project-button", class: "button create" %>
 
     <ul class="project-list">
-      <%= render partial: "project", collection: @projects %>
+      <%= render partial: "project", locals: { projects: @projects } %>
     </ul>
   </div>
 

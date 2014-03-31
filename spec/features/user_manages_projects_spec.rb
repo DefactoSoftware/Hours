@@ -39,6 +39,18 @@ feature "User manages projects" do
     end
   end
 
+  scenario "will paginate projects" do
+    8.times do
+      create(:project)
+    end
+
+    visit root_url(subdomain: subdomain)
+
+    within ".projects" do
+      expect(page).to have_content("Previous 1 2 Next")
+    end
+  end
+
   scenario "views a single project" do
     project = create(:project_with_entries)
     entry = project.entries.last
