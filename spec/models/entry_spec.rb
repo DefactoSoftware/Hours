@@ -65,4 +65,12 @@ describe Entry do
       expect(entry.reload.tag_list).to include("TDD")
     end
   end
+
+  describe "#by_last_created_at" do
+    it "orders the entries by created_at" do
+      create(:entry)
+      last_entry = create(:entry)
+      expect(Entry.by_last_created_at.first).to eq(last_entry)
+    end
+  end
 end

@@ -27,6 +27,8 @@ class Entry < ActiveRecord::Base
   validates :date, presence: true
   accepts_nested_attributes_for :taggings
 
+  scope :by_last_created_at, -> { order("created_at desc") }
+
   def tag_list
     tags.map(&:name).join(", ")
   end
