@@ -9,6 +9,8 @@
 #
 
 class Project < ActiveRecord::Base
+  paginates_per 7
+
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false }
   has_many :entries
