@@ -13,8 +13,6 @@
 #
 
 class Entry < ActiveRecord::Base
-  paginates_per 10
-
   belongs_to :project, touch: true
   belongs_to :category
   belongs_to :user

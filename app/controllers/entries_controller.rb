@@ -13,7 +13,7 @@ class EntriesController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @entries = @user.entries.by_last_updated.page params[:page]
+    @entries = @user.entries.by_last_updated.page(params[:page]).per(10)
   end
 
   def update
