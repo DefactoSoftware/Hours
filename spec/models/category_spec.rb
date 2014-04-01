@@ -21,6 +21,11 @@ describe Category do
     end
   end
 
-  describe "associations" do
+  describe "#by_name" do
+    it "orders by name case insensitive" do
+      create(:category, name: "B")
+      a = create(:category, name: "a")
+      expect(Category.by_name.first).to eq(a)
+    end
   end
 end
