@@ -77,4 +77,13 @@ describe Project do
       expect(Project.by_last_updated.first).to eq(project)
     end
   end
+
+
+  describe "#by_name" do
+    it "orders by name case insensitive" do
+      create(:project, name: "B")
+      a = create(:project, name: "a")
+      expect(Project.by_name.first).to eq(a)
+    end
+  end
 end

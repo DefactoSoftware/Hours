@@ -17,6 +17,7 @@ class Project < ActiveRecord::Base
   has_many :tags, -> { uniq }, through: :entries
 
   scope :by_last_updated, -> { order("updated_at DESC") }
+  scope :by_name, -> { order("lower(name)") }
 
   def sorted_categories
     categories.sort_by do |category|
