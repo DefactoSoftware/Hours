@@ -13,6 +13,8 @@
 #
 
 class Entry < ActiveRecord::Base
+  paginates_per 10
+
   belongs_to :project, touch: true
   belongs_to :category
   belongs_to :user
@@ -28,6 +30,7 @@ class Entry < ActiveRecord::Base
   accepts_nested_attributes_for :taggings
 
   scope :by_last_created_at, -> { order("created_at desc") }
+  scope :by_last_updated, -> { order("updated_at DESC") }
 
   def tag_list
     tags.map(&:name).join(", ")

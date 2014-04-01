@@ -1,6 +1,5 @@
 <div class="container">
   <h1><%= @user.first_name %>'s hours</h1>
-
   <table class="entries">
     <thead>
       <tr>
@@ -41,4 +40,5 @@
     <% end %>
     </tbody>
   </table>
+  <%= paginate @entries %>
 </div>
