@@ -46,8 +46,8 @@ feature "User manages projects" do
 
     visit root_url(subdomain: subdomain)
 
-    within ".projects" do
-      expect(page).to have_content("Previous 1 2 Next")
+    within ".pagination" do
+      expect(page).to have_content("1 2 Next")
     end
   end
 
