@@ -7,7 +7,7 @@
   </h2>
 
   <ul class="tags">
-    <% project.tags.each do |tag| %>
+    <% project.tags.last(5).each do |tag| %>
       <li class="tag"><a href="#"><%= tag.name %></a></li>
     <% end %>
   </ul>
