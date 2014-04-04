@@ -73,4 +73,14 @@ describe Entry do
       expect(Entry.by_last_created_at.first).to eq(last_entry)
     end
   end
+
+  describe "#by_date" do
+    it "orders the entries by date (latest first)" do
+      create(:entry, date: Date.new(2014, 01, 01))
+      latest = create(:entry, date: Date.new(2014, 03, 03))
+      create(:entry, date: Date.new(2014, 02, 02))
+
+      expect(Entry.by_date.first).to eq(latest)
+    end
+  end
 end
