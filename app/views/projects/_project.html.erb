@@ -16,7 +16,7 @@
     <ol class="activities">
       <% project.sorted_categories.each do |category| %>
         <li>
-          <div>
+          <div class="category">
             <span class="color" style="background-color:<%= category.name.pastel_color %>;"></span>
             <span class="activity"><%= category.name %></span>
           </div>

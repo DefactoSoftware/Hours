@@ -107,6 +107,36 @@
       margin: 10px 0px 10px 40px;
     }
 
+    .activities {
+      .category {
+        display: inline-block;
+      }
+
+      .spent {
+        display: inline-block;
+        width: auto;
+        height: auto;
+        margin: auto;
+        line-height: 1;
+        text-align: left;
+
+        .spent-info {
+          top: 0;
+        }
+      }
+
+      .hours {
+        display: none;
+      }
+
+      .percent {
+        margin-top: 0px;
+      }
+      .spent-chart {
+        display: none;
+      }
+    }
+
     .project-list {
       margin: 0 40px;
       padding: 0;
