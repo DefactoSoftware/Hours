@@ -62,12 +62,29 @@ feature "User manages projects" do
     expect(page).to have_content("TDD")
   end
 
+  scenario "views a single project with more" \
+           "than the maximum shown categories" do
+    project = create(:project_with_more_than_maximum_entries)
+
+    visit project_url(project, subdomain: subdomain)
+
+    expect(page).to have_content(I18n.t("category.remaining"))
+  end
+
+  scenario "views a single project with" \
+           "less then the maximum shown categories" do
+    project = create(:project_with_entries)
+
+    visit project_url(project, subdomain: subdomain)
+
+    expect(page).not_to have_content(I18n.t("category.remaining"))
+  end
+
   scenario "views his own hours" do
     project = create(:project)
     tag = create(:tag)
     entry = create(:entry, project: project, user: user)
     entry.tags << tag
-
 
     visit root_url(subdomain: subdomain)
     click_link "My Hours"
