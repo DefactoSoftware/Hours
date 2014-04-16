@@ -5,11 +5,17 @@ class ApplicationController < ActionController::Base
   before_filter :load_schema, :authenticate_user!
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def present(object, klass = nil)
+    klass ||= "#{object.class}Presenter".constantize
+    klass.new(object, view_context)
+  end
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
-      u.permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      u.permit(:first_name, :last_name, :email,
+               :password, :password_confirmation)
     end
   end
 

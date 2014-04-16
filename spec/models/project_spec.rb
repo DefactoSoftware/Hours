@@ -8,7 +8,7 @@
 #  updated_at :datetime
 #
 
-require 'spec_helper'
+require "spec_helper"
 
 describe Project do
   let(:project) { create(:project) }
@@ -47,7 +47,7 @@ describe Project do
         category = create(:category)
         create(:entry, hours: 2, project: project, category: category)
         create(:entry, hours: 2, project: project, category: create(:category))
-        expect(project.percentage_spent_on(category)).to eq(50)
+        expect(category.percentage_spent_on(project)).to eq(50)
       end
     end
   end
@@ -59,10 +59,10 @@ describe Project do
       create(:entry, hours: 4, project: project, user: user1)
       create(:entry, hours: 3, project: project, user: user2)
       expect(project.hours_per_user).to include(
-        { value: 4, color: user1.full_name.pastel_color },
+        value: 4, color: user1.full_name.pastel_color
       )
       expect(project.hours_per_user).to include(
-        { value: 3, color: user2.full_name.pastel_color }
+        value: 3, color: user2.full_name.pastel_color
       )
     end
   end
@@ -77,7 +77,6 @@ describe Project do
       expect(Project.by_last_updated.first).to eq(project)
     end
   end
-
 
   describe "#by_name" do
     it "orders by name case insensitive" do
