@@ -14,6 +14,8 @@ en:
       index: My Hours
     reports:
       index: Reports
+  category:
+    remaining: Remaining
   date:
     today: today
     date_ago: "%{date} ago"

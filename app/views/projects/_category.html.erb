@@ -1,0 +1,13 @@
+<li>
+  <div class="category">
+    <span class="color" style="background-color:<%= category.name.pastel_color %>;"></span>
+    <span class="activity"><%= category.name %></span>
+  </div>
+  <div class="spent">
+    <canvas class="spent-chart" data-spent="<%= category.percentage_spent_on(project).to_json %>" data-color="<%= category.name.pastel_color %>" width="100" height="100"></canvas>
+    <div class="spent-info">
+      <span class="hours" style="color: <%= category.name.pastel_color %>"><%= category.hours_spent(project) %></span>
+      <span class="percent"><%= category.percentage_spent_on(project) %>%</span>
+    </div>
+  </div>
+</li>
