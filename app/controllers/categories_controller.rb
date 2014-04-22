@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
 
   def set_index_params
     @new_category = Category.new
-    @categories = Category.all
+    @categories = Category.by_name
   end
 
   def category_params

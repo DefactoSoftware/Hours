@@ -31,6 +31,20 @@ feature "User manages categories" do
     end
   end
 
+  scenario "orders the categories alphabetically" do
+    create(:category, name: "A")
+    create(:category, name: "C")
+    create(:category, name: "b")
+
+    visit categories_url(subdomain: subdomain)
+
+    within ".categories" do
+      expect(page).to have_selector("ul.categories-overview li:first-child", text: "A")
+      expect(page).to have_selector("ul.categories-overview li:nth-child(2)", text: "b")
+      expect(page).to have_selector("ul.categories-overview li:nth-child(3)", text: "C")
+    end
+  end
+
   def create_category(name)
     visit categories_url(subdomain: subdomain)
     fill_in "Name", with: name
