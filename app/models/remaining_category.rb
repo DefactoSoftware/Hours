@@ -27,7 +27,7 @@ class RemainingCategory
   end
 
   def hours_spent_on_entries(entries)
-    entries.map(&:hours).reduce(0, :+)
+    entries.sum(:hours)
   end
 
   class GrayName
