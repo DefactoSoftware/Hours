@@ -25,4 +25,8 @@ describe RemainingCategory do
       expect(remaining_category.percentage_spent_on(project)).to eq(40)
     end
   end
+
+  it "has a gray name" do
+    expect(remaining_category.name.pastel_color).to eq("#BEBEBE")
+  end
 end

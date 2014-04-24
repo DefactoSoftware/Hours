@@ -4,7 +4,7 @@ class RemainingCategory
   end
 
   def name
-    I18n.t("category.remaining")
+    GrayName.new(I18n.t("category.remaining"))
   end
 
   def percentage_spent_on(project)
@@ -28,5 +28,19 @@ class RemainingCategory
 
   def hours_spent_on_entries(entries)
     entries.map(&:hours).reduce(0, :+)
+  end
+
+  class GrayName
+    def initialize(name)
+      @name = name
+    end
+
+    def to_s
+      @name
+    end
+
+    def pastel_color
+      "#BEBEBE"
+    end
   end
 end
