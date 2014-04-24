@@ -20,7 +20,6 @@ Hours::Application.routes.draw do
     resources :users, only: [] do
       resources :entries, only: :index
     end
-    resources :reports, only: [:index]
 
     namespace :api, defaults: {format: :json} do
       resources :entries, only: :index
