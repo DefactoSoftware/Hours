@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   has_one :account, foreign_key: "owner_id", inverse_of: :owner
   belongs_to :organization, class_name: "Account", inverse_of: :users
   has_many :entries
-  has_many :projects, through: :entries, uniq: true
+  has_many :projects, -> { uniq }, through: :entries
 
   def full_name
     "#{first_name} #{last_name}"
