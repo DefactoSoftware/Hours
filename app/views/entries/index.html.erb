@@ -1,5 +1,18 @@
 <div class="container">
   <h1><%= @user.first_name %>'s hours</h1>
+
+  <div class="hours-per-user-overview" %>
+    <canvas id="hours-per-user" data-data="<%= @user.hours_per_project.to_json %>" width=300 height=300></canvas>
+    <ul class="legend">
+    <% @user.projects.each do |project| %>
+      <li>
+      <span class="color" style="background-color: <%= project.name.pastel_color %>"></span> <%= project.name %>: <%= @user.percentage_spent_on(project).round %>% (<%= @user.hours_spent_on(project) %>h)
+      </li>
+    <% end %>
+    <li><strong>Total: <%= @user.hours_spent %>h</strong></li>
+    </ul>
+  </div>
+
   <table class="entries">
     <thead>
       <tr>

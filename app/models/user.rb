@@ -34,13 +34,28 @@ class User < ActiveRecord::Base
   has_one :account, foreign_key: "owner_id", inverse_of: :owner
   belongs_to :organization, class_name: "Account", inverse_of: :users
   has_many :entries
+  has_many :projects, through: :entries, uniq: true
 
   def full_name
     "#{first_name} #{last_name}"
   end
 
   def hours_spent_on(project)
-    entries.where(project: project).map(&:hours).reduce(0, :+)
+    entries.where(project: project).sum(:hours)
+  end
+
+  def percentage_spent_on(project)
+    hours_spent_on(project).to_f / hours_spent.to_f * 100
+  end
+
+  def hours_spent
+    entries.sum(:hours)
+  end
+
+  def hours_per_project
+    projects.map do |project|
+      { value: hours_spent_on(project), color: project.name.pastel_color }
+    end
   end
 
   private

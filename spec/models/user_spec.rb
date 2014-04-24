@@ -74,4 +74,15 @@ describe User do
       expect(user.hours_spent_on(project)).to eq(5)
     end
   end
+
+  describe "#precentage_spent_on" do
+    it "returns the percentage of hours spent" do
+      user = create(:user)
+      project1 = create(:project)
+      project2 = create(:project)
+      create(:entry, user: user, project: project1, hours: 2)
+      create(:entry, user: user, project: project2, hours: 2)
+      expect(user.percentage_spent_on(project1)).to eq(50)
+    end
+  end
 end
