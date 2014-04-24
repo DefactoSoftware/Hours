@@ -15,7 +15,7 @@ en:
     reports:
       index: Reports
   category:
-    remaining: Remaining
+    remaining: Other
   date:
     today: today
     date_ago: "%{date} ago"
