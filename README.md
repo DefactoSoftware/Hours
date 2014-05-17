@@ -41,5 +41,3 @@ Guidelines
 - Please adhere to the [Github ruby styleguide](https://github.com/styleguide/ruby)
 - All code and commit messages should be in English
 - Commit messages are written in the imperative with a short, descriptive title. Good => `Return a 204 when updating a question`, bad => `Changed http response` or `I updated the http response on the update action in the QuestionController because we're not showing any data there`. The first line should always be 50 characters or less and that it should be followed by a blank line.
-Use the following guides for getting things done, programming well, and
-programming in style.
