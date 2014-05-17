@@ -37,7 +37,7 @@ you need to point apache/nginx to the port foreman is running the app on (7000 b
 Guidelines
 ----------
 - Write specs!
-- Development happens on the `development` branch only, if something is finished open a pull-request to master. Master should always be ready for deployment.
+- Develop features on dedicated feature branches, feel free to open a PR while it's still WIP
 - Please adhere to the [Github ruby styleguide](https://github.com/styleguide/ruby)
 - All code and commit messages should be in English
 - Commit messages are written in the imperative with a short, descriptive title. Good => `Return a 204 when updating a question`, bad => `Changed http response` or `I updated the http response on the update action in the QuestionController because we're not showing any data there`. The first line should always be 50 characters or less and that it should be followed by a blank line.
