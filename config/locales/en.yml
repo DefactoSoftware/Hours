@@ -70,12 +70,7 @@ en:
     other: "%{user} spent %{count} hours doing %{category} on %{project} (%{time_ago})"
   hours: hours
 
-  reports:
-    data_count_html: <span class="filter-count"></span> selected out of <span class="total-count"></span> entries
-    reset_all: Reset All
-    date: Date
-    project: Project
-    category: Category
-    hours: Hours
-    user: User
-    tags: Tags
+  helpful:
+    title: Need help?
+    tagline: Have a question about Hours? Need some help getting started?
+    placeholder: Write your question here...
