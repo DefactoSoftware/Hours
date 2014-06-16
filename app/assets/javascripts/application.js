@@ -58,3 +58,10 @@ $("#entry_tag_list").selectize({
     return callback(result);
   }
 });
+
+$(document).ready(function(){
+    $(".submit-button").prop("disabled", true);
+    $("#content").keyup(function() {
+            $(".submit-button").prop("disabled", $(this).val() === "");
+    });
+});
