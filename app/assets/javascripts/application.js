@@ -22,6 +22,13 @@
 //= require dc
 //= require_tree .
 
+
+var Hours = Hours || {
+  dismissModal: function() {
+    $('.modal-state').attr('checked', false);
+  }
+};
+
 var picker = new Pikaday({
   field: $('#datepicker')[0],
   format: 'DD/MM/YYYY'
@@ -56,5 +63,24 @@ $("#entry_tag_list").selectize({
       return e.tag.indexOf(query) === 0;
     });
     return callback(result);
+  }
+});
+
+$(document).ready(function(){
+  $('.submit-button').prop('disabled', true);
+  $('#content').keyup(function() {
+    $('.submit-button').prop('disabled', $(this).val() === '');
+  });
+
+  $('.modal-window').on('click', Hours.dismissModal).
+    on('click', 'div', function(e) { e.stopPropagation();
+  });
+});
+
+$(document).keyup(function(event) {
+  var ESCAPE_KEY = 27;
+
+  if (event.keyCode === ESCAPE_KEY) {
+    Hours.dismissModal();
   }
 });

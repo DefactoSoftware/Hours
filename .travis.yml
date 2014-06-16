@@ -6,6 +6,7 @@ script:
 - bundle exec rake db:test:prepare
 - bundle exec rake
 before_script:
+- cp .sample.env .env
 - cp config/database.travis.yml config/database.yml
 - psql -c 'create database hours_test' -U postgres
 - export DISPLAY=:99.0

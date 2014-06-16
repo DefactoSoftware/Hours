@@ -1,0 +1,17 @@
+<div class="modal-window">
+  <form action="<%= Hours.helpful_url %>" method="post" target="_b">
+    <div class="modal-inner">
+      <div class="content">
+        <label class="modal-close" for="modal-1"></label>
+        <h3><%= t('helpful.heading') %></h3>
+        <p><%= t('helpful.tagline') %></p>
+        <input type="hidden" name="account" value="<%= Hours.helpful_account %>">
+        <input type="hidden" id="email" name="email" value="<%= current_user.email %>">
+        <textarea id="content" name="content" type="text" placeholder="<%= t('helpful.placeholder') %>"></textarea>
+      </div>
+        <div class="actions">
+          <input type="submit" class="submit-button" value="Submit">
+        </div>
+    </div>
+  </form>z
+</div>

@@ -9,8 +9,19 @@
 
   <div class="nav-user">
     <ul>
+      <% if Hours.helpful_enabled? %>
+        <li class="navigation">
+          <div class="modal">
+            <label for="modal-1"><a>Help me!</a></label>
+            <input class="modal-state" id="modal-1" type="checkbox">
+            <%= render 'modal' %>
+          </div>
+        </li>
+      <% end %>
         <%= nav_path t("sign_out"), destroy_user_session_path, method: :delete %>
         <li><%= user_image_link(current_user) %></li>
     </ul>
   </div>
 </div>
+
+
