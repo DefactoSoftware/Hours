@@ -28,13 +28,20 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable,
           :registerable, :confirmable
 
+  before_validation :generate_slug
+
   validates_presence_of :first_name, :last_name
+  validates :slug, presence: true, uniqueness: true
   validate :email_matches_account_owners
 
   has_one :account, foreign_key: "owner_id", inverse_of: :owner
   belongs_to :organization, class_name: "Account", inverse_of: :users
   has_many :entries
   has_many :projects, -> { uniq }, through: :entries
+
+  def to_param
+    slug
+  end
 
   def full_name
     "#{first_name} #{last_name}"
@@ -67,6 +74,20 @@ class User < ActiveRecord::Base
     unless user_email_domain == owner_email_domain
       errors.add(:email, :invalid_email)
     end
+  end
+
+  def generate_slug
+    return unless first_name && last_name
+    self["slug"] ||= unless User.find_by_slug(full_name.parameterize)
+                     full_name.parameterize
+                   else
+                     index = 0
+                     loop do
+                       index += 1
+                       unique_slug = "#{full_name}-#{index}".parameterize
+                       break unique_slug unless User.where(slug: unique_slug).exists?
+                     end
+                   end
   end
 end
 
