@@ -4,7 +4,7 @@ describe ApplicationHelper do
   include GravatarImageTag
 
   describe "#user_image_link" do
-    let(:user) { build_stubbed(:user) }
+    let(:user) { create(:user) }
 
     it "renders the gravatar url" do
       expect(user_image_link(user)).to include("http://gravatar.com/avatar")

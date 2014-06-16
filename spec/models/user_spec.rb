@@ -32,6 +32,8 @@ describe User do
     it { should validate_presence_of :last_name }
     it { should validate_presence_of :email }
     it { should validate_presence_of :password }
+    it { should validate_presence_of :slug }
+    it { should validate_uniqueness_of :slug }
 
     describe "email domain" do
       let(:subdomain) { generate(:subdomain) }
@@ -83,6 +85,19 @@ describe User do
       create(:entry, user: user, project: project1, hours: 2)
       create(:entry, user: user, project: project2, hours: 2)
       expect(user.percentage_spent_on(project1)).to eq(50)
+    end
+  end
+
+  describe 'generating unique slugs' do
+    it "uses the full name when available" do
+      user = create(:user, first_name: 'Phillip', last_name: 'Fry')
+      expect(user.slug).to eq('phillip-fry')
+    end
+
+    it "uses the full name with an index when the full name is taken" do
+      create(:user, first_name: 'Phillip', last_name: 'Fry')
+      user_with_same_name = create(:user, first_name: 'Phillip', last_name: 'Fry')
+      expect(user_with_same_name.slug).to eq('phillip-fry-1')
     end
   end
 end

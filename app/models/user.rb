@@ -25,6 +25,8 @@
 #
 
 class User < ActiveRecord::Base
+  include Sluggable
+
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable,
           :registerable, :confirmable
 
@@ -39,6 +41,7 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+  alias_method :slug_source, :full_name
 
   def hours_spent_on(project)
     entries.where(project: project).sum(:hours)
