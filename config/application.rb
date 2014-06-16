@@ -13,6 +13,8 @@ Bundler.require(:default, Rails.env)
 
 module Hours
   class Application < Rails::Application
+    require "hours"
+
     config.active_record.default_timezone = :utc
 
     config.generators do |generate|

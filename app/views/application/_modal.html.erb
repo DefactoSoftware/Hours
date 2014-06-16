@@ -1,11 +1,11 @@
 <div class="modal-window">
-  <form action="https://helpful.io/incoming_message" method="post" target="_b">
+  <form action="<%= Hours.helpful_url %>" method="post" target="_b">
     <div class="modal-inner">
       <div class="content">
         <label class="modal-close" for="modal-1"></label>
         <h3>Need Help?</h3>
         <p>Have a question about Hours? Need some help getting started?</p>
-        <input type="hidden" name="account" value="defacto-63d878e5-c567-4a1c-8507-3af515fcaa0b">
+        <input type="hidden" name="account" value="<%= Hours.helpful_account %>">
         <input type="hidden" id="email" name="email" value="<%= current_user.email %>">
         <textarea id="content" name="content" type="text" placeholder="Write your question here..."></textarea>
       </div>
@@ -13,8 +13,5 @@
           <input type="submit" class="submit-button" value="Submit">
         </div>
     </div>
-  </form>
+  </form>z
 </div>
-<script>
-
-</script>
