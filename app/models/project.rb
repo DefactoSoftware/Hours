@@ -9,6 +9,8 @@
 #
 
 class Project < ActiveRecord::Base
+  include Sluggable
+
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false }
   has_many :entries
@@ -39,5 +41,9 @@ class Project < ActiveRecord::Base
 
   def hours_spent_on_entries(entries)
     entries.sum(:hours)
+  end
+
+  def slug_source
+    name
   end
 end
