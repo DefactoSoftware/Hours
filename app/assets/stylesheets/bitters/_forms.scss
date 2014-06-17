@@ -24,11 +24,9 @@ select {
 }
 
 label {
-  font-weight: bold;
   margin-bottom: $base-line-height / 4;
 
   &.required:after {
-    content: "*";
   }
 
   abbr {
@@ -80,7 +78,7 @@ select {
   border: 1px solid $form-border-color;
   margin-bottom: 0;
   box-sizing: border-box;
-  height: 36px;
+  height: 40px;
 }
 
 button,
@@ -89,6 +87,5 @@ input[type="submit"] {
   @include appearance(none);
   cursor: pointer;
   user-select: none;
-  vertical-align: middle;
   white-space: nowrap;
 }
