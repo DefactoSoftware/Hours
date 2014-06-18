@@ -76,6 +76,16 @@ $(document).ready(function(){
 
   $('#entry_project_id').select2();
   $('#entry_category_id').select2();
+
+  if ($('.entries-index')) {
+    var data = $('#hours-per-day-chart').data('data');
+    var canvas = $('#hours-per-day-chart').get(0).getContext('2d');
+    var chart = new Chart(canvas).Bar(data, {
+      scaleShowGridLines : false,
+      scaleGridLineColor: 'transparent',
+      scaleFontFamily : "'OpenSans'"
+    });
+  }
 });
 
 $(document).keyup(function(event) {

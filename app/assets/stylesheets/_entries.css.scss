@@ -36,6 +36,20 @@
   .container {
     width: 90%;
   }
+
+  #hours-per-day-chart {
+    width: 100%!important;
+    max-width: 1800px!important;
+    height: 200px!important;
+  }
+
+  .hours-per-day {
+    p {
+      margin-left: 30px;
+      font-size: 0.8em;
+    }
+  }
+
 }
 
 .new_entry_wrapper {

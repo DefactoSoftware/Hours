@@ -14,6 +14,8 @@ class EntriesController < ApplicationController
   def index
     @user = User.find_by_slug(params[:user_id])
     @entries = @user.entries.by_date.page(params[:page]).per(10)
+    @time_series = TimeSeries.new(entries: @user.entries,
+                                  time_span: (30.days.ago.to_date..Date.today))
   end
 
   def update

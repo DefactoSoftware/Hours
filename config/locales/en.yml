@@ -57,6 +57,7 @@ en:
       edit: edit
       total: "Total %{hours_spent}"
       hours_indication: h
+      hours_per_day: Hours spent per day in the last 30 days
 
   back: Back
   confirm: Are you sure?

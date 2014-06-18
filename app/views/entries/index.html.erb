@@ -1,6 +1,11 @@
 <div class="container">
   <h1><%= t('entries.index.user_hours', user: @user.first_name) %></h1>
 
+  <div class="hours-per-day">
+  <p><%= t('entries.index.hours_per_day') %></p>
+    <canvas id="hours-per-day-chart" data-data="<%= @time_series.serialize.to_json %>" width=1800 height=200></canvas>
+  </div>
+
   <div class="hours-per-user-overview" %>
     <canvas id="hours-per-user" data-data="<%= @user.hours_per_project.to_json %>" width=300 height=300></canvas>
     <ul class="legend">
