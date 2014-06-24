@@ -17,9 +17,6 @@
 //= require selectize
 //= require Chart
 //= require projects
-//= require d3
-//= require crossfilter
-//= require dc
 //= require_tree .
 
 
