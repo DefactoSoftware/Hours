@@ -32,8 +32,6 @@ gem "active_model_serializers"
 gem 'kaminari'
 
 # reporting
-gem "crossfilter-rails"
-gem "d3_rails"
 
 group :development do
   gem "better_errors"
