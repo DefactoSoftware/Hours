@@ -20,7 +20,7 @@ describe TimeSeries do
 
         datasets: [{
           data: [8, 0, 5, 0],
-          fillColor: '#dddddd'
+          fillColor: '#bbbbbb'
         }]
       })
     end

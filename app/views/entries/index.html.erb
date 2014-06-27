@@ -6,8 +6,9 @@
     <canvas id="hours-per-day-chart" data-data="<%= @time_series.serialize.to_json %>" width=1800 height=200></canvas>
   </div>
 
-  <div class="hours-per-user-overview" %>
-    <canvas id="hours-per-user" data-data="<%= @user.hours_per_project.to_json %>" width=300 height=300></canvas>
+  <div class="hours-per-user-overview">
+    <p>Hours spent per project</p>
+    <canvas id="hours-per-user" data-data="<%= @user.hours_per_project.to_json %>" width="300" height="300"></canvas>
     <ul class="legend">
     <% @user.projects.each do |project| %>
       <li>
