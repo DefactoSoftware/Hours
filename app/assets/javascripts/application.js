@@ -81,9 +81,16 @@ $(document).ready(function(){
     var data = $('#hours-per-day-chart').data('data');
     var canvas = $('#hours-per-day-chart').get(0).getContext('2d');
     var chart = new Chart(canvas).Bar(data, {
-      scaleShowGridLines : false,
+      scaleShowGridLines: false,
       scaleGridLineColor: 'transparent',
-      scaleFontFamily : "'OpenSans'"
+      scaleFontFamily: "'OpenSans'",
+
+      // scaleLineWidth: 0,
+      // scaleShowLabels: false,
+      // scaleLabel: "",
+      // barShowStroke: false,
+      // scaleOverlay: false,
+      scaleFontColor: '#ccc'
     });
   }
 });

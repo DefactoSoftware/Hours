@@ -10,7 +10,7 @@ class TimeSeries
       datasets: [
         {
           data: @time_span.map { |date| @hours_per_day[date] || 0 },
-          fillColor: '#dddddd'
+          fillColor: '#bbbbbb'
         }
       ]
     }
