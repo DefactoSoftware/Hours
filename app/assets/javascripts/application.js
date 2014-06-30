@@ -16,6 +16,7 @@
 //= require pikaday
 //= require selectize
 //= require Chart
+//= require select2
 //= require projects
 //= require_tree .
 
@@ -72,6 +73,9 @@ $(document).ready(function(){
   $('.modal-window').on('click', Hours.dismissModal).
     on('click', 'div', function(e) { e.stopPropagation();
   });
+
+  $('#entry_project_id').select2();
+  $('#entry_category_id').select2();
 });
 
 $(document).keyup(function(event) {
