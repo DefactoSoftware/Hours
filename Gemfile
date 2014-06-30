@@ -29,8 +29,8 @@ gem "gravatar_image_tag"
 gem "hashtel", "~> 0.0.2"
 gem "chart-js-rails"
 gem "active_model_serializers"
-gem 'kaminari'
-
+gem "kaminari"
+gem "select2-rails"
 # reporting
 
 group :development do

@@ -16,6 +16,7 @@
 @import "projects";
 @import "dc";
 @import "modal";
+@import "select2";
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -101,5 +102,11 @@ body {
 
   g.row text {
     fill: #333;
+  }
+}
+
+.new_entry_wrapper {
+  .select {
+    width: 250px;
   }
 }
