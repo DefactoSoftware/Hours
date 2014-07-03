@@ -14,7 +14,7 @@ gem "neat"
 gem "bitters"
 gem "pg"
 gem "rack-timeout"
-gem "rails", "~> 4.0.0"
+gem "rails", "~> 4.0.8"
 gem "recipient_interceptor"
 gem "sass-rails", '~> 4.0.1'
 gem "simple_form"
