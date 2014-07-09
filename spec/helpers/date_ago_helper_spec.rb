@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe DateAgoHelper do
-  describe "#date_ago_in_words" do
+  describe "#date_ago_in_words", type: :helper do
     it "returns today for current date" do
       expect(helper.date_ago_in_words(Date.today)).to eq("today")
     end

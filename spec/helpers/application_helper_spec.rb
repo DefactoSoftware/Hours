@@ -3,7 +3,7 @@ require "spec_helper"
 describe ApplicationHelper do
   include GravatarImageTag
 
-  describe "#user_image_link" do
+  describe "#user_image_link", type: :helper do
     let(:user) { create(:user) }
 
     it "renders the gravatar url" do
