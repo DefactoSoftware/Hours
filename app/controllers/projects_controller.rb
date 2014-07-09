@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      redirect_to root_path, notice: I18n.t(:project_created)
+      redirect_to root_path, notice: t(:project_created)
     else
       render action: "new"
     end

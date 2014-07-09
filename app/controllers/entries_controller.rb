@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
     @entry.user = current_user
     if @entry.save
-      redirect_to root_path, notice: I18n.t(:entry_created)
+      redirect_to root_path, notice: t(:entry_created)
     else
       redirect_to root_path, notice: @entry.errors.full_messages.join(" ")
     end
@@ -34,7 +34,7 @@ class EntriesController < ApplicationController
   def destroy
     @entry = entry
     @entry.destroy
-    redirect_to user_entries_path(current_user), notice: "Entry successfully deleted"
+    redirect_to user_entries_path(current_user), notice: t('entry_deleted')
   end
 
   private
