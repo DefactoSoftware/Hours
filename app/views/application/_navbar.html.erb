@@ -18,8 +18,27 @@
           </div>
         </li>
       <% end %>
-        <%= nav_path t("sign_out"), destroy_user_session_path, method: :delete %>
-        <li><%= user_image_link(current_user) %></li>
+      <li id="user-nav" class="dropdown">
+        <a href="javascript:void(0)"><%= current_user.first_name %><span class="caret"></span></a>
+        <div class="dropdown-menu">
+          <div class="dropdown-arrow"></div>
+          <div class="dropdown-content">
+            <div class="user-info">
+              <%= gravatar_image_tag(current_user.email, class: "avatar") %>
+              <span class="user-name"><%= current_user.first_name %></span>
+            </div>
+            <ul>
+              <li>
+                <%= link_to "Edit user", edit_user_registration_path(current_user) %>
+              </li>
+              <li class="devider"></li>
+              <li>
+                <a data-method="delete" href="/users/sign_out">Sign Out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
 </div>
