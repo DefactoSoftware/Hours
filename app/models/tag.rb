@@ -21,6 +21,6 @@ class Tag < ActiveRecord::Base
   end
 
   def hours_for(project)
-    entries.where(project: project).map(&:hours).reduce(0, :+)
+    entries.where(project: project).sum(:hours)
   end
 end
