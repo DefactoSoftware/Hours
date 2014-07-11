@@ -10,13 +10,14 @@
   <div class="nav-user">
     <ul>
       <% if Hours.helpful_enabled? %>
-        <li class="navigation">
-          <div class="modal">
-            <label for="modal-1"><a>Help me!</a></label>
-            <input class="modal-state" id="modal-1" type="checkbox">
-            <%= render 'modal' %>
-          </div>
+        <li >
+        <div class="modal">
+          <label for="modal-1"><a>Help me!</a></label>
+          <input class="modal-state" id="modal-1" type="checkbox">
+          <%= render 'modal' %>
+        </div>
         </li>
+        <div class="divider"></div>
       <% end %>
       <li id="user-nav" class="dropdown">
         <a href="javascript:void(0)"><%= current_user.first_name %><span class="caret"></span></a>
@@ -42,5 +43,4 @@
     </ul>
   </div>
 </div>
-
 

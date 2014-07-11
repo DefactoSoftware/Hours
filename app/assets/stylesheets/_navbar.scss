@@ -1,5 +1,7 @@
 @import "bitters/variables";
 
+$header-border-color: #ddd;
+
 #navbar {
   z-index: 1000;
   position: fixed;
@@ -56,6 +58,12 @@
 
     .navigation a {
       margin-top:-7px;
+    }
+    a {
+
+      &:hover {
+       border-bottom: 3px solid transparent;
+      }
     }
 
     .image-circle {
