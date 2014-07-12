@@ -52,7 +52,9 @@ en:
       category: Category
       tags: Tags
 
+  back: Back
   confirm: Are you sure?
+  sign_in: Sign in
   sign_up: Sign Up
   sign_out: Sign Out
   account_created_successfully: Signed up successfully
@@ -75,3 +77,27 @@ en:
     title: Need help?
     tagline: Have a question about Hours? Need some help getting started?
     placeholder: Write your question here...
+
+  email:
+    confirmation:
+      text: "You can confirm your account email through the link below:"
+      salutation: "Welcome %{email}!"
+      confirm_password: "Confirm my account"
+    reset_password:
+      salutation: "Hello %{email} !"
+      requested_link: "Someone has requested a link to change your password. You can do this through the link below."
+      wrong_mail: "If you didn't request this, please ignore this email."
+      info_text: "Your password won't change until you access the link above and create a new one."
+      change_password: "Change my password"
+
+  registration:
+    pending_information: "Currently waiting confirmation for: %{unconfirmed_mail}"
+    update_button: "Update"
+    hint:
+      blank: leave it blank if you don't want to change it
+      current_password: "we need your current password to confirm your changes"
+  
+  cancel_account:
+    unhappy: Unhappy?
+    cancel: "Cancel my account"
+    confirmation: Are you sure?
