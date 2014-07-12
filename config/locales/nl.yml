@@ -117,3 +117,8 @@ nl:
     table_head:
       tag: Tag
       hours: Uren
+
+  navbar:
+    dropdown:
+      edit_user: "Gegevens aanpassen"
+

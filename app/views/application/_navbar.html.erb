@@ -30,11 +30,11 @@
             </div>
             <ul>
               <li>
-                <%= link_to "Edit user", edit_user_registration_path(current_user) %>
+                <%= link_to t("navbar.dropdown.edit_user"), edit_user_registration_path(current_user) %>
               </li>
               <li class="devider"></li>
               <li>
-                <a data-method="delete" href="/users/sign_out">Sign Out</a>
+              <a data-method="delete" href="/users/sign_out"><%= t("sign_out") %></a>
               </li>
             </ul>
           </div>
