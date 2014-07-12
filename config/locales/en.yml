@@ -57,7 +57,7 @@ en:
       edit: edit
       total: "Total %{hours_spent}"
       hours_indication: h
-      
+
 
   back: Back
   confirm: Are you sure?
@@ -108,7 +108,7 @@ en:
   account:
     invalid_characters: "contains invalid characters"
     restricted: "restricted"
-  
+
   cancel_account:
     unhappy: Unhappy?
     cancel: "Cancel my account"
