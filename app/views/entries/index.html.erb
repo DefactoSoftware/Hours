@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= @user.first_name %>'s hours</h1>
+  <h1><%= t('entries.index.user_hours', user: @user.first_name) %></h1>
 
   <div class="hours-per-user-overview" %>
     <canvas id="hours-per-user" data-data="<%= @user.hours_per_project.to_json %>" width=300 height=300></canvas>
