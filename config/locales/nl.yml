@@ -1,0 +1,119 @@
+nl:
+  titles:
+    application: Uren
+    accounts:
+      new: Registratie
+    projects:
+      index: Projecten
+      new: Nieuw project
+    categories:
+      index: Categoriëen
+      new: Nieuwe categorie
+    activities: Activiteiten
+    entries:
+      index: Mijn uren
+    reports:
+      index: Reports
+  category:
+    remaining: Other
+  date:
+    today: vandaag
+    date_ago: "%{date} terug"
+    formats:
+      default: '%m/%d/%Y'
+      with_weekday: '%a %m/%d/%y'
+
+  time:
+    formats:
+      default: '%a, %b %-d, %Y at %r'
+      date: '%b %-d, %Y'
+      short: '%B %d'
+  helpers:
+    submit:
+      user:
+        create: Creëer account
+      project:
+        create: Creëer project
+      category:
+        new: Creëer categorie
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid_email: "%{attribute} is geen mail van de organisatie"
+  main_text: "Hier moet een supertoffe text komen te staan in het nederlands over hoe tof hours is"
+
+  entries:
+    index:
+      date: Datum
+      project: Project
+      hours: Uren
+      category: Categorie
+      tags: Tags
+      user_hours: "%{user}s uren"
+      delete: verwijderen
+      edit: aanpassen
+      total: "Totaal: %{hours_spent}"
+      hours_indication: u
+      
+
+  back: Terug
+  confirm: Weet u het zeker?
+  sign_in: Login
+  sign_up: Aanmelden
+  sign_out: Uitloggen
+  account_created_successfully: Aanmelden is gelukt
+  project_created: Het project is aangemaakt
+  category_created: De categorie is aangemaakt
+  no_hours_registered: "Niemand heeft nog tijd aan %{project} besteed"
+  project_activity_html:
+    one: "%{full_name} heeft %{hours} uren aan %{project} besteed"
+    other: "%{count} mensen hebben %{hours} uren aan %{project} besteed"
+  entry_created: Uren zijn aangemaakt
+  entry_saved: Uren zijn opgeslagen
+  entry_failed: Iets ging mis bij het opslaan van uw uren
+  entry_deleted: De uren zijn verwijderd
+  entry_activity_html:
+    one: "%{user} heeft één uur gespendeerd aan %{category} op %{project} %{time_ago}"
+    other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project} %{time_ago}"
+  hours: uren
+
+  helpful:
+    title: Hulp nodig?
+    tagline: Heeft u een vraag over Hours? Hulp nodig om te kunnen beginnen?
+    placeholder: Schrijf hier uw vraag...
+
+  email:
+    confirmation:
+      text: "Bevestig uw aanmelding met de link hieronder:"
+      salutation: "Welkom %{email}!"
+      confirm_password: "Bevestig mijn account"
+    reset_password:
+      salutation: "Hallo %{email} !"
+      requested_link: "Iemand heeft een aanvraag gedaan om uw wachtwoord te wijzigen. U kut dit doen met de link hieronder:"
+      wrong_mail: "Als deze aanvraag niet van u kwam, kunt u deze mail negeren."
+      info_text: "Uw wachtwoord wordt niet veranderdt tot u de link hierboven heb gebruikt om een nieuwe aan te maken."
+      change_password: "Verander mijn wachtwoord"
+
+  registration:
+    pending_information: "In afwachting van bevestiging voor: %{unconfirmed_mail}"
+    update_button: "Opslaan"
+    hint:
+      blank: "laat het veld leeg als u het niet wilt aanpassen"
+      current_password: "we hebben uw huidig wachtwoord nodig om de veranderingen te bevestigen"
+    edit: "Pas %{resource_name} aan"
+
+  account:
+    invalid_characters: "bevat invalide karakters"
+    restricted: "restricted"
+  
+  cancel_account:
+    unhappy: "Ontevreden?"
+    cancel: "Verwijder mijn account"
+    confirmation: "Weet u het zeker?"
+  project:
+    table_head:
+      tag: Tag
+      hours: Uren

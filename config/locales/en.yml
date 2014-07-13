@@ -53,6 +53,10 @@ en:
       category: Category
       tags: Tags
       user_hours: "%{user}'s hours"
+      delete: delete
+      edit: edit
+      total: "Total %{hours_spent}"
+      hours_indication: h
       
 
   back: Back
@@ -99,6 +103,7 @@ en:
     hint:
       blank: leave it blank if you don't want to change it
       current_password: "we need your current password to confirm your changes"
+    edit: "Edit %{resource_name}"
 
   account:
     invalid_characters: "contains invalid characters"
