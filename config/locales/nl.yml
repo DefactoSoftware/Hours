@@ -18,16 +18,52 @@ nl:
     remaining: Other
   date:
     today: vandaag
-    date_ago: "%{date} terug"
+    date_ago: "%{date} geleden"
     formats:
-      default: '%m/%d/%Y'
+      default: '%d/%m/%Y'
       with_weekday: '%a %m/%d/%y'
-
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: ongeveer een uur
+        other: ongeveer %{count} uur
+      about_x_months:
+        one: ongeveer een maand
+        other: ongeveer %{count} maanden
+      about_x_years:
+        one: ongeveer een jaar
+        other: ongeveer %{count} jaar
+      almost_x_years:
+        one: bijna een jaar
+        other: bijna %{count} jaar
+      half_a_minute: een halve minuut
+      less_than_x_minutes:
+        one: minder dan een minuut
+        other: minder dan %{count} minuten
+      less_than_x_seconds:
+        one: minder dan een seconde
+        other: minder dan %{count} seconden
+      over_x_years:
+        one: meer dan een jaar
+        other: meer dan %{count} jaar
+      x_days:
+        one: 1 dag
+        other: ! '%{count} dagen'
+      x_minutes:
+        one: 1 minuut
+        other: ! '%{count} minuten'
+      x_months:
+        one: 1 maand
+        other: ! '%{count} maanden'
+      x_seconds:
+        one: 1 seconde
+        other: ! '%{count} seconden'
   time:
     formats:
       default: '%a, %b %-d, %Y at %r'
       date: '%b %-d, %Y'
       short: '%B %d'
+
   helpers:
     submit:
       user:
@@ -57,7 +93,7 @@ nl:
       edit: aanpassen
       total: "Totaal: %{hours_spent}"
       hours_indication: u
-      
+
 
   back: Terug
   confirm: Weet u het zeker?
@@ -103,12 +139,12 @@ nl:
     hint:
       blank: "laat het veld leeg als u het niet wilt aanpassen"
       current_password: "we hebben uw huidig wachtwoord nodig om de veranderingen te bevestigen"
-    edit: "Pas %{resource_name} aan"
+    edit: "Pas uw gegevens aan"
 
   account:
     invalid_characters: "bevat invalide karakters"
     restricted: "restricted"
-  
+
   cancel_account:
     unhappy: "Ontevreden?"
     cancel: "Verwijder mijn account"

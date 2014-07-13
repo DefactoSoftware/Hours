@@ -11,7 +11,7 @@ feature "User manages categories" do
 
   scenario "creates a category" do
     create_category("New Category")
-    expect(page).to have_content("Category successfully created")
+    expect(page).to have_content(I18n.t('category_created'))
   end
 
   scenario "creates a category with a duplicate name" do

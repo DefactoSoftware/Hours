@@ -25,7 +25,7 @@ feature "User registers time" do
         click_button "Create Entry"
       end
 
-      expect(page).to have_content "Entry successfully created"
+      expect(page).to have_content I18n.t("entry_created")
     end
   end
 
@@ -38,7 +38,7 @@ feature "User registers time" do
         click_button "Create Entry"
       end
 
-      expect(page).to have_content "Entry successfully created"
+      expect(page).to have_content I18n.t("entry_created")
       expect(Entry.last.tags.count).to eq(2)
     end
   end

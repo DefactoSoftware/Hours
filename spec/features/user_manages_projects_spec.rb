@@ -14,7 +14,7 @@ feature "User manages projects" do
 
     fill_in "Name", with: "My new project"
     click_button "Create Project"
-    expect(page).to have_content("Project successfully created")
+    expect(page).to have_content(I18n.t('project_created'))
   end
 
   scenario "does not have access to other accounts projects" do
