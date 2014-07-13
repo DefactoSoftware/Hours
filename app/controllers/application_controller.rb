@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :load_schema, :authenticate_user!
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :set_locale
 
   def present(object, klass = nil)
     klass ||= "#{object.class}Presenter".constantize
@@ -39,4 +40,8 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path(resource_or_scope)
     new_user_session_path
   end
+
+  def set_locale
+    I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+  end 
 end

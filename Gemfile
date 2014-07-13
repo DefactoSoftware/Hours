@@ -31,6 +31,7 @@ gem "chart-js-rails"
 gem "active_model_serializers"
 gem "kaminari"
 gem "select2-rails"
+gem "http_accept_language"
 # reporting
 
 group :development do

@@ -1,0 +1,59 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+en:
+  devise:
+    confirmations:
+      confirmed: "Uw account is bevestigd!"
+      send_instructions: "Er wordt binnen een paar minuten een mail naar u toegestuurd met instructies voor het bevestigen van uw account."
+      send_paranoid_instructions: "Als uw email address bestaat in onze database, zult u binnen een paar minuten een email ontvangen met instructies voor het bevestigen."
+    failure:
+      already_authenticated: "U bent al ingelogd."
+      inactive: "Uw account is nog niet geactiveerd."
+      invalid: "Verkeerd email of wachtwoord."
+      locked: "Uw account is geblokkeerd."
+      last_attempt: "U heeft nog één poging voor uw account geblokkeerd wordt."
+      not_found_in_database: "Verkeerd email of wachtwoord."
+      timeout: "Uw sessie is verlopen. Log opnieuw in om verder te gaan."
+      unauthenticated: "U moet inloggen of aanmelden om verder te gaan."
+      unconfirmed: "U moet uw account bevestigen voor u verder kan gaan."
+    mailer:
+      confirmation_instructions:
+        subject: "Instructies bevestigen"
+      reset_password_instructions:
+        subject: "Instructies wachtwoord resetten"
+      unlock_instructions:
+        subject: "Instructies deblokkeren"
+    omniauth_callbacks:
+      failure: "U kon niet geauthentiseerd worden als %{kind} door \"%{reason}\"."
+      success: "U bent geauthentiseerd van %{kind} account."
+    passwords:
+      no_token: "U kunt deze pagina niet bezoeken als u niet van een wachtwoord reset email komt. Als u van een wachtwoord reset email komt, zorg er dan voor dat u de hele URL opleverd"
+      send_instructions: "U zult binnen enkele minuten een email ontvangen met instructies voor het resetten van uw wachtwoord"
+      send_paranoid_instructions: "Als uw email address bestaat in onze database, zult u binnen een paar minuten een email ontvangen met instructies voor het bevestigen."
+      updated: "Uw wachtwoord is veranderd. U bent nu ingelogd."
+      updated_not_active: "Uw wachtwoord is veranderd."
+    registrations:
+      destroyed: "Tot ziens! Uw account is verwijderd. We hopen u weer te zien."
+      signed_up: "Welkom! Het registreren is gelukt."
+      signed_up_but_inactive: "Het registreren is gelukt. Echter, we konden u niet inloggen omdat uw account nog inactief is."
+      signed_up_but_locked: "U heeft zich geregistreerd. Echter konden we u niet inloggen omdat uw account geblokkeerd is."
+      signed_up_but_unconfirmed: "Er is een bericht met een bevestigingslink naar uw email gestuurd. Om uw account te activeren moet u deze link openen."
+      update_needs_confirmation: "U heeft uw account aangepast, maar we moeten uw email valideren. Controlleer uw email en klik op de bevestigingslink om uw nieuw email te valideren."
+      updated: "Uw account is aangepast."
+    sessions:
+      signed_in: "U bent ingelogd."
+      signed_out: "U bent uitgelogd."
+    unlocks:
+      send_instructions: "U zult binnen enkele minuten een email ontvangen met instructies voor het deblokkeren van uw account"
+      send_paranoid_instructions: "Als uw email address bestaat in onze database, zult u binnen een paar minuten een email ontvangen met instructies voor het bevestigen."
+      unlocked: "Uw account is gedeblokkeerd. Log in om verder te gaan."
+  errors:
+    messages:
+      already_confirmed: "Uw account is al bevestigd, probeer om in te loggen."
+      confirmation_period_expired: "Er moet binnen %{period} bevestigd worden, vraag een nieuwe bevestigingsmail aan."
+      expired: "is verlopen, vraag een nieuwe aan."
+      not_found: "niet gevonden"
+      not_locked: "was niet geblokkeerd"
+      not_saved:
+        one: "1 fout voorkwam dat %{resource} opgeslagen is:"
+        other: "%{count} fouten voorkwamen dat %{resource} opgeslagen kon worden:"

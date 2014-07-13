@@ -6,10 +6,10 @@
     <ul class="legend">
     <% @user.projects.each do |project| %>
       <li>
-      <span class="color" style="background-color: <%= project.name.pastel_color %>"></span> <%= project.name %>: <%= @user.percentage_spent_on(project).round %>% (<%= @user.hours_spent_on(project) %>h)
+      <span class="color" style="background-color: <%= project.name.pastel_color %>"></span> <%= project.name %>: <%= @user.percentage_spent_on(project).round %>% (<%= @user.hours_spent_on(project) %><%= t('entries.index.hours_indication') %>)
       </li>
     <% end %>
-    <li><strong>Total: <%= @user.hours_spent %>h</strong></li>
+    <li><strong><%= t('entries.index.total', hours_spent: @user.hours_spent) %><%= t('entries.index.hours_indication') %></strong></li>
     </ul>
   </div>
 
@@ -45,8 +45,8 @@
         </td>
         <% if @user == current_user %>
           <td>
-            <%= link_to "edit", edit_entry_path(entry) %> -
-            <%= link_to "delete", entry, method: :delete, class: :destroy, data: { confirm: t(:confirm) } %>
+            <%= link_to t('entries.index.edit'), edit_entry_path(entry) %> -
+            <%= link_to t('entries.index.delete'), entry, method: :delete, class: :destroy, data: { confirm: t(:confirm) } %>
           </td>
         <% end %>
       </tr>
