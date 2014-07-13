@@ -6,12 +6,12 @@ feature "User signs in" do
 
   scenario "signs in with valid credentials" do
     sign_in_user(user, subdomain: account.subdomain)
-    expect(page).to have_content("Signed in successfully")
+    expect(page).to have_content(I18n.t("devise.sessions.signed_in"))
   end
 
   scenario "can not sign in with invalid credentials" do
     sign_in_user(user, password: "wrong password", subdomain: account.subdomain)
-    expect(page).to have_content("Invalid email or password")
+    expect(page).to have_content(I18n.t("devise.failure.invalid"))
   end
 
   scenario "does not allow sign in unless on subdomain" do
@@ -23,9 +23,9 @@ feature "User signs in" do
     account2 = create(:account_with_schema, owner: user2)
 
     sign_in_user(user2, subdomain: account2.subdomain)
-    expect(page).to have_content("Signed in successfully")
+    expect(page).to have_content(I18n.t("devise.sessions.signed_in"))
 
     sign_in_user(user2, subdomain: account.subdomain)
-    expect(page).to have_content("Invalid email or password")
+    expect(page).to have_content(I18n.t("devise.failure.invalid"))
   end
 end

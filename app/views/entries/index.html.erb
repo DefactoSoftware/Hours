@@ -29,7 +29,7 @@
     <tbody>
     <% @entries.each do |entry| %>
       <tr class="info-row">
-        <td><%= entry.date %></td>
+        <td><%= l(entry.date) %></td>
         <td><%= link_to entry.project.name, entry.project %></td>
         <td><%= entry.hours %></td>
         <td>

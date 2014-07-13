@@ -22,7 +22,7 @@ feature "User manages their own hours" do
     click_link "My Hours"
 
     click_link "delete"
-    expect(page).to have_content("Entry successfully deleted")
+    expect(page).to have_content(I18n.t("entry_deleted"))
   end
 
   scenario "can not delete someone elses entries" do
@@ -35,7 +35,7 @@ feature "User manages their own hours" do
   scenario "sees entry attributes in edit field by default" do
     entry = create(:entry, user: user)
     tagging = create(:tagging, entry: entry)
-    
+
     click_link "My Hours"
     click_link "edit"
 
@@ -65,7 +65,7 @@ feature "User manages their own hours" do
     fill_in "entry_hours", with: new_hours
     fill_in "datepicker", with: new_date
     fill_in "entry_tag_list", with: new_tagging.tag.name
-    
+
     click_button "Update Entry"
     click_link "edit"
 
@@ -74,7 +74,7 @@ feature "User manages their own hours" do
     expect(find_field("entry_hours").value).to eq(new_hours.to_s)
     expect(find_field("datepicker").value).to eq(new_date.to_s)
     expect(find_field("entry_tag_list").value).to eq(new_tagging.tag.name)
-  end 
+  end
 
   scenario "can not edit someone elses entries" do
     other_user = create(:user)

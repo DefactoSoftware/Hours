@@ -58,7 +58,6 @@ en:
       total: "Total %{hours_spent}"
       hours_indication: h
 
-
   back: Back
   confirm: Are you sure?
   sign_in: Sign in
@@ -101,7 +100,7 @@ en:
     pending_information: "Currently waiting confirmation for: %{unconfirmed_mail}"
     update_button: "Update"
     hint:
-      blank: leave it blank if you don't want to change it
+      blank: "leave it blank if you don't want to change it"
       current_password: "we need your current password to confirm your changes"
     edit: "Edit %{resource_name}"
 

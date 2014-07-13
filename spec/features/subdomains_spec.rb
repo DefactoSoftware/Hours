@@ -15,6 +15,6 @@ require "spec_helper"
 
   scenario "forces users to sign in before accessing subdomain content" do
     visit root_url(subdomain: account.subdomain)
-    expect(page).to have_content("You need to sign in or sign up before continuing.")
+    expect(page).to have_content(I18n.t('devise.failure.unauthenticated'))
   end
 end
