@@ -43,6 +43,7 @@ en:
           attributes:
             email:
               invalid_email: "%{attribute} does not match organization email"
+  main_text: "Hours puts the <strong>our</strong> back into attendance management. We'll help you to take both the <em>attendance</em> and the <em>management</em> out of it, so you can focus on doing great work and having fun."
 
   entries:
     index:
@@ -51,6 +52,8 @@ en:
       hours: Hours
       category: Category
       tags: Tags
+      user_hours: "%{user}'s hours"
+      
 
   back: Back
   confirm: Are you sure?
@@ -96,8 +99,16 @@ en:
     hint:
       blank: leave it blank if you don't want to change it
       current_password: "we need your current password to confirm your changes"
+
+  account:
+    invalid_characters: "contains invalid characters"
+    restricted: "restricted"
   
   cancel_account:
     unhappy: Unhappy?
     cancel: "Cancel my account"
     confirmation: Are you sure?
+  project:
+    table_head:
+      tag: Tag
+      hours: Hours

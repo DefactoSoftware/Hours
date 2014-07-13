@@ -17,8 +17,8 @@ class Account < ActiveRecord::Base
   validates :owner, presence: true
   validates :subdomain, presence: true,
                         uniqueness: { case_sensitive: false },
-                        format: { with: /\A[\w\-]+\Z/i, message: "contains invalid characters" },
-                        exclusion: { in: RESTRICTED_SUBDOMAINS, message: "restricted" }
+                        format: { with: /\A[\w\-]+\Z/i, message: I18n.t('account.invalid_characters') },
+                        exclusion: { in: RESTRICTED_SUBDOMAINS, message: I18n.t('restricted') }
 
   belongs_to :owner, class_name: "User"
 
