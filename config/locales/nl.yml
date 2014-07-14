@@ -82,12 +82,9 @@ nl:
 
   helpers:
     submit:
-      user:
-        create: Creëer account
-      project:
-        create: Creëer project
-      category:
-        new: Creëer categorie
+      create: Opslaan
+      update: Opslaan
+
   activerecord:
     models:
       user: Gebruiker
@@ -176,3 +173,10 @@ nl:
     dropdown:
       edit_user: "Gegevens aanpassen"
 
+
+  views:
+    pagination:
+      previous: Vorige
+      next: Volgende
+      first: Eerste
+      last: Laatste
