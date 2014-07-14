@@ -1,6 +1,6 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
-en:
+nl:
   devise:
     confirmations:
       confirmed: "Uw account is bevestigd!"

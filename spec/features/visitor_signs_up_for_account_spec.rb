@@ -13,7 +13,7 @@ feature "Account Creation" do
       expect {
         sign_up(subdomain)
       }.to change { User.count }
-      expect(page).to have_content("You need to sign in or sign up")
+      expect(page).to have_content(I18n.t("devise.failure.unauthenticated"))
     end
   end
 
