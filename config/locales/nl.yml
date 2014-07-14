@@ -22,6 +22,7 @@ nl:
     formats:
       default: '%d/%m/%Y'
       with_weekday: '%a %m/%d/%y'
+
   datetime:
     distance_in_words:
       about_x_hours:
@@ -58,6 +59,21 @@ nl:
       x_seconds:
         one: 1 seconde
         other: ! '%{count} seconden'
+
+  simple_form:
+    labels:
+      user:
+        first_name: Voornaam
+        last_name: Achternaam
+        password: Wachtwoord
+        password_confirmation: Wachtwoord bevestiging
+        current_password: Huidig wachtwoord
+
+      entry:
+        category: Categorie
+        hours: Uren
+        date: Datum
+
   time:
     formats:
       default: '%a, %b %-d, %Y at %r'
@@ -73,6 +89,8 @@ nl:
       category:
         new: Creëer categorie
   activerecord:
+    models:
+      user: Gebruiker
     errors:
       models:
         user:
@@ -94,7 +112,6 @@ nl:
       total: "Totaal: %{hours_spent}"
       hours_indication: u
 
-
   back: Terug
   confirm: Weet u het zeker?
   sign_in: Login
@@ -115,6 +132,7 @@ nl:
     one: "%{user} heeft één uur gespendeerd aan %{category} op %{project} %{time_ago}"
     other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project} %{time_ago}"
   hours: uren
+  read_more: lees verder
 
   helpful:
     title: Hulp nodig?

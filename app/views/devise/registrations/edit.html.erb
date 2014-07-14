@@ -1,5 +1,5 @@
 <div class="container">
-  <h2> <%= t('registration.edit', resource_name: resource_name.to_s.humanize) %></h2>
+  <h2> <%= t('registration.edit', resource_name: resource.class.model_name.human) %></h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
