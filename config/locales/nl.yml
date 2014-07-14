@@ -82,12 +82,9 @@ nl:
 
   helpers:
     submit:
-      user:
-        create: Creëer account
-      project:
-        create: Creëer project
-      category:
-        new: Creëer categorie
+      create: Opslaan
+      update: Opslaan
+
   activerecord:
     models:
       user: Gebruiker
