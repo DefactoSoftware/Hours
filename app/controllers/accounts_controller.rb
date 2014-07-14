@@ -9,8 +9,8 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     if @account.valid?
-      Apartment::Database.create(@account.subdomain)
-      Apartment::Database.switch(@account.subdomain)
+      Apartment::Tenant.create(@account.subdomain)
+      Apartment::Tenant.switch(@account.subdomain)
       @account.save
       redirect_to new_user_session_url(subdomain: @account.subdomain)
     else

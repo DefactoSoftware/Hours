@@ -26,7 +26,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.after(:each) do
-    Apartment::Database.reset
+    Apartment::Tenant.reset
     drop_schemas
   end
 end
