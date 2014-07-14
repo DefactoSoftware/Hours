@@ -176,3 +176,10 @@ nl:
     dropdown:
       edit_user: "Gegevens aanpassen"
 
+
+  views:
+    pagination:
+      previous: Vorige
+      next: Volgende
+      first: Eerste
+      last: Laatste
