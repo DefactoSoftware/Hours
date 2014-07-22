@@ -11,11 +11,11 @@
     <ul>
       <% if Hours.helpful_enabled? %>
         <li >
-        <div class="modal">
-          <label for="modal-1"><a>Help me!</a></label>
-          <input class="modal-state" id="modal-1" type="checkbox">
-          <%= render 'modal' %>
-        </div>
+          <div class="modal">
+            <label for="modal-1"><a>Help me!</a></label>
+            <input class="modal-state" id="modal-1" type="checkbox">
+            <%= render 'modal' %>
+          </div>
         </li>
         <div class="divider"></div>
       <% end %>
@@ -34,7 +34,7 @@
               </li>
               <li class="devider"></li>
               <li>
-              <a data-method="delete" href="/users/sign_out"><%= t("sign_out") %></a>
+                <a data-method="delete" href="/users/sign_out"><%= t("sign_out") %></a>
               </li>
             </ul>
           </div>
