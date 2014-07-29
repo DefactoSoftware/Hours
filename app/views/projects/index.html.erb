@@ -1,15 +1,17 @@
-<div class="wrapper">
-  <div class="projects-overview">
-    <%= render partial: "application/entry_form" %>
+<div class="outer">
+  <div class="wrapper">
+    <div class="projects-overview">
+      <%= render partial: "application/entry_form" %>
+      <ul class="project-list">
+        <%= render partial: "project", locals: { projects: @projects } %>
+      </ul>
+      <div class="new-project">
+        <%= link_to t("titles.projects.new"), new_project_path, id: "new-project-button", class: "button create" %>
+      </div>
+    </div>
 
-    <%= link_to t("titles.projects.new"), new_project_path, id: "new-project-button", class: "button create" %>
-
-    <ul class="project-list">
-      <%= render partial: "project", locals: { projects: @projects } %>
-    </ul>
-  </div>
-
-  <div class="activity-feed">
-    <ul><%= render partial: "entry", collection: @activities %></ul>
+    <div class="activity-feed">
+      <ul><%= render partial: "entry", collection: @activities %></ul>
+    </div>
   </div>
 </div>

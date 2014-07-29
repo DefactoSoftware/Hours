@@ -1,5 +1,7 @@
-<div class="container">
-  <h1><%= t('entries.index.user_hours', user: current_user.first_name) %></h1>
+<div class="outer">
+  <div class="container">
+    <h1><%= t('entries.index.user_hours', user: current_user.first_name) %></h1>
 
-  <%= render "application/entry_form" %>
+    <%= render "application/entry_form" %>
+  </div>
 </div>

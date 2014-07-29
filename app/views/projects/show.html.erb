@@ -1,31 +1,33 @@
-<div class="container">
-  <%= render partial: "project_detail", locals: { project: @project } %>
+<div class="outer">
+  <div class="container">
+    <%= render partial: "project_detail", locals: { project: @project } %>
 
-  <div class="hours-per-user-overview">
-    <canvas id="hours-per-user" data-data="<%= @project.hours_per_user.to_json %>" width="300" height="300"></canvas>
-    <ul class="legend">
-      <% @project.users.each do |user| %>
-      <li>
-        <%= user_image_link(user, border: true) do
-          content_tag(:span, "#{user.full_name} ( #{user.hours_spent_on(@project)} #{t(:hours)} )")
-        end %>
-      </li>
-      <% end %>
-    </ul>
-  </div>
+    <div class="hours-per-user-overview">
+      <canvas id="hours-per-user" data-data="<%= @project.hours_per_user.to_json %>" width="300" height="300"></canvas>
+      <ul class="legend">
+        <% @project.users.each do |user| %>
+        <li>
+          <%= user_image_link(user, border: true) do
+            content_tag(:span, "#{user.full_name} ( #{user.hours_spent_on(@project)} #{t(:hours)} )")
+          end %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
 
-  <table>
-    <tbody>
-      <tr>
-        <th><%= t('project.table_head.tag') %></th>
-        <th><%= t('project.table_head.hours') %></th>
-      </tr>
-      <% @project.tags.each do |tag| %>
+    <table>
+      <tbody>
         <tr>
-          <td><%= tag.name %></td>
-          <td><%= tag.hours_for(@project) %></td>
+          <th><%= t('project.table_head.tag') %></th>
+          <th><%= t('project.table_head.hours') %></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <% @project.tags.each do |tag| %>
+          <tr>
+            <td><%= tag.name %></td>
+            <td><%= tag.hours_for(@project) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

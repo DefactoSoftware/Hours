@@ -1,7 +1,9 @@
-<div class="container">
-  <h1><%= title %></h1>
-  <hr>
-  <ul class="categories-overview"><%= render partial: "category", collection: @categories %></ul>
-  <hr>
-  <%= render partial: "form" %>
+<div class="outer">
+  <div class="container">
+    <h1><%= title %></h1>
+    <hr>
+    <ul class="categories-overview"><%= render partial: "category", collection: @categories %></ul>
+    <hr>
+    <%= render partial: "form" %>
+  </div>
 </div>
