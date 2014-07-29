@@ -1,0 +1,4 @@
+.main {
+  @include outer-container;
+  min-height: 20%;
+}

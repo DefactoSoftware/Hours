@@ -27,7 +27,9 @@ Hours::Application.routes.draw do
   end
 
   constraints(SubdomainBlank) do
-    root "landing#index"
+    root to: "pages#show", id: "landing"
+    get "/pages/*id" => "pages#show", as: :page, format: false
+
     resource :accounts, only: [:new, :create]
   end
 end

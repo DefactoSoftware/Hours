@@ -1,0 +1,18 @@
+.team-header {
+  background-image: image-url("team.jpg");
+  background-size: cover;
+  min-height: 50%;
+  a {
+    color: #fff;
+  }
+}
+
+li {
+  display: inline-block;
+  padding: 1em;
+
+  img {
+    border-radius: 50%;
+  }
+}
+

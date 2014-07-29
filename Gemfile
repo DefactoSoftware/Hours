@@ -16,7 +16,7 @@ gem "pg"
 gem "rack-timeout"
 gem "rails", "~> 4.1.4"
 gem "recipient_interceptor"
-gem "sass-rails", '~> 4.0.1'
+gem "sass-rails", "~> 4.0.1"
 gem "simple_form"
 gem "title"
 gem "uglifier"
@@ -32,7 +32,7 @@ gem "active_model_serializers"
 gem "kaminari"
 gem "select2-rails"
 gem "http_accept_language"
-# reporting
+gem 'normalize-rails'
 
 group :development do
   gem "better_errors"
