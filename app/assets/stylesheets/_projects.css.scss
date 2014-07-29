@@ -1,9 +1,13 @@
 .tags {
-  margin:0;
+  margin-top: $base-line-height / 2;
   padding:0;
-  right:24px;
   list-style:none;
   float: right;
+
+  display: none;
+  @include media($medium-screen) {
+    display: block;
+  }
 
   li, a {
     float:left;
@@ -93,9 +97,13 @@
   }
 
   .projects-overview {
-    @include span-columns(10);
+    @include span-columns(12);
     padding: 0;
     vertical-align: top;
+
+    @include media($large-screen) {
+      @include span-columns(10);
+    }
 
     .entry_tag_list .selectize-input {
       // Fix the tags input position
@@ -138,7 +146,7 @@
     }
 
     .project-list {
-      margin: 0 40px;
+      margin: 0 7px;
       padding: 0;
       list-style: none;
       clear:both;
@@ -153,32 +161,10 @@
           background: #fff;
         }
       }
-    }
 
-  }
-
-  .activity-feed {
-    @include span-columns(2);
-    @include reset-display;
-    padding: 0;
-    vertical-align: top;
-    border-left: 1px solid #ddd;
-
-    li {
-      padding: 15px 0;
-      border-bottom: 1px solid #ddd;
-      font-size: 0.9em;
-      text-align: center;
-
-      .image-circle {
-        width: 30px;
-        height: 30px;
-        vertical-align: middle;
+      @include media($large-screen) {
+        margin: 0 40px;
       }
     }
   }
-}
-
-.activity-description {
-  text-align: right;
 }

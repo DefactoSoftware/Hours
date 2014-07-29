@@ -13,7 +13,7 @@
 @import "entries";
 @import "users";
 @import "modal";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
 @import "pikaday";
 @import "selectize";
 @import "dc";
@@ -33,6 +33,11 @@ body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.7em;
   background: #f7f6f0;
+  font-size: $base-font-size * .9;
+
+  @include media($medium-screen) {
+    font-size: $base-font-size;
+  }
 }
 
 .container {

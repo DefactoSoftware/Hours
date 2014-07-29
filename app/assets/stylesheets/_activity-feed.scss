@@ -1,4 +1,32 @@
+
+
 .activity-feed {
-  
+  display: none!important;
+
+  @include media($large-screen) {
+    @include reset-display;
+    padding: 0;
+    vertical-align: top;
+    border-left: 1px solid #ddd;
+    display: table-cell!important;
+    @include span-columns(12);
+
+    li {
+      padding: 15px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.9em;
+      text-align: center;
+
+      .image-circle {
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+      }
+    }
+  }
 }
 
+
+.activity-description {
+  text-align: right;
+}
