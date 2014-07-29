@@ -160,10 +160,6 @@ nl:
     invalid_characters: "bevat invalide karakters"
     restricted: "restricted"
 
-  cancel_account:
-    unhappy: "Ontevreden?"
-    cancel: "Verwijder mijn account"
-    confirmation: "Weet u het zeker?"
   project:
     table_head:
       tag: Tag
