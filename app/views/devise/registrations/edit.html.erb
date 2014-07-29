@@ -21,13 +21,3 @@
   <% end %>
   <%= link_to t('back'), :back %>
 </div>
-
-<div class="container">
-  <div id="cancel-account">
-    <h3><%= t('cancel_account.cancel') %></h3>
-
-    <p><%= t('cancel_account.unhappy') %> <%= link_to t('cancel_account.cancel'), registration_path(resource_name), data: { confirm: t('cancel_account.confirmation') }, method: :delete %></p>
-
-    <%= link_to t('back'), :back %>
-  </div>
-</div>
