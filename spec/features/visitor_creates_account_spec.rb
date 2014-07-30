@@ -26,7 +26,7 @@ feature "Account Creation" do
 
   def sign_up(subdomain)
     visit root_url(subdomain: false)
-    click_link "Sign Up"
+    click_link "Free Trial"
 
     fill_in :account_owner_attributes_first_name, with: "John"
     fill_in :account_owner_attributes_last_name, with: "Doe"

@@ -1,5 +1,5 @@
 <div class="container">
-
+  <h1>Free Trial</h1>
   <title><%= title %></title>
 
   <%= simple_form_for(@account) do |f| %>
@@ -7,14 +7,17 @@
 
     <div class="form-inputs">
       <%= f.simple_fields_for :owner do |o| %>
-        <%= o.input :first_name, :required => true %>
-        <%= o.input :last_name, :required => true %>
-        <%= o.input :email, :required => true %>
-        <%= o.input :password, :required => true %>
-        <%= o.input :password_confirmation, :required => true %>
+        <%= o.input :first_name, :required => true, label: false, placeholder: 'Name' %>
+        <%= o.input :last_name, :required => true, label: false, placeholder: 'Last Name' %>
+        <%= o.input :email, :required => true, label: false, placeholder: 'Email' %>
+        <%= o.input :password, :required => true, label: false, placeholder: 'Password' %>
+        <%= o.input :password_confirmation, :required => true, label: false, placeholder: 'Repeat Password' %>
       <% end %>
-      <%= f.input :subdomain, :required => true %>
+      <%= f.input :subdomain, :required => true, label: false, placeholder: 'Subdomain' %>
       <%= f.button :submit %>
     </div>
+  <% end %>
+  <%= link_to root_path do %>
+    <p>back to the website</p>
   <% end %>
 </div>

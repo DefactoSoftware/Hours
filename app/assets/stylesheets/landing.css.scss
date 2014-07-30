@@ -1,0 +1,60 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url(//fonts.googleapis.com/css?family=Abel);
+
+// $visual_grid: true;
+$max-width: 100%;
+$selection-blue: #689fb5;
+
+@import "normalize-rails";
+@import "bourbon";
+@import "base/base";
+@import "neat";
+
+$header-font-family: 'Abel', $base-font-family;
+
+@import "landing/landing";
+@import "landing/footer";
+@import "landing/main";
+@import "landing/team";
+@import "landing/screens";
+@import "landing/cards";
+
+h1, h2, h3, h4, h5 {
+  font-family: $header-font-family;
+
+  a {
+    color: #fff;
+  }
+}
+
+// Animations
+@include keyframes(bounceIn) {
+  0% {
+    @include transform(scale(0));
+    opacity: 0;
+  }
+  50% {
+    @include transform(scale(0));
+    opacity: 0;
+  }
+  82.5% {
+    @include transform(scale(1.030));
+    @include animation-timing-function(ease-out);
+    opacity: 1;
+  }
+  100% {
+    @include transform(scale(1));
+  }
+}
+
+.copy {
+  text-align: center;
+  padding: 5em;
+  padding-left: 35%;
+  padding-right: 35%;
+}
+
+::selection {
+  color: #fff;
+  background: $selection-blue;
+}

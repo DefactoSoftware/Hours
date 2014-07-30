@@ -140,6 +140,7 @@ GEM
     newrelic_rpm (3.9.0.229)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
+    normalize-rails (3.0.1)
     orm_adapter (0.5.0)
     pg (0.17.1)
     pikaday-gem (1.1.0.0)
@@ -282,6 +283,7 @@ DEPENDENCIES
   momentjs-rails
   neat
   newrelic_rpm (>= 3.7.3)
+  normalize-rails
   pg
   pikaday-gem (~> 1.1.0.0)
   pry-rails
