@@ -57,7 +57,12 @@ en:
       edit: edit
       total: "Total %{hours_spent}"
       hours_indication: h
-      hours_per_day: Hours spent per day in the last 30 days
+
+  report:
+    hours_per_day: "Hours spent per day in the last %{count} days"
+    weekly: 1 week
+    monthly: 1 month
+    yearly: 1 year
 
   back: Back
   confirm: Are you sure?

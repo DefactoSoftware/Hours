@@ -77,7 +77,7 @@ $(document).ready(function() {
     .on('click', Hours.dismissModal)
     .on('click', 'div', function(e) { e.stopPropagation() });
 
-  if ($('.entries-index').length && $('#hours-per-day-chart').length) {
+  if ($('#hours-per-day-chart').length) {
     var $canvas = $('#hours-per-day-chart');
     var data = $canvas.data('data');
     var context = $canvas[0].getContext('2d');

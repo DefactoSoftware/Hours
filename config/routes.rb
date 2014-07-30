@@ -21,6 +21,8 @@ Hours::Application.routes.draw do
       resources :entries, only: :index
     end
 
+    get "/users/:id(/:time_span)" => "users#show", as: "user"
+
     namespace :api, defaults: {format: :json} do
       resources :entries, only: :index
     end
