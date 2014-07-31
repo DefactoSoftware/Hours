@@ -85,7 +85,8 @@ $(document).ready(function() {
       scaleShowGridLines: false,
       scaleGridLineColor: 'transparent',
       scaleFontFamily: "'OpenSans'",
-      scaleFontColor: '#ccc'
+      scaleFontColor: '#ccc',
+      fillColor: '#bbbbbb'
     });
   }
 });

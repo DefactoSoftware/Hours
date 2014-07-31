@@ -22,8 +22,7 @@ describe TimeSeries do
         ],
 
         datasets: [{
-          data: [8, 0, 5, 0],
-          fillColor: '#bbbbbb'
+          data: [8, 0, 5, 0]
         }]
       })
     end

@@ -3,11 +3,20 @@
     width: 90%;
   }
 
-  ul.time-span {
-    float: right;
-    li {
+  .title-container {
+    @include clearfix;
+
+    h1 {
       float: left;
-      margin-left: 10px;
+    }
+
+    ul.time-span {
+      float: right;
+
+      li {
+        float: left;
+        margin-left: 10px;
+      }
     }
   }
 

@@ -13,8 +13,7 @@ class TimeSeries
       labels: @time_span.map { |date| date.strftime('%d/%m') },
       datasets: [
         {
-          data: @time_span.map { |date| @hours_per_day[date] || 0 },
-          fillColor: '#bbbbbb'
+          data: @time_span.map { |date| @hours_per_day[date] || 0 }
         }
       ]
     }

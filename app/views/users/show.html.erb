@@ -1,10 +1,12 @@
 <div class="container">
-  <h1><%= @user.full_name %></h1>
-  <ul class="time-span">
-    <li><%= link_to t("report.weekly"), user_path(time_span: "weekly") %></li>
-    <li><%= link_to t("report.monthly"), user_path %></li>
-    <li><%= link_to t("report.yearly"), user_path(time_span: "yearly") %></li>
-  </ul>
+  <div class="title-container">
+    <h1><%= @user.full_name %></h1>
+    <ul class="time-span">
+      <li><%= link_to t("report.weekly"), user_path(time_span: "weekly") %></li>
+      <li><%= link_to t("report.monthly"), user_path %></li>
+      <li><%= link_to t("report.yearly"), user_path(time_span: "yearly") %></li>
+    </ul>
+  </div>
   <div class="hours-per-day">
     <p><%= t("report.hours_per_day", count: @time_series.days) %></p>
     <canvas id="hours-per-day-chart" data-data="<%= @time_series.serialize.to_json %>" width=1800 height=200></canvas>
