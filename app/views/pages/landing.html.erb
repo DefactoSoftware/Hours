@@ -1,7 +1,9 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-copy">
-      <h1 id="logo"><img src="/assets/logo-white-shadow.png" alt="Hours"></h1>
+      <h1 id="logo">
+        <%= image_tag("logo-white-shadow.png", alt: 'Hours') %>
+      </h1>
       <h2>Time registration that doesn't suck.</h2>
       <%= link_to new_accounts_path, class: "button" do %>
         <div class="flip">
@@ -65,7 +67,7 @@
         <div class="card-stats">
           <ul>
             <li>5<span>Users</span></li>
-            <li>Unlimited<span>Projects & Entries</span></li>
+            <li>Unlimited<span>Projects &amp; Entries</span></li>
           </ul>
         </div>
       </div>
@@ -86,7 +88,7 @@
       <div class="card-stats">
         <ul>
           <li>25<span>Users</span></li>
-          <li>Unlimited<span>Projects & entries</span></li>
+          <li>Unlimited<span>Projects &amp; entries</span></li>
         </ul>
       </div>
     </div>
