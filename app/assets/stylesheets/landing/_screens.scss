@@ -10,10 +10,11 @@ $browser-content-background-2: $base-body-color;
 $browser-content-background-3: #F0F0F0;
 
 .browsers {
-  display:inline-block;
+  display:block;
   padding-top: 0;
   text-align:center;
-  width:100%;
+  max-width: em(1600px);
+  margin: 0 auto;
 
   @include media($large-screen) {
   }
@@ -96,7 +97,8 @@ $browser-content-background-3: #F0F0F0;
     background-color: $browser-content-background-2;
     background-position: top;
     background-repeat: no-repeat;
-    background-size: cover;
+    // background-size: cover;
+    background-size: 100%;
   }
 }
 

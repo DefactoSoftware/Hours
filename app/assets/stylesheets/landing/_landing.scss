@@ -55,16 +55,17 @@
         margin-bottom: 1.6em;
         font-size: 2em;
         background-color: rgba(31, 29, 15, 0.54);
-        line-height: 2em;
+        // line-height: 2em;
+        padding: .2em;
 
         @include media($medium-screen) {
-          width: 50%;
+          width: 60%;
           max-width: 830px;
           font-size: 2em;
         }
 
         @include media($large-screen) {
-          width: 50%;
+          width: 60%;
           max-width: 830px;
           font-size: 3em;
         }

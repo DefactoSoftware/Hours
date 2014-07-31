@@ -48,10 +48,11 @@ h1, h2, h3, h4, h5 {
 }
 
 .copy {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4em 2em 4em;
+  font-size: 1.2em;
   text-align: center;
-  padding: 5em;
-  padding-left: 35%;
-  padding-right: 35%;
 }
 
 ::selection {
