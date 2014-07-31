@@ -34,7 +34,7 @@
               </li>
               <li class="devider"></li>
               <li>
-                <a data-method="delete" href="/users/sign_out"><%= t("sign_out") %></a>
+                <%= link_to t("sign_out"), destroy_user_session_path %>
               </li>
             </ul>
           </div>
