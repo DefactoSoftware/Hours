@@ -107,6 +107,13 @@ en:
   account:
     invalid_characters: "contains invalid characters"
     restricted: "restricted"
+    first_name: First Name
+    last_name: Last Name
+    email: Email
+    password: Password
+    repeat_password: Repeat Password
+    subdomain: Subdomain
+    back_to_website: back to the website
 
   project:
     table_head:
