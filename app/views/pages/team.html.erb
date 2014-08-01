@@ -2,7 +2,9 @@
   <div class="hero-inner">
     <div class="hero-copy">
       <%= link_to root_path do %>
-        <h1 id="logo">Hours</h1>
+        <h1 id="logo">
+          <%= image_tag("logo-white-shadow.png", alt: 'Hours') %>
+        </h1>
       <% end %>
       <h2>The Team</h2>
     </div>
@@ -22,6 +24,12 @@
         <a href="https://github.com/dkhgh">
           <%= image_tag("hugo.jpg") %>
           <p>Hugo Veeger</p>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/sn3p">
+          <%= image_tag("matthijs.jpg") %>
+          <p>Matthijs Kuiper</p>
         </a>
       </li>
     </ul>

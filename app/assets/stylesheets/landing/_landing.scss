@@ -9,6 +9,8 @@
   position: relative;
   overflow: hidden;
 
+  text-shadow: rgba(#000, .5) 0px 1px 8px;
+
   @include media($medium-screen) {
     min-height: 75%;
   }
@@ -53,23 +55,24 @@
         margin-bottom: 1.6em;
         font-size: 2em;
         background-color: rgba(31, 29, 15, 0.54);
-        line-height: 2em;
+        // line-height: 2em;
+        padding: .2em;
 
         @include media($medium-screen) {
-          width: 50%;
+          width: 60%;
           max-width: 830px;
           font-size: 2em;
         }
 
         @include media($large-screen) {
-          width: 50%;
+          width: 60%;
           max-width: 830px;
           font-size: 3em;
         }
       }
 
       a.button {
-        $button-size: 200px;
+        $button-size: 160px;
 
         display: inline-block;
         width: $button-size;
@@ -79,6 +82,7 @@
         font-size: 3em;
         font-weight: 700;
         font-family: $header-font-family;
+        text-transform: lowercase;
 
         @include perspective(1000);
 
@@ -90,6 +94,7 @@
 
           .flip-front,
           .flip-back {
+            @include transform-style(preserve-3d); // fix for FF
             @include backface-visibility(hidden);
             position: absolute;
             left: 0;
@@ -98,6 +103,16 @@
             height: $button-size;
             border: 4px solid #fff;
             border-radius: 50%;
+            box-shadow: 0px 0px 5px 2px rgba(#000, .1);
+
+            span {
+              display: table-cell;
+              width: $button-size;
+              height: $button-size;
+              vertical-align: middle;
+              text-align: center;
+              line-height: 1em;
+            }
           }
           .flip-front {
             z-index: 2;
@@ -105,8 +120,10 @@
           .flip-back {
             @include transform(rotateY(180deg));
             z-index: 1;
-            background: #fff;
-            color: #2a251a;
+            background: #e5192b;
+            color: #fff;
+            text-shadow: none;
+            border: none;
           }
 
           &:hover {
@@ -116,8 +133,4 @@
       }
     }
   }
-}
-
-.pricing {
-  background-color: #c1b884;
 }

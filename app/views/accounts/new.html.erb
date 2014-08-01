@@ -7,17 +7,17 @@
 
     <div class="form-inputs">
       <%= f.simple_fields_for :owner do |o| %>
-        <%= o.input :first_name, :required => true, label: false, placeholder: 'Name' %>
-        <%= o.input :last_name, :required => true, label: false, placeholder: 'Last Name' %>
-        <%= o.input :email, :required => true, label: false, placeholder: 'Email' %>
-        <%= o.input :password, :required => true, label: false, placeholder: 'Password' %>
-        <%= o.input :password_confirmation, :required => true, label: false, placeholder: 'Repeat Password' %>
+        <%= o.input :first_name, required: true, label: false, placeholder: t("account.first_name") %>
+        <%= o.input :last_name, required: true, label: false, placeholder: t("account.last_name") %>
+        <%= o.input :email, required: true, label: false, placeholder: t("account.email") %>
+        <%= o.input :password, required: true, label: false, placeholder: t("account.password") %>
+        <%= o.input :password_confirmation, required: true, label: false, placeholder: t("account.repeat_password") %>
       <% end %>
-      <%= f.input :subdomain, :required => true, label: false, placeholder: 'Subdomain' %>
+      <%= f.input :subdomain, :required => true, label: false, placeholder: t("account.subdomain") %>
       <%= f.button :submit %>
     </div>
   <% end %>
   <%= link_to root_path do %>
-    <p>back to the website</p>
+    <p><%= t("account.back_to_website") %></p>
   <% end %>
 </div>

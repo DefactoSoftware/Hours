@@ -1,17 +1,20 @@
-.jurre {
+.pricing {
   background-color: #f2f0e5;
   text-align: center;
-  padding-bottom: 2em;
+  padding: 2em 2em 5em;
 
   button {
     $dark: #101010;
     $light: lighten($dark, 15%);
 
+    font-family: $header-font-family;
     font-size: 2em;
+    text-transform: lowercase;
     border-radius: 8px;
     color: $light;
     border: 2px solid $light;
     background-color: transparent;
+    padding: .5em .75em;
 
     &:hover {
       color: $dark;
@@ -23,14 +26,21 @@
     text-align: center;
     padding-top: 1em;
   }
+
+  @include media($large-screen) {
+    padding-top: 4em
+
+  }
 }
 
 .cards {
   @include clearfix;
-  padding: 1em;
+  padding: 1em 0;
+  max-width: 1200px;
+  margin: 0 auto;
 
   @include media($large-screen) {
-    @include shift(2);
+    // @include shift(1);
     padding: 2em 0;
   }
 }
@@ -54,8 +64,8 @@
   position: relative;
 
   @include media($large-screen) {
-    @include span-columns(3);
-    @include omega(5n);
+    @include span-columns(4);
+    @include omega(3n);
   }
 
   .card-image {

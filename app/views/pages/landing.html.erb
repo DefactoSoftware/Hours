@@ -1,12 +1,14 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-copy">
-      <h1 id="logo"><a href="index.html">Hours</a></h1>
+      <h1 id="logo">
+        <%= image_tag("logo-white-shadow.png", alt: 'Hours') %>
+      </h1>
       <h2>Time registration that doesn't suck.</h2>
       <%= link_to new_accounts_path, class: "button" do %>
         <div class="flip">
-          <div class="flip-front">Free Trial</div>
-          <div class="flip-back">Free Trial</div>
+          <div class="flip-front"><span>Free<br>Trial</span></div>
+          <div class="flip-back"><span>Free<br>Trial</span></div>
         </div>
       <% end %>
     </div>
@@ -15,13 +17,12 @@
 
 <div class="main">
   <div class="copy">
-    <h3>Happy Hours?</h3>
     <p>When <%= link_to "we", page_path('team') %> found out our company spent over €1.500 a year on timetracking software that everybody hated, we decided to take matters into our own hands. Two days later we had the first prototype of <strong>Hours</strong>, our solution to make tracking time easier and insightful for <em>everyone</em>.</p>
   </div>
 </div>
 
-<div class = "browsers">
-  <div class = "browser">
+<div class="browsers">
+  <div class="browser">
     <div class="browser-top-bar">
       <div class="browser-circle"></div>
       <div class="browser-circle"></div>
@@ -29,7 +30,7 @@
     </div>
   <div class="browser-content"></div>
   </div>
-  <div class = "browser">
+  <div class="browser">
     <div class="browser-top-bar">
       <div class="browser-circle"></div>
       <div class="browser-circle"></div>
@@ -38,7 +39,7 @@
     <div class="browser-content">
     </div>
   </div>
-  <div class = "browser">
+  <div class="browser">
     <div class="browser-top-bar">
       <div class="browser-circle"></div>
       <div class="browser-circle"></div>
@@ -48,9 +49,7 @@
   </div>
 </div>
 
-<div class="cover"></div>
-
-<div class="jurre" id="pricing">
+<div class="pricing" id="pricing">
   <h1>Pricing</h1>
   <div class="cards">
       <div class="card">
@@ -68,7 +67,7 @@
         <div class="card-stats">
           <ul>
             <li>5<span>Users</span></li>
-            <li>Unlimited<span>Projects & Entries</span></li>
+            <li>Unlimited<span>Projects &amp; Entries</span></li>
           </ul>
         </div>
       </div>
@@ -89,7 +88,7 @@
       <div class="card-stats">
         <ul>
           <li>25<span>Users</span></li>
-          <li>Unlimited<span>Projects & entries</span></li>
+          <li>Unlimited<span>Projects &amp; entries</span></li>
         </ul>
       </div>
     </div>
@@ -115,6 +114,7 @@
       </div>
     </div>
   </div>
+
   <p>Or start with a <strong>free</strong> trial. No credit card needed.</p>
   <%= link_to new_accounts_path do %>
     <button>Free trial</button>
