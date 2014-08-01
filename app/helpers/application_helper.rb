@@ -11,9 +11,9 @@ module ApplicationHelper
   def user_image_link(user, opts={}, &block)
     link_to user_entries_path(user) do
       if opts[:border]
-        concat gravatar_image_tag user.email, class: "image-circle", title: "#{user.full_name}", style: "border: 3px solid #{user.full_name.pastel_color}"
+        concat gravatar_image_tag user.email, gravatar: { secure: true }, class: "image-circle", title: "#{user.full_name}", style: "border: 3px solid #{user.full_name.pastel_color}"
       else
-        concat gravatar_image_tag user.email, class: "image-circle", title: "#{user.full_name}"
+        concat gravatar_image_tag user.email, gravatar: { secure: true }, class: "image-circle", title: "#{user.full_name}"
       end
       concat yield if block_given?
     end
