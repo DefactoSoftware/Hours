@@ -77,6 +77,10 @@ body {
   }
 }
 
+.logo {
+  text-align: center;
+}
+
 .button {
   @extend %button;
   &:hover {
