@@ -27,7 +27,7 @@
     padding-top: 1em;
   }
 
-  @include media($large-screen) {
+  @include media($laptop-screen) {
     padding-top: 4em
 
   }
@@ -39,7 +39,7 @@
   max-width: 1200px;
   margin: 0 auto;
 
-  @include media($large-screen) {
+  @include media($laptop-screen) {
     // @include shift(1);
     padding: 2em 0;
   }
@@ -63,7 +63,7 @@
   cursor: pointer;
   position: relative;
 
-  @include media($large-screen) {
+  @include media($laptop-screen) {
     @include span-columns(4);
     @include omega(3n);
   }

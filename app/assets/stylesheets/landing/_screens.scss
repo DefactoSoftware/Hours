@@ -69,7 +69,7 @@ $browser-content-background-3: #F0F0F0;
   background-color: $browser-content-background-1;
   display: none;
 
-  @include media($large-screen) {
+  @include media($laptop-screen) {
     display: inline-block;
   }
 
@@ -87,7 +87,7 @@ $browser-content-background-3: #F0F0F0;
   background-color: $browser-content-background-2;
   width: 90%;
 
-  @include media($large-screen) {
+  @include media($laptop-screen) {
     @include transform(scale(1.2));
     width: 40%;
   }
@@ -106,7 +106,7 @@ $browser-content-background-3: #F0F0F0;
   background-color: $browser-content-background-3;
   display: none;
 
-  @include media($large-screen) {
+  @include media($laptop-screen) {
     display: inline-block;
   }
 
@@ -125,7 +125,7 @@ $browser-content-background-3: #F0F0F0;
   height: 17em;
   overflow: hidden;
 
-  @include media($large-screen) {
+  @include media($laptop-screen) {
     height: 18em;
   }
 }
