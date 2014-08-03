@@ -1,43 +1,8 @@
-.pika-next, .pika-prev {
-  box-shadow: none;
-  border: none;
-
-  &:hover {
-    background-color: transparent!important;
-    background-image: none!important;
-    box-shadow: none!important;
-    color: black!important;
-  }
-}
-
-.pika-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-
-  td {
-    padding: 0;
-    background-color: rgb(245, 245, 245);
-    .pika-button {
-      box-shadow: none;
-      text-align: center;
-    }
-  }
-}
-
-.entries {
-  .table-tags {
-    line-height: 15px;
-
-    a {
-      font-size: 0.9em;
-    }
-  }
-}
-
 .new_entry_wrapper {
   background: #fff;
   box-shadow: 0px 2px 2px rgba(83, 63, 63, 0.3);
   @include pad(10% 3%);
+
 
   @include media($medium-screen) {
     @include pad(5%)
@@ -72,5 +37,105 @@
     .entry_tag_list {
       width: 100%;
     }
+  }
+}
+
+.pika-next, .pika-prev {
+  box-shadow: none;
+  border: none;
+
+  &:hover {
+    background-color: transparent!important;
+    background-image: none!important;
+    box-shadow: none!important;
+    color: black!important;
+  }
+}
+
+.pika-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  td {
+    padding: 0;
+    background-color: rgb(245, 245, 245);
+    .pika-button {
+      box-shadow: none;
+      text-align: center;
+    }
+  }
+}
+
+.entries {
+  max-width: 100%;
+  font-size: $base-font-size * .9;
+
+  @include media($medium-screen) {
+    font-size: $base-font-size;
+  }
+
+  td {
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .hide-for-mobile {
+    display: none;
+    @include media($medium-screen) {
+      display: table-cell;
+    }
+  }
+
+  .table-tags {
+    a {
+      font-size: 0.9em;
+    }
+  }
+}
+
+.hours-per-project-overview {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 10px auto;
+  font-weight: 100;
+  color: #999;
+
+  #hours-per-project {
+    margin: 0 auto;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .spent-info {
+    position: relative;
+    top: 84px;
+    text-align: center;
+
+    .hours {
+      display: block;
+      font-size: 2em;
+      color: #333 !important;
+      letter-spacing: -2px;
+    }
+  }
+}
+
+.legend {
+  font-size: $base-font-size * .9;
+  text-align: center;
+
+  @include media($medium-screen) {
+    font-size: $base-font-size;
   }
 }

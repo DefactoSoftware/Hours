@@ -63,13 +63,10 @@
 }
 
 .hours-per-user-overview {
-  clear: left;
-  padding-top: 40px;
-  width: 80%;
-  margin-left: auto;
+  padding-top: $base-line-height;
 
   #hours-per-user {
-    float: left;
+    margin: 0 auto;
   }
 
   .legend {
