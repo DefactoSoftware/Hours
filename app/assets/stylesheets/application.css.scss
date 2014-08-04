@@ -145,3 +145,7 @@ h1 {
     font-size: 0.9em;
   }
 }
+
+#flash_notice {
+  @include flash($notice-color);
+}
