@@ -1,4 +1,5 @@
 en:
+  loading: Loading...
   titles:
     application: Hours
     accounts:
@@ -123,3 +124,7 @@ en:
   navbar:
     dropdown:
       edit_user: "Edit profile"
+
+  loader:
+    signing_in: Signing in
+    saving: Saving

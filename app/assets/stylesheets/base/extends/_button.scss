@@ -16,7 +16,7 @@
   }
 
   &:disabled {
-    background-color: $light-gray;
+    background-color: lighten($base-button-color, 20%);
     cursor: not-allowed;
   }
 }
