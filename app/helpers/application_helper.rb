@@ -25,4 +25,8 @@ module ApplicationHelper
     yield presenter if block_given?
     presenter
   end
+
+  def loader(text:)
+    %{<div class="loader">#{text}...</div>}
+  end
 end
