@@ -155,6 +155,7 @@ nl:
       blank: "laat het veld leeg als u het niet wilt aanpassen"
       current_password: "we hebben uw huidig wachtwoord nodig om de veranderingen te bevestigen"
     edit: "Pas uw gegevens aan"
+    gravatar_instructions_html: Update je profiel foto op <a href="https://www.gravatar.com" target="_blank">Gravatar</a>
 
   account:
     invalid_characters: "bevat invalide karakters"

@@ -103,6 +103,7 @@ en:
       blank: "leave it blank if you don't want to change it"
       current_password: "we need your current password to confirm your changes"
     edit: "Edit %{resource_name}"
+    gravatar_instructions_html: Update your profile pic on <a href="https://www.gravatar.com" target="_blank">Gravatar</a>
 
   account:
     invalid_characters: "contains invalid characters"
