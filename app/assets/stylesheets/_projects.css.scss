@@ -58,31 +58,6 @@
   margin-top:18px;
 }
 
-.hours-per-user-overview {
-  clear: left;
-  padding-top: 40px;
-  width: 80%;
-  margin-left: auto;
-
-  #hours-per-user {
-    float: left;
-  }
-
-  .legend {
-    clear: right;
-    float: left;
-    .image-circle {
-      width: 30px;
-      height: 30px;
-      vertical-align: middle;
-      margin: 5px;
-    }
-    a {
-      color: #333333;
-    }
-  }
-}
-
 .projects {
   .wrapper {
     @include row(table);

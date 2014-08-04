@@ -58,6 +58,12 @@ en:
       total: "Total %{hours_spent}"
       hours_indication: h
 
+  report:
+    hours_per_day: "Hours spent per day in the last %{count} days"
+    weekly: 1 week
+    monthly: 1 month
+    yearly: 1 year
+
   back: Back
   confirm: Are you sure?
   sign_in: Sign in
