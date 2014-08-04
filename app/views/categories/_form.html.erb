@@ -3,6 +3,6 @@
 
   <div class="form-inputs">
     <%= f.input :name, required: true, autofocus: true %>
-    <%= f.button :submit %>
+    <%= f.button :button, data: { disable_with: loader(text: t("loader.saving")) } %>
   </div>
 <% end %>

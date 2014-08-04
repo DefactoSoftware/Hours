@@ -6,6 +6,6 @@
       <%= f.input :hours, required: true %>
       <%= f.input :date, required: true, as: :string, input_html: { value: (@entry.date || Date.today).strftime("%d/%m/%Y"), id: "datepicker"} %>
       <%= f.input :tag_list, label: t('tags'), input_html: { data: { data: Tag.list } } %>
-      <%= f.button :submit %>
+      <%= f.button :button, data: { disable_with: t("loader.saving") } %>
   <% end %>
 </div>

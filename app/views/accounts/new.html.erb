@@ -14,7 +14,7 @@
         <%= o.input :password_confirmation, required: true, label: false, placeholder: t("account.repeat_password") %>
       <% end %>
       <%= f.input :subdomain, :required => true, label: false, placeholder: t("account.subdomain") %>
-      <%= f.button :submit %>
+      <%= f.button :button, data: { disable_with: loader(text: t("loader.saving")) } %>
     </div>
   <% end %>
   <%= link_to root_path do %>
