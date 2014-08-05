@@ -1,18 +1,51 @@
-.new_entry_wrapper {
+.entry-sidebar {
+  @include span-columns(12);
+
+  .new-project {
+    text-align: center;
+    @include pad(8% 5% 5%);
+
+    .button {
+      background-color: #DFDDD3;
+      color: rgba(#000, .3);
+
+      &:hover {
+        background-color: darken(#DFDDD3, 3%);
+        color: rgba(#000, .4);
+      }
+
+    }
+  }
+
+  @include media($laptop-screen) {
+    @include span-columns(3);
+    @include pad(1px);
+
+    .entry-sidebar-inner {
+      @include span-columns(3);
+      position: fixed;
+      margin-top: 30px;
+    }
+  }
+}
+
+.new-entry-wrapper {
+  @include pad(4%);
   background: #fff;
   box-shadow: 0px 2px 2px rgba(83, 63, 63, 0.3);
-  @include pad(10% 3%);
 
-  @include media($medium-screen) {
-    @include pad(5%)
+  h2 {
+    font-family: 'Open Sans', $header-font-family;
+    margin: 0 0 14px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
   #new_entry, .edit_entry {
-
     .button {
       width: 100%;
     }
-
     .input {
       margin: 10px 0;
 
@@ -22,27 +55,26 @@
         font-smoothing: antialiased;
       }
     }
-
     .selectize-dropdown, .selectize-input, .selectize-input input {
       font-size: $base-font-size;
       font-family: 'Open Sans';
     }
-
     .select {
       width: 100%;
     }
-
     .entry_hours {
       width: 100%;
     }
-
     .entry_date {
       width: 100%;
     }
-
     .entry_tag_list {
       width: 100%;
     }
+  }
+
+  @include media($laptop-screen) {
+    @include pad(8%);
   }
 }
 

@@ -1,13 +1,24 @@
 <div class="outer">
   <div class="wrapper">
+
+    <div class="entry-sidebar">
+      <div class="entry-sidebar-inner">
+
+        <div class="new-entry-wrapper">
+          <h2><%= t("entries.index.new") %></h2>
+          <%= render partial: "application/entry_form" %>
+        </div>
+
+        <div class="new-project">
+          <%= link_to t("titles.projects.new"), new_project_path, class: "button" %>
+        </div>
+      </div>
+    </div>
+
     <div class="projects-overview">
-      <%= render partial: "application/entry_form", locals: { form_title: t("entries.index.new") } %>
       <ul class="project-list">
         <%= render partial: "project", locals: { projects: @projects } %>
       </ul>
-      <div class="new-project">
-        <%= link_to t("titles.projects.new"), new_project_path, id: "new-project-button", class: "button create" %>
-      </div>
     </div>
 
     <div class="activity-feed">

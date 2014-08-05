@@ -1,17 +1,15 @@
 .activity-feed {
   background: #fff;
-  display: none!important;
+  display: none !important;
   font-size: 12px;
   line-height: 1.1em;
 
   @include media($laptop-screen) {
+    @include span-columns(2);
     padding: 0;
     vertical-align: top;
     border-left: 1px solid #ddd;
-    display: block!important;
-    position: absolute;
-    right: 0px;
-    width: 250px;
+    display: block !important;
 
     li {
       @include transition (background-color 0.2s ease-in-out);
