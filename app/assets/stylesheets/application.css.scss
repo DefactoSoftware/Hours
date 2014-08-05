@@ -13,7 +13,7 @@
 @import "entries";
 @import "users";
 @import "modal";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
 @import "pikaday";
 @import "selectize";
 @import "dc";
@@ -38,16 +38,31 @@ body {
     background: image-url("sky.jpg") center center;
     background-size: cover;
     padding-top: 0;
+    font-size: $base-font-size * .9;
+
+    @include media($medium-screen) {
+      font-size: $base-font-size;
+    }
   }
+}
+
+h1 {
+  text-align: center;
+
+  @include media($medium-screen) {
+    text-align: inherit;
+  }
+}
+
+.outer {
+  @include outer-container;
 }
 
 .container {
   background: #fff;
-  margin: 5% auto;
   border-bottom-width: 2px;
   box-shadow: 0px 2px 2px rgba(83, 63, 63, 0.3);
   border-radius: $base-border-radius;
-  width: 60%;
   min-height: 200px;
   position: relative;
   padding: 25px;
@@ -67,6 +82,10 @@ body {
       text-align: center;
     }
   }
+}
+
+.logo {
+  text-align: center;
 }
 
 .button {
@@ -93,26 +112,6 @@ body {
   }
 }
 
-.categories {
-  .form-inputs {
-    @include outer-container;
-    position: relative;
-
-    .input {
-      @include span-columns(9);
-      @include omega();
-    }
-
-    .button {
-      position: absolute;
-      bottom: 0;
-      margin-bottom: 14px;
-      margin-left: 20px;
-      @include omega();
-    }
-  }
-}
-
 .activities-overview, .categories-overview {
   span {
     .color {
@@ -131,8 +130,18 @@ body {
   }
 }
 
-.new_entry_wrapper {
-  .select {
-    width: 250px;
+#flash_notice {
+  @include flash($notice-color);
+}
+
+.hide-for-mobile {
+  @media screen and (max-width: $medium-screen) {
+    display: none;
+  }
+}
+
+.table-tags {
+  a {
+    font-size: 0.9em;
   }
 }

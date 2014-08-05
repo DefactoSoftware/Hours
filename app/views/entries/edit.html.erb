@@ -1,5 +1,8 @@
-<div class="container">
-  <h1><%= t('entries.index.user_hours', user: current_user.first_name) %></h1>
-
-  <%= render "application/entry_form" %>
+<div class="outer">
+  <div class="wrapper">
+    <div class="projects-overview">
+      <%= render partial: "application/entry_form", locals: { form_title: t("entries.index.edit_entry") } %>
+    </div>
+  </div>
 </div>
+

@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
   has_many :entries
   has_many :projects, -> { uniq }, through: :entries
 
+
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -57,7 +58,7 @@ class User < ActiveRecord::Base
 
   def hours_per_project
     projects.map do |project|
-      { value: hours_spent_on(project), color: project.name.pastel_color }
+      { value: hours_spent_on(project), color: project.name.pastel_color, highlight: "gray", label: project.name }
     end
   end
 

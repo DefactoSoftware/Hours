@@ -1,12 +1,60 @@
+.new_entry_wrapper {
+  background: #fff;
+  box-shadow: 0px 2px 2px rgba(83, 63, 63, 0.3);
+  @include pad(10% 3%);
+
+  @include media($medium-screen) {
+    @include pad(5%)
+  }
+
+  #new_entry, .edit_entry {
+
+    .button {
+      width: 100%;
+    }
+
+    .input {
+      margin: 10px 0;
+
+      input {
+        resize: none;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+      }
+    }
+
+    .selectize-dropdown, .selectize-input, .selectize-input input {
+      font-size: $base-font-size;
+      font-family: 'Open Sans';
+    }
+
+    .select {
+      width: 100%;
+    }
+
+    .entry_hours {
+      width: 100%;
+    }
+
+    .entry_date {
+      width: 100%;
+    }
+
+    .entry_tag_list {
+      width: 100%;
+    }
+  }
+}
+
 .pika-next, .pika-prev {
   box-shadow: none;
   border: none;
 
   &:hover {
-    background-color: transparent!important;
-    background-image: none!important;
-    box-shadow: none!important;
-    color: black!important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    color: black !important;
   }
 }
 
@@ -25,42 +73,62 @@
 }
 
 .entries {
-  .table-tags {
-    line-height: 15px;
+  max-width: 100%;
+  font-size: $base-font-size * .9;
 
-    a {
-      font-size: 0.9em;
-    }
+  @include media($medium-screen) {
+    font-size: $base-font-size;
   }
 
-  .container {
-    width: 90%;
+  td {
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .right {
+    text-align: right;
   }
 }
 
-.new_entry_wrapper {
-  background: #fff;
-  border-bottom: 3px solid darken(#E9E8E6, .1);
+.hours-per-project-overview {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 10px auto;
+  font-weight: 100;
+  color: #999;
 
-  #new_entry {
-    .input {
-      display: inline-block;
-      margin: 10px;
-      input {
-        resize: none;
-      }
-    }
+  #hours-per-project {
+    margin: 0 auto;
+    position: absolute;
+    z-index: 10;
+  }
 
-    .entry_hours {
-      width: 100px;
-    }
+  .spent-info {
+    position: relative;
+    top: 84px;
+    text-align: center;
 
-    .entry_date {
-      width: 120px;
+    .hours {
+      display: block;
+      font-size: 2em;
+      color: #333 !important;
+      letter-spacing: -2px;
     }
+  }
+}
 
-    .entry_tag_list {
-      width: 200px;
-    }
+.legend {
+  font-size: $base-font-size * .9;
+  text-align: center;
+
+  @include media($medium-screen) {
+    font-size: $base-font-size;
   }
 }

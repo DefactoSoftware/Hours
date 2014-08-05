@@ -3,7 +3,7 @@
   <%= link_to project_path(project) do %>
     <h2><%= project.name %></h2>
   <% end %>
-
+  <hr>
   <ul class="tags">
     <% project.tags.each do |tag| %>
       <li class="tag"><a href="#"><%= tag.name %></a></li>
@@ -29,7 +29,7 @@
     <% else %>
       <%= t(:no_hours_registered, project: project.name) %>
     <% end %>
-      <div class="active-people">
+      <div class="active-people hide-for-mobile">
         <% project.users.each do |user| %>
           <%= user_image_link(user) %>
         <% end %>

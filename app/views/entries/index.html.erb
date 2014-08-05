@@ -1,57 +1,60 @@
-<div class="container">
-  <h1><%= t('entries.index.user_hours', user: @user.first_name) %></h1>
-
-  <div class="hours-per-user-overview" %>
-    <canvas id="hours-per-user" data-data="<%= @user.hours_per_project.to_json %>" width=300 height=300></canvas>
+<div class="outer">
+  <div class="container">
+    <h1><%= t('entries.index.user_hours', user: @user.first_name) %></h1>
+    <div class="hours-per-project-overview">
+      <canvas id="hours-per-project" data-data="<%= @user.hours_per_project.to_json %>" width=200 height=200 ></canvas>
+      <div class="spent-info">
+        <span class="hours" style="color: #D66278"><%= @user.hours_spent %></span>
+      </div>
+    </div>
     <ul class="legend">
-    <% @user.projects.each do |project| %>
-      <li>
-      <span class="color" style="background-color: <%= project.name.pastel_color %>"></span> <%= project.name %>: <%= @user.percentage_spent_on(project).round %>% (<%= @user.hours_spent_on(project) %><%= t('entries.index.hours_indication') %>)
-      </li>
-    <% end %>
-    <li><strong><%= t('entries.index.total', hours_spent: @user.hours_spent) %><%= t('entries.index.hours_indication') %></strong></li>
+      <% @user.projects.each do |project| %>
+        <li>
+        <span class="color" style="background-color: <%= project.name.pastel_color %>"></span> <%= project.name %>: <%= @user.percentage_spent_on(project).round %>% (<%= @user.hours_spent_on(project) %><%= t('entries.index.hours_indication') %>)
+        </li>
+      <% end %>
+      <li><strong><%= t('entries.index.total', hours_spent: @user.hours_spent) %><%= t('entries.index.hours_indication') %></strong></li>
     </ul>
-  </div>
-
-  <table class="entries">
-    <thead>
-      <tr>
-        <th><%= t("entries.index.date") %></th>
-        <th><%= t("entries.index.project") %></th>
-        <th><%= t("entries.index.hours") %></th>
-        <th><%= t("entries.index.category") %></th>
-        <th><%= t("entries.index.tags") %></th>
-        <% if @user == current_user %>
-          <th></th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-    <% @entries.each do |entry| %>
-      <tr class="info-row">
-        <td><%= l(entry.date) %></td>
-        <td><%= link_to entry.project.name, entry.project %></td>
-        <td><%= entry.hours %></td>
-        <td>
-          <div class="project">
-            <span class="color" style="background-color:<%= entry.category.name.pastel_color %>;"></span>
-            <span><%= entry.category.name %></span>
-          </div>
-        </td>
-        <td>
-          <div class="table-tags">
-            <%= entry.tag_list %>
-          </div>
-        </td>
-        <% if @user == current_user %>
-          <td>
-            <%= link_to t('entries.index.edit'), edit_entry_path(entry) %> -
-            <%= link_to t('entries.index.delete'), entry, method: :delete, class: :destroy, data: { confirm: t(:confirm) } %>
+    <table class="entries">
+      <thead>
+        <tr>
+          <th><%= t("entries.index.date") %></th>
+          <th><%= t("entries.index.project") %></th>
+          <th class="center"><%= t("entries.index.hours") %></th>
+          <th class="hide-for-mobile"><%= t("entries.index.category") %></th>
+          <th class="hide-for-mobile"><%= t("entries.index.tags") %></th>
+          <% if @user == current_user %>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+      <% @entries.each do |entry| %>
+        <tr class="info-row">
+          <td><%= l(entry.date) %></td>
+          <td><%= link_to entry.project.name, entry.project %></td>
+          <td class="center"><%= entry.hours %></td>
+          <td class="hide-for-mobile">
+            <div class="project">
+              <span class="color" style="background-color:<%= entry.category.name.pastel_color %>;"></span>
+              <span><%= entry.category.name %></span>
+            </div>
           </td>
-        <% end %>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-  <%= paginate @entries %>
+          <td class="hide-for-mobile">
+            <div class="table-tags">
+              <%= entry.tag_list %>
+            </div>
+          </td>
+          <% if @user == current_user %>
+            <td class="right">
+              <%= link_to t('entries.index.edit'), edit_entry_path(entry) %> |
+              <%= link_to t('entries.index.delete'), entry, method: :delete, class: "destroy", data: { confirm: t(:confirm) } %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= paginate @entries %>
+  </div>
 </div>

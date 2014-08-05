@@ -1,24 +1,20 @@
-
 .activities {
+  margin-bottom: 5px;
+  text-align: center;
+
   li {
-    display: table-cell;
-    width: 1%;
-    border-bottom: none;
-    text-align: center;
-    padding: 11px 5px;
-    white-space: nowrap;
-  }
+    display: inline-block;
+    padding-right: 5px;
 
-  ol {
-    display: block;
-    list-style-type: none;
-    margin-before: 1em;
-    margin-after: 1em;
-    margin-start: 0px;
-    margin-end: 0px;
-    padding-start: 40px;
+    @include media($medium-screen) {
+      display: table-cell;
+      width: 1%;
+      border-bottom: none;
+      text-align: center;
+      padding: 11px 5px;
+      white-space: nowrap;
+    }
   }
-
 }
 
 .color {
@@ -37,6 +33,10 @@
     position: relative;
     width: 100%;
     display:block;
+  }
+
+  hr {
+    margin: .5em 0;
   }
 }
 

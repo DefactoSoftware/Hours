@@ -2,23 +2,12 @@
   <div class="nav">
     <ul>
       <%= nav_path t("titles.projects.index"), root_path %>
-      <%= nav_path t("titles.categories.index"), categories_path %>
       <%= nav_path t("titles.entries.index"), user_entries_path(current_user) %>
     </ul>
   </div>
 
   <div class="nav-user">
     <ul>
-      <% if Hours.helpful_enabled? %>
-        <li >
-          <div class="modal">
-            <label for="modal-1"><a>Help me!</a></label>
-            <input class="modal-state" id="modal-1" type="checkbox">
-            <%= render 'modal' %>
-          </div>
-        </li>
-        <div class="divider"></div>
-      <% end %>
       <li id="user-nav" class="dropdown">
         <a href="javascript:void(0)"><%= current_user.first_name %><span class="caret"></span></a>
         <div class="dropdown-menu">
@@ -30,8 +19,20 @@
             </div>
             <ul>
               <li>
+                <%= link_to t("titles.categories.index"), categories_path %>
+              </li>
+              <li>
                 <%= link_to t("navbar.dropdown.edit_user"), edit_user_registration_path(current_user) %>
               </li>
+              <% if Hours.helpful_enabled? %>
+                <li >
+                  <div class="modal">
+                    <label for="modal-1"><a>Help me!</a></label>
+                    <input class="modal-state" id="modal-1" type="checkbox">
+                    <%= render 'modal' %>
+                  </div>
+                </li>
+              <% end %>
               <li class="devider"></li>
               <li>
                 <%= link_to t("sign_out"), destroy_user_session_path %>

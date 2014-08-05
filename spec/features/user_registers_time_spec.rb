@@ -54,6 +54,6 @@ feature "User registers time" do
     select "Conversations", from: "Project"
     select "Design", from: "Category"
     fill_in "Hours", with: 4
-    fill_in "Date", with: "01/02/2014"
+    fill_in "datepicker", with: "01/02/2014"
   end
 end
