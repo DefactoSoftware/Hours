@@ -57,7 +57,9 @@ feature "User manages projects" do
     entry.tag_list = "TDD"
 
     visit root_url(subdomain: subdomain)
-    click_link project.name
+    within ".projects-overview" do
+      click_link project.name
+    end
     expect(current_url).to eq(project_url(project, subdomain: subdomain))
     expect(page).to have_content("TDD")
   end
