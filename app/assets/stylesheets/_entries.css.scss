@@ -19,7 +19,14 @@
 
       input {
         resize: none;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
       }
+    }
+
+    .selectize-dropdown, .selectize-input, .selectize-input input {
+      font-size: $base-font-size;
+      font-family: 'Open Sans';
     }
 
     .select {
@@ -45,10 +52,10 @@
   border: none;
 
   &:hover {
-    background-color: transparent!important;
-    background-image: none!important;
-    box-shadow: none!important;
-    color: black!important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    color: black !important;
   }
 }
 
