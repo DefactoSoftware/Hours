@@ -38,6 +38,6 @@ Guidelines
 ----------
 - Write specs!
 - Develop features on dedicated feature branches, feel free to open a PR while it's still WIP
-- Please adhere to the [Github ruby styleguide](https://github.com/styleguide/ruby)
+- Please adhere to the [Thoughtbot ruby styleguide](https://github.com/thoughtbot/guides/tree/master/style#ruby)
 - All code and commit messages should be in English
 - Commit messages are written in the imperative with a short, descriptive title. Good => `Return a 204 when updating a question`, bad => `Changed http response` or `I updated the http response on the update action in the QuestionController because we're not showing any data there`. The first line should always be 50 characters or less and that it should be followed by a blank line.
