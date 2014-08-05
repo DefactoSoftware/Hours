@@ -48,6 +48,7 @@ en:
   entries:
     index:
       new: New Entry
+      edit_entry: Edit Entry
       date: Date
       project: Project
       hours: Hours

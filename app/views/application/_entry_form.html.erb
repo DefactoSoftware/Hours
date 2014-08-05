@@ -1,5 +1,5 @@
 <div class="new_entry_wrapper">
-  <h2><%= t("entries.index.new") %></h1>
+  <h2><%= form_title %></h1>
   <%= simple_form_for(@entry) do |f| %>
   <%= f.error_notification %>
       <%= f.association :project, required: true, collection: Project.by_name, label: false, placeholder: t("entries.index.project") %>

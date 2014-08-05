@@ -99,6 +99,7 @@ nl:
   entries:
     index:
       new: Nieuwe entry
+      edit_entry: Entry bewerken
       date: Datum
       project: Project
       hours: Uren
