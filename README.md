@@ -3,6 +3,29 @@ Hours
 
 [![Build Status](https://magnum.travis-ci.com/DefactoSoftware/Hours.png?token=A49pyqNGPBpMX52bcsLm)](https://magnum.travis-ci.com/DefactoSoftware/Hours)
 
+Hours is a dead simple project based time tracking application that we use
+for internal time-tracking. It allows users to register how many hours they've
+worked on a project with a certain category (think `design`, `software development`,
+`testing` for software teams) and add any tag they like to it. This gives us a lot of
+insight on how we spend our time on different projects.
+
+It looks like this:
+
+<img src="http://i.imgur.com/L6cCxPd.png" width=500 alt="Projects overview" />
+
+<img src="http://i.imgur.com/w62ubzH.png" width=500 alt="Sigle project" />
+
+<img src="http://i.imgur.com/gZWqVXT.png" width=500 alt="Entries" />
+
+Roadmap
+-------
+
+As we're using Hours we're constantly thinking of ways to improve it and there are a couple of features that we'd like to implement:
+- Billable/non billable hours
+- Better reporing
+- Exporting data
+- Mobile apps
+
 System Dependencies
 -------------------
 - Ruby 2.1.0 (install with [rbenv](https://github.com/sstephenson/rbenv))
