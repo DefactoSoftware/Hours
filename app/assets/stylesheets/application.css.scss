@@ -140,3 +140,15 @@ h1 {
 #flash_notice {
   @include flash($notice-color);
 }
+
+.hide-for-mobile {
+  @media screen and (max-width: $medium-screen) {
+    display: none;
+  }
+}
+
+.table-tags {
+  a {
+    font-size: 0.9em;
+  }
+}

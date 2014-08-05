@@ -29,7 +29,7 @@
     <% else %>
       <%= t(:no_hours_registered, project: project.name) %>
     <% end %>
-      <div class="active-people">
+      <div class="active-people hide-for-mobile">
         <% project.users.each do |user| %>
           <%= user_image_link(user) %>
         <% end %>
