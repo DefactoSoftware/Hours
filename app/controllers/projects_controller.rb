@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.includes(:entries, :users, :tags, :categories).
-      by_last_updated.page(params[:page]).per(7)
+    @projects = Project.by_last_updated.page(params[:page]).per(7)
     @entry = Entry.new
     @activities = Entry.by_last_created_at.limit(30)
   end
