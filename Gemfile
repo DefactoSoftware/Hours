@@ -54,6 +54,7 @@ group :development, :test do
   gem "pry-rails"
   gem "rspec-rails", ">= 2.14"
   gem "annotate"
+  gem "brakeman"
 end
 
 group :test do
