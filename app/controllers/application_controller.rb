@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
     @current_account ||= Account.find_by(subdomain: request.subdomain)
   end
 
+  helper_method def current_subdomain
+    @current_subdomain ||= current_account.subdomain
+  end
+
   def load_schema
     Apartment::Tenant.switch("public")
     return unless request.subdomain.present?
