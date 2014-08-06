@@ -1,45 +1,47 @@
-<% for project in projects %>
-  <% present project do |project_presenter| %>
-    <li class="container project">
-      <h2 class="project-title">
-      <%= link_to project_path(project) do %>
-        <%= project.name %>
-      <% end %>
-      </h2>
-
-      <ul class="tags">
-        <% project.tags.last(5).each do |tag| %>
-          <li class="tag"><a href="#"><%= tag.name %></a></li>
+<% projects.each do |project| %>
+  <% cache project do %>
+    <% present project do |project_presenter| %>
+      <li class="container project">
+        <h2 class="project-title">
+        <%= link_to project_path(project) do %>
+          <%= project.name %>
         <% end %>
-      </ul>
+        </h2>
 
-      <hr>
+        <ul class="tags">
+          <% project.tags.last(5).each do |tag| %>
+            <li class="tag"><a href="#"><%= tag.name %></a></li>
+          <% end %>
+        </ul>
 
-      <div class="activities-overview">
-        <ol class="activities">
-          <%= project_presenter.show_categories %>
-        </ol>
-      </div>
+        <hr>
 
-      <div class="bar">
-        <div class="graph">
-          <%= project_presenter.show_categories_bar %>
+        <div class="activities-overview">
+          <ol class="activities">
+            <%= project_presenter.show_categories %>
+          </ol>
         </div>
-      </div>
 
-      <div class="activity-description">
-        <% if project.users.count > 0 %>
-          <%= t(:project_activity_html, full_name: "<strong> #{project.users.first.full_name} </strong>".html_safe, count: project.users.count, hours: "<strong>#{project.hours_spent}</strong>".html_safe, project: "<strong>#{project.name}</strong>".html_safe) %>
-        <% else %>
-          <%= t(:no_hours_registered, project: project.name) %>
-        <% end %>
-          <div class="active-people">
-            <% project.users.each do |user| %>
-              <%= user_image_link(user) %>
-            <% end %>
+        <div class="bar">
+          <div class="graph">
+            <%= project_presenter.show_categories_bar %>
           </div>
-      </div>
-    </li>
+        </div>
+
+        <div class="activity-description">
+          <% if project.users.count > 0 %>
+            <%= t(:project_activity_html, full_name: "<strong> #{project.users.first.full_name} </strong>".html_safe, count: project.users.count, hours: "<strong>#{project.hours_spent}</strong>".html_safe, project: "<strong>#{project.name}</strong>".html_safe) %>
+          <% else %>
+            <%= t(:no_hours_registered, project: project.name) %>
+          <% end %>
+            <div class="active-people">
+              <% project.users.each do |user| %>
+                <%= user_image_link(user) %>
+              <% end %>
+            </div>
+        </div>
+      </li>
+    <% end %>
   <% end %>
 <% end %>
 <%= paginate projects %>

@@ -32,7 +32,13 @@ gem "active_model_serializers"
 gem "kaminari"
 gem "select2-rails"
 gem "http_accept_language"
-gem 'normalize-rails'
+gem "normalize-rails"
+
+# caching
+
+gem "kgio" # faster I/O
+gem "dalli" # memcached
+gem "memcachier"
 
 group :development do
   gem "better_errors"
