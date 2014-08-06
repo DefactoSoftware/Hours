@@ -1,47 +1,48 @@
-<div id="navbar">
-  <div class="nav">
-    <ul>
-      <%= nav_path t("titles.projects.index"), root_path %>
-      <%= nav_path t("titles.entries.index"), user_entries_path(current_user) %>
-    </ul>
-  </div>
+<% cache current_user do %>
+  <div id="navbar">
+    <div class="nav">
+      <ul>
+        <%= nav_path t("titles.projects.index"), root_path %>
+        <%= nav_path t("titles.entries.index"), user_entries_path(current_user) %>
+      </ul>
+    </div>
 
-  <div class="nav-user">
-    <ul>
-      <li id="user-nav" class="dropdown">
-        <a href="javascript:void(0)"><%= current_user.first_name %><span class="caret"></span></a>
-        <div class="dropdown-menu">
-          <div class="dropdown-arrow"></div>
-          <div class="dropdown-content">
-            <div class="user-info">
-              <%= gravatar_image_tag(current_user.email, gravatar: { secure: true }, class: "avatar") %>
-              <span class="user-name"><%= current_user.first_name %></span>
-            </div>
-            <ul>
-              <li>
-                <%= link_to t("titles.categories.index"), categories_path %>
-              </li>
-              <li>
-                <%= link_to t("navbar.dropdown.edit_user"), edit_user_registration_path(current_user) %>
-              </li>
-              <% if Hours.helpful_enabled? %>
-                <li >
-                  <div class="modal">
-                    <label for="modal-1"><a>Help me!</a></label>
-                    <input class="modal-state" id="modal-1" type="checkbox">
-                    <%= render 'modal' %>
-                  </div>
+    <div class="nav-user">
+      <ul>
+        <li id="user-nav" class="dropdown">
+          <a href="javascript:void(0)"><%= current_user.first_name %><span class="caret"></span></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-arrow"></div>
+            <div class="dropdown-content">
+              <div class="user-info">
+                <%= gravatar_image_tag(current_user.email, gravatar: { secure: true }, class: "avatar") %>
+                <span class="user-name"><%= current_user.first_name %></span>
+              </div>
+              <ul>
+                <li>
+                  <%= link_to t("titles.categories.index"), categories_path %>
                 </li>
-              <% end %>
-              <li class="devider"></li>
-              <li>
-                <%= link_to t("sign_out"), destroy_user_session_path %>
-              </li>
-            </ul>
+                <li>
+                  <%= link_to t("navbar.dropdown.edit_user"), edit_user_registration_path(current_user) %>
+                </li>
+                <% if Hours.helpful_enabled? %>
+                  <li >
+                    <div class="modal">
+                      <label for="modal-1"><a>Help me!</a></label>
+                      <input class="modal-state" id="modal-1" type="checkbox">
+                      <%= render 'modal' %>
+                    </div>
+                  </li>
+                <% end %>
+                <li class="devider"></li>
+                <li>
+                  <%= link_to t("sign_out"), destroy_user_session_path %>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
-
+<% end %>
