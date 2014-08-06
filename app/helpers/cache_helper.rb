@@ -3,6 +3,7 @@ module CacheHelper
     klass = klass_name.to_s.singularize.capitalize.constantize
     count = klass.count
     max_updated_at = klass.maximum(:updated_at).try(:utc).try(:to_s, :number)
-    "#{current_subdomain}/#{klass_name}/all-#{count}-#{max_updated_at}"
+    page = params[:page]
+    "#{current_subdomain}/#{klass_name}/all-page#{page}-#{count}-#{max_updated_at}"
   end
 end

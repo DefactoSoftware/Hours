@@ -10,6 +10,7 @@ System Dependencies
 - Bundler (`gem install bundler`)
 - PostgreSQL
 - qmake (`brew install qt`) or read extensive instructions [here](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
+- memcached (`brew install memcached`, an older version ships with OSX)(optional)
 
 Getting Started
 ---------------
@@ -30,6 +31,8 @@ After setting up, you can run the application using [foreman]:
 Since we're using subdomains to point to accounts, you can't run the app on localhost.
 If you have [pow] set up, it will be automatically configured by the setup script, otherwise
 you need to point apache/nginx to the port foreman is running the app on (7000 by default). With pow the app will run on http://hours.dev
+
+In order to activate caching in development you can add `CACHE_DEVELOPMENT="anything"` to your `.env`. Make sure to run `$ memcached` when you do need this.
 
 [foreman]: http://ddollar.github.io/foreman/
 [pow]: http://pow.cx
