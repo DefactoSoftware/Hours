@@ -3,7 +3,9 @@
     <div class="projects-overview">
       <%= render partial: "application/entry_form", locals: { form_title: t("entries.index.new") } %>
       <ul class="project-list">
-        <%= render partial: "project", locals: { projects: @projects } %>
+        <% cache cache_key_for_all(:projects) do %>
+          <%= render partial: "project", locals: { projects: @projects } %>
+        <% end %>
       </ul>
       <div class="new-project">
         <%= link_to t("titles.projects.new"), new_project_path, id: "new-project-button", class: "button create" %>
@@ -11,7 +13,11 @@
     </div>
 
     <div class="activity-feed">
-      <ul><%= render partial: "entry", collection: @activities %></ul>
+      <ul>
+        <% cache cache_key_for_all(:entries) do %>
+          <%= render partial: "entry", collection: @activities %>
+        <% end %>
+    </ul>
     </div>
   </div>
 </div>
