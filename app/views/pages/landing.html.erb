@@ -1,123 +1,125 @@
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <h1 id="logo">
-        <%= image_tag("logo-white-shadow.png", alt: 'Hours') %>
-      </h1>
-      <h2>Time registration that doesn't suck.</h2>
-      <%= link_to new_accounts_path, class: "button" do %>
-        <div class="flip">
-          <div class="flip-front"><span>Free<br>Trial</span></div>
-          <div class="flip-back"><span>Free<br>Trial</span></div>
-        </div>
-      <% end %>
+<% cache static_cache_key_for(:landing) do %>
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 id="logo">
+          <%= image_tag("logo-white-shadow.png", alt: 'Hours') %>
+        </h1>
+        <h2>Time registration that doesn't suck.</h2>
+        <%= link_to new_accounts_path, class: "button" do %>
+          <div class="flip">
+            <div class="flip-front"><span>Free<br>Trial</span></div>
+            <div class="flip-back"><span>Free<br>Trial</span></div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="main">
-  <div class="copy">
-    <p>When <%= link_to "we", page_path('team') %> found out our company spent over €1.500 a year on timetracking software that everybody hated, we decided to take matters into our own hands. Two days later we had the first prototype of <strong>Hours</strong>, our solution to make tracking time easier and insightful for <em>everyone</em>.</p>
+  <div class="main">
+    <div class="copy">
+      <p>When <%= link_to "we", page_path('team') %> found out our company spent over €1.500 a year on timetracking software that everybody hated, we decided to take matters into our own hands. Two days later we had the first prototype of <strong>Hours</strong>, our solution to make tracking time easier and insightful for <em>everyone</em>.</p>
+    </div>
   </div>
-</div>
 
-<div class="browsers">
-  <div class="browser">
-    <div class="browser-top-bar">
-      <div class="browser-circle"></div>
-      <div class="browser-circle"></div>
-      <div class="browser-circle"></div>
-    </div>
-  <div class="browser-content"></div>
-  </div>
-  <div class="browser">
-    <div class="browser-top-bar">
-      <div class="browser-circle"></div>
-      <div class="browser-circle"></div>
-      <div class="browser-circle"></div>
-    </div>
-    <div class="browser-content">
-    </div>
-  </div>
-  <div class="browser">
-    <div class="browser-top-bar">
-      <div class="browser-circle"></div>
-      <div class="browser-circle"></div>
-      <div class="browser-circle"></div>
-    </div>
+  <div class="browsers">
+    <div class="browser">
+      <div class="browser-top-bar">
+        <div class="browser-circle"></div>
+        <div class="browser-circle"></div>
+        <div class="browser-circle"></div>
+      </div>
     <div class="browser-content"></div>
+    </div>
+    <div class="browser">
+      <div class="browser-top-bar">
+        <div class="browser-circle"></div>
+        <div class="browser-circle"></div>
+        <div class="browser-circle"></div>
+      </div>
+      <div class="browser-content">
+      </div>
+    </div>
+    <div class="browser">
+      <div class="browser-top-bar">
+        <div class="browser-circle"></div>
+        <div class="browser-circle"></div>
+        <div class="browser-circle"></div>
+      </div>
+      <div class="browser-content"></div>
+    </div>
   </div>
-</div>
 
-<div class="pricing" id="pricing">
-  <h1>Pricing</h1>
-  <div class="cards">
+  <div class="pricing" id="pricing">
+    <h1>Pricing</h1>
+    <div class="cards">
+        <div class="card">
+          <%= link_to new_accounts_path do %>
+            <div class="card-image free">
+            <p>Freelance</p>
+            </div>
+          <% end %>
+          <div class="card-header">
+            Free!
+          </div>
+          <div class="card-copy">
+            <p><strong>Hours</strong> is free for small teams and freelancers: if you are up to 5 people, this one's on us! </p>
+          </div>
+          <div class="card-stats">
+            <ul>
+              <li>5<span>Users</span></li>
+              <li>Unlimited<span>Projects &amp; Entries</span></li>
+            </ul>
+          </div>
+        </div>
+
       <div class="card">
+        <div class="ribbon-wrapper"><div class="ribbon">Popular</div></div>
         <%= link_to new_accounts_path do %>
-          <div class="card-image free">
-          <p>Freelance</p>
+          <div class="card-image medium">
+            <p>Small Teams</p>
           </div>
         <% end %>
         <div class="card-header">
-          Free!
+          $25 / month
         </div>
         <div class="card-copy">
-          <p><strong>Hours</strong> is free for small teams and freelancers: if you are up to 5 people, this one's on us! </p>
+          <p>Tailored toward consultancies and small teams, this plan will only cost you less than a beer per user per month. If you can't afford us, focus on working instead of tracking time!</p>
         </div>
         <div class="card-stats">
           <ul>
-            <li>5<span>Users</span></li>
-            <li>Unlimited<span>Projects &amp; Entries</span></li>
+            <li>25<span>Users</span></li>
+            <li>Unlimited<span>Projects &amp; entries</span></li>
           </ul>
         </div>
       </div>
 
-    <div class="card">
-      <div class="ribbon-wrapper"><div class="ribbon">Popular</div></div>
-      <%= link_to new_accounts_path do %>
-        <div class="card-image medium">
-          <p>Small Teams</p>
+      <div class="card">
+        <%= link_to new_accounts_path do %>
+          <div class="card-image enterprise">
+            <p>Enterprise</p>
+          </div>
+        <% end %>
+        <div class="card-header">
+          Call us :)
         </div>
-      <% end %>
-      <div class="card-header">
-        $25 / month
-      </div>
-      <div class="card-copy">
-        <p>Tailored toward consultancies and small teams, this plan will only cost you less than a beer per user per month. If you can't afford us, focus on working instead of tracking time!</p>
-      </div>
-      <div class="card-stats">
-        <ul>
-          <li>25<span>Users</span></li>
-          <li>Unlimited<span>Projects &amp; entries</span></li>
-        </ul>
+        <div class="card-copy">
+          <p><a href="tel:+31 50 3144832">Call us,</a> maybe... </p>
+          <p><strong>+31 50 314 48 32</strong></p>
+        </div>
+        <div class="card-stats">
+          <ul>
+            <li>25+<span>Users</span></li>
+            <li>Unlimited<span>everything</span></li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="card">
-      <%= link_to new_accounts_path do %>
-        <div class="card-image enterprise">
-          <p>Enterprise</p>
-        </div>
-      <% end %>
-      <div class="card-header">
-        Call us :)
-      </div>
-      <div class="card-copy">
-        <p><a href="tel:+31 50 3144832">Call us,</a> maybe... </p>
-        <p><strong>+31 50 314 48 32</strong></p>
-      </div>
-      <div class="card-stats">
-        <ul>
-          <li>25+<span>Users</span></li>
-          <li>Unlimited<span>everything</span></li>
-        </ul>
-      </div>
-    </div>
+    <p>Or start with a <strong>free</strong> trial. No credit card needed.</p>
+    <%= link_to new_accounts_path do %>
+      <button>Free trial</button>
+    <% end %>
   </div>
-
-  <p>Or start with a <strong>free</strong> trial. No credit card needed.</p>
-  <%= link_to new_accounts_path do %>
-    <button>Free trial</button>
-  <% end %>
-</div>
-<%= render "footer" %>
+  <%= render "footer" %>
+<% end %>

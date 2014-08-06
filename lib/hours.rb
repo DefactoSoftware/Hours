@@ -21,4 +21,8 @@ module Hours
       true
     end
   end
+
+  def self.cache_id
+    @@cache_id ||= Time.current.to_s
+  end
 end
