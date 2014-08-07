@@ -32,7 +32,7 @@ body {
   padding-top: 60px;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.7em;
-  background: #f7f6f0;
+  background: $bg-body-color;
 
   &.accounts-new {
     background: image-url("sky.jpg") center center;
@@ -55,7 +55,7 @@ h1 {
 }
 
 .outer {
-  @include outer-container;
+  // @include outer-container;
 }
 
 .container {

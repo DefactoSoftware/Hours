@@ -93,7 +93,7 @@
 
 .projects {
   .wrapper {
-    @include row(table);
+    @include row();
   }
 
   .project-title {
@@ -102,15 +102,9 @@
 
   .projects-overview {
     @include span-columns(12);
-    padding: 0;
-    vertical-align: top;
 
     @include media($laptop-screen) {
-      @include span-columns(10);
-    }
-
-    @include media($large-screen) {
-      @include span-columns(12);
+      @include span-columns(7);
     }
 
     .entry_tag_list .selectize-input {
