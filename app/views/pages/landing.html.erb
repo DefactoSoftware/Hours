@@ -18,7 +18,7 @@
 
   <div class="main">
     <div class="copy">
-      <p>When <%= link_to "we", page_path('team') %> found out our company spent over €1.500 a year on timetracking software that everybody hated, we decided to take matters into our own hands. Two days later we had the first prototype of <strong>Hours</strong>, our solution to make tracking time easier and insightful for <em>everyone</em>.</p>
+      <p>Hours is a dead simple project based time tracking application that <%= link_to "we", page_path("team") %> use for internal time-tracking. It allows users to register how many hours they've worked on a project with a certain category (think design, software development, testing for software teams) and add any tag they like to it. This gives us a lot of insight on how we spend our time on different projects.</p>
     </div>
   </div>
 
@@ -84,7 +84,7 @@
           $25 / month
         </div>
         <div class="card-copy">
-          <p>Tailored toward consultancies and small teams, this plan will only cost you less than a beer per user per month. If you can't afford us, focus on working instead of tracking time!</p>
+          <p>Tailored toward consultancies and medium sized teams, this plan will only cost you less than a beer per user per month. If you can't afford us, stop drinking so much beer!</p>
         </div>
         <div class="card-stats">
           <ul>
@@ -120,6 +120,8 @@
     <%= link_to new_accounts_path do %>
       <button>Free trial</button>
     <% end %>
+
+    <p><small>Alternatively you can grab the <a href="https://github.com/DefactoSoftware/Hours/">source</a> from Github and host it yourself.</small><p>
   </div>
   <%= render "footer" %>
 <% end %>
