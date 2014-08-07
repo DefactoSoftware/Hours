@@ -62,6 +62,7 @@ In order to activate caching in development you can add `CACHE_DEVELOPMENT="anyt
 
 Guidelines
 ----------
+- Pull requests are welcome! If you aren't able to contribute code please open an issue on Github.
 - Write specs!
 - Develop features on dedicated feature branches, feel free to open a PR while it's still WIP
 - Please adhere to the [Thoughtbot ruby styleguide](https://github.com/thoughtbot/guides/tree/master/style#ruby)
