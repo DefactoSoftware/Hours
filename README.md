@@ -22,7 +22,7 @@ Roadmap
 
 As we're using Hours we're constantly thinking of ways to improve it and there are a couple of features that we'd like to implement:
 - Billable/non billable hours
-- Better reporing
+- Better reporting
 - Exporting data
 - Mobile apps
 
