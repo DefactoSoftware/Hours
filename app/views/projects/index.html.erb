@@ -1,7 +1,11 @@
 <div class="outer">
   <div class="wrapper">
     <div class="projects-overview">
-      <%= render partial: "application/entry_form", locals: { form_title: t("entries.index.new") } %>
+      <% cache([cache_key_for_all(:projects),
+                cache_key_for_all(:categories),
+                cache_key_for_all(:tags)]) do %>
+        <%= render partial: "application/entry_form", locals: { form_title: t("entries.index.new") } %>
+      <% end %>
       <ul class="project-list">
         <% cache cache_key_for_all(:projects) do %>
           <%= render partial: "project", locals: { projects: @projects } %>

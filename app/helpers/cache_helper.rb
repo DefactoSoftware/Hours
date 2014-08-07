@@ -6,4 +6,8 @@ module CacheHelper
     page = params[:page]
     "#{current_subdomain}/#{klass_name}/all-page#{page}-#{count}-#{max_updated_at}"
   end
+
+  def static_cache_key_for(key)
+    [Hours.cache_id, key.to_s].join("/")
+  end
 end
