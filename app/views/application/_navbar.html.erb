@@ -1,12 +1,12 @@
-<% cache current_user do %>
-  <div id="navbar">
-    <div class="nav">
-      <ul>
-        <%= nav_path t("titles.projects.index"), root_path %>
-        <%= nav_path t("titles.entries.index"), user_entries_path(current_user) %>
-      </ul>
-    </div>
+<div id="navbar">
+  <div class="nav">
+    <ul>
+      <%= nav_path t("titles.projects.index"), root_path %>
+      <%= nav_path t("titles.entries.index"), user_entries_path(current_user) %>
+    </ul>
+  </div>
 
+  <% cache current_user do %>
     <div class="nav-user">
       <ul>
         <li id="user-nav" class="dropdown">
@@ -44,5 +44,5 @@
         </li>
       </ul>
     </div>
-  </div>
 <% end %>
+</div>
