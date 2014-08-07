@@ -20,10 +20,6 @@ Hours::Application.routes.draw do
     resources :users, only: [] do
       resources :entries, only: :index
     end
-
-    namespace :api, defaults: {format: :json} do
-      resources :entries, only: :index
-    end
   end
 
   constraints(SubdomainBlank) do
