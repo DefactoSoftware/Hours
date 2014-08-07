@@ -17,8 +17,6 @@ en:
   category:
     remaining: Other
   date:
-    today: today
-    date_ago: "%{date} ago"
     formats:
       default: '%m/%d/%Y'
       with_weekday: '%a %m/%d/%y'
@@ -77,8 +75,8 @@ en:
   entry_failed: Something went wrong saving your entry
   entry_deleted: Entry successfully deleted
   entry_activity_html:
-    one: "%{user} spent one hour doing %{category} on %{project} %{time_ago}."
-    other: "%{user} spent %{count} hours doing %{category} on %{project} %{time_ago}."
+    one: "%{user} spent one hour doing %{category} on %{project}"
+    other: "%{user} spent %{count} hours doing %{category} on %{project}"
   hours: hours
 
   helpful:
