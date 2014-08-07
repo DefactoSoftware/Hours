@@ -74,7 +74,7 @@ $browser-content-background-3: #F0F0F0;
   }
 
   .browser-content {
-    background: image-url("screen2.png");
+    background: image-url("screen-user.png");
     background-color: $browser-content-background-1;
     background-position: top;
     background-repeat: no-repeat;
@@ -93,7 +93,7 @@ $browser-content-background-3: #F0F0F0;
   }
 
   .browser-content {
-    background: image-url("screen1.png");
+    background: image-url("screen-overview.png");
     background-color: $browser-content-background-2;
     background-position: top;
     background-repeat: no-repeat;
@@ -111,7 +111,7 @@ $browser-content-background-3: #F0F0F0;
   }
 
   .browser-content {
-    background: image-url("screen3.png");
+    background: image-url("screen-project.png");
     background-color: $browser-content-background-3;
     background-position: top;
     background-repeat: no-repeat;
