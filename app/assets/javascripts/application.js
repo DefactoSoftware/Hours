@@ -18,6 +18,9 @@
 //= require Chart
 //= require select2
 //= require projects
+//= require i18n
+//= require date-formatter
+//= require feed
 //= require_tree .
 
 

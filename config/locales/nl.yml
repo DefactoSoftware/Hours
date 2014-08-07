@@ -26,7 +26,6 @@ nl:
   category_created: De categorie is aangemaakt
   confirm: Weet u het zeker?
   date:
-    date_ago: "%{date} geleden"
     formats:
       default: "%d/%m/%Y"
       with_weekday: "%a %m/%d/%y"
@@ -95,9 +94,8 @@ nl:
       total: 'Totaal: %{hours_spent}'
       user_hours: "%{user}s uren"
   entry_activity_html:
-    one: "%{user} heeft één uur gespendeerd aan %{category} op %{project} %{time_ago}."
-    other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project}
-      %{time_ago}."
+    one: "%{user} heeft één uur gespendeerd aan %{category} op %{project}"
+    other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project}"
   entry_created: Uren zijn aangemaakt
   entry_deleted: De uren zijn verwijderd
   entry_failed: Iets ging mis bij het opslaan van uw uren
