@@ -73,6 +73,7 @@ h1 {
     box-shadow: none;
     color: #fff;
     width: 100%;
+    margin: 0 auto;
 
     @include media ($medium-screen) {
       width: 45%;
