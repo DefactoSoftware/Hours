@@ -31,26 +31,28 @@
         </thead>
         <tbody>
         <% @entries.each do |entry| %>
-          <tr class="info-row">
-            <td><%= l(entry.date) %></td>
-            <td><%= link_to entry.project.name, entry.project %></td>
-            <td class="center"><%= entry.hours %></td>
-            <td class="hide-for-mobile">
-              <div class="project">
-                <span class="color" style="background-color:<%= entry.category.name.pastel_color %>;"></span>
-                <span><%= entry.category.name %></span>
-              </div>
-            </td>
-            <td class="hide-for-mobile">
-              <div class="table-tags">
-                <%= entry.tag_list %>
-              </div>
-            </td>
-            <% if @user == current_user %>
-              <td class="right">
-                <%= link_to t('entries.index.edit'), edit_entry_path(entry) %> |
-                <%= link_to t('entries.index.delete'), entry, method: :delete, class: "destroy", data: { confirm: t(:confirm) } %>
+          <% cache entry do %>
+            <tr class="info-row">
+              <td><%= l(entry.date) %></td>
+              <td><%= link_to entry.project.name, entry.project %></td>
+              <td class="center"><%= entry.hours %></td>
+              <td class="hide-for-mobile">
+                <div class="project">
+                  <span class="color" style="background-color:<%= entry.category.name.pastel_color %>;"></span>
+                  <span><%= entry.category.name %></span>
+                </div>
               </td>
+              <td class="hide-for-mobile">
+                <div class="table-tags">
+                  <%= entry.tag_list %>
+                </div>
+              </td>
+              <% if @user == current_user %>
+                <td class="right">
+                  <%= link_to t('entries.index.edit'), edit_entry_path(entry) %> |
+                  <%= link_to t('entries.index.delete'), entry, method: :delete, class: "destroy", data: { confirm: t(:confirm) } %>
+                </td>
+              <% end %>
             <% end %>
           </tr>
         <% end %>
