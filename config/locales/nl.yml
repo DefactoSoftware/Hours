@@ -131,7 +131,7 @@ nl:
   project_created: Het project is aangemaakt
   read_more: lees verder
   registration:
-    edit: Pas uw gegevens aanCreeër Categorie
+    edit: Pas uw gegevens aan
     gravatar_instructions_html: Update je profiel foto op <a href="https://www.gravatar.com"
       target="_blank">Gravatar</a>
     hint:
