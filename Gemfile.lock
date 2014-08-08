@@ -294,7 +294,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   delayed_job_active_record
-  devise (~> 3.2.3)
+  devise (~> 3.2.4)
   dotenv-rails
   email_validator
   factory_girl_rails
