@@ -124,3 +124,8 @@ en:
   navbar:
     dropdown:
       edit_user: "Edit profile"
+
+  info:
+    here: here
+    no_projects_html: "It looks like you don't have any projects set up yet, you can set one up %{new_project_path}."
+    no_categories_html: "It looks like you don't have any categories set up yet, you can set one up %{categories_path}."
