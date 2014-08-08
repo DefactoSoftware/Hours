@@ -7,9 +7,9 @@ class window.DateFormatter
     return "#{@_days()} #{@locale.date.future}" if @_dateInFuture()
 
     switch @_days()
-      when 0
-        @locale.date.today
       when 1
+        @locale.date.today
+      when 2
         @locale.date.yesterday
       else
         "#{@_days()} #{@locale.date.dateAgo}"
