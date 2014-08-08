@@ -1,7 +1,7 @@
 Hours
 =====
 
-[![Build Status](https://magnum.travis-ci.com/DefactoSoftware/Hours.png?token=A49pyqNGPBpMX52bcsLm)](https://magnum.travis-ci.com/DefactoSoftware/Hours)
+[![Build Status](https://travis-ci.org/DefactoSoftware/Hours.svg)](https://magnum.travis-ci.com/DefactoSoftware/Hours)
 
 Hours is a dead simple project based time tracking application that we use
 for internal time-tracking. It allows users to register how many hours they've
