@@ -25,6 +25,11 @@
                 <li>
                   <%= link_to t("navbar.dropdown.edit_user"), edit_user_registration_path %>
                 </li>
+                <% if current_user_owner? %>
+                  <li>
+                  <%= link_to t("titles.accounts.edit"), edit_account_path %>
+                  </li>
+                <% end %>
                 <% if Hours.helpful_enabled? %>
                   <li >
                     <div class="modal">

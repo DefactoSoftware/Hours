@@ -1,0 +1,15 @@
+.danger-zone {
+  background-color: $danger-color;
+  padding: 20px;
+  border-radius: 4px;
+  border: darken($danger-color, 20%);
+
+  margin-top: 20px;
+
+  input {
+    background-color: darken($danger-color, 20%);
+    &:hover {
+      background-color: darken($danger-color, 30%);
+    }
+  }
+}

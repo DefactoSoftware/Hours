@@ -2,6 +2,10 @@
 nl:
   account:
     back_to_website: Terug naar website
+    confirm_destroy: Weet je zeker dat je je account wil verwijderen?
+    danger_zone: Danger Zone
+    delete: Verwijder mijn account
+    deleted: Je account is verwijderd.
     email: Email
     first_name: Voornaam
     invalid_characters: bevat invalide karakters
@@ -10,6 +14,7 @@ nl:
     repeat_password: Bevesting wachtwoord
     restricted: restricted
     subdomain: subdomein
+    warning: Het verwijderen van je account zal jouw en iedereens gegevens op %{subdomain} verwijderen en kan niet ongedaan worden gemaakt.
   account_created_successfully: Aanmelden is gelukt
   activerecord:
     errors:
@@ -115,6 +120,10 @@ nl:
     tagline: Heeft u een vraag over Hours? Hulp nodig om te kunnen beginnen?
     title: Hulp nodig?
   hours: uren
+  info:
+    here: hier
+    no_categories_html: Zo te zien heb je nog geen categorieen aangemaakt. Dat kun je %{categorie_path} doen. 
+    no_projects_html: Zo te zien heb je nog geen projecten aangemaakt. Dat kun je %{new_project_path} doen.
   main_text: Hier moet een supertoffe text komen te staan in het nederlands over hoe
     tof hours is
   navbar:
@@ -162,6 +171,7 @@ nl:
       short: "%B %d"
   titles:
     accounts:
+      edit: Account Aanpassen
       new: Registratie
     activities: Activiteiten
     application: Uren
