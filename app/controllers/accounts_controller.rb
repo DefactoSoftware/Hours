@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
-  skip_before_filter :authenticate_user!, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: [:new, :create]
+  before_action :authorize!, only: [:edit, :destroy]
 
   def new
     @account = Account.new
@@ -18,6 +19,15 @@ class AccountsController < ApplicationController
     end
   end
 
+  def edit
+    @current_domain = request.host
+  end
+
+  def destroy
+    current_account.destroy
+    Apartment::Tenant.drop(current_subdomain)
+  end
+
   private
 
   def account_params
@@ -27,5 +37,9 @@ class AccountsController < ApplicationController
                     :first_name, :last_name, :email,
                     :password, :password_confirmation]
                  )
+  end
+
+  def authorize!
+    raise ActiveRecord::RecordNotFound unless current_user_owner?
   end
 end

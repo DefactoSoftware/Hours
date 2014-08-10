@@ -3,6 +3,7 @@ en:
     application: Hours
     accounts:
       new: Registration
+      edit: Edit Account
     projects:
       index: Projects
       new: New Project
@@ -115,6 +116,11 @@ en:
     repeat_password: Repeat Password
     subdomain: Subdomain
     back_to_website: back to the website
+    danger_zone: Danger Zone
+    warning: Deleting your account will remove you and everyone else's data from %{subdomain} and cannot be undone.
+    delete: Delete my account
+    confirm_destroy: Are you sure you want to delete your account?
+    deleted: Your account was deleted. Sorry to see you go. :(
 
   project:
     table_head:

@@ -20,6 +20,9 @@ Hours::Application.routes.draw do
     resources :users, only: [] do
       resources :entries, only: :index
     end
+
+    get "account/edit" => "accounts#edit", as: :edit_account
+    delete "account" => "accounts#destroy", as: :destroy_account
   end
 
   constraints(SubdomainBlank) do
