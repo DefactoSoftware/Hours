@@ -62,13 +62,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def email_domain
+    email.split("@").last
+  end
+
   private
 
   def email_matches_account_owners
     return unless organization
-    owner_email_domain = organization.owner.email.split("@").last
-    user_email_domain = email.split("@").last
-    unless user_email_domain == owner_email_domain
+    owner_email_domain = organization.owner.email_domain
+    unless email_domain == owner_email_domain
       errors.add(:email, :invalid_email)
     end
   end
