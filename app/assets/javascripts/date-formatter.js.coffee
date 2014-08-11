@@ -1,4 +1,6 @@
 class window.DateFormatter
+  MS_PER_DAY = 1000 * 60 * 60 * 24
+
   constructor: (date, locale) ->
     @date = new Date(date)
     @locale = I18n[locale || "en"]
@@ -7,9 +9,9 @@ class window.DateFormatter
     return "#{@_days()} #{@locale.date.future}" if @_dateInFuture()
 
     switch @_days()
-      when 1
+      when 0
         @locale.date.today
-      when 2
+      when 1
         @locale.date.yesterday
       else
         "#{@_days()} #{@locale.date.dateAgo}"
@@ -20,6 +22,9 @@ class window.DateFormatter
     @date > new Date()
 
   _days: ->
-    today = new Date()
-    difference = Math.abs(today.getTime() - @date.getTime())
-    Math.ceil(difference / (3000 * 3600 * 24))
+    today = @_UTCDate(new Date())
+    date = @_UTCDate(@date)
+    Math.floor((today - date) / MS_PER_DAY)
+
+  _UTCDate: (date) ->
+    Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
