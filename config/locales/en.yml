@@ -13,7 +13,7 @@ en:
       edit: Edit Category
     activities: Activities
     entries:
-      index: My Hours
+      index: "%{name}'s Hours"
     reports:
       index: Reports
   category:
@@ -132,6 +132,7 @@ en:
       hours: Hours
 
   navbar:
+    entries: "My Hours"
     dropdown:
       edit_user: "Edit profile"
 
