@@ -2,6 +2,7 @@ Hours
 =====
 
 [![Build Status](https://travis-ci.org/DefactoSoftware/Hours.svg)](https://magnum.travis-ci.com/DefactoSoftware/Hours)
+[![Code Climate](https://codeclimate.com/github/DefactoSoftware/Hours/badges/gpa.svg)](https://codeclimate.com/github/DefactoSoftware/Hours)
 
 Hours is a dead simple project based time tracking application that we use
 for internal time-tracking. It allows users to register how many hours they've
