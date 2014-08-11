@@ -30,6 +30,7 @@ nl:
   category:
     remaining: Other
   category_created: De categorie is aangemaakt
+  category_updated: De categorie is gewijzigd
   confirm: Weet u het zeker?
   date:
     formats:

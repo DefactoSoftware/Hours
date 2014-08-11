@@ -2,5 +2,6 @@
   <div class="project">
     <span class="color" style="background-color:<%= category.name.pastel_color %>;"></span>
     <span><%= category.name %></span>
+    <span>(<%= link_to t("category.edit"), edit_category_path(category) %>)</span>
   </div>
 </li>
