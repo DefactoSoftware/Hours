@@ -122,7 +122,7 @@ nl:
   hours: uren
   info:
     here: hier
-    no_categories_html: Zo te zien heb je nog geen categorieen aangemaakt. Dat kun je %{categorie_path} doen. 
+    no_categories_html: Zo te zien heb je nog geen categorieen aangemaakt. Dat kun je %{categories_path} doen.
     no_projects_html: Zo te zien heb je nog geen projecten aangemaakt. Dat kun je %{new_project_path} doen.
   main_text: Hier moet een supertoffe text komen te staan in het nederlands over hoe
     tof hours is
