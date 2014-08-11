@@ -121,6 +121,7 @@ en:
     delete: Delete my account
     confirm_destroy: Are you sure you want to delete your account?
     deleted: Your account was deleted. Sorry to see you go. :(
+    users_instructions_html: Coworkers can sign up %{sign_up_path} as long as they have an email that ends with <em> %{domain} </em>
 
   project:
     table_head:

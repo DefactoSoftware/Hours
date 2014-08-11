@@ -15,6 +15,7 @@ nl:
     restricted: restricted
     subdomain: subdomein
     warning: Het verwijderen van je account zal jouw en iedereens gegevens op %{subdomain} verwijderen en kan niet ongedaan worden gemaakt.
+    users_instructions_html: Collega's kunnen zich %{sign_up_path} registreren met een email dat eindigt op <em> %{domain} </em>
   account_created_successfully: Aanmelden is gelukt
   activerecord:
     errors:

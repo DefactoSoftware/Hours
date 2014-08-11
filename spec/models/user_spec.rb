@@ -88,16 +88,23 @@ describe User do
     end
   end
 
-  describe 'generating unique slugs' do
+  describe "generating unique slugs" do
     it "uses the full name when available" do
-      user = create(:user, first_name: 'Phillip', last_name: 'Fry')
-      expect(user.slug).to eq('phillip-fry')
+      user = create(:user, first_name: "Phillip", last_name: "Fry")
+      expect(user.slug).to eq("phillip-fry")
     end
 
     it "uses the full name with an index when the full name is taken" do
-      create(:user, first_name: 'Phillip', last_name: 'Fry')
-      user_with_same_name = create(:user, first_name: 'Phillip', last_name: 'Fry')
-      expect(user_with_same_name.slug).to eq('phillip-fry-1')
+      create(:user, first_name: "Phillip", last_name: "Fry")
+      user_with_same_name = create(:user, first_name: "Phillip", last_name: "Fry")
+      expect(user_with_same_name.slug).to eq("phillip-fry-1")
+    end
+  end
+
+  describe "#email_domain" do
+    it "returns the users email domain" do
+      user = build(:user, email: "test@example.com")
+      expect(user.email_domain).to eq("example.com")
     end
   end
 end
