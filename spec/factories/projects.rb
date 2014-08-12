@@ -6,6 +6,7 @@
 #  name       :string(255)      default(""), not null
 #  created_at :datetime
 #  updated_at :datetime
+#  slug       :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

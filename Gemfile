@@ -22,6 +22,7 @@ gem "title"
 gem "uglifier"
 gem "unicorn"
 gem "devise", "~> 3.2.4"
+gem "devise_invitable"
 gem "apartment", "~> 0.25.0"
 gem "pikaday-gem", "~> 1.1.0.0"
 gem "momentjs-rails"
@@ -54,6 +55,8 @@ group :development, :test do
   gem "rspec-rails", ">= 2.14"
   gem "annotate"
   gem "brakeman"
+  gem "letter_opener"
+  gem "email_spec"
 end
 
 group :test do

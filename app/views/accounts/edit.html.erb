@@ -1,9 +1,6 @@
 <div class="outer" >
   <div class="container" >
     <h1><%= title %></h1>
-    <p><%= t("account.users_instructions_html",
-             domain: "@#{current_user.email_domain}",
-             sign_up_path: link_to(t("info.here"), new_user_registration_path)) %></p>
 
     <div class="danger-zone">
       <h2><%= t("account.danger_zone") %></h2>

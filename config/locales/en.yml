@@ -16,6 +16,8 @@ en:
       index: My Hours
     reports:
       index: Reports
+    users:
+      index: Users
   category:
     remaining: Other
     edit: edit
@@ -82,6 +84,7 @@ en:
     one: "%{user} spent one hour doing %{category} on %{project}"
     other: "%{user} spent %{count} hours doing %{category} on %{project}"
   hours: hours
+  user_updated: Your account was successfully updated
 
   helpful:
     title: Need help?
@@ -114,7 +117,7 @@ en:
     restricted: "restricted"
     first_name: First Name
     last_name: Last Name
-    email: 'Email (only people at the same domain can join)'
+    email: Email
     password: Password
     repeat_password: Repeat Password
     subdomain: Subdomain
@@ -139,3 +142,9 @@ en:
     here: here
     no_projects_html: "It looks like you don't have any projects set up yet, you can set one up %{new_project_path}."
     no_categories_html: "It looks like you don't have any categories set up yet, you can set one up %{categories_path}."
+
+  users:
+    invitation_sent_at: Invited %{time_ago} ago
+    confirm: Confirm
+    email: Email
+    invite: Invite User

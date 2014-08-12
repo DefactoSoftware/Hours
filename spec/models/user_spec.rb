@@ -22,6 +22,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  organization_id        :integer
+#  slug                   :string(255)
 #
 
 require "spec_helper"
@@ -34,23 +35,6 @@ describe User do
     it { should validate_presence_of :password }
     it { should validate_presence_of :slug }
     it { should validate_uniqueness_of :slug }
-
-    describe "email domain" do
-      let(:subdomain) { generate(:subdomain) }
-      let(:owner) { build(:user, email: "admin@defacto.nl") }
-      let(:account) { create(:account_with_schema, owner: owner, subdomain: subdomain) }
-
-      it "is not valid if the email domain is different from the account owner" do
-        user = build(:user, email: "admin@example.com", organization: account)
-        expect(user).to_not be_valid
-        expect(user.errors[:email]).to include("Email does not match organization email")
-      end
-
-      it "is not valid if the email domain is different from the account owner" do
-        user = build(:user, email: "test@defacto.nl", organization: account)
-        expect(user).to be_valid
-      end
-    end
   end
 
   describe "associations" do

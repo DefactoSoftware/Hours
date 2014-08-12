@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  tag_id     :integer
-#  entry_id   :integer
+#  entry_id   :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
