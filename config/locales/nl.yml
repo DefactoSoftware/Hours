@@ -16,8 +16,8 @@ nl:
     subdomain: subdomein
     warning: Het verwijderen van je account zal jouw en iedereens gegevens op %{subdomain}
       verwijderen en kan niet ongedaan worden gemaakt.
-    users_instructions_html: Collega's kunnen zich %{sign_up_path} registreren met
-      een email dat eindigt op <em> %{domain} </em>
+    users_instructions_html: "Collega's kunnen zich %{sign_up_path} registreren met
+      een email dat eindigt op <em> %{domain} </em>"
   account_created_successfully: Aanmelden is gelukt
   activerecord:
     errors:
@@ -194,7 +194,7 @@ nl:
     reports:
       index: Reports
     users:
-      index: Users
+      index: Gebruikers
   views:
     pagination:
       first: Eerste
@@ -203,7 +203,7 @@ nl:
       previous: Vorige
   user_updated: Je account is geupdatet
   users:
-    invitation_sent_at: "%{time_ago} uitgenodigd"
+    invitation_sent_at: "%{time_ago} geleden uitgenodigd"
     confirm: Bevestig
     email: Email
     invite: Nodig uit
