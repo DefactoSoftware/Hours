@@ -29,7 +29,8 @@ As we're using Hours we're constantly thinking of ways to improve it and there a
 
 System Dependencies
 -------------------
-- Ruby 2.1.0 (install with [rbenv](https://github.com/sstephenson/rbenv))
+
+- Ruby 2.1.2 (install with [rbenv](https://github.com/sstephenson/rbenv))
 - Rubygems
 - Bundler (`gem install bundler`)
 - PostgreSQL
@@ -42,11 +43,6 @@ Getting Started
 This repository comes equipped with a self-setup script:
 
     % ./bin/setup
-
-For local mail support you need to enter your gmail address and password in .env file.
-
-    GMAIL_USERNAME="example@mail.com"
-    GMAIL_PASSWORD="password"
 
 After setting up, you can run the application using [foreman]:
 
