@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:accept_invitation).concat([:first_name, :last_name])
   end
 
+  def authenticate_inviter!
+    current_user || authenticate_user!
+  end
+
   private
 
   def current_account
