@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     current_user || authenticate_user!
   end
 
+  def after_invite_path_for(resource_name)
+    users_path
+  end
+
   private
 
   def current_account
