@@ -34,6 +34,10 @@ feature "Inviting users" do
       expect(page).to have_content "new.invitee@example.com"
     end
 
+    scenario "redirects to users_path" do
+      expect(current_path).to eq(users_path)
+    end
+
     context "when accepting the invitation" do
       before do
         click_link "Sign Out"
