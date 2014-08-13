@@ -7,10 +7,24 @@ feature "Edit Account" do
   before(:each) do
     create(:account_with_schema, subdomain: subdomain, owner: user)
     sign_in_user(user, subdomain: subdomain)
+    visit edit_user_url(subdomain: subdomain)
   end
 
-  scenario "User edits own account" do
-    visit edit_user_registration_url(subdomain: subdomain)
-    expect(page).to have_content "Edit User"
+  context "User edits own account" do
+    scenario "with valid data" do
+      fill_in "user_first_name", with: "Johnny"
+      fill_in "user_current_password", with: user.password
+      click_button "Update"
+
+      expect(page).to have_content I18n.t(:user_updated)
+    end
+
+    scenario "with invalid data" do
+      fill_in "user_first_name", with: "Johnny"
+      fill_in "user_current_password", with: "lol wrong password"
+      click_button "Update"
+
+      expect(page).to have_content "Please review the problems below"
+    end
   end
 end

@@ -15,3 +15,15 @@
 #cancel-account {
   margin-top: 22px;
 }
+
+.users-index {
+  .users-overview {
+    @include span-columns(8);
+    padding: 1em;
+  }
+
+  .invitation-form {
+    @include span-columns(4);
+    padding: 1em;
+  }
+}

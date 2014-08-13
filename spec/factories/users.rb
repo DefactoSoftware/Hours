@@ -22,6 +22,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  organization_id        :integer
+#  slug                   :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

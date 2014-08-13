@@ -1,0 +1,31 @@
+<div class="outer" >
+  <div class="container" >
+    <h1><%= title %></h1>
+
+    <div class="users-overview">
+      <table>
+        <tbody>
+        <% @users.each do |user| -%>
+          <tr>
+            <td><%= user.full_name %></td>
+            <td><%= user.email %></td>
+            <td>
+              <% unless user.accepted_or_not_invited? %>
+                <%= t("users.invitation_sent_at",
+                      time_ago: time_ago_in_words(user.invitation_created_at)) %>
+              <% end %>
+            </td>
+          </tr>
+        <% end -%>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="invitation-form">
+      <%= simple_form_for(User.new, url: user_invitation_path) do |f| %>
+        <%= f.input :email, placeholder: t("users.email"), label: false %>
+        <%= f.button :submit, t("users.invite") %>
+      <% end %>
+    </div>
+  </div>
+</div>

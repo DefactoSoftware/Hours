@@ -17,9 +17,11 @@ Hours::Application.routes.draw do
     resources :projects, only: [:index, :new, :create, :show]
     resources :categories, only: [:index, :create, :edit, :update]
     resources :entries, only: [:create, :destroy, :update, :edit]
-    resources :users, only: [] do
+    resources :users, only: [:index, :update] do
       resources :entries, only: :index
     end
+
+    get "user/edit" => "users#edit", as: :edit_user
 
     get "account/edit" => "accounts#edit", as: :edit_account
     delete "account" => "accounts#destroy", as: :destroy_account

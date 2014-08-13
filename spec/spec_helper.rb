@@ -7,6 +7,7 @@ require File.expand_path("../../config/environment", __FILE__)
 
 require "rspec/rails"
 require "webmock/rspec"
+require "email_spec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
 
@@ -24,10 +25,13 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
   config.use_transactional_fixtures = false
+  config.include EmailSpec::Helpers
+  config.include EmailSpec::Matchers
 
   config.after(:each) do
     Apartment::Tenant.reset
     drop_schemas
+    reset_mailer
   end
 end
 

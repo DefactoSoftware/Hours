@@ -14,8 +14,10 @@ nl:
     repeat_password: Bevesting wachtwoord
     restricted: restricted
     subdomain: subdomein
-    warning: Het verwijderen van je account zal jouw en iedereens gegevens op %{subdomain} verwijderen en kan niet ongedaan worden gemaakt.
-    users_instructions_html: Collega's kunnen zich %{sign_up_path} registreren met een email dat eindigt op <em> %{domain} </em>
+    warning: Het verwijderen van je account zal jouw en iedereens gegevens op %{subdomain}
+      verwijderen en kan niet ongedaan worden gemaakt.
+    users_instructions_html: "Collega's kunnen zich %{sign_up_path} registreren met
+      een email dat eindigt op <em> %{domain} </em>"
   account_created_successfully: Aanmelden is gelukt
   activerecord:
     errors:
@@ -29,6 +31,7 @@ nl:
   back: Terug
   category:
     remaining: Other
+    edit: edit
   category_created: De categorie is aangemaakt
   category_updated: De categorie is gewijzigd
   confirm: Weet u het zeker?
@@ -124,8 +127,10 @@ nl:
   hours: uren
   info:
     here: hier
-    no_categories_html: Zo te zien heb je nog geen categorieen aangemaakt. Dat kun je %{categories_path} doen.
-    no_projects_html: Zo te zien heb je nog geen projecten aangemaakt. Dat kun je %{new_project_path} doen.
+    no_categories_html: Zo te zien heb je nog geen categorieen aangemaakt. Dat kun
+      je %{categories_path} doen.
+    no_projects_html: Zo te zien heb je nog geen projecten aangemaakt. Dat kun je
+      %{new_project_path} doen.
   main_text: Hier moet een supertoffe text komen te staan in het nederlands over hoe
     tof hours is
   navbar:
@@ -180,6 +185,7 @@ nl:
     categories:
       index: Categoriëen
       new: Nieuwe categorie
+      edit: Wijzig Categorie
     entries:
       index: Mijn uren
     projects:
@@ -187,9 +193,17 @@ nl:
       new: Nieuw project
     reports:
       index: Reports
+    users:
+      index: Gebruikers
   views:
     pagination:
       first: Eerste
       last: Laatste
       next: Volgende
       previous: Vorige
+  user_updated: Je account is geupdatet
+  users:
+    invitation_sent_at: "%{time_ago} geleden uitgenodigd"
+    confirm: Bevestig
+    email: Email
+    invite: Nodig uit

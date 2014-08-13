@@ -1,0 +1,13 @@
+<p><%= t("devise.mailer.invitation_instructions.greeting") %></p>
+
+<p>
+  <%= t("devise.mailer.invitation_instructions.someone_invited_you",
+        url: root_url(subdomain: Apartment::Tenant.current)) %>
+</p>
+
+<p><%= link_to t("devise.mailer.invitation_instructions.accept"),
+                 accept_invitation_url(@resource,
+                                       invitation_token: @token,
+                                       subdomain: Apartment::Tenant.current) %>
+
+<p><%= t("devise.mailer.invitation_instructions.ignore_html") %></p>

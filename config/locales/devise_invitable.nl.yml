@@ -1,0 +1,22 @@
+nl:
+  devise:
+    invitations:
+      send_instructions: 'Er is een uitnodiging verstuurd naar %{email}.'
+      invitation_token_invalid: 'De uitnodigingstoken is niet juist!'
+      updated: 'Het veranderanderen van je wachtwoord is gelukt. Je bent nu ingelogd.'
+      no_invitations_remaining: "Er zijn geen onbeantwoorde uitndogingen"
+      invitation_removed: 'Your invitation was removed.'
+      invitation_removed: 'Je uitnodiging is verwijderd.'
+      new:
+        header: "Uitnodiging verstuurd"
+        submit_button: "Verstuur de uitnodiging"
+      edit:
+        header: "Stel je wachtwoord in"
+        submit_button: "Opslaan"
+    mailer:
+      invitation_instructions:
+        subject: Je bent uitgenodigd voor Hours!
+        greeting: Hallo
+        someone_invited_you: 'Iemand heeft je uitgenodigd voor %{url}, je kan dit accepteren met de link hieronder.'
+        accept: 'Accepteer de uitnodiging'
+        ignore_html: "Als je de uitnodiging niet wil acepteren kun je deze mail negeren.</br>Je ccount zal niet worden aangemaakt tot je de link hierboven bezoekt en je wachtwoord instelt."
