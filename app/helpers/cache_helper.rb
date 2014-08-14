@@ -10,4 +10,12 @@ module CacheHelper
   def static_cache_key_for(key)
     [Hours.cache_id, key.to_s].join("/")
   end
+
+  # returns a cache key for the object
+  # and differentiates between wether
+  # the objects which user attribute
+  # is the current_user or not
+  def cache_key_for_current_user(obj)
+    [obj, (obj.user == current_user)]
+  end
 end
