@@ -32,7 +32,7 @@
       </thead>
       <tbody>
       <% @entries.each do |entry| %>
-        <% cache cache_key_for_user(entry) do %>
+        <% cache cache_key_for_current_user(entry) do %>
           <tr class="info-row">
             <td><%= l(entry.date) %></td>
             <td><%= link_to entry.project.name, entry.project %></td>

@@ -23,7 +23,7 @@
 
     <div class="invitation-form">
       <%= simple_form_for(User.new, url: user_invitation_path) do |f| %>
-        <%= f.input :email, placeholder: t("users.email"), label: false %>
+        <%= f.input :email, placeholder: t("users.email"), label: false, required: true %>
         <%= f.button :submit, t("users.invite") %>
       <% end %>
     </div>
