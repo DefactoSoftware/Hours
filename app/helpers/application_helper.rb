@@ -25,4 +25,8 @@ module ApplicationHelper
     yield presenter if block_given?
     presenter
   end
+
+  def current_locale
+    I18n.locale
+  end
 end

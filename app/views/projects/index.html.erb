@@ -3,7 +3,8 @@
     <div class="projects-overview">
       <% cache([cache_key_for_all(:projects),
                 cache_key_for_all(:categories),
-                cache_key_for_all(:tags)]) do %>
+                cache_key_for_all(:tags),
+                current_locale]) do %>
         <%= render partial: "application/entry_form", locals: { form_title: t("entries.index.new") } %>
       <% end %>
       <ul class="project-list">
@@ -28,7 +29,7 @@
 
     <div class="activity-feed">
       <ul>
-        <% cache cache_key_for_all(:entries) do %>
+        <% cache [cache_key_for_all(:entries), current_locale] do %>
           <%= render partial: "entry", collection: @activities %>
         <% end %>
     </ul>
