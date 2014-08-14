@@ -1,5 +1,5 @@
 <% projects.each do |project| %>
-  <% cache project do %>
+  <% cache [project, current_locale] do %>
     <% present project do |project_presenter| %>
       <li class="container project">
         <h2 class="project-title">

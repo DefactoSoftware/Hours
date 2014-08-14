@@ -27,16 +27,16 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def current_account
-    @current_account ||= Account.find_by(subdomain: request.subdomain)
-  end
-
   helper_method def current_subdomain
     @current_subdomain ||= current_account.subdomain
   end
 
   helper_method def current_user_owner?
     current_account.owner == current_user
+  end
+
+  def current_account
+    @current_account ||= Account.find_by(subdomain: request.subdomain)
   end
 
   def load_schema
