@@ -23,6 +23,7 @@ RSpec.configure do |config|
   config.fail_fast = true
   config.include Features, type: :feature
   config.infer_base_class_for_anonymous_controllers = false
+  config.infer_spec_type_from_file_location!
   config.order = "random"
   config.use_transactional_fixtures = false
   config.include EmailSpec::Helpers
