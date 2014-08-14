@@ -13,6 +13,7 @@ feature "User manages their own hours" do
     2.times { create(:entry, user: user) }
     click_link "My Hours"
 
+    expect(page.title).to eq(I18n.t("titles.entries.index", name: user.first_name))
     expect(page).to have_content("#{user.first_name}'s hours")
     expect(page).to have_content(user.entries.last.project.name)
   end

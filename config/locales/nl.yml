@@ -134,6 +134,7 @@ nl:
   main_text: Hier moet een supertoffe text komen te staan in het nederlands over hoe
     tof hours is
   navbar:
+    entries: "Mijn Uren"
     dropdown:
       edit_user: Gegevens aanpassen
   no_hours_registered: Niemand heeft nog tijd aan %{project} besteed
@@ -187,7 +188,7 @@ nl:
       new: Nieuwe categorie
       edit: Wijzig Categorie
     entries:
-      index: Mijn uren
+      index: "%{name}'s uren"
     projects:
       index: Projecten
       new: Nieuw project
