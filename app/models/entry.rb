@@ -23,7 +23,7 @@ class Entry < ActiveRecord::Base
   validates :project, presence: true
   validates :category, presence: true
   validates :hours, presence: true,
-                    numericality: { greater_than: 0 }
+                    numericality: { greater_than: 0, only_integer: true }
   validates :date, presence: true
   accepts_nested_attributes_for :taggings
 

@@ -27,6 +27,14 @@ feature "User registers time" do
 
       expect(page).to have_content I18n.t("entry_created")
     end
+
+    scenario "validates that hours are integers" do
+      within "#new_entry" do
+        fill_in_entry(hours: 0.5)
+        click_button "Create Entry"
+      end
+      expect(page).to have_content("Hours must be an integer")
+    end
   end
 
   context "with taggings" do
@@ -50,10 +58,10 @@ feature "User registers time" do
     expect(page).to have_selector("ul.project-list li:first-child", text: "Conversations")
   end
 
-  def fill_in_entry
+  def fill_in_entry(hours: 4)
     select "Conversations", from: "Project"
     select "Design", from: "Category"
-    fill_in "Hours", with: 4
+    fill_in "Hours", with: hours
     fill_in "datepicker", with: "01/02/2014"
   end
 end
