@@ -87,6 +87,7 @@ en:
   user_updated: Your account was successfully updated
 
   helpful:
+    heading: Need help?
     title: Need help?
     tagline: Have a question about Hours? Need some help getting started?
     placeholder: Write your question here...

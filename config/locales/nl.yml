@@ -121,6 +121,7 @@ nl:
       user:
         create: Creeër Account
   helpful:
+    heading: Hulp nodig?
     placeholder: Schrijf hier uw vraag...
     tagline: Heeft u een vraag over Hours? Hulp nodig om te kunnen beginnen?
     title: Hulp nodig?
