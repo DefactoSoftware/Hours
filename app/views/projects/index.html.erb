@@ -1,14 +1,14 @@
 <div class="outer">
   <div class="wrapper">
     <div class="projects-overview">
-      <% cache([cache_key_for_all(:projects),
-                cache_key_for_all(:categories),
-                cache_key_for_all(:tags),
-                current_locale]) do %>
+      <% cache([cache_keys_for_all(:projects,
+                                   :categories,
+                                   :tags),
+                                   current_locale]) do %>
         <%= render partial: "application/entry_form", locals: { form_title: t("entries.index.new") } %>
       <% end %>
       <ul class="project-list">
-        <% cache cache_key_for_all(:projects) do %>
+        <% cache cache_keys_for_all(:projects, :categories) do %>
           <% unless Project.any? %>
             <div class="info">
               <p><%= t("info.no_projects_html", new_project_path: link_to(t("info.here"), new_project_path)) %></p>
