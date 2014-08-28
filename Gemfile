@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+source "https://rails-assets.org"
 
 ruby "2.1.2"
 
@@ -33,6 +34,7 @@ gem "kaminari"
 gem "select2-rails"
 gem "http_accept_language"
 gem "normalize-rails"
+gem "rails-assets-chartjs", "~> 1.0.1.beta.4"
 
 # caching
 

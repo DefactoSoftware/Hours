@@ -15,7 +15,7 @@
 //= require moment
 //= require pikaday
 //= require selectize
-//= require Chart
+//= require chartjs
 //= require select2
 //= require projects
 //= require i18n
