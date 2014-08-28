@@ -17,7 +17,7 @@
 //= require selectize
 //= require chartjs
 //= require select2
-//= require projects
+//= require charts
 //= require i18n
 //= require date-formatter
 //= require feed

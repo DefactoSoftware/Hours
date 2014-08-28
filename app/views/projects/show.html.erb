@@ -24,7 +24,7 @@
           </tr>
           <% @project.tags.each do |tag| %>
             <tr>
-              <td><%= tag.name %></td>
+              <td><%= link_to tag.name, tag_path(tag) %></td>
               <td><%= tag.hours_for(@project) %></td>
             </tr>
           <% end %>

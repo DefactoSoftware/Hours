@@ -34,7 +34,12 @@ class Project < ActiveRecord::Base
 
   def hours_per_user
     users.map do |user|
-      { value: user.hours_spent_on(self), color: user.full_name.pastel_color }
+      {
+        value: user.hours_spent_on(self),
+        color: user.full_name.pastel_color,
+        label: user.full_name,
+        highlight: "gray"
+      }
     end
   end
 

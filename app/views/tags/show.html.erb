@@ -1,0 +1,15 @@
+<div class="outer">
+  <div class="container">
+    <% cache @tag do %>
+      <h1><%= @tag.name %> -
+          <%= @tag.hours_spent %>
+          <%= t('tags.show.hours_indication_title', count: @tag.hours_spent) %>
+      </h1>
+      <hr>
+      <%= render 'tags_users_chart', tag: @tag %>
+      <%= render 'tags_projects_chart', tag: @tag %>
+    <% end %>
+
+    <%= render 'entries_table', entries: @entries %>
+  </div>
+</div>

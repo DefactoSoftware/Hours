@@ -73,10 +73,16 @@ describe Project do
       create(:entry, hours: 4, project: project, user: user1)
       create(:entry, hours: 3, project: project, user: user2)
       expect(project.hours_per_user).to include(
-        value: 4, color: user1.full_name.pastel_color
+        value: 4,
+        color: user1.full_name.pastel_color,
+        label: user1.full_name,
+        highlight: "gray"
       )
       expect(project.hours_per_user).to include(
-        value: 3, color: user2.full_name.pastel_color
+        value: 3,
+        color: user2.full_name.pastel_color,
+        label: user1.full_name,
+        highlight: "gray"
       )
     end
   end

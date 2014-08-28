@@ -9,8 +9,28 @@ jQuery ->
         tooltipFontSize: 10
         tooltipFontStyle: "light",
         animationSteps: 50,
+        animationEasing: 'easeOutQuart',
+      })
+
+  if $("#hours-tag-per-user").length > 0
+    data = $("#hours-tag-per-user").data("data")
+    new Chart($("#hours-tag-per-user").get(0).getContext("2d")).Pie(data, {
+        segmentStrokeWidth: 2,
+        responsive: false,
+        animationSteps: 50,
         animationEasing: 'easeOutQuart'
       })
+
+  if $("#hours-tag-per-project").length > 0
+    data = $("#hours-tag-per-project").data("data")
+    new Chart($("#hours-tag-per-project").get(0).getContext("2d")).Pie(data, {
+        segmentStrokeWidth: 2,
+        responsive: false,
+        animationSteps: 50,
+        animationEasing: 'easeOutQuart'
+      })
+
+
 
   # Hours per user diagram
   if $("#hours-per-user").length > 0

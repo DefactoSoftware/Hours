@@ -1,0 +1,33 @@
+.legend {
+  font-size: $base-font-size * .9;
+  text-align: center;
+
+  @include media($medium-screen) {
+    font-size: $base-font-size;
+  }
+}
+
+.tags {
+  max-width: 100%;
+  font-size: $base-font-size * .9;
+
+  @include media($medium-screen) {
+    font-size: $base-font-size;
+  }
+
+  hr {
+     margin: .5em 0;
+  }
+
+  .chart-container {
+    float: left;
+    width: 100%;
+    h2 {
+      text-align: center;
+    }
+
+    @include media($medium-screen) {
+      width:50%;
+    }
+  }
+}

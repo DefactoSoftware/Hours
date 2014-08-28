@@ -150,3 +150,18 @@ en:
     confirm: Confirm
     email: Email
     invite: Invite User
+
+  tags:
+    show:
+      users_title: per user
+      projects_title: per project
+      hours_indication_title:
+        one: hour
+        other: hours
+      hours_indication: h
+      user: User
+      date: Date
+      project: Project
+      hours: Hours
+      category: Category
+      tags: Tags

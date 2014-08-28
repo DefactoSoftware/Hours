@@ -8,9 +8,9 @@
         <% end %>
         </h2>
 
-        <ul class="tags">
+        <ul class="tags-list">
           <% project.tags.last(5).each do |tag| %>
-            <li class="tag"><a href="#"><%= tag.name %></a></li>
+            <%= link_to tag_path(tag) do %><li class="tag"><%= tag.name %></li><% end %>
           <% end %>
         </ul>
 

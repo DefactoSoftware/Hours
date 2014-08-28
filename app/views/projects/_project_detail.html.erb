@@ -4,9 +4,9 @@
     <h2><%= project.name %></h2>
   <% end %>
   <hr>
-  <ul class="tags">
+  <ul class="tags-list">
     <% project.tags.each do |tag| %>
-      <li class="tag"><a href="#"><%= tag.name %></a></li>
+      <%= link_to tag_path(tag) do %><li class="tag"><%= tag.name %></li><% end %>
     <% end %>
   </ul>
 

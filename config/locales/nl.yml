@@ -209,3 +209,18 @@ nl:
     confirm: Bevestig
     email: Email
     invite: Nodig uit
+
+  tags:
+    show:
+      users_title: per gebruiker
+      projects_title: per project
+      hours_indication_title:
+        one: uur
+        other: uren
+      hours_indication: u
+      user: Gebruiker
+      date: Datum
+      project: Project
+      hours: Uren
+      category: Categorie
+      tags: Tags
