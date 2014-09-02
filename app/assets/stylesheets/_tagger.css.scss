@@ -25,23 +25,10 @@
 }
 
 .atwho-view {
-  background-color: white;
-  border: 1px solid $light-gray;
-  width: 300px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  border-radius: 3px;
-
-
   li {
-    border-bottom: 1px solid $light-gray;
-    padding: 3px 7px;
-
-    &:last-child {
-      border-bottom: none;
-    }
-
-    &:hover {
+    &:hover, &.cur {
       background-color: $blue;
+      background: $blue;
     }
   }
 }
