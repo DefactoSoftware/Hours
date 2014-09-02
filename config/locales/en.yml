@@ -56,7 +56,7 @@ en:
       project: Project
       hours: Hours
       category: Category
-      description: Description
+      description: Description or tags
       user_hours: "%{user}'s hours"
       delete: delete
       edit: edit
