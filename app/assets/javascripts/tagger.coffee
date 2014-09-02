@@ -5,8 +5,8 @@ class window.Tagger
   constructor: (element) ->
     @container = element
     @input = element.find('input')
-    @input.keyup =>
-      @highlight()
+    @input.change => @highlight()
+    @input.keyup => @highlight()
     @highlight()
 
   highlight: ->

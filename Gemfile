@@ -36,6 +36,7 @@ gem "http_accept_language"
 gem "normalize-rails"
 gem "rails-assets-chartjs", "~> 1.0.1.beta.4"
 gem "twitter-text" # hashtag parsing
+gem "jquery-atwho-rails" # autocomplete
 
 # caching
 

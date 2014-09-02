@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.atwho
 //= require moment
 //= require pikaday
 //= require selectize
@@ -80,6 +81,10 @@ $(document).ready(function(){
   $('#entry_project_id').select2();
   $('#entry_category_id').select2();
   new Tagger($(".taggable"));
+  $('#entry_description').atwho({
+    at: '#',
+    data: $('#entry_description').data('data')
+  });
 });
 
 $(document).keyup(function(event) {

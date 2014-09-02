@@ -7,11 +7,8 @@
       <%= f.input :hours, required: true, label: false, placeholder: t("entries.index.hours") %>
       <%= f.input :date, required: true, as: :string, input_html: { value: (@entry.date || Date.today).strftime("%d/%m/%Y"), id: "datepicker"}, label: false %>
       <div class="taggable">
-        <%= f.input :description, input_html: { data: { data: Tag.list } }, label: false, placeholder: t("entries.index.description") %>
+        <%= f.input :description, input_html: { data: { data: Tag.list }, autocomplete: :off }, label: false, autocomplete: "off", placeholder: t("entries.index.description") %>
         <span class="background-highlighter"></span>
-        <span class="autocomplete">
-          <ul class="suggestions"></ul>
-        </span>
       </div>
 
       <%= f.button :submit %>
