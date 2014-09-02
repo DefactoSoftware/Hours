@@ -41,7 +41,7 @@ feature "User registers time" do
     scenario "track time for a project with tags" do
       within "#new_entry" do
         fill_in_entry
-        fill_in "Tags", with: "Internal, Pair Programming"
+        fill_in "Description", with: "Did some #pairprogramming with Hugo #internal"
 
         click_button "Create Entry"
       end

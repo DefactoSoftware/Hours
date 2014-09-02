@@ -18,6 +18,15 @@ feature "User manages their own hours" do
     expect(page).to have_content(user.entries.last.project.name)
   end
 
+  scenario "autolinks tags in description" do
+    create(:entry, user: user, description: "#hashtags are #awesome")
+    click_link "My Hours"
+
+    within "table.entries" do
+      expect(page).to have_link("#hashtags")
+    end
+  end
+
   scenario "deletes an entry" do
     create(:entry, user: user)
     click_link "My Hours"
@@ -34,8 +43,7 @@ feature "User manages their own hours" do
   end
 
   scenario "sees entry attributes in edit field by default" do
-    entry = create(:entry, user: user)
-    tagging = create(:tagging, entry: entry)
+    entry = create(:entry, user: user, description: "met a new prospect for lunch")
 
     click_link "My Hours"
     click_link "edit"
@@ -44,19 +52,16 @@ feature "User manages their own hours" do
     expect(page).to have_select("entry_category_id", selected: entry.category.name)
     expect(find_field("entry_hours").value).to eq(entry.hours.to_s)
     expect(find_field("datepicker").value).to eq(entry.date.strftime("%d/%m/%Y"))
-    expect(find_field("entry_tag_list").value).to eq(tagging.tag.name)
+    expect(find_field("entry_description").value).to eq(entry.description)
   end
 
   scenario "edits an entry" do
-    entry = create(:entry, user: user)
-    tagging = create(:tagging, entry: entry)
+    create(:entry, user: user)
     new_project = create(:project)
     new_category = create(:category)
     new_hours = rand(1..100)
     new_date = Date.today.strftime("%d/%m/%Y")
 
-    new_tagging = build_stubbed(:tagging, entry: entry)
-    new_entry = build_stubbed(:entry, user: user)
 
     click_link "My Hours"
     click_link "edit"
@@ -65,7 +70,7 @@ feature "User manages their own hours" do
     select(new_category.name, from: "entry_category_id")
     fill_in "entry_hours", with: new_hours
     fill_in "datepicker", with: new_date
-    fill_in "entry_tag_list", with: new_tagging.tag.name
+    fill_in "entry_description", with: "did some awesome #uxdesign"
 
     click_button "Update Entry"
     click_link "edit"
@@ -74,7 +79,7 @@ feature "User manages their own hours" do
     expect(page).to have_select("entry_category_id", selected: new_category.name)
     expect(find_field("entry_hours").value).to eq(new_hours.to_s)
     expect(find_field("datepicker").value).to eq(new_date.to_s)
-    expect(find_field("entry_tag_list").value).to eq(new_tagging.tag.name)
+    expect(find_field("entry_description").value).to eq("did some awesome #uxdesign")
   end
 
   scenario "can not edit someone elses entries" do

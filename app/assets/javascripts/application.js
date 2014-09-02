@@ -79,6 +79,7 @@ $(document).ready(function(){
 
   $('#entry_project_id').select2();
   $('#entry_category_id').select2();
+  new Tagger($(".taggable"));
 });
 
 $(document).keyup(function(event) {

@@ -6,7 +6,14 @@
       <%= f.association :category, required: true, collection: Category.by_name, label: false, placeholder: t("entries.index.category") %>
       <%= f.input :hours, required: true, label: false, placeholder: t("entries.index.hours") %>
       <%= f.input :date, required: true, as: :string, input_html: { value: (@entry.date || Date.today).strftime("%d/%m/%Y"), id: "datepicker"}, label: false %>
-      <%= f.input :tag_list, input_html: { data: { data: Tag.list } }, label: false, placeholder: t("entries.index.tags") %>
+      <div class="taggable">
+        <%= f.input :description, input_html: { data: { data: Tag.list } }, label: false, placeholder: t("entries.index.description") %>
+        <span class="background-highlighter"></span>
+        <span class="autocomplete">
+          <ul class="suggestions"></ul>
+        </span>
+      </div>
+
       <%= f.button :submit %>
   <% end %>
 </div>

@@ -1,0 +1,37 @@
+.taggable {
+  position: relative;
+  input {
+    background-color: transparent;
+    z-index: 10;
+  }
+}
+
+.background-highlighter {
+  position: absolute;
+  top: 0;
+  color: transparent;
+  font-size: 16px;
+  z-index: 1;
+  padding: 5px;
+  font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+  margin-left: 4px;
+}
+
+.hashtag {
+  background-color: lighten($blue, 35%);
+  border-radius: 2px;
+  z-index: 5;
+  color: black;
+}
+
+.autocomplete {
+  position: absolute;
+  width: 100%;
+
+  .suggestions {
+    li {
+      background-color: whitesmoke;
+      border: 1px solid gray;
+    }
+  }
+}

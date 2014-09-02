@@ -13,6 +13,8 @@
 #
 
 class Entry < ActiveRecord::Base
+  include Twitter::Extractor
+
   belongs_to :project, touch: true
   belongs_to :category
   belongs_to :user, touch: true
@@ -30,14 +32,19 @@ class Entry < ActiveRecord::Base
   scope :by_last_created_at, -> { order("created_at desc") }
   scope :by_date, -> { order("date DESC") }
 
+  before_save :set_tags_from_description
+
   def tag_list
     tags.map(&:name).join(", ")
   end
 
-  def tag_list=(names)
-    self.tags = names.split(",").map do |n|
-      Tag.where("name ILIKE ?", n.strip).first_or_initialize.tap do |tag|
-        tag.name = n.strip
+  private
+
+  def set_tags_from_description
+    tagnames = extract_hashtags(description)
+    self.tags = tagnames.map do |tagname|
+      Tag.where("name ILIKE ?", tagname.strip).first_or_initialize.tap do |tag|
+        tag.name = tagname.strip
         tag.save!
       end
     end
