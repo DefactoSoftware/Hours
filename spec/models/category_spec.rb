@@ -28,22 +28,4 @@ describe Category do
       expect(Category.by_name.first).to eq(a)
     end
   end
-
-  describe "#hours spent" do
-    it "returns the hours spent" do
-      entry = create(:entry, hours: 2)
-
-      expect(entry.category.hours_spent(entry.project)).to eq(2)
-    end
-  end
-
-  describe "#percentage spent" do
-    it "returns the percentage spent" do
-      project = create(:project)
-      entry = create(:entry, hours: 2, project: project)
-      create(:entry, hours: 3, project: project)
-
-      expect(entry.category.percentage_spent_on(entry.project)).to eq(40)
-    end
-  end
 end

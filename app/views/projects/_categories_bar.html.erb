@@ -1,1 +1,2 @@
-<span class="activity-color" style="width:<%= category.percentage_spent_on(project) %>%; background-color:<%= category.name.pastel_color %>;" itemprop="keywords"></span>
+<span class="activity-color"
+      style="width:<%= EntryStats.new(project.entries, category).percentage_spent_on %>%; background-color:<%= category.name.pastel_color %>;" itemprop="keywords"></span>

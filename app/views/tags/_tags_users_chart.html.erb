@@ -1,12 +1,14 @@
 <div class="chart-container">
   <h2><%= t('tags.show.users_title') %></h2>
   <div class="chart">
-    <canvas id="hours-tag-per-user" data-data="<%= tag.hours_per_user.to_json %>" width=200 height=200 ></canvas>
+    <canvas id="hours-tag-per-user" data-data="<%= EntryStats.new(tag.entries).hours_per(User.all).to_json %>" width=200 height=200 ></canvas>
   </div>
   <ul class="legend">
     <% tag.users.each do |user| %>
       <li>
-      <span class="color" style="background-color: <%= user.full_name.pastel_color %>"></span> <%= user.full_name %>: <%= tag.percentage_spent_on_user(user).round %>% (<%= tag.hours_spent_on_user(user) %><%= t('tags.show.hours_indication') %>)
+      <span class="color" style="background-color: <%= user.full_name.pastel_color %>"></span>
+       <%= user.full_name %>: <%= EntryStats.new(tag.entries, user).percentage_spent_on %>% (<%= EntryStats.new(tag.entries, user).hours_spent_on %>
+       <%= t('tags.show.hours_indication') %>)
       </li>
     <% end %>
   </ul>

@@ -57,31 +57,12 @@ class User < ActiveRecord::Base
   end
   alias_method :slug_source, :full_name
 
-  def hours_spent_on(project)
-    entries.where(project: project).sum(:hours)
-  end
-
-  def percentage_spent_on(project)
-    hours_spent_on(project).to_f / hours_spent.to_f * 100
-  end
-
-  def hours_spent
-    entries.sum(:hours)
-  end
-
-  def hours_per_project
-    projects.map do |project|
-      {
-        value: hours_spent_on(project),
-        color: project.name.pastel_color,
-        highlight: "gray",
-        label: project.name
-      }
-    end
-  end
-
   def email_domain
     email.split("@").last
+  end
+
+  def label
+    full_name
   end
 end
 

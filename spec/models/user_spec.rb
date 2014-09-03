@@ -51,32 +51,17 @@ describe User do
     it { should have_many :entries }
   end
 
+  describe "#label" do
+    it "returns the users full name" do
+      user = create(:user, first_name: "Karel", last_name: "Appel")
+      expect(user.label).to eq("Karel Appel")
+    end
+  end
+
   describe "#full_name" do
     it "returns the users full name" do
       user = create(:user, first_name: "John", last_name: "Doe")
       expect(user.full_name).to eq("John Doe")
-    end
-  end
-
-  describe "#hours_spent_on" do
-    it "calculates the total hours spent" do
-      user = create(:user)
-      project = create(:project)
-      create(:entry, hours: 2, user: user, project: project)
-      create(:entry, hours: 3, user: user, project: project)
-      create(:entry, hours: 5, user: user)
-      expect(user.hours_spent_on(project)).to eq(5)
-    end
-  end
-
-  describe "#precentage_spent_on" do
-    it "returns the percentage of hours spent" do
-      user = create(:user)
-      project1 = create(:project)
-      project2 = create(:project)
-      create(:entry, user: user, project: project1, hours: 2)
-      create(:entry, user: user, project: project2, hours: 2)
-      expect(user.percentage_spent_on(project1)).to eq(50)
     end
   end
 

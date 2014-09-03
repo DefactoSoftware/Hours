@@ -4,13 +4,13 @@
       <%= render partial: "project_detail", locals: { project: @project } %>
 
       <div class="hours-per-user-overview">
-        <canvas id="hours-per-user" data-data="<%= @project.hours_per_user.to_json %>" width="200" height="200"></canvas>
+        <canvas id="hours-per-user" data-data="<%= EntryStats.new(@project.entries).hours_per(User.all).to_json %>" width="200" height="200"></canvas>
       </div>
       <ul class="legend">
         <% @project.users.each do |user| %>
         <li>
           <%= user_image_link(user, border: true) do
-            content_tag(:span, "#{user.full_name} ( #{user.hours_spent_on(@project)} #{t(:hours)} )")
+            content_tag(:span, "#{user.full_name} ( #{EntryStats.new(@project.entries, user).hours_spent_on} #{t(:hours)} )")
           end %>
         </li>
         <% end %>
@@ -25,7 +25,7 @@
           <% @project.tags.each do |tag| %>
             <tr>
               <td><%= link_to tag.name, tag_path(tag) %></td>
-              <td><%= tag.hours_for(@project) %></td>
+              <td><%= EntryStats.new(tag.entries, @project).hours_spent_on %></td>
             </tr>
           <% end %>
         </tbody>
