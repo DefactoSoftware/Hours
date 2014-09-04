@@ -160,6 +160,7 @@ h1 {
   width: 200px;
   height: 200px;
   margin: 10px auto;
+  margin-bottom: 50px;
   font-weight: 100;
   color: #999;
 
@@ -167,6 +168,12 @@ h1 {
     margin: 0 auto;
     position: absolute;
     z-index: 10;
+  }
+
+  h2 {
+    text-align: center;
+    color: black;
+    margin-bottom:10px;
   }
 
   .spent-info {

@@ -2,19 +2,12 @@
   <div class="outer">
     <div class="container">
       <%= render partial: "project_detail", locals: { project: @project } %>
-
-      <div class="hours-per-user-overview">
-        <canvas id="hours-per-user" data-data="<%= EntryStats.new(@project.entries).hours_per(User.all).to_json %>" width="200" height="200"></canvas>
+      <div class="chart">
+        <h2><%= t('project.show.per_user') %></h2>
+        <div class="hours-per-user-overview">
+          <canvas id="hours-per-user" data-data="<%= EntryStats.new(@project.entries).hours_per(User.all).to_json %>" width="200" height="200"></canvas>
+        </div>
       </div>
-      <ul class="legend">
-        <% @project.users.each do |user| %>
-        <li>
-          <%= user_image_link(user, border: true) do
-            content_tag(:span, "#{user.full_name} ( #{EntryStats.new(@project.entries, user).hours_spent_on} #{t(:hours)} )")
-          end %>
-        </li>
-        <% end %>
-      </ul>
 
       <table>
         <tbody>

@@ -3,19 +3,12 @@
     <% cache @user do %>
       <h1><%= t('entries.index.user_hours', user: @user.first_name) %></h1>
       <div class="chart">
+        <h2><%= t('entries.index.per_project') %></h2>
         <canvas id="hours-per-project" data-data="<%= EntryStats.new(@user.entries).hours_per(Project.all).to_json %>" width=200 height=200 ></canvas>
         <div class="spent-info">
           <span class="hours" style="color: #D66278"><%= EntryStats.new(@user.entries).hours_spent %></span>
         </div>
       </div>
-      <ul class="legend">
-        <% @user.projects.each do |project| %>
-          <li>
-          <span class="color" style="background-color: <%= project.name.pastel_color %>"></span> <%= project.name %>: <%= EntryStats.new(@user.entries, project).percentage_spent_on %>% (<%= EntryStats.new(@user.entries, project).hours_spent_on %><%= t('entries.index.hours_indication') %>)
-          </li>
-        <% end %>
-        <li><strong><%= t('entries.index.total', hours_spent: EntryStats.new(@user.entries).hours_spent) %><%= t('entries.index.hours_indication') %></strong></li>
-      </ul>
     <% end %>
     <%= render 'entries_table' %>
   </div>

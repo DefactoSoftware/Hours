@@ -3,12 +3,4 @@
   <div class="chart">
     <canvas id="hours-tag-per-project" data-data="<%= EntryStats.new(tag.entries).hours_per(Project.all).to_json %>" width=200 height=200 ></canvas>
   </div>
-  <ul class="legend">
-    <% tag.projects.each do |project| %>
-      <li>
-      <span class="color" style="background-color: <%= project.name.pastel_color %>"></span>
-        <%= project.name %>: <%= EntryStats.new(tag.entries, project).percentage_spent_on %>% (<%= EntryStats.new(tag.entries, project).hours_spent_on %><%= t('tags.show.hours_indication') %>)
-      </li>
-    <% end %>
-  </ul>
 </div>

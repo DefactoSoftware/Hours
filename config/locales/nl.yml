@@ -103,6 +103,7 @@ nl:
       tags: Tags
       total: 'Totaal: %{hours_spent}'
       user_hours: "%{user}s uren"
+      per_project: Per project
   entry_activity_html:
     one: "%{user} heeft één uur gespendeerd aan %{category} op %{project}"
     other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project}"
@@ -143,6 +144,8 @@ nl:
     table_head:
       hours: Uren
       tag: Tag
+    show:
+      per_user: Per gebruiker
   project_activity_html:
     one: "%{full_name} heeft %{hours} uren aan %{project} besteed"
     other: "%{count} mensen hebben %{hours} uren aan %{project} besteed"
