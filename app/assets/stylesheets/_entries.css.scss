@@ -91,6 +91,40 @@
 }
 
 .entries-table {
+  th:nth-child(1) {
+    width: 10%;
+  }
+
+  th:nth-child(2) {
+    width: 12%;
+  }
+
+  th:nth-child(3) {
+    width: 8%;
+  }
+
+  th:nth-child(4) {
+    width: 20%;
+  }
+
+  th:nth-child(5) {
+    width: 40%;
+  }
+
+  @media screen and (max-width: $medium-screen) {
+    th:nth-child(1) {
+      width: 30%;
+    }
+
+    th:nth-child(2) {
+      width: 60%;
+    }
+
+    th:nth-child(3) {
+      width: 10%;
+    }
+  }
+
   td {
     padding: 0;
     overflow: hidden;

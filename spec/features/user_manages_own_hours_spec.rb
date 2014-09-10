@@ -22,7 +22,7 @@ feature "User manages their own hours" do
     create(:entry, user: user, description: "#hashtags are #awesome")
     click_link "My Hours"
 
-    within "table.entries" do
+    within "table.entries-table" do
       expect(page).to have_link("#hashtags")
     end
   end

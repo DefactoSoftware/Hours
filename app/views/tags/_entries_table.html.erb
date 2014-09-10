@@ -6,7 +6,7 @@
       <th><%= t("tags.show.user") %></th>
       <th class="center"><%= t("tags.show.hours") %></th>
       <th class="hide-for-mobile"><%= t("tags.show.category") %></th>
-      <th class="hide-for-mobile"><%= t("tags.show.tags") %></th>
+      <th class="hide-for-mobile"><%= t("tags.show.description") %></th>
     </tr>
   </thead>
   <tbody>
@@ -26,10 +26,8 @@
             <%= entry.category.name %>
           </div>
         </td>
-        <td class="hide-for-mobile table-tags">
-          <% entry.tags.each do |tag| %>
-            <%= link_to tag.name, tag_path(tag) %>
-          <% end %>
+        <td class="hide-for-mobile table-description">
+          <%= sanitize autolink_tags(entry.description) %>
         </td>
       <% end %>
     </tr>

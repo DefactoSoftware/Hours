@@ -145,12 +145,10 @@ h1 {
   }
 }
 
-.table-tags {
-  a {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 0.9em;
-  }
+.table-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9em;
 }
 
 #flash_notice {
