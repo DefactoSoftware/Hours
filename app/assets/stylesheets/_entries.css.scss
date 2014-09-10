@@ -79,7 +79,18 @@
   @include media($medium-screen) {
     font-size: $base-font-size;
   }
+}
 
+.legend {
+  font-size: $base-font-size * .9;
+  text-align: center;
+
+  @include media($medium-screen) {
+    font-size: $base-font-size;
+  }
+}
+
+.entries-table {
   td {
     padding: 0;
     overflow: hidden;
@@ -93,42 +104,5 @@
 
   .right {
     text-align: right;
-  }
-}
-
-.hours-per-project-overview {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 10px auto;
-  font-weight: 100;
-  color: #999;
-
-  #hours-per-project {
-    margin: 0 auto;
-    position: absolute;
-    z-index: 10;
-  }
-
-  .spent-info {
-    position: relative;
-    top: 84px;
-    text-align: center;
-
-    .hours {
-      display: block;
-      font-size: 2em;
-      color: #333 !important;
-      letter-spacing: -2px;
-    }
-  }
-}
-
-.legend {
-  font-size: $base-font-size * .9;
-  text-align: center;
-
-  @include media($medium-screen) {
-    font-size: $base-font-size;
   }
 }

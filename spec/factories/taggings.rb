@@ -3,8 +3,8 @@
 # Table name: taggings
 #
 #  id         :integer          not null, primary key
-#  tag_id     :integer
-#  entry_id   :string(255)
+#  tag_id     :integer          not null
+#  entry_id   :integer
 #  created_at :datetime
 #  updated_at :datetime
 #

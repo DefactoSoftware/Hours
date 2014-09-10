@@ -6,7 +6,7 @@
 #  first_name             :string(255)      default(""), not null
 #  last_name              :string(255)      default(""), not null
 #  email                  :string(255)      default(""), not null
-#  encrypted_password     :string(255)      default(""), not null
+#  encrypted_password     :string(255)      default("")
 #  reset_password_token   :string(255)
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -23,6 +23,14 @@
 #  updated_at             :datetime
 #  organization_id        :integer
 #  slug                   :string(255)
+#  invitation_token       :string(255)
+#  invitation_created_at  :datetime
+#  invitation_sent_at     :datetime
+#  invitation_accepted_at :datetime
+#  invitation_limit       :integer
+#  invited_by_id          :integer
+#  invited_by_type        :string(255)
+#  invitations_count      :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -49,26 +57,12 @@ class User < ActiveRecord::Base
   end
   alias_method :slug_source, :full_name
 
-  def hours_spent_on(project)
-    entries.where(project: project).sum(:hours)
-  end
-
-  def percentage_spent_on(project)
-    hours_spent_on(project).to_f / hours_spent.to_f * 100
-  end
-
-  def hours_spent
-    entries.sum(:hours)
-  end
-
-  def hours_per_project
-    projects.map do |project|
-      { value: hours_spent_on(project), color: project.name.pastel_color, highlight: "gray", label: project.name }
-    end
-  end
-
   def email_domain
     email.split("@").last
+  end
+
+  def label
+    full_name
   end
 end
 
