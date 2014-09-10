@@ -55,7 +55,8 @@ feature "User registers time" do
     create(:entry)
     fill_in_entry
     click_button "Create Entry"
-    expect(page).to have_selector("ul.project-list li:first-child", text: "Conversations")
+    expect(page).to(
+      have_selector("ul.project-list li:first-child", text: "Conversations"))
   end
 
   def fill_in_entry(hours: 4)

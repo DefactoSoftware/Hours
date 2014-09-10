@@ -21,7 +21,8 @@ feature "Account Creation" do
     user = User.first
     subdomain = Account.first.subdomain
     sign_in_user(user, subdomain: subdomain)
-    expect { visit new_accounts_url(subdomain: subdomain) }.to raise_error ActionController::RoutingError
+    expect { visit new_accounts_url(subdomain: subdomain) }.to(
+      raise_error ActionController::RoutingError)
   end
 
   def sign_up(subdomain)

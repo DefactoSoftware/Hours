@@ -14,15 +14,19 @@ module Sluggable
 
   def generate_slug
     return unless slug_source
-    self["slug"] ||= unless self.class.find_by_slug(slug_source.parameterize)
+    self["slug"] ||= if !self.class.find_by_slug(slug_source.parameterize)
                        slug_source.parameterize
                      else
-                       index = 0
-                       loop do
-                         index += 1
-                         unique_slug = "#{slug_source}-#{index}".parameterize
-                         break unique_slug unless self.class.where(slug: unique_slug).exists?
-                       end
+                       create_duplicate_slug
                      end
+  end
+
+  def create_duplicate_slug
+    index = 0
+    loop do
+      index += 1
+      unique_slug = "#{slug_source}-#{index}".parameterize
+      break unique_slug unless self.class.where(slug: unique_slug).exists?
+    end
   end
 end

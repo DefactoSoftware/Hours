@@ -30,19 +30,18 @@ class EntriesController < ApplicationController
     @entry = entry
   end
 
-
   def destroy
     @entry = entry
     @entry.destroy
-    redirect_to user_entries_path(current_user), notice: t('entry_deleted')
+    redirect_to user_entries_path(current_user), notice: t("entry_deleted")
   end
 
   private
 
   def entry_params
-    params.require(:entry)
-      .permit(:project_id, :category_id, :hours, :tag_list, :date)
-      .merge(date: parsed_date)
+    params.require(:entry).
+      permit(:project_id, :category_id, :hours, :tag_list, :date).
+      merge(date: parsed_date)
   end
 
   def parsed_date

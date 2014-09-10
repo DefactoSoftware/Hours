@@ -12,7 +12,7 @@
 #  updated_at  :datetime
 #
 
-require 'spec_helper'
+require "spec_helper"
 
 describe Entry do
   describe "validations" do
@@ -59,9 +59,9 @@ describe Entry do
 
     it "finds the tag case insensitive" do
       entry.tag_list = "tdd"
-      expect {
+      expect do
         entry.tag_list = "TDD"
-      }.to_not raise_error
+      end.to_not raise_error
       expect(Tag.last.name).to eq("TDD")
       expect(entry.reload.tag_list).to include("TDD")
     end

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_locale
 
-  def present(object, klass = nil)
+  def present(object, klass=nil)
     klass ||= "#{object.class}Presenter".constantize
     klass.new(object, view_context)
   end
@@ -14,7 +14,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:accept_invitation).concat([:first_name, :last_name])
+    devise_parameter_sanitizer.
+      for(:accept_invitation).
+      concat([:first_name, :last_name])
   end
 
   def authenticate_inviter!
@@ -55,6 +57,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+    I18n.locale = http_accept_language.
+                    compatible_language_from(I18n.available_locales)
   end
 end
