@@ -24,7 +24,7 @@ class Project < ActiveRecord::Base
 
   def sorted_categories
     categories.sort_by do |category|
-      EntryStats.new(entries, category).percentage_spent_on
+      EntryStats.new(entries, category).percentage_for_subject
     end.reverse
   end
 

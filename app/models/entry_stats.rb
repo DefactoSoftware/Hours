@@ -4,23 +4,23 @@ class EntryStats
     @subject = subject
   end
 
-  def percentage_spent_on
-    (hours_spent_on.to_f / hours_spent.to_f * 100).round
+  def percentage_for_subject
+    (hours_for_subject.to_f / total_hours.to_f * 100).round
   end
 
-  def hours_spent_on
-    entries.sum(:hours)
+  def hours_for_subject
+    entries_for_subject.sum(:hours)
   end
 
-  def hours_spent
+  def total_hours
     @entries.sum(:hours)
   end
 
-  def hours_per(collection)
+  def hours_for_subject_collection(collection)
     collection.map do |subject|
       @subject = subject
       {
-        value: hours_spent_on,
+        value: hours_for_subject,
         color: subject.label.pastel_color,
         label: subject.label,
         highlight: "gray"
@@ -30,7 +30,7 @@ class EntryStats
 
   private
 
-  def entries
+  def entries_for_subject
     if @subject.instance_of?(RemainingCategory)
       @entries.where("category_id in (?)", @subject.ids)
     else

@@ -5,7 +5,7 @@
       <div class="chart">
         <h2><%= t('project.show.per_user') %></h2>
         <div class="hours-per-user-overview">
-          <canvas id="hours-per-user" data-data="<%= EntryStats.new(@project.entries).hours_per(User.all).to_json %>" width="200" height="200"></canvas>
+          <canvas id="hours-per-user" data-data="<%= EntryStats.new(@project.entries).hours_for_subject_collection(User.all).to_json %>" width="200" height="200"></canvas>
         </div>
       </div>
 
@@ -18,7 +18,7 @@
           <% @project.tags.each do |tag| %>
             <tr>
               <td><%= link_to tag.name, tag_path(tag) %></td>
-              <td><%= EntryStats.new(tag.entries, @project).hours_spent_on %></td>
+              <td><%= EntryStats.new(tag.entries, @project).hours_for_subject %></td>
             </tr>
           <% end %>
         </tbody>

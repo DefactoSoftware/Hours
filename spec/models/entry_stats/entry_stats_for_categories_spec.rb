@@ -4,7 +4,7 @@ describe EntryStats do
       it "returns the hours spent" do
         entry = entry_with_hours(2)
         entry_stats = EntryStats.new(entry.category.entries)
-        expect(entry_stats.hours_spent).to eq(2)
+        expect(entry_stats.total_hours).to eq(2)
       end
     end
 
@@ -14,7 +14,7 @@ describe EntryStats do
         entry = entry_with_hours_project(2, project)
         entry_with_hours_project(3, project)
         entry_stats = EntryStats.new(entry.project.entries, entry.category)
-        expect(entry_stats.percentage_spent_on).to eq(40)
+        expect(entry_stats.percentage_for_subject).to eq(40)
       end
     end
   end

@@ -2,8 +2,8 @@
   <div class="container">
     <% cache @tag do %>
       <h1><%= @tag.name %> -
-          <%= EntryStats.new(@tag.entries).hours_spent %>
-          <%= t('tags.show.hours_indication_title', count: EntryStats.new(@tag.entries).hours_spent) %>
+          <%= EntryStats.new(@tag.entries).total_hours %>
+          <%= t('tags.show.hours_indication_title', count: EntryStats.new(@tag.entries).total_hours) %>
       </h1>
       <hr>
       <%= render 'tags_users_chart', tag: @tag %>

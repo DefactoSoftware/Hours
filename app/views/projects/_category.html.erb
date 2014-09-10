@@ -4,13 +4,13 @@
     <span class="activity"><%= category.name %></span>
   </div>
   <div class="spent">
-    <canvas class="spent-chart" data-spent="<%= EntryStats.new(project.entries, category).percentage_spent_on %>" data-color="<%= category.name.pastel_color %>" width="100" height="100"></canvas>
+    <canvas class="spent-chart" data-spent="<%= EntryStats.new(project.entries, category).percentage_for_subject %>" data-color="<%= category.name.pastel_color %>" width="100" height="100"></canvas>
     <div class="spent-info">
       <span class="hours" style="color: <%= category.name.pastel_color %>">
-        <%= EntryStats.new(project.entries, category).hours_spent_on %>
+        <%= EntryStats.new(project.entries, category).hours_for_subject %>
       </span>
       <span class="percent">
-        <%= EntryStats.new(project.entries, category).percentage_spent_on %>%
+        <%= EntryStats.new(project.entries, category).percentage_for_subject %>%
       </span>
     </div>
   </div>

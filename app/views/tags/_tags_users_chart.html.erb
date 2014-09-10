@@ -1,6 +1,6 @@
 <div class="chart-container">
   <h2><%= t('tags.show.users_title') %></h2>
   <div class="chart">
-    <canvas id="hours-tag-per-user" data-data="<%= EntryStats.new(tag.entries).hours_per(User.all).to_json %>" width=200 height=200 ></canvas>
+    <canvas id="hours-tag-per-user" data-data="<%= EntryStats.new(tag.entries).hours_for_subject_collection(User.all).to_json %>" width=200 height=200 ></canvas>
   </div>
 </div>
