@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :load_schema, :authenticate_user!
+  before_filter :load_schema, :unless => -> { Switch.single_tenant_mode? }
+  before_filter :authenticate_user!
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_locale
 
@@ -23,11 +24,11 @@ class ApplicationController < ActionController::Base
   private
 
   helper_method def current_subdomain
-    @current_subdomain ||= current_account.subdomain
+    @current_subdomain ||= current_account.subdomain unless Switch.single_tenant_mode?
   end
 
   helper_method def current_user_owner?
-    current_account.owner == current_user
+    current_account.owner == current_user unless Switch.single_tenant_mode?
   end
 
   def current_account
@@ -48,4 +49,5 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
   end
+
 end
