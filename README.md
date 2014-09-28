@@ -57,6 +57,18 @@ In order to activate caching in development you can add `CACHE_DEVELOPMENT="anyt
 [foreman]: http://ddollar.github.io/foreman/
 [pow]: http://pow.cx
 
+Feature Flags
+-------------
+
+Description:
+
+Single Tenant Mode: Initialize application in single tenant mode. Disabled by default.
+The first time this mode is enabled, you will be able to create an initial account on the sign in page.
+
+Usage:
+
+Modify `lib/switch.rb` and set desired options as either `true` or `false` and restart foreman
+
 Guidelines
 ----------
 - Pull requests are welcome! If you aren't able to contribute code please open an issue on Github.

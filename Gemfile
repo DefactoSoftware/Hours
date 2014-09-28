@@ -46,8 +46,11 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "foreman"
+  gem "powder"
+  gem "pry"
   gem "spring"
   gem "spring-commands-rspec"
+  gem "awesome_print"
 end
 
 group :development, :test do
