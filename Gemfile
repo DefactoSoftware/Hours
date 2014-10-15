@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 source "https://rails-assets.org"
 
-ruby "2.1.2"
+ruby "2.1.3"
 
 gem "airbrake"
 gem "bourbon"
