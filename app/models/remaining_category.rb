@@ -11,8 +11,6 @@ class RemainingCategory
     GrayName.new(I18n.t("category.remaining"))
   end
 
-  private
-
   class GrayName
     def initialize(name)
       @name = name

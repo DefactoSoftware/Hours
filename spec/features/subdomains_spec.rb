@@ -1,6 +1,6 @@
 require "spec_helper"
 
- feature "Subdomains" do
+feature "Subdomains" do
   let!(:account) { create(:account_with_schema) }
 
   scenario "redirects invalid accounts" do
@@ -15,6 +15,6 @@ require "spec_helper"
 
   scenario "forces users to sign in before accessing subdomain content" do
     visit root_url(subdomain: account.subdomain)
-    expect(page).to have_content(I18n.t('devise.failure.unauthenticated'))
+    expect(page).to have_content(I18n.t("devise.failure.unauthenticated"))
   end
 end

@@ -1,5 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
   def destroy
     redirect_to root_url
   end

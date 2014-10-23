@@ -7,7 +7,8 @@ describe ApplicationHelper do
     let(:user) { create(:user) }
 
     it "renders the gravatar url" do
-      expect(user_image_link(user)).to include("https://secure.gravatar.com/avatar")
+      expect(user_image_link(user)).to(
+        include("https://secure.gravatar.com/avatar"))
     end
 
     it "includes the border when specified" do

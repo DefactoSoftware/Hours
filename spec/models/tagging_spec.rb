@@ -9,7 +9,7 @@
 #  updated_at :datetime
 #
 
-require 'spec_helper'
+require "spec_helper"
 
 describe Tagging do
   describe "validations" do

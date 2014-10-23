@@ -53,27 +53,32 @@ describe User do
 
   describe "#label" do
     it "returns the users full name" do
-      user = create(:user, first_name: "Karel", last_name: "Appel")
+      user = create(:user, first_name: "Karel",
+                           last_name: "Appel")
       expect(user.label).to eq("Karel Appel")
     end
   end
 
   describe "#full_name" do
     it "returns the users full name" do
-      user = create(:user, first_name: "John", last_name: "Doe")
+      user = create(:user, first_name: "John",
+                           last_name: "Doe")
       expect(user.full_name).to eq("John Doe")
     end
   end
 
   describe "generating unique slugs" do
     it "uses the full name when available" do
-      user = create(:user, first_name: "Phillip", last_name: "Fry")
+      user = create(:user, first_name: "Phillip",
+                           last_name: "Fry")
       expect(user.slug).to eq("phillip-fry")
     end
 
     it "uses the full name with an index when the full name is taken" do
-      create(:user, first_name: "Phillip", last_name: "Fry")
-      user_with_same_name = create(:user, first_name: "Phillip", last_name: "Fry")
+      create(:user, first_name: "Phillip",
+                    last_name: "Fry")
+      user_with_same_name = create(:user, first_name: "Phillip",
+                                          last_name: "Fry")
       expect(user_with_same_name.slug).to eq("phillip-fry-1")
     end
   end
