@@ -20,6 +20,8 @@
 @import "selectize";
 @import "dc";
 @import "select2";
+@import "tagger";
+@import "jquery.atwho";
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -143,12 +145,10 @@ h1 {
   }
 }
 
-.table-tags {
-  a {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 0.9em;
-  }
+.table-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9em;
 }
 
 #flash_notice {

@@ -30,4 +30,48 @@
       width:50%;
     }
   }
+
+  .entries-table {
+    th:nth-child(1) {
+      width: 10%;
+    }
+
+    th:nth-child(2) {
+      width: 13%;
+    }
+
+    th:nth-child(3) {
+      width: 12%;
+    }
+
+    th:nth-child(4) {
+      width: 8%;
+    }
+
+    th:nth-child(5) {
+      width: 17%;
+    }
+
+    th:nth-child(6) {
+      width: 40%;
+    }
+
+    @media screen and (max-width: $medium-screen) {
+      th:nth-child(1) {
+        width: 20%;
+      }
+
+      th:nth-child(2) {
+        width: 40%;
+      }
+
+      th:nth-child(3) {
+        width: 30%;
+      }
+
+      th:nth-child(4) {
+        width: 10%;
+      }
+    }
+  }
 }

@@ -18,6 +18,7 @@ FactoryGirl.define do
   factory :entry do
     project
     category
+    description ""
     hours 1
     date "2014-02-26 22:06:47"
     user

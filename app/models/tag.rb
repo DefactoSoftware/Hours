@@ -22,7 +22,7 @@ class Tag < ActiveRecord::Base
   belongs_to :project
 
   def self.list
-    Tag.order(:name).map { |t| { tag: t.name } }
+    Tag.order(:name).pluck(:name)
   end
 
   private

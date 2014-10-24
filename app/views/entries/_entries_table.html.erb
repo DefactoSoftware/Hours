@@ -5,7 +5,7 @@
       <th><%= t("entries.index.project") %></th>
       <th class="center"><%= t("entries.index.hours") %></th>
       <th class="hide-for-mobile"><%= t("entries.index.category") %></th>
-      <th class="hide-for-mobile"><%= t("entries.index.tags") %></th>
+      <th class="hide-for-mobile"><%= t("entries.index.description") %></th>
       <% if @user == current_user %>
         <th></th>
       <% end %>
@@ -22,10 +22,8 @@
           <span class="color" style="background-color:<%= entry.category.name.pastel_color %>;"></span>
           <%= entry.category.name %>
         </td>
-        <td class="hide-for-mobile table-tags">
-          <% entry.tags.each do |tag| %>
-            <%= link_to tag.name, tag_path(tag) %>
-          <% end %>
+        <td class="hide-for-mobile table-description">
+          <%= sanitize autolink_tags(entry.description) %>
         </td>
         <% if @user == current_user %>
           <td class="right">
