@@ -15,7 +15,7 @@
             <div class="dropdown-arrow"></div>
             <div class="dropdown-content">
               <div class="user-info">
-                <%= gravatar_image_tag(current_user.email, gravatar: { secure: true }, class: "avatar") %>
+                <%= render "application/avatar", user: current_user%>
                 <span class="user-name"><%= current_user.first_name %></span>
               </div>
               <ul>

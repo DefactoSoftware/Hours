@@ -1,7 +1,7 @@
 <div class="outer">
   <div class="container">
     <h2> <%= t("registration.edit", resource_name: @user.class.model_name.human) %></h2>
-    <%= gravatar_image_tag(@user.email, gravatar: { secure: true }, class: "image-circle", title: current_user.full_name) %>
+    <%= render "application/avatar", user: @user %>
     <p><%= t("registration.gravatar_instructions_html") %></p>
 
     <%= simple_form_for(@user) do |f| %>

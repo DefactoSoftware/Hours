@@ -4,6 +4,7 @@
 
 @import "bourbon";
 @import "base/base";
+@import "base/avatar";
 @import "base/grid-settings";
 @import "neat";
 @import "navbar";
@@ -109,6 +110,14 @@ h1 {
 }
 
 .active-people {
+  .avatar {
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    font-size: 1em;
+    display: inline-block;
+  }
+
   img {
     width: 35px;
     height: 35px;

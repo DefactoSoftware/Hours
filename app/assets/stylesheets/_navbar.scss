@@ -161,10 +161,21 @@ $header-border-color: #ddd;
               background-color: #f7f5f5;
               border-bottom: 1px solid $header-border-color;
 
-              img.avatar {
+              .avatar {
                 width: 60px;
                 height: 60px;
+                line-height: 60px;
                 border: 1px solid #ddd;
+                margin: 0 auto;
+
+                img {
+                  margin: 0;
+                }
+              }
+
+              img.image-circle {
+                width: 60px;
+                height: 60px;
                 border-radius: 50%;
               }
 

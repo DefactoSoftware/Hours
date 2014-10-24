@@ -64,5 +64,13 @@ class User < ActiveRecord::Base
   def label
     full_name
   end
+
+  def color
+    (first_name + last_name).pastel_color
+  end
+
+  def acronyms
+    first_name[0] + last_name[0]
+  end
 end
 

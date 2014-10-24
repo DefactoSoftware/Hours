@@ -40,6 +40,14 @@
   .avatar-container {
     width: 25%;
     float: left;
+    padding-left: 1em;
+
+    .avatar {
+      height: 25px;
+      line-height: 25px;
+      width: 25px;
+      font-size: 1em;
+    }
   }
 
   .entry-text {

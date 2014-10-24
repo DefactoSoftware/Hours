@@ -1,0 +1,19 @@
+.avatar {
+  border-radius: 50%;
+  color: #ffffff;
+  font-family: monospace;
+  font-size: 2.6875em;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  width: 80px;
+  z-index: 1;
+  position: relative;
+
+  .image-circle {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+}
