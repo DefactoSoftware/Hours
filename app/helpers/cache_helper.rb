@@ -1,4 +1,10 @@
 module CacheHelper
+  def cache_keys_for_all(*klass_names)
+    klass_names.map do |key|
+      cache_key_for_all(key)
+    end
+  end
+
   def cache_key_for_all(klass_name)
     klass = klass_name.to_s.singularize.capitalize.constantize
     count = klass.count

@@ -41,7 +41,7 @@ class EntriesController < ApplicationController
 
   def entry_params
     params.require(:entry)
-      .permit(:project_id, :category_id, :hours, :tag_list, :date)
+      .permit(:project_id, :category_id, :hours, :description, :date)
       .merge(date: parsed_date)
   end
 

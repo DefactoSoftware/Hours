@@ -35,32 +35,35 @@ describe Entry do
 
   describe "#tag_list" do
     it "returns a string of comma separated values" do
-      tagging = create(:tagging)
-      tag = tagging.tag
-      entry = tagging.entry
-      tag2 = create(:tagging, entry: entry).tag
-      expect(entry.tag_list).to eq("#{tag.name}, #{tag2.name}")
+      entry = create(:entry, description: "#omg #hashtags")
+      expect(entry.tag_list).to eq("omg, hashtags")
     end
   end
 
-  describe "#taglist=" do
-    let(:entry) { create(:entry) }
-    it "takes a strint of comma separated values and sets the tags" do
-      existing_tag = create(:tag)
-      entry.tag_list = "#{existing_tag.name}, New Tag"
-      expect(entry.tag_list).to eq("#{existing_tag.name}, New Tag")
+  describe "tags from the description" do
+    let(:entry) { build(:entry) }
+
+    it "parses the tags from the description" do
+      entry.description = "Did some #opensource #scala, mostly for #research"
+      entry.save
+      expect(entry.tags.size).to eq(3)
+      expect(entry.tag_list).to eq("opensource, scala, research")
     end
 
     it "removes any tagging that is left out" do
-      entry.tag_list = "tag1, tag2, tag3, tag4"
-      entry.tag_list = "tag1, tag3"
-      expect(entry.tag_list).to eq("tag1, tag3")
+      entry.description = "#hashtags!"
+      entry.save
+      entry.description = "#omgomg"
+      entry.save
+      expect(entry.tag_list).to eq("omgomg")
     end
 
-    it "finds the tag case insensitive" do
-      entry.tag_list = "tdd"
+    it "updates the tag when the casing changes" do
+      entry.description = "did some #tdd"
+      entry.save
       expect {
-        entry.tag_list = "TDD"
+        entry.description = "did some #TDD"
+        entry.save
       }.to_not raise_error
       expect(Tag.last.name).to eq("TDD")
       expect(entry.reload.tag_list).to include("TDD")

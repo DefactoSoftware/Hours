@@ -100,9 +100,10 @@ nl:
       hours_indication: u
       new: Nieuwe entry
       project: Project
-      tags: Tags
+      description: Beschrijving of tags
       total: 'Totaal: %{hours_spent}'
       user_hours: "%{user}s uren"
+      per_project: Per project
   entry_activity_html:
     one: "%{user} heeft één uur gespendeerd aan %{category} op %{project}"
     other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project}"
@@ -143,6 +144,8 @@ nl:
     table_head:
       hours: Uren
       tag: Tag
+    show:
+      per_user: Per gebruiker
   project_activity_html:
     one: "%{full_name} heeft %{hours} uren aan %{project} besteed"
     other: "%{count} mensen hebben %{hours} uren aan %{project} besteed"
@@ -209,3 +212,18 @@ nl:
     confirm: Bevestig
     email: Email
     invite: Nodig uit
+
+  tags:
+    show:
+      users_title: per gebruiker
+      projects_title: per project
+      hours_indication_title:
+        one: uur
+        other: uren
+      hours_indication: u
+      user: Gebruiker
+      date: Datum
+      project: Project
+      hours: Uren
+      category: Categorie
+      tags: Tags

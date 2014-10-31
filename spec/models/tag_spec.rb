@@ -3,9 +3,10 @@
 # Table name: tags
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
+#  name       :string(255)      not null
 #  created_at :datetime
 #  updated_at :datetime
+#  slug       :string(255)
 #
 
 require "spec_helper"

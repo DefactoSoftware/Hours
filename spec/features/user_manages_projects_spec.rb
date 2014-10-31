@@ -54,7 +54,7 @@ feature "User manages projects" do
   scenario "views a single project" do
     project = create(:project_with_entries)
     entry = project.entries.last
-    entry.tag_list = "TDD"
+    entry.update(description: "#TDD")
 
     visit root_url(subdomain: subdomain)
     within ".projects-overview" do
@@ -84,15 +84,13 @@ feature "User manages projects" do
 
   scenario "views his own hours" do
     project = create(:project)
-    tag = create(:tag)
-    entry = create(:entry, project: project, user: user)
-    entry.tags << tag
+    create(:entry, project: project, user: user, description: "#refactoring")
 
     visit root_url(subdomain: subdomain)
     click_link "My Hours"
 
     expect(page).to have_content(project.name)
     expect(page).to have_content(project.entries.last.category.name)
-    expect(page).to have_content(tag.name)
+    expect(page).to have_content("refactoring")
   end
 end

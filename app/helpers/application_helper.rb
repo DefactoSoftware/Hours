@@ -1,4 +1,9 @@
 module ApplicationHelper
+  include Twitter::Autolink
+
+  def autolink_tags(text)
+    auto_link(text, { hashtag_url_base: "/tags/", hashtag_class: "hashtag" })
+  end
 
   def nav_path(link_text, link_path, http_method=nil)
     css_class = "navigation"

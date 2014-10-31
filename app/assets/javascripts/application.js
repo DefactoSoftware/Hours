@@ -12,12 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.atwho
 //= require moment
 //= require pikaday
 //= require selectize
-//= require Chart
+//= require chartjs
 //= require select2
-//= require projects
+//= require charts
 //= require i18n
 //= require date-formatter
 //= require feed
@@ -79,6 +80,11 @@ $(document).ready(function(){
 
   $('#entry_project_id').select2();
   $('#entry_category_id').select2();
+  new Tagger($(".taggable"));
+  $('#entry_description').atwho({
+    at: '#',
+    data: $('#entry_description').data('data')
+  });
 });
 
 $(document).keyup(function(event) {

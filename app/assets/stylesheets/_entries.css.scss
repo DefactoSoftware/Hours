@@ -79,6 +79,51 @@
   @include media($medium-screen) {
     font-size: $base-font-size;
   }
+}
+
+.legend {
+  font-size: $base-font-size * .9;
+  text-align: center;
+
+  @include media($medium-screen) {
+    font-size: $base-font-size;
+  }
+}
+
+.entries-table {
+  th:nth-child(1) {
+    width: 10%;
+  }
+
+  th:nth-child(2) {
+    width: 12%;
+  }
+
+  th:nth-child(3) {
+    width: 8%;
+  }
+
+  th:nth-child(4) {
+    width: 20%;
+  }
+
+  th:nth-child(5) {
+    width: 40%;
+  }
+
+  @media screen and (max-width: $medium-screen) {
+    th:nth-child(1) {
+      width: 30%;
+    }
+
+    th:nth-child(2) {
+      width: 60%;
+    }
+
+    th:nth-child(3) {
+      width: 10%;
+    }
+  }
 
   td {
     padding: 0;
@@ -93,42 +138,5 @@
 
   .right {
     text-align: right;
-  }
-}
-
-.hours-per-project-overview {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 10px auto;
-  font-weight: 100;
-  color: #999;
-
-  #hours-per-project {
-    margin: 0 auto;
-    position: absolute;
-    z-index: 10;
-  }
-
-  .spent-info {
-    position: relative;
-    top: 84px;
-    text-align: center;
-
-    .hours {
-      display: block;
-      font-size: 2em;
-      color: #333 !important;
-      letter-spacing: -2px;
-    }
-  }
-}
-
-.legend {
-  font-size: $base-font-size * .9;
-  text-align: center;
-
-  @include media($medium-screen) {
-    font-size: $base-font-size;
   }
 }

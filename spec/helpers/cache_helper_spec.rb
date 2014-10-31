@@ -1,6 +1,18 @@
 require "spec_helper"
 
 describe CacheHelper do
+  describe "#cache_keys_for_all" do
+    it "returns an array of cache keys" do
+      create(:project)
+      create(:category)
+
+      expect(helper).to receive(:current_subdomain).
+        and_return("some_subdomain").twice
+
+      expect(helper.cache_keys_for_all(:projects, :categories).size).to eq(2)
+    end
+  end
+
   describe "#cache_key_for_current_user" do
     it "returns a different key for the current_user" do
       current_user = build(:user)

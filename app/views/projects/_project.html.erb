@@ -8,9 +8,9 @@
         <% end %>
         </h2>
 
-        <ul class="tags">
+        <ul class="tags-list">
           <% project.tags.last(5).each do |tag| %>
-            <li class="tag"><a href="#"><%= tag.name %></a></li>
+            <%= link_to tag_path(tag) do %><li class="tag"><%= tag.name %></li><% end %>
           <% end %>
         </ul>
 
@@ -30,7 +30,7 @@
 
         <div class="activity-description">
           <% if project.users.count > 0 %>
-            <%= t(:project_activity_html, full_name: "<strong> #{project.users.first.full_name} </strong>".html_safe, count: project.users.count, hours: "<strong>#{project.hours_spent}</strong>".html_safe, project: "<strong>#{project.name}</strong>".html_safe) %>
+            <%= t(:project_activity_html, full_name: "<strong> #{project.users.first.full_name} </strong>".html_safe, count: project.users.count, hours: "<strong>#{EntryStats.new(project.entries).total_hours}</strong>".html_safe, project: "<strong>#{project.name}</strong>".html_safe) %>
           <% else %>
             <%= t(:no_hours_registered, project: project.name) %>
           <% end %>
