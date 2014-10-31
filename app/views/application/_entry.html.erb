@@ -2,9 +2,7 @@
   <li>
     <div clas="entry">
       <div class="avatar-container">
-        <div class="avatar">
-          <%= user_image_link(entry.user) %>
-        </div>
+        <%= render "application/avatar", user: entry.user%>
       </div>
       <div class="entry-text">
         <%= t(:entry_activity_html,
