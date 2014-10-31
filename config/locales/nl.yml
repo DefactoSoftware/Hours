@@ -100,7 +100,7 @@ nl:
       hours_indication: u
       new: Nieuwe entry
       project: Project
-      description: Beschrijving of tags
+      description: "Beschrijving of #hashtags"
       total: 'Totaal: %{hours_spent}'
       user_hours: "%{user}s uren"
       per_project: Per project
