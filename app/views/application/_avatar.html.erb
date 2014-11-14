@@ -1,4 +1,4 @@
 <div class="avatar" style="background-color: <%= user.color %>;">
   <%= user.acronyms %>
-  <%= gravatar_image_tag(user.email, gravatar: { secure: true }, class: "image-circle", title: current_user.full_name) %>
+  <%= gravatar_image_tag(user.email, gravatar: { secure: true }, class: "image-circle", title: user.full_name) %>
 </div>
