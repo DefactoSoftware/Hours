@@ -80,7 +80,11 @@ $(document).ready(function(){
 
   $('#entry_project_id').select2();
   $('#entry_category_id').select2();
-  new Tagger($(".taggable"));
+
+  if ($('body').hasClass('projects-index')) {
+    new Tagger($(".taggable"));
+  }
+
   $('#entry_description').atwho({
     at: '#',
     data: $('#entry_description').data('data')
