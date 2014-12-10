@@ -8,6 +8,9 @@
     <% project.tags.each do |tag| %>
       <%= link_to tag_path(tag) do %><li class="tag"><%= tag.name %></li><% end %>
     <% end %>
+    <a href="#" id="more-tags">
+      <li><%= t("tags.show_more") %></li>
+    </a>
   </ul>
 
   <div class="activities-overview">
