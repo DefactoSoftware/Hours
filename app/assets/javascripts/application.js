@@ -85,6 +85,10 @@ $(document).ready(function(){
     new Tagger($(".taggable"));
   }
 
+  if ($('.tags-list').length > 0) {
+    new TagExpander();
+  }
+
   $('#entry_description').atwho({
     at: '#',
     data: $('#entry_description').data('data')
