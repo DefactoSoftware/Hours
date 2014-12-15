@@ -1,18 +1,22 @@
-.activities {
-  margin-bottom: 5px;
-  text-align: center;
+.activities-overview {
+  clear: both;
 
-  li {
-    display: inline-block;
-    padding-right: 5px;
+  .activities {
+    margin-bottom: 5px;
+    text-align: center;
 
-    @include media($medium-screen) {
-      display: table-cell;
-      width: 1%;
-      border-bottom: none;
-      text-align: center;
-      padding: 11px 5px;
-      white-space: nowrap;
+    li {
+      display: inline-block;
+      padding-right: 5px;
+
+      @include media($medium-screen) {
+        display: table-cell;
+        width: 1%;
+        border-bottom: none;
+        text-align: center;
+        padding: 11px 5px;
+        white-space: nowrap;
+      }
     }
   }
 }

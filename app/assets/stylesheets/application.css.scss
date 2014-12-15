@@ -148,6 +148,10 @@ h1 {
   @include flash($notice-color);
 }
 
+#flash_alert {
+  @include flash($alert-color);
+}
+
 .hide-for-mobile {
   @media screen and (max-width: $medium-screen) {
     display: none;
@@ -158,10 +162,6 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 0.9em;
-}
-
-#flash_notice {
-  @include flash($notice-color);
 }
 
 .chart {
