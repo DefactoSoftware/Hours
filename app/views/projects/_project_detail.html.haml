@@ -7,8 +7,8 @@
       - project.tags.each do |tag|
         = link_to tag_path(tag) do
           %li.tag= tag.name
-    %a#more-tags{:href => "#"}
-  %li= t("tags.show_more")
+      %a#more-tags{:href => "#"}
+        %li= t("tags.show_more")
   .activities-overview
     %ol.activities
       = project_presenter.show_categories
