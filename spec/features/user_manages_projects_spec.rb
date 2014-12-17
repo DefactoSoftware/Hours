@@ -17,6 +17,14 @@ feature "User manages projects" do
     expect(page).to have_content(I18n.t('project_created'))
   end
 
+  scenario "can not create a project with a new name" do
+    click_link "New Project"
+
+    fill_in "Name", with: ""
+    click_button "Create Project"
+    expect(page).to have_content("Please review the problems below")
+  end
+
   scenario "does not have access to other accounts projects" do
     create(:project)
     expect(Project.count).to eq(1)
