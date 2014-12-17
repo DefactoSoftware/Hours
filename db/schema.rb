@@ -52,6 +52,11 @@ ActiveRecord::Schema.define(version: 20141217160309) do
     t.datetime "updated_at"
   end
 
+  create_table "clients", force: true do |t|
+    t.string "name",        default: "", null: false
+    t.string "description", default: ""
+  end
+
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
@@ -89,6 +94,7 @@ ActiveRecord::Schema.define(version: 20141217160309) do
     t.datetime "updated_at"
     t.string   "slug"
     t.boolean  "billable",   default: false
+    t.integer  "client_id"
   end
 
   add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree

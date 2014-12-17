@@ -13,6 +13,7 @@ describe Project do
     it { should have_many :categories }
     it { should have_many :entries }
     it { should have_many :tags }
+    it { should belong_to :client }
   end
 
   describe "#label" do
