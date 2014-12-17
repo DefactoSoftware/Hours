@@ -1,6 +1,0 @@
-<%= link_to user_entries_path(user) do %>
-  <div class="avatar" style="background-color: <%= user.color %>;">
-    <%= user.acronyms %>
-    <%= gravatar_image_tag(user.email, gravatar: { secure: true }, class: "image-circle", title: user.full_name) %>
-  </div>
-<% end %>

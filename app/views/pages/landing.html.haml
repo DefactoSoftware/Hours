@@ -1,0 +1,114 @@
+- cache static_cache_key_for(:landing) do
+  .hero
+    .hero-inner
+      .hero-copy
+        %h1#logo
+          = image_tag("logo-white-shadow.png", alt: 'Hours')
+        %h2 Time registration that doesn't suck.
+        = link_to new_accounts_path, class: "button" do
+          .flip
+            .flip-front
+              %span
+                Free
+                %br>/
+                Trial
+            .flip-back
+              %span
+                Free
+                %br>/
+                Trial
+  .main
+    .copy
+      %p
+        Hours is a dead simple project based time tracking application that #{link_to "we", page_path("team")} use for internal time-tracking. It allows users to register how many hours they've worked on a project with a certain category (think design, software development, testing for software teams) and add any tag they like to it. This gives us a lot of insight on how we spend our time on different projects.
+  .browsers
+    .browser
+      .browser-top-bar
+        .browser-circle
+        .browser-circle
+        .browser-circle
+      .browser-content
+    .browser
+      .browser-top-bar
+        .browser-circle
+        .browser-circle
+        .browser-circle
+      .browser-content
+    .browser
+      .browser-top-bar
+        .browser-circle
+        .browser-circle
+        .browser-circle
+      .browser-content
+  #pricing.pricing
+    %h1 Pricing
+    .cards
+      .card
+        = link_to new_accounts_path do
+          .card-image.free
+            %p Freelance
+        .card-header
+          Free!
+        .card-copy
+          %p
+            %strong Hours
+            is free for small teams and freelancers: if you are up to 5 people, this one's on us!
+        .card-stats
+          %ul
+            %li
+              5
+              %span Users
+            %li
+              Unlimited
+              %span Projects &amp; Entries
+      .card
+        .ribbon-wrapper
+          .ribbon Popular
+        = link_to new_accounts_path do
+          .card-image.medium
+            %p Small Teams
+        .card-header
+          $25 / month
+        .card-copy
+          %p Tailored toward consultancies and medium sized teams, this plan will only cost you less than a beer per user per month. If you can't afford us, stop drinking so much beer!
+        .card-stats
+          %ul
+            %li
+              25
+              %span Users
+            %li
+              Unlimited
+              %span Projects &amp; entries
+      .card
+        = link_to new_accounts_path do
+          .card-image.enterprise
+            %p Enterprise
+        .card-header
+          Call us :)
+        .card-copy
+          %p
+            %a{:href => "tel:+31 50 3144832"} Call us,
+            maybe...
+          %p
+            %strong +31 50 314 48 32
+        .card-stats
+          %ul
+            %li
+              25+
+              %span Users
+            %li
+              Unlimited
+              %span everything
+    %p
+      Or start with a
+      %strong free
+      trial. No credit card needed.
+    = link_to new_accounts_path do
+      %button Free trial
+    %p
+      %small
+        Alternatively you can grab the
+        %a{:href => "https://github.com/DefactoSoftware/Hours/"} source
+        from Github and host it yourself.
+    %p
+  = render "footer"

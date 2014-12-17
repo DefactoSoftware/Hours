@@ -1,0 +1,8 @@
+.outer
+  .container
+    %h1= title
+    = simple_form_for(@project) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :name, required: true, autofocus: true
+        = f.button :submit

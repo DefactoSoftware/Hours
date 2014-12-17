@@ -1,0 +1,27 @@
+- projects.each do |project|
+  - cache [project, current_locale] do
+    - present project do |project_presenter|
+      %li.container.project
+        %h2.project-title
+          = link_to project_path(project) do
+            = project.name
+        %ul.tags-list
+          - project.tags.last(5).each do |tag|
+            = link_to tag_path(tag) do
+              %li.tag= tag.name
+        %hr/
+        .activities-overview
+          %ol.activities
+            = project_presenter.show_categories
+        .bar
+          .graph
+            = project_presenter.show_categories_bar
+        .activity-description
+          - if project.users.count > 0
+            = t(:project_activity_html, full_name: "<strong> #{project.users.first.full_name} </strong>".html_safe, count: project.users.count, hours: "<strong>#{EntryStats.new(project.entries).total_hours}</strong>".html_safe, project: "<strong>#{project.name}</strong>".html_safe)
+          - else
+            = t(:no_hours_registered, project: project.name)
+          .active-people
+            - project.users.each do |user|
+              = render "application/avatar", user: user
+= paginate projects

@@ -129,6 +129,11 @@ GEM
     gravatar_image_tag (1.2.0)
     haml (4.0.5)
       tilt
+    haml-rails (0.5.3)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      haml (>= 3.1, < 5.0)
+      railties (>= 4.0.1)
     hashtel (0.0.2)
     high_voltage (2.2.0)
     highline (1.6.21)
@@ -319,6 +324,7 @@ DEPENDENCIES
   flutie
   foreman
   gravatar_image_tag
+  haml-rails
   hashtel (~> 0.0.2)
   high_voltage
   http_accept_language
