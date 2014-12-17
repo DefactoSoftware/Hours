@@ -145,6 +145,7 @@ en:
       per_user: Per user,
     show:
       edit_link: edit
+      per_user: Per user
 
   navbar:
     entries: "My Hours"
