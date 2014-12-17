@@ -15,6 +15,8 @@
 class Entry < ActiveRecord::Base
   include Twitter::Extractor
 
+  audited allow_mass_assignment: true
+
   belongs_to :project, touch: true
   belongs_to :category
   belongs_to :user, touch: true
