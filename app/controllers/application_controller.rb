@@ -6,11 +6,6 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_locale
 
-  def present(object, klass = nil)
-    klass ||= "#{object.class}Presenter".constantize
-    klass.new(object, view_context)
-  end
-
   protected
 
   def configure_permitted_parameters
@@ -48,10 +43,6 @@ class ApplicationController < ActionController::Base
     else
       redirect_to root_url(subdomain: false)
     end
-  end
-
-  def after_sign_out_path(resource_or_scope)
-    new_user_session_path
   end
 
   def set_locale

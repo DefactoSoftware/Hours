@@ -17,9 +17,7 @@ class EntriesController < ApplicationController
   end
 
   def update
-    @entry = entry
-    @entry.update_attributes(entry_params)
-    if entry.save
+    if resource.update_attributes(entry_params)
       redirect_to user_entries_path(current_user), notice: t("entry_saved")
     else
       render "edit", notice: t("entry_failed")
@@ -27,17 +25,20 @@ class EntriesController < ApplicationController
   end
 
   def edit
-    @entry = entry
+    resource
   end
 
 
   def destroy
-    @entry = entry
-    @entry.destroy
+    resource.destroy
     redirect_to user_entries_path(current_user), notice: t('entry_deleted')
   end
 
   private
+
+  def resource
+    @entry ||= current_user.entries.find(params[:id])
+  end
 
   def entry_params
     params.require(:entry)
@@ -47,9 +48,5 @@ class EntriesController < ApplicationController
 
   def parsed_date
     Date.strptime(params[:entry][:date], DATE_FORMAT)
-  end
-
-  def entry
-    current_user.entries.find(params[:id])
   end
 end

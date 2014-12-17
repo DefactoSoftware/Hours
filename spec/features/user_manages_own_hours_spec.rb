@@ -56,13 +56,46 @@ feature "User manages their own hours" do
   end
 
   scenario "edits an entry" do
-    create(:entry, user: user)
     new_project = create(:project)
     new_category = create(:category)
     new_hours = rand(1..100)
     new_date = Date.today.strftime("%d/%m/%Y")
 
+    edit_entry(new_project, new_category, new_hours, new_date)
 
+    click_link "edit"
+
+    expect(page).to have_select("entry_project_id", selected: new_project.name)
+    expect(page).to have_select("entry_category_id", selected: new_category.name)
+    expect(find_field("entry_hours").value).to eq(new_hours.to_s)
+    expect(find_field("datepicker").value).to eq(new_date.to_s)
+    expect(find_field("entry_description").value).to eq("did some awesome #uxdesign")
+  end
+
+  let(:new_hours) { "Not a number" }
+
+  scenario "edits entry with wrong data" do
+    new_project = create(:project)
+    new_category = create(:category)
+    new_hours = "these are not valid hours"
+    new_date = Date.today.strftime("%d/%m/%Y")
+
+    edit_entry(new_project, new_category, new_hours, new_date)
+
+    expect(page).to have_content("Please review the problems below")
+  end
+
+  scenario "can not edit someone elses entries" do
+    other_user = create(:user)
+    create(:entry, user: other_user)
+    visit user_entries_url(other_user, subdomain: subdomain)
+    expect(page).to_not have_content("edit")
+  end
+
+  private
+
+  def edit_entry(new_project, new_category, new_hours, new_date)
+    create(:entry, user: user)
     click_link "My Hours"
     click_link "edit"
 
@@ -73,19 +106,5 @@ feature "User manages their own hours" do
     fill_in "entry_description", with: "did some awesome #uxdesign"
 
     click_button "Update Entry"
-    click_link "edit"
-
-    expect(page).to have_select("entry_project_id", selected: new_project.name)
-    expect(page).to have_select("entry_category_id", selected: new_category.name)
-    expect(find_field("entry_hours").value).to eq(new_hours.to_s)
-    expect(find_field("datepicker").value).to eq(new_date.to_s)
-    expect(find_field("entry_description").value).to eq("did some awesome #uxdesign")
-  end
-
-  scenario "can not edit someone elses entries" do
-    other_user = create(:user)
-    create(:entry, user: other_user)
-    visit user_entries_url(other_user, subdomain: subdomain)
-    expect(page).to_not have_content("edit")
   end
 end
