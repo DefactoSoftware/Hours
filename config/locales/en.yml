@@ -7,6 +7,7 @@ en:
     projects:
       index: Projects
       new: New Project
+      edit: Edit Project
     categories:
       index: Categories
       new: New Category
@@ -71,6 +72,7 @@ en:
   sign_out: Sign Out
   account_created_successfully: Signed up successfully
   project_created: Project successfully created
+  project_updated: Project successfully updated
   category_created: Category successfully created
   category_updated: Category successfully updated
   no_hours_registered: "Nobody spent any time on %{project} yet"
@@ -125,7 +127,7 @@ en:
     subdomain: Subdomain
     back_to_website: back to the website
     danger_zone: Danger Zone
-    warning: Deleting your account will remove you and everyone else's data from %{subdomain} and cannot be undone.
+    warning: "Deleting your account will remove you and everyone else's data from %{subdomain} and cannot be undone."
     delete: Delete my account
     confirm_destroy: Are you sure you want to delete your account?
     deleted: Your account was deleted. Sorry to see you go. :(
@@ -133,10 +135,12 @@ en:
 
   project:
     table_head:
-      tag: Tag
       hours: Hours
+      tag: Tag
+      edit_link: edit
+      per_user: Per user,
     show:
-      per_user: Per user
+      edit_link: edit
 
   navbar:
     entries: "My Hours"

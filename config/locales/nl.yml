@@ -140,16 +140,20 @@ nl:
     dropdown:
       edit_user: Gegevens aanpassen
   no_hours_registered: Niemand heeft nog tijd aan %{project} besteed
+
   project:
     table_head:
       hours: Uren
       tag: Tag
     show:
+      edit_link: aanpassen
       per_user: Per gebruiker
+
   project_activity_html:
     one: "%{full_name} heeft %{hours} uren aan %{project} besteed"
     other: "%{count} mensen hebben %{hours} uren aan %{project} besteed"
   project_created: Het project is aangemaakt
+  project_updated: Het project is gewijzigd
   read_more: lees verder
   registration:
     edit: Pas uw gegevens aan
@@ -196,6 +200,7 @@ nl:
     projects:
       index: Projecten
       new: Nieuw project
+      edit: Project aanpassen
     reports:
       index: Reports
     users:
