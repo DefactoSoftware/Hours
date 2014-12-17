@@ -10,6 +10,7 @@
 #  date        :date             not null
 #  created_at  :datetime
 #  updated_at  :datetime
+#  description :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
