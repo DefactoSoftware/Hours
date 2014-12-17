@@ -55,4 +55,11 @@ describe Project do
       expect(Project.by_name.first).to eq(a)
     end
   end
+
+  describe "#budget" do
+    it "can have a budget" do
+      project = create(:project, name: "on a tight budget", budget: 10)
+      expect(project.budget).to eq(10)
+    end
+  end
 end
