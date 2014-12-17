@@ -1,9 +1,0 @@
-<div class="outer">
-  <div class="container">
-    <p><%= t('email.confirmation.salutation', email: @email) %></p>
-
-    <p><%= t('email.confirmation_text') %></p>
-
-    <p><%= link_to t('email.confirmation.confirm_password'), confirmation_url(@resource, confirmation_token: @token, subdomain: Apartment::Tenant.current) %></p>
-  </div>
-</div>

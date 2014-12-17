@@ -1,0 +1,38 @@
+#navbar
+  .nav
+    %ul
+      = nav_path t("titles.projects.index"), root_path
+      = nav_path t("navbar.entries"), user_entries_path(current_user)
+  - cache current_user do
+    .nav-user
+      %ul
+        %li#user-nav.dropdown
+          %a{:href => "javascript:void(0)"}
+            = current_user.first_name
+            %span.caret
+          .dropdown-menu
+            .dropdown-arrow
+            .dropdown-content
+              .user-info
+                = render "application/avatar", user: current_user
+                %span.user-name= current_user.first_name
+              %ul
+                %li
+                  = link_to t("titles.categories.index"), categories_path
+                %li
+                  = link_to t("titles.users.index"), users_path
+                %li
+                  = link_to t("navbar.dropdown.edit_user"), edit_user_path
+                - if current_user_owner?
+                  %li
+                    = link_to t("titles.accounts.edit"), edit_account_path
+                - if Hours.helpful_enabled?
+                  %li
+                    .modal
+                      %label{:for => "modal-1"}
+                        %a Help me!
+                      %input#modal-1.modal-state{:type => "checkbox"}/
+                      = render 'modal'
+                %li.devider
+                %li
+                  = link_to t("sign_out"), destroy_user_session_path

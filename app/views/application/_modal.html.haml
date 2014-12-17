@@ -1,0 +1,12 @@
+.modal-window
+  %form{:action => Hours.helpful_url, :method => "post", :target => "_b"}>
+    .modal-inner
+      .content
+        %label.modal-close{:for => "modal-1"}
+        %h3= t('helpful.heading')
+        %p= t('helpful.tagline')
+        %input{:name => "account", :type => "hidden", :value => Hours.helpful_account}/
+        %input#email{:name => "email", :type => "hidden", :value => current_user.email}/
+        %textarea#content{:name => "content", :placeholder => t('helpful.placeholder'), :type => "text"}
+      .actions
+        %input.submit-button{:type => "submit", :value => "Submit"}/

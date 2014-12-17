@@ -1,0 +1,17 @@
+- cache @project do
+  .outer
+    .container
+      = render partial: "project_detail", locals: { project: @project }
+      .chart
+        %h2= t('project.show.per_user')
+        .hours-per-user-overview
+          %canvas#hours-per-user{"data-data" => EntryStats.new(@project.entries).hours_for_subject_collection(User.all).to_json, :height => "200", :width => "200"}
+      %table
+        %tbody
+          %tr
+            %th= t('project.table_head.tag')
+            %th= t('project.table_head.hours')
+          - @project.tags.each do |tag|
+            %tr
+              %td= link_to tag.name, tag_path(tag)
+              %td= EntryStats.new(tag.entries, @project).hours_for_subject

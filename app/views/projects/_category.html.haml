@@ -1,0 +1,12 @@
+%li
+  .category
+    %span.color{:style => "background-color:#{category.name.pastel_color};"}
+    %span.activity= category.name
+  .spent
+    %canvas.spent-chart{"data-color" => category.name.pastel_color, "data-spent" => EntryStats.new(project.entries, category).percentage_for_subject, :height => "100", :width => "100"}
+    .spent-info
+      %span.hours{:style => "color: #{category.name.pastel_color}"}
+        = EntryStats.new(project.entries, category).hours_for_subject
+      %span.percent
+        = EntryStats.new(project.entries, category).percentage_for_subject
+        \%
