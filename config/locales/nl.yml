@@ -29,6 +29,24 @@ nl:
     subdomain: subdomein
     warning: Het verwijderen van je account zal jouw en iedereens gegevens op %{subdomain}
       verwijderen en kan niet ongedaan worden gemaakt.
+    users_instructions_html: "Collega's kunnen zich %{sign_up_path} registreren met
+      een email dat eindigt op <em> %{domain} </em>"
+  account_created_successfully: Aanmelden is gelukt
+  archives:
+    index:
+      date: Datum
+      project: Project
+      hours: Uren
+      un_archive_link: Dearchiveren
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid_email: "%{attribute} is geen mail van de organisatie"
+    models:
+      user: Gebruiker
   back: Terug
   category:
     edit: edit
@@ -157,11 +175,18 @@ nl:
     table_head:
       hours: Uren
       tag: Tag
+    show:
+      archive_link: Archiveren
+      un_archive_link: Dearchiveren
+      edit_link: aanpassen
+      per_user: Per gebruiker
+
   project_activity_html:
     one: "%{full_name} heeft %{hours} uren aan %{project} besteed"
     other: "%{count} mensen hebben %{hours} uren aan %{project} besteed"
   project_created: Het project is aangemaakt
   project_updated: Het project is gewijzigd
+  read_more: lees verder
   registration:
     edit: Pas uw gegevens aan
     gravatar_instructions_html: Update je profiel foto op <a href="https://www.gravatar.com"
@@ -208,7 +233,9 @@ nl:
     accounts:
       edit: Account Aanpassen
     activities: Activiteiten
-    application: Hours
+    archives:
+      index: Gearchiveerde projecten
+    application: Uren
     categories:
       edit: Bewerk Categorie
       index: Categoriëen

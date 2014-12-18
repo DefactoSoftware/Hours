@@ -30,7 +30,7 @@ en:
     warning: Deleting your account will remove you and everyone else's data from %{subdomain}
       and cannot be undone.
   back: Back
-  category:
+    category:
     edit: edit
     remaining: Other
   category_created: Category successfully created

@@ -2,6 +2,7 @@
   .nav
     %ul
       = nav_path t("titles.projects.index"), root_path
+      = nav_path t("titles.archives.index"), archives_path
       = nav_path t("navbar.entries"), user_entries_path(current_user)
   - cache current_user do
     .nav-user

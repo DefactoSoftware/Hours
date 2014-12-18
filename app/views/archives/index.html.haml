@@ -1,0 +1,19 @@
+.outer
+  .container
+    %table.entries-table
+      %thead
+        %tr
+          %th= t("archives.index.date")
+          %th= t("archives.index.project")
+          %th.center= t("archives.index.hours")
+          %th
+      %tbody
+        - @projects.each do |project|
+          - cache [project, current_locale] do
+            %tr.info-row
+              %td= l(project.updated_at.to_date)
+              %td= link_to project.name, project
+              %td.center= EntryStats.new(project.entries).total_hours
+              %td
+                = link_to project_archive_path(project_id: project.id, id: project.slug), method: :put do
+                  = t("archives.index.un_archive_link")

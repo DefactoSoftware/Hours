@@ -9,6 +9,7 @@
 #  slug       :string(255)
 #  billable   :boolean          default(FALSE)
 #  client_id  :integer
+#  archived   :boolean
 #
 
 class Project < ActiveRecord::Base
@@ -24,6 +25,8 @@ class Project < ActiveRecord::Base
 
   scope :by_last_updated, -> { order("updated_at DESC") }
   scope :by_name, -> { order("lower(name)") }
+  scope :are_archived, -> { where(archived: true).order("updated_at DESC") }
+  scope :unarchived, -> { where(archived: false) }
 
   def sorted_categories
     categories.sort_by do |category|

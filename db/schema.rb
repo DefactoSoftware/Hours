@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20141224100904) do
     t.integer  "client_id"
     t.boolean  "archived",   default: false, null: false
     t.boolean  "billable",   default: false
+    t.boolean  "archived"
   end
 
   add_index "projects", ["archived"], name: "index_projects_on_archived", using: :btree
