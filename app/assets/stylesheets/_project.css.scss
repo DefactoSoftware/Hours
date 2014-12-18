@@ -5,3 +5,28 @@
     }
   }
 }
+
+#new_project, .edit_project {
+  .button {
+    width: 100%;
+  }
+
+  .input {
+    margin: 10px 0;
+
+    input {
+      resize: none;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+    }
+  }
+
+  .selectize-dropdown, .selectize-input, .selectize-input input {
+    font-size: $base-font-size;
+    font-family: 'Open Sans';
+  }
+
+  .select {
+    width: 100%;
+  }
+}

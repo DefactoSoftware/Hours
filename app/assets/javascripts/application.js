@@ -80,6 +80,7 @@ $(document).ready(function(){
 
   $('#entry_project_id').select2();
   $('#entry_category_id').select2();
+  $('#project_client_id').select2();
 
   if ($('body').hasClass('projects-index')) {
     new Tagger($(".taggable"));

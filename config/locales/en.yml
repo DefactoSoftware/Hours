@@ -143,11 +143,11 @@ en:
     table_head:
       hours: Hours
       tag: Tag
-      edit_link: edit
-      per_user: Per user,
     show:
       edit_link: edit
       per_user: Per user
+    form:
+      client: Client
 
   navbar:
     entries: "My Hours"

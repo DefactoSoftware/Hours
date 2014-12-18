@@ -22,4 +22,12 @@ describe Client do
   describe "associations" do
     it { should have_many :projects }
   end
+
+  describe "#by_name" do
+    it "orders by name case insensitive" do
+      create(:client, name: "B")
+      a = create(:client, name: "a")
+      expect(Client.by_name.first).to eq(a)
+    end
+  end
 end
