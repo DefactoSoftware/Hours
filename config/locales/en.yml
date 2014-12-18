@@ -64,6 +64,7 @@ en:
       total: "Total %{hours_spent}"
       hours_indication: h
       per_project: Per project
+      changes: changes
 
   back: Back
   confirm: Are you sure?
@@ -177,3 +178,10 @@ en:
       category: Category
       tags: Tags
     show_more: show more...
+
+  audits:
+    title: Audit Log
+    date: Date
+    action: Action
+    user: User
+    updated: Updated

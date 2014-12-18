@@ -1,0 +1,17 @@
+.outer
+  .container
+    %h1= t("audits.title")
+    %table
+      %thead
+        %tr
+          %th= t("audits.date")
+          %th= t("audits.action")
+          %th= t("audits.user")
+          %th= t("audits.updated")
+      %tbody
+        - @audits.each do |audit|
+          %tr.audit
+            %td.date= localize(audit.created_at, format: :long)
+            %td.action= audit.action
+            %td.user= audit.user.full_name
+            %td.changes= audit.audited_changes.keys.join(", ")
