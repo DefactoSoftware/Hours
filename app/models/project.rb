@@ -25,7 +25,7 @@ class Project < ActiveRecord::Base
 
   scope :by_last_updated, -> { order("updated_at DESC") }
   scope :by_name, -> { order("lower(name)") }
-  scope :are_archived, -> { where(archived: true).order("updated_at DESC") }
+  scope :are_archived, -> { where(archived: true) }
   scope :unarchived, -> { where(archived: false) }
 
   def sorted_categories

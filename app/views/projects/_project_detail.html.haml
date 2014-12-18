@@ -3,12 +3,6 @@
     %header
       %div.actions
         %span
-          = link_to project_archive_path(project_id: project.id), method: :put do
-            - if project.archived
-              = t("project.show.un_archive_link")
-            - else
-              = t("project.show.archive_link")
-        %span
           = link_to edit_project_path(project) do
             = t("project.show.edit_link")
       = link_to project_path(project) do

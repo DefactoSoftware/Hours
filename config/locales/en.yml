@@ -29,8 +29,14 @@ en:
     subdomain: Subdomain
     warning: Deleting your account will remove you and everyone else's data from %{subdomain}
       and cannot be undone.
+  archives:
+    index:
+      date: Date
+      project: Project
+      hours: Hours
+      un_archive_link: Un-archive
   back: Back
-    category:
+  category:
     edit: edit
     remaining: Other
   category_created: Category successfully created
@@ -82,6 +88,10 @@ en:
     heading: Need help?
     placeholder: Write your question here...
     tagline: Have a question about Hours? Need some help getting started?
+  helpers:
+    submit:
+      project:
+        update: Update Project
   info:
     here: here
     no_categories_html: It looks like you don't have any categories set up yet, you
@@ -101,7 +111,10 @@ en:
       client: Client
       no_client: No Client
     show:
+      archive_link: Archive
+      un_archive_link: Un-archive
       edit_link: edit
+      per_user: Per user
     table_head:
       hours: Hours
       tag: Tag
@@ -139,6 +152,8 @@ en:
     application: Hours
     accounts:
       edit: Edit Account
+    archives:
+      index: Archives
     categories:
       index: Categories
       new: New Category

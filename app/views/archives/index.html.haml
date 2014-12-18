@@ -15,5 +15,5 @@
               %td= link_to project.name, project
               %td.center= EntryStats.new(project.entries).total_hours
               %td
-                = link_to project_archive_path(project_id: project.id, id: project.slug), method: :put do
+                = link_to project_path(project_id: project.id, id: project.slug, project: { archived: false }), method: :put do
                   = t("archives.index.un_archive_link")
