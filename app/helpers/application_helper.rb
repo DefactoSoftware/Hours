@@ -20,6 +20,17 @@ module ApplicationHelper
     presenter
   end
 
+  def client_title(client)
+    html = ""
+    if client.logo_url != ""
+      html << image_tag(client.logo_url, { class: "logo" })
+    else
+      html << content_tag(:span, "", {class: "color", style: "background-color:#{client.name.pastel_color};"})
+    end
+    html << content_tag(:span, client.name)
+    html.html_safe
+  end
+
   def current_locale
     I18n.locale
   end

@@ -19,6 +19,10 @@ en:
       index: Reports
     users:
       index: Users
+    clients:
+      index: Clients
+      edit: Edit Client
+      new: New Client
   category:
     remaining: Other
     edit: edit
@@ -66,7 +70,13 @@ en:
       hours_indication: h
       per_project: Per project
       changes: changes
-
+    table:
+      user: User
+      date: Date
+      project: Project
+      hours: Hours
+      category: Category
+      tags: Tags
   back: Back
   confirm: Are you sure?
   sign_in: Sign in
@@ -165,10 +175,16 @@ en:
     email: Email
     invite: Invite User
 
+  client:
+    entries:
+      title: Latest Entries
+
+  charts:
+    users_title: per user
+    projects_title: per project
+
   tags:
     show:
-      users_title: per user
-      projects_title: per project
       hours_indication_title:
         one: hour
         other: hours

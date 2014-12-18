@@ -7,6 +7,6 @@ class TagsController < ApplicationController
   private
 
   def tag
-    @tag || Tag.find_by_slug(params[:id].downcase)
+    @tag ||= Tag.find_by_slug(params[:id].downcase)
   end
 end

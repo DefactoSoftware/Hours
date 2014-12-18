@@ -6,7 +6,10 @@
           = link_to edit_project_path(project) do
             = t("project.show.edit_link")
       = link_to project_path(project) do
-        %h2= project.title
+        %h2= project.name
+      - if project.client
+        = link_to client_path(project.client) do
+          %h3= client_title(project.client)
     %hr/
     %ul.tags-list
       - project.tags.each do |tag|

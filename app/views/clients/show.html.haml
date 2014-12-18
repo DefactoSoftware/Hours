@@ -1,0 +1,19 @@
+.outer
+  .container
+    - cache @client do
+      .clients
+        %header
+          = link_to t("client.edit"), edit_client_path(@client)
+          %h1
+            = client_title(@client)
+            \-
+            \#{EntryStats.new(@client.entries).total_hours}
+            \#{t('tags.show.hours_indication_title', count: EntryStats.new(@client.entries).total_hours)}
+          %p
+            = @client.description
+        %hr/
+        = render 'client_users_chart', client: @client
+        = render 'client_projects_chart', client: @client
+        = render "entries_table", entries: @entries
+  %ul.clients-projects-overview
+    = render "project", projects: @projects

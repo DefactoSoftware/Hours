@@ -9,23 +9,23 @@ feature "User manages clients" do
     sign_in_user(user, subdomain: subdomain)
   end
 
-  scenario "creates a category" do
+  scenario "creates a client" do
     create_client("New Client", "This is a description")
     expect(page).to have_content(I18n.t('client_created'))
   end
 
   scenario "creates a client with a duplicate name" do
-    create(:category, name: "duplicate name")
+    create(:client, name: "duplicate name")
     create_client("Duplicate name")
     expect(page).to have_content("Name has already been taken")
   end
 
   scenario "displays a list of clients" do
-    create(:category, name: "Apple")
-    create(:category, name: "Google")
+    create(:client, name: "Apple")
+    create(:client, name: "Google")
 
     visit clients_url(subdomain: subdomain)
-    within ".clients" do
+    within ".clients-overview" do
       expect(page).to have_content("Apple")
       expect(page).to have_content("Google")
     end
@@ -38,36 +38,34 @@ feature "User manages clients" do
 
     visit clients_url(subdomain: subdomain)
 
-    within ".categories" do
-      expect(page).to have_selector("ul.clients-overview li:first-child", text: "A")
-      expect(page).to have_selector("ul.clients-overview li:nth-child(2)", text: "b")
-      expect(page).to have_selector("ul.clients-overview li:nth-child(3)", text: "C")
-    end
+    expect(page).to have_selector("ul.clients-overview li:first-child", text: "A")
+    expect(page).to have_selector("ul.clients-overview li:nth-child(2)", text: "b")
+    expect(page).to have_selector("ul.clients-overview li:nth-child(3)", text: "C")
   end
 
   scenario "can edit the client" do
     create(:client, name: "Facebook")
     visit clients_url(subdomain: subdomain)
-    expect(page).to have_content "edit"
-    click_link "edit"
+    expect(page).to have_content "Edit"
+    click_link "Edit"
     fill_in "Name", with: "MySpace"
     click_button "Update Client"
     expect(page).to have_content "MySpace"
   end
 
   scenario "can not edit the category with wrong data" do
-    create(:client, name: "Facebook")
+    client = create(:client, name: "Facebook")
 
-    visit edit_client_url(category, subdomain: subdomain)
+    visit edit_client_url(client, subdomain: subdomain)
     fill_in "Name", with: ""
     click_button "Update Client"
     expect(page).to have_content "Please review the problems below"
   end
 
-  scenario "can view the client and the description" do
+  scenario "can view the client and the description and the logo" do
     client = create(:client)
 
-    visit client_path(client, subdomain: subdomain)
+    visit client_url(client, subdomain: subdomain)
     expect(page).to have_content(client.name)
     expect(page).to have_content(client.description)
   end
@@ -77,13 +75,13 @@ feature "User manages clients" do
     project1 = create(:project, client: client)
     project2 = create(:project, client: client)
 
-    visit client_path(client, subdomain: subdomain)
-    expect(page).to have_selector("ul.clients-projects-overview li:first-child", text: project1.name)
-    expect(page).to have_selector("ul.clients-projects-overview li:nth-child(2)", text: project2.name)
+    visit client_url(client, subdomain: subdomain)
+    expect(page).to have_selector("ul.clients-projects-overview li:first-child", text: project2.name)
+    expect(page).to have_selector("ul.clients-projects-overview li:nth-child(2)", text: project1.name)
   end
 
-  def create_client(name, description)
-    visit categories_url(subdomain: subdomain)
+  def create_client(name, description="")
+    visit clients_url(subdomain: subdomain)
     fill_in "Name", with: name
     fill_in "Description", with: description
     click_button "Create Client"

@@ -23,6 +23,7 @@ Hours::Application.routes.draw do
       resources :entries, only: :index
     end
     resources :tags, only: [:show]
+    resources :clients, only: [:show, :index, :edit, :update, :create]
 
     get "user/edit" => "users#edit", as: :edit_user
 

@@ -5,9 +5,6 @@
         %h2.project-title
           = link_to project_path(project) do
             = project.name
-        - if project.client
-          = link_to client_path(project.client) do
-            %h3= client_title(project.client)
         %ul.tags-list
           - project.tags.last(5).each do |tag|
             = link_to tag_path(tag) do

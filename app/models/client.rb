@@ -22,6 +22,8 @@ class Client < ActiveRecord::Base
                     default_url: ""
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
+  has_many :entries, through: :projects
+
   def logo_url
     logo.url(:original)
   end

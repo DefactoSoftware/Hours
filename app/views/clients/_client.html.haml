@@ -1,0 +1,5 @@
+%li
+  .client
+    = link_to client_path(client) do
+      = client_title(client)
+    #{link_to t("client.edit"), edit_client_path(client), class: "edit"}
