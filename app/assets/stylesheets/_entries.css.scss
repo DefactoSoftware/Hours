@@ -91,24 +91,33 @@
 }
 
 .entries-table {
+  // date
   th:nth-child(1) {
     width: 10%;
   }
-
+  // project
   th:nth-child(2) {
     width: 12%;
   }
-
+  // hours
   th:nth-child(3) {
     width: 8%;
   }
-
+  // category
   th:nth-child(4) {
     width: 20%;
   }
-
+  // description
   th:nth-child(5) {
-    width: 40%;
+    width: 30%;
+  }
+  // actions
+  th:nth-child(6) {
+    width: 10%;
+  }
+  // changes
+  th:nth-child(7) {
+    width: 10%;
   }
 
   @media screen and (max-width: $medium-screen) {

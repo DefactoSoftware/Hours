@@ -7,7 +7,8 @@
       %th.hide-for-mobile= t("entries.index.category")
       %th.hide-for-mobile= t("entries.index.description")
       - if @user == current_user
-        %th
+        %th.right
+      %th.right.hide-for-mobile
   %tbody
     - @entries.each do |entry|
       - cache cache_key_for_current_user(entry) do
@@ -24,6 +25,6 @@
             %td.right
               = link_to t('entries.index.edit'), edit_entry_path(entry)
               |
-              \#{link_to t('entries.index.delete'), entry, method: :delete, class: "destroy", data: { confirm: t(:confirm) }}
-            %td= link_to t('entries.index.changes'), entry_audits_path(entry) if entry.audits.any?
+              = link_to t('entries.index.delete'), entry, method: :delete, class: "destroy", data: { confirm: t(:confirm) }
+          %td.right= link_to t('entries.index.changes'), entry_audits_path(entry) if entry.audits.any?
 = paginate @entries
