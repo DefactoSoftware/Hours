@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)      default(""), not null
+#  created_at :datetime
+#  updated_at :datetime
+#  slug       :string(255)
+#  client_id  :integer
+#  billable   :boolean          default(FALSE)
+#
+
 require "spec_helper"
 
 describe Project do
@@ -57,16 +70,3 @@ describe Project do
     end
   end
 end
-
-# == Schema Information
-#
-# Table name: projects
-#
-#  id         :integer          not null, primary key
-#  name       :string(255)      default(""), not null
-#  created_at :datetime
-#  updated_at :datetime
-#  slug       :string(255)
-#  billable   :boolean          default(FALSE)
-#
-

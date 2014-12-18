@@ -53,8 +53,12 @@ ActiveRecord::Schema.define(version: 20141217160309) do
   end
 
   create_table "clients", force: true do |t|
-    t.string "name",        default: "", null: false
-    t.string "description", default: ""
+    t.string   "name",              default: "", null: false
+    t.string   "description",       default: ""
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "delayed_jobs", force: true do |t|

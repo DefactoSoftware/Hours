@@ -8,6 +8,7 @@
 #  updated_at :datetime
 #  slug       :string(255)
 #  billable   :boolean          default(FALSE)
+#  client_id  :integer
 #
 
 class Project < ActiveRecord::Base
