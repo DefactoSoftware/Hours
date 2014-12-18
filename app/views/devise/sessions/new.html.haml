@@ -7,5 +7,5 @@
         = f.input :password, :required => false
         = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
       .form-actions
-        = f.button :submit, t('sign_in')
+        = f.button :submit, t("sign_in"), data: { disable_with: t("loader.signing_in") }
     = render "devise/shared/links"

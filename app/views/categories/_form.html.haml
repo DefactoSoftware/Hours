@@ -2,4 +2,4 @@
   = f.error_notification
   .form-inputs
     = f.input :name, required: true, autofocus: true
-    = f.button :submit
+    = f.button :submit, data: { disable_with: t("loader.saving") }

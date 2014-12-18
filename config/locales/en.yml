@@ -133,6 +133,10 @@ en:
     deleted: Your account was deleted. Sorry to see you go. :(
     users_instructions_html: Coworkers can sign up %{sign_up_path} as long as they have an email that ends with <em> %{domain} </em>
 
+  loader:
+    signing_in: Sigining in
+    saving: Saving
+
   project:
     table_head:
       hours: Hours
