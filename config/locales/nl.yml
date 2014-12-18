@@ -218,6 +218,10 @@ nl:
     email: Email
     invite: Nodig uit
 
+  loader:
+    signing_in: Inloggen
+    saving: Opslaan
+
   tags:
     show:
       users_title: per gebruiker

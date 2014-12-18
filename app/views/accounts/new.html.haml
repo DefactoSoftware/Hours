@@ -11,6 +11,6 @@
         = o.input :password, required: true, label: false, placeholder: t("account.password")
         = o.input :password_confirmation, required: true, label: false, placeholder: t("account.repeat_password")
       = f.input :subdomain, :required => true, label: false, placeholder: t("account.subdomain")
-      = f.button :submit
+      = f.button :submit, data: { disable_with: t("loader.saving") }
   = link_to root_path do
     %p= t("account.back_to_website")
