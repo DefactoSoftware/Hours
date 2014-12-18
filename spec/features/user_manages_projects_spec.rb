@@ -25,6 +25,30 @@ feature "User manages projects" do
     expect(page).to have_content("Please review the problems below")
   end
 
+  scenario "go to the edit page of a project" do
+    project = create(:project)
+    visit project_url(project, subdomain: subdomain)
+    click_link "edit"
+    expect(current_url).to eq(edit_project_url(project, subdomain: subdomain))
+  end
+
+  scenario "edit a project" do
+    new_project_name = "A new project name"
+    project = create(:project)
+    visit edit_project_url(project, subdomain: subdomain)
+    fill_in "Name", with: new_project_name
+    click_button "Update Project"
+    expect(page).to have_content(new_project_name)
+  end
+
+  scenario "edit a project with invalid data" do
+    project = create(:project)
+    visit edit_project_url(project, subdomain: subdomain)
+    fill_in "Name", with: ""
+    click_button "Update Project"
+    expect(page).to have_content("can't be blank")
+  end
+
   scenario "does not have access to other accounts projects" do
     create(:project)
     expect(Project.count).to eq(1)

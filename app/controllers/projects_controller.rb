@@ -6,7 +6,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find_by_slug(params[:id])
+    resource
+  end
+
+  def edit
+    resource
   end
 
   def new
@@ -22,7 +26,19 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def update
+    if resource.update_attributes(project_params)
+      redirect_to project_path(resource), notice: t(:project_updated)
+    else
+      render action: "edit"
+    end
+  end
+
   private
+
+  def resource
+    @project ||= Project.find_by_slug(params[:id])
+  end
 
   def project_params
     params.require(:project).permit(:name)

@@ -1,7 +1,12 @@
 - present project do |project_presenter|
   .project
-    = link_to project_path(project) do
-      %h2= project.name
+    %header
+      %div.actions
+        %span
+          = link_to edit_project_path(project) do
+            = t("project.show.edit_link")
+      = link_to project_path(project) do
+        %h2= project.name
     %hr/
     %ul.tags-list
       - project.tags.each do |tag|
