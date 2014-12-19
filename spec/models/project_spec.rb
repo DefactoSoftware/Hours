@@ -7,8 +7,10 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  slug       :string(255)
-#  client_id  :integer
+#  budget     :integer
 #  billable   :boolean          default(FALSE)
+#  client_id  :integer
+#  archived   :boolean          default(FALSE), not null
 #
 
 require "spec_helper"

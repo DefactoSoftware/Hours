@@ -27,8 +27,10 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #  slug       :string(255)
+#  budget     :integer
 #  billable   :boolean          default(FALSE)
-#  archived   :boolean
+#  client_id  :integer
+#  archived   :boolean          default(FALSE), not null
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
