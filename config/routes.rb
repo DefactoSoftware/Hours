@@ -22,6 +22,9 @@ Hours::Application.routes.draw do
     resources :users, only: [:index, :update] do
       resources :entries, only: :index
     end
+
+    get "/users/:id(/:time_span)" => "users#show", as: "user"
+
     resources :tags, only: [:show]
     resources :clients, only: [:show, :index, :edit, :update, :create]
 

@@ -79,6 +79,39 @@
   @include media($medium-screen) {
     font-size: $base-font-size;
   }
+
+  .entries-table-wrapper {
+    margin: 25px -25px 0;
+    // background: #fafafa;
+
+    .entries-table {
+      margin: 0;
+      // border-top: 1px solid #ddd;
+
+      th, td {
+        padding: 0.75em 25px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        font-size: .7em;
+        color: #ccc;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      tbody tr {
+        @include transition(all .3s ease);
+        // background: #fafafa;
+        color: #666;
+
+        &:hover {
+          // background: darken(#fafafa, 2%);
+          color: #333;
+        }
+      }
+    }
+  }
 }
 
 .legend {

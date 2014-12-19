@@ -70,35 +70,6 @@
   margin-top:18px;
 }
 
-.hours-per-user-overview {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 10px auto;
-  font-weight: 100;
-  color: #999;
-
-  #hours-per-user {
-    margin: 0 auto;
-    position: absolute;
-  }
-}
-
-.legend {
-  text-align: center;
-
-  .image-circle {
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-    margin: 5px;
-  }
-
-  a {
-    color: #333333;
-  }
-}
-
 .projects {
   .wrapper {
     @include row(table);

@@ -68,7 +68,7 @@ $("#entry_tag_list").selectize({
   }
 });
 
-$(document).ready(function(){
+$(document).ready(function() {
   $('.submit-button').prop('disabled', true);
   $('#content').keyup(function() {
     $('.submit-button').prop('disabled', $(this).val() === '');

@@ -54,6 +54,12 @@ en:
               invalid_email: "%{attribute} does not match organization email"
   main_text: "Hours puts the <strong>our</strong> back into attendance management. We'll help you to take both the <em>attendance</em> and the <em>management</em> out of it, so you can focus on doing great work and having fun."
 
+  report:
+    hours_per_day: "Hours spent per day in the last %{count} days"
+    weekly: 1 week
+    monthly: 1 month
+    yearly: 1 year
+
   entries:
     index:
       new: New Entry
