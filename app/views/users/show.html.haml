@@ -1,25 +1,8 @@
 .outer
   .container
-    .title-container
-      %h1= @user.full_name
-      %ul.time-span
-        %li= link_to t("report.weekly"), user_path(time_span: "weekly")
-        %li= link_to t("report.monthly"), user_path
-        %li= link_to t("report.yearly"), user_path(time_span: "yearly")
-    .hours-per-day
-      %p= t("report.hours_per_day", count: @time_series.days)
-      %canvas#hours-per-day-chart{"data-data" => @time_series.serialize.to_json, :height => "200", :width => "1800"}
-    .hours-per-user-overview
-      %p Hours spent per project
-      %canvas#hours-per-user{"data-data" => EntryStats.new(@time_series.entries_for_time_span).hours_for_subject_collection(Project.all).to_json, :height => "200", :width => "200"}
-      %ul.legend
-        - @user.projects.each do |project|
-          - if EntryStats.new(@time_series.entries_for_time_span, project).hours_for_subject > 0
-            %li
-              %span.color{:style => "background-color: #{project.name.pastel_color}"}
-              = project.name
-              \: #{EntryStats.new(@time_series.entries_for_time_span, project).percentage_for_subject}% (#{EntryStats.new(@time_series.entries_for_time_span, project).hours_for_subject}#{t('entries.index.hours_indication')})
-        %li
-          %strong
-            = t('entries.index.total', hours_spent: EntryStats.new(@time_series.entries_for_time_span).total_hours)
-            = t('entries.index.hours_indication')
+    = render "/header", title: @user.full_name
+    .charts
+      = render "/charts/bar_chart", title: t("report.hours_per_day", count: @time_series.days), data: @time_series.serialize.to_json
+    .charts
+      = render "/charts/pie_chart", title: "Hours spent per project", data: EntryStats.new(@time_series.entries_for_time_span).hours_for_subject_collection(Project.all).to_json
+    = link_to t("users.show.entries"), user_entries_path(@user)

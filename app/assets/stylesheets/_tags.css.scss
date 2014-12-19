@@ -19,18 +19,6 @@
      margin: .5em 0;
   }
 
-  .chart-container {
-    float: left;
-    width: 100%;
-    h2 {
-      text-align: center;
-    }
-
-    @include media($medium-screen) {
-      width:50%;
-    }
-  }
-
   .entries-table {
     th:nth-child(1) {
       width: 10%;

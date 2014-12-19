@@ -1,0 +1,6 @@
+%div.time-container
+  %ul.time-span
+    %li= link_to t("report.weekly"), url_for(time_span: "weekly")
+    %li= link_to t("report.monthly"), url_for(time_span:  "monthly")
+    %li= link_to t("report.yearly"), url_for(time_span: "yearly")
+  %p= t("report.filters")

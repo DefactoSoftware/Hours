@@ -20,9 +20,8 @@ Hours::Application.routes.draw do
       resources :audits, only: [:index]
     end
 
-    get "/users/:id(/:time_span)" => "users#show", as: "user"
-    resources :users, only: [:index, :update] do
-      resources :entries, only: :index
+    resources :users, only: [:index, :update, :show] do
+      resources :entries, only: [:index]
     end
 
     resources :tags, only: [:show]

@@ -1,12 +1,13 @@
 class TagsController < ApplicationController
+  before_filter :load_time_series, only: [:show]
+
   def show
-    @entries = tag.entries.by_date.page(params[:page]).per(10)
-    @tag = tag
+    @tag = resource
   end
 
   private
 
-  def tag
+  def resource
     @tag ||= Tag.find_by_slug(params[:id].downcase)
   end
 end

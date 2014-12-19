@@ -40,16 +40,4 @@
       margin-right: 0.3em;
     }
   }
-
-  .chart-container {
-    float: left;
-    width: 100%;
-    h2 {
-      text-align: center;
-    }
-
-    @include media($medium-screen) {
-      width:50%;
-    }
-  }
 }

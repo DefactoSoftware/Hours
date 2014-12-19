@@ -1,12 +1,9 @@
 .outer
   .container
     - cache @tag do
-      %h1
-        = @tag.name
-        \-
-        \#{EntryStats.new(@tag.entries).total_hours}
-        \#{t('tags.show.hours_indication_title', count: EntryStats.new(@tag.entries).total_hours)}
-      %hr/
-      = render 'tags_users_chart', tag: @tag
-      = render 'tags_projects_chart', tag: @tag
-    = render 'entries_table', entries: @entries
+      = render "/header", title: "#{@tag.name} - #{EntryStats.new(@tag.entries).total_hours} #{t('tags.show.hours_indication_title', count: EntryStats.new(@tag.entries).total_hours)}"
+    .charts
+      = render "charts/bar_chart", title: t("report.hours_per_day", count: @time_series.days), data: @time_series.serialize.to_json
+    .charts
+      = render "charts/pie_chart", title: t('charts.users_title'), data: EntryStats.new(@time_series.entries_for_time_span).hours_for_subject_collection(User.all).to_json
+      = render "charts/pie_chart", title: t('charts.projects_title'), data: EntryStats.new(@time_series.entries_for_time_span).hours_for_subject_collection(Project.all).to_json

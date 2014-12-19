@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
+  before_filter :load_time_series, only: [:show]
+
   def show
-    @user = User.find_by_slug(params[:id])
-    @time_series = TimeSeries.new(entries: @user.entries,
-                                  time_span: time_span)
+    @user = resource
   end
 
   def index
@@ -24,6 +24,10 @@ class UsersController < ApplicationController
 
   private
 
+  def resource
+    User.find_by_slug(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:first_name,
                                  :last_name,
@@ -31,13 +35,5 @@ class UsersController < ApplicationController
                                  :password,
                                  :password_confirmation,
                                  :current_password)
-  end
-
-  def time_span
-    case params[:time_span]
-    when "weekly" then TimeSeries::WEEKLY
-    when "yearly" then TimeSeries::YEARLY
-    else TimeSeries::MONTHLY
-    end
   end
 end

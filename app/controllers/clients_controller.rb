@@ -1,7 +1,8 @@
 class ClientsController < ApplicationController
+  before_filter :load_time_series, only: [:show]
+
   def show
     resource
-    @entries = resource.entries.by_date.page(params[:page]).per(10)
     @projects = resource.projects.by_last_updated.page(params[:page]).per(3)
   end
 

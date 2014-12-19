@@ -22,6 +22,19 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def load_time_series
+    @time_series = TimeSeries.new(entries: resource.entries,
+                                  time_span: time_span)
+  end
+
+  def time_span
+    case params[:time_span]
+    when "weekly" then TimeSeries::WEEKLY
+    when "yearly" then TimeSeries::YEARLY
+    else TimeSeries::MONTHLY
+    end
+  end
+
   helper_method def current_subdomain
     @current_subdomain ||= current_account.subdomain
   end

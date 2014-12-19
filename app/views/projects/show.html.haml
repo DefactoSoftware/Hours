@@ -2,10 +2,12 @@
   .outer
     .container
       = render partial: "project_detail", locals: { project: @project }
-      .chart
-        %h2= t('project.show.per_user')
-        .hours-per-user-overview
-          %canvas#hours-per-user{"data-data" => EntryStats.new(@project.entries).hours_for_subject_collection(User.all).to_json, :height => "200", :width => "200"}
+
+      = render "/time_span"
+      .charts
+        = render "charts/bar_chart", title: t("report.hours_per_day", count: @time_series.days), data: @time_series.serialize.to_json
+      .charts
+        = render "/charts/pie_chart", title: t('project.show.per_user'), data: EntryStats.new(@project.entries).hours_for_subject_collection(User.all).to_json
       %table
         %tbody
           %tr

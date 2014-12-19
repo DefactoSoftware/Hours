@@ -1,4 +1,0 @@
-.chart-container
-  %h2= t('charts.users_title')
-  .chart
-    %canvas#hours-tag-per-user{"data-data" => EntryStats.new(client.entries).hours_for_subject_collection(User.all).to_json, :height => "200", :width => "200"}

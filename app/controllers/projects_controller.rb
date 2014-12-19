@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_filter :load_time_series, only: [:show]
+
   def index
     @projects = Project.by_last_updated.page(params[:page]).per(7)
     @entry = Entry.new

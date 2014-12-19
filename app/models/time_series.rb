@@ -2,6 +2,7 @@ class TimeSeries
   YEARLY = (364.days.ago.to_date..Date.today).freeze
   MONTHLY = (29.days.ago.to_date..Date.today).freeze
   WEEKLY = (6.days.ago.to_date..Date.today).freeze
+  DAILY = ()
 
   def initialize(entries: nil, time_span: nil)
     @entries = entries

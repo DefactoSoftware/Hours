@@ -1,10 +1,7 @@
 .outer
   .container
     - cache @user do
-      %h1= t('entries.index.user_hours', user: @user.first_name)
-      .chart
-        %h2= t('entries.index.per_project')
-        %canvas#hours-per-project{"data-data" => EntryStats.new(@user.entries).hours_for_subject_collection(Project.all).to_json, :height => "200", :width => "200"}
-        .spent-info
-          %span.hours{:style => "color: #D66278"}= EntryStats.new(@user.entries).total_hours
+      = render "/header", title: t('entries.index.user_hours', user: @user.first_name)
+      .charts
+        = render "/charts/pie_chart", data: EntryStats.new(@user.entries).hours_for_subject_collection(Project.all).to_json, title: t('entries.index.per_project')
     = render 'entries_table'

@@ -5,7 +5,7 @@
         = render "application/avatar", user: entry.user
       .entry-text
         = t(:entry_activity_html,                                                                                                          |
-          user: "<a href='#{user_entries_path(entry.user)}'>#{entry.user.first_name}</a>".html_safe,                                       |
+          user: "<a href='#{user_path(entry.user)}'>#{entry.user.first_name}</a>".html_safe,                                       |
           count: entry.hours,                                                                                                              |
           category: "<span style='font-weight: bold; color:#{entry.category.name.pastel_color} '>#{entry.category.name}</span>".html_safe, |
           project: "<a href='#{project_path(entry.project)}'>#{entry.project.name}</a>".html_safe )                                        |

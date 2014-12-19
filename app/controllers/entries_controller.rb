@@ -31,7 +31,7 @@ class EntriesController < ApplicationController
 
   def destroy
     resource.destroy
-    redirect_to user_entries_path(current_user), notice: t('entry_deleted')
+    redirect_to user_path(current_user), notice: t('entry_deleted')
   end
 
   private

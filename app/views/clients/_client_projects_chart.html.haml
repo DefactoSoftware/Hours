@@ -1,4 +1,0 @@
-.chart-container
-  %h2= t('charts.projects_title')
-  .chart
-    %canvas#hours-tag-per-project{"data-data" => EntryStats.new(client.entries).hours_for_subject_collection(Project.all).to_json, :height => "200", :width => "200"}

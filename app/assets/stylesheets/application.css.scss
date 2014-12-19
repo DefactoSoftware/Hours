@@ -20,7 +20,9 @@
 @import "audits";
 @import "clients";
 @import "logo";
-@import "report";
+@import "charts";
+@import "time_span";
+@import "header";
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
 @import "pikaday";
 @import "selectize";
@@ -168,39 +170,4 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 0.9em;
-}
-
-.chart {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 10px auto;
-  margin-bottom: 50px;
-  font-weight: 100;
-  color: #999;
-
-  canvas {
-    margin: 0 auto;
-    position: absolute;
-    z-index: 10;
-  }
-
-  h2 {
-    text-align: center;
-    color: black;
-    margin-bottom:10px;
-  }
-
-  .spent-info {
-    position: relative;
-    top: 84px;
-    text-align: center;
-
-    .hours {
-      display: block;
-      font-size: 2em;
-      color: #333 !important;
-      letter-spacing: -2px;
-    }
-  }
 }
