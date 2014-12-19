@@ -60,8 +60,10 @@ describe Project do
 
   describe "#budget" do
     it "can have a budget" do
-      project = create(:project, name: "on a tight budget", budget: 10)
-      expect(project.budget).to eq(10)
+      project = create(:project, budget: 11)
+      create(:entry, hours: 3, project: project)
+      create(:entry, hours: 2, project: project)
+      expect(project.budget_status).to eq(6)
     end
   end
 end

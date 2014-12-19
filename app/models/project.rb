@@ -39,6 +39,10 @@ class Project < ActiveRecord::Base
     name
   end
 
+  def budget_status
+    budget - entries.sum(:hours)
+  end
+
   private
 
   def slug_source
