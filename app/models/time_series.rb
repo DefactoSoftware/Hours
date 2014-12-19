@@ -4,6 +4,7 @@ class TimeSeries
   WEEKLY = (6.days.ago.to_date..Date.today).freeze
 
   def initialize(entries: nil, time_span: nil)
+    @entries = entries
     @time_span = time_span
     @hours_per_day = hours_per_day(entries)
   end
@@ -21,6 +22,10 @@ class TimeSeries
 
   def days
     @time_span.count
+  end
+
+  def entries_for_time_span
+    @entries.where(created_at: @time_span)
   end
 
   private

@@ -11,14 +11,15 @@
       %canvas#hours-per-day-chart{"data-data" => @time_series.serialize.to_json, :height => "200", :width => "1800"}
     .hours-per-user-overview
       %p Hours spent per project
-      %canvas#hours-per-user{"data-data" => EntryStats.new(@user.entries).hours_for_subject_collection(Project.all).to_json, :height => "200", :width => "200"}
+      %canvas#hours-per-user{"data-data" => EntryStats.new(@time_series.entries_for_time_span).hours_for_subject_collection(Project.all).to_json, :height => "200", :width => "200"}
       %ul.legend
         - @user.projects.each do |project|
-          %li
-            %span.color{:style => "background-color: #{project.name.pastel_color}"}
-            = project.name
-            \: #{EntryStats.new(@user.entries, project).percentage_for_subject}% (#{EntryStats.new(@user.entries, project).hours_for_subject}#{t('entries.index.hours_indication')})
+          - if EntryStats.new(@time_series.entries_for_time_span, project).hours_for_subject > 0
+            %li
+              %span.color{:style => "background-color: #{project.name.pastel_color}"}
+              = project.name
+              \: #{EntryStats.new(@time_series.entries_for_time_span, project).percentage_for_subject}% (#{EntryStats.new(@time_series.entries_for_time_span, project).hours_for_subject}#{t('entries.index.hours_indication')})
         %li
           %strong
-            = t('entries.index.total', hours_spent: EntryStats.new(@user.entries).total_hours)
+            = t('entries.index.total', hours_spent: EntryStats.new(@time_series.entries_for_time_span).total_hours)
             = t('entries.index.hours_indication')
