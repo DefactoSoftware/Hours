@@ -1,23 +1,24 @@
-.container
-  .title-container
-    %h1= @user.full_name
-    %ul.time-span
-      %li= link_to t("report.weekly"), user_path(time_span: "weekly")
-      %li= link_to t("report.monthly"), user_path
-      %li= link_to t("report.yearly"), user_path(time_span: "yearly")
-  .hours-per-day
-    %p= t("report.hours_per_day", count: @time_series.days)
-    %canvas#hours-per-day-chart{"data-data" => @time_series.serialize.to_json, :height => "200", :width => "1800"}
-  .hours-per-user-overview
-    %p Hours spent per project
-    %canvas#hours-per-user{"data-data" => @user.hours_per_project.to_json, :height => "300", :width => "300"}
-    %ul.legend
-      - @user.projects.each do |project|
+.outer
+  .container
+    .title-container
+      %h1= @user.full_name
+      %ul.time-span
+        %li= link_to t("report.weekly"), user_path(time_span: "weekly")
+        %li= link_to t("report.monthly"), user_path
+        %li= link_to t("report.yearly"), user_path(time_span: "yearly")
+    .hours-per-day
+      %p= t("report.hours_per_day", count: @time_series.days)
+      %canvas#hours-per-day-chart{"data-data" => @time_series.serialize.to_json, :height => "200", :width => "1800"}
+    .hours-per-user-overview
+      %p Hours spent per project
+      %canvas#hours-per-user{"data-data" => EntryStats.new(@user.entries).hours_for_subject_collection(Project.all).to_json, :height => "200", :width => "200"}
+      %ul.legend
+        - @user.projects.each do |project|
+          %li
+            %span.color{:style => "background-color: #{project.name.pastel_color}"}
+            = project.name
+            \: #{EntryStats.new(@user.entries, project).percentage_for_subject}% (#{EntryStats.new(@user.entries, project).hours_for_subject}#{t('entries.index.hours_indication')})
         %li
-          %span.color{:style => "background-color: #{project.name.pastel_color}"}
-          = project.name
-          \: #{@user.percentage_spent_on(project).round}% (#{@user.hours_spent_on(project)}#{t('entries.index.hours_indication')})
-      %li
-        %strong
-          = t('entries.index.total', hours_spent: @user.hours_spent)
-          = t('entries.index.hours_indication')
+          %strong
+            = t('entries.index.total', hours_spent: EntryStats.new(@user.entries).total_hours)
+            = t('entries.index.hours_indication')

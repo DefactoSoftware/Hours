@@ -94,6 +94,23 @@ $(document).ready(function() {
     at: '#',
     data: $('#entry_description').data('data')
   });
+
+  $('.modal-window')
+    .on('click', Hours.dismissModal)
+    .on('click', 'div', function(e) { e.stopPropagation() });
+
+  if ($('#hours-per-day-chart').length) {
+    var $canvas = $('#hours-per-day-chart');
+    var data = $canvas.data('data');
+    var context = $canvas[0].getContext('2d');
+    new Chart(context).Bar(data, {
+      scaleShowGridLines: false,
+      scaleGridLineColor: 'transparent',
+      scaleFontFamily: "'OpenSans'",
+      scaleFontColor: '#ccc',
+      fillColor: '#bbbbbb'
+    });
+  }
 });
 
 $(document).keyup(function(event) {
