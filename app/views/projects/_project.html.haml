@@ -5,6 +5,8 @@
         %h2.project-title
           = link_to project_path(project) do
             = project.name
+          %span.project-budget
+            = project.budget
         %ul.tags-list
           - project.tags.last(5).each do |tag|
             = link_to tag_path(tag) do
