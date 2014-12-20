@@ -15,6 +15,7 @@
     %link{:href => image_url("apple-touch-icon-120x120.png", :rel => "apple-touch-icon", :sizes => "120x120")}/
     %link{:href => image_url("apple-touch-icon-152x152.png", :rel => "apple-touch-icon", :sizes => "152x152")}/
   %body{:class => body_class, "data-language" => I18n.locale}
+    = render 'google_analytics'
     = render 'navbar' if current_user
     = render 'flashes'
     = yield
