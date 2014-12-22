@@ -46,6 +46,47 @@ nl:
   client_created: Client succesvol aangemaakt
   client_updated: Client succesvol bijgewerkt
   confirm: Weet u het zeker?
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      with_weekday: "%a %m/%d/%y"
+    today: vandaag
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: ongeveer een uur
+        other: ongeveer %{count} uur
+      about_x_months:
+        one: ongeveer een maand
+        other: ongeveer %{count} maanden
+      about_x_years:
+        one: ongeveer een jaar
+        other: ongeveer %{count} jaar
+      almost_x_years:
+        one: bijna een jaar
+        other: bijna %{count} jaar
+      half_a_minute: een halve minuut
+      less_than_x_minutes:
+        one: minder dan een minuut
+        other: minder dan %{count} minuten
+      less_than_x_seconds:
+        one: minder dan een seconde
+        other: minder dan %{count} seconden
+      over_x_years:
+        one: meer dan een jaar
+        other: meer dan %{count} jaar
+      x_days:
+        one: 1 dag
+        other: "%{count} dagen"
+      x_minutes:
+        one: 1 minuut
+        other: "%{count} minuten"
+      x_months:
+        one: 1 maand
+        other: "%{count} maanden"
+      x_seconds:
+        one: 1 seconde
+        other: "%{count} seconden"
   email:
     confirmation:
       confirm_password: Bevestig mijn account
@@ -118,7 +159,7 @@ nl:
     update_button: Opslaan
   report:
     filters: filters
-    hours_per_day: TRME Hours per day
+    hours_per_day: Uren per dag
     monthly: 1 maand
     weekly: 1 week
     yearly: 1 jaar
@@ -144,7 +185,7 @@ nl:
       index: Klanten
       new: Nieuwe Klant
     entries:
-      index: %{name}'s Hours
+      index: "%{name} zijn Uren"
     projects:
       edit: Bewerk Project
       index: Projecten
