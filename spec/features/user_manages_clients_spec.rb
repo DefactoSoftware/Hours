@@ -76,8 +76,8 @@ feature "User manages clients" do
     project2 = create(:project, client: client)
 
     visit client_url(client, subdomain: subdomain)
-    expect(page).to have_selector("ul.clients-projects-overview li:first-child", text: project2.name)
-    expect(page).to have_selector("ul.clients-projects-overview li:nth-child(2)", text: project1.name)
+    expect(page).to have_text(project2.name)
+    expect(page).to have_text(project1.name)
   end
 
   def create_client(name, description="")

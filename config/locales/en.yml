@@ -137,25 +137,30 @@ en:
       hours_indication_title:
         one: hour
         other: hours
+      hours_indication: h
     show_more: show more...
   titles:
+    activities: Activities
+    application: Hours
     accounts:
       edit: Edit Account
     categories:
       index: Categories
+      new: New Category
+      edit: Edit Category
     clients:
       index: Clients
       new: New Client
+    entries:
+      index: "%{name}'s Hours"
     projects:
       index: Projects
       new: New Project
+      edit: Edit Project
     users:
       index: Users
-  user_updated: Your account was successfully updated
   users:
-    confirm: Confirm
     email: Email
-    invitation_sent_at: Invited %{time_ago} ago
     invite: Invite User
-    show:
-      entries: Entries
+    invitation_sent_at: Invited %{time_ago} ago
+    confirm: Confirm

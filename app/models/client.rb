@@ -19,7 +19,8 @@ class Client < ActiveRecord::Base
 
   has_attached_file :logo,
                     styles: { original: "100x100#" },
-                    default_url: ""
+                    default_url: "",
+                    s3_protocol: ""
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
   has_many :entries, through: :projects
