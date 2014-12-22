@@ -1,23 +1,51 @@
 .outer
   .container
     %h1= t("audits.title")
+    .entry
+      %div.title-container
+        %p.entry-title Entry
+      %div
+        %span Date:
+        %span= @history.auditable.date
+      %div
+        %span User:
+        %span= @history.auditable.user.name
+      %div
+        %span Project:
+        %span= @history.auditable.project.name
+      %div
+        %span Category:
+        %span= @history.auditable.category.name if @history.auditable.category
+      %div
+        %span Hours:
+        %span= @history.auditable.hours
     %ul.audits-list
-      - @audits.each do |audit|
-        %li
+      - @history.audits.each do |audit|
+        %li.audit
           = time_tag audit.created_at
           = render "application/avatar", user: audit.user
           %strong
             = link_to user_entries_path(audit.user) do
               = audit.user.full_name
-          updated
-          = audit.audited_changes.keys.map { |key| "<code>#{key}</code>" }.join(", ").html_safe
+          = "#{audit.action}d"
+          - if audit.creation?
+            =  audit.auditable_type
+          - else
+            = audit.audit_changes.map { |change| "<code>#{change.property}</code>" }.join(", ").html_safe
 
-          / Make this collapsable?
-          %ul
-            - audit.audited_changes.keys.each do |key|
+          %ul.changes
+            - audit.audit_changes.each do |change|
               %li
-                %code= key
-                from
-                %code X
+                %code= change.property
+                - if change.update?
+                  from
+                  - if change.association? && !change.to.destroyed?
+                    %code= link_to(change.from.name, change.from)
+                  - else
+                    %code= change.from
+
                 to
-                %code Y
+                - if change.association? && !change.to.destroyed?
+                  %code= link_to(change.to.name, change.to)
+                - else
+                  %code= change.to

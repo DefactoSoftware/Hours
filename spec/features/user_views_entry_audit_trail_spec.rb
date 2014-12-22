@@ -14,7 +14,7 @@ feature "User views Entry Audit Trail" do
     update_entry
 
     visit user_entries_url(user, subdomain: subdomain)
-    last_entry = page.find(".entries-table tr.info-row:first-child")
+    last_entry = page.find(".entries-table .info-row:first-child")
     expect(last_entry).to have_content("changes")
   end
 
@@ -22,8 +22,12 @@ feature "User views Entry Audit Trail" do
     update_entry
 
     visit entry_audits_url(entry, subdomain: subdomain)
-    expect(page).to have_content "update"
-    expect(page).to have_content "description"
+    last_change = page.find(".audit:last-child")
+    expect(last_change.find(".changes")).to have_content "description from"
+  end
+
+  scenario "dislays a deleted record" do
+
   end
 
   private

@@ -56,13 +56,11 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
   alias_method :slug_source, :full_name
+  alias_method :label, :full_name
+  alias_method :name, :full_name
 
   def email_domain
     email.split("@").last
-  end
-
-  def label
-    full_name
   end
 
   def color
