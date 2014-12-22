@@ -6,7 +6,8 @@
         %tbody
           - @users.each do |user|
             %tr
-              %td= user.full_name
+              = link_to user_path(user) do
+                %td= user.full_name
               %td= user.email
               %td
                 - unless user.accepted_or_not_invited?
