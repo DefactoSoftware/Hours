@@ -48,6 +48,7 @@ nl:
     models:
       user: Gebruiker
   back: Terug
+  budget_html: "<strong>%{budget_left}</strong> van <strong>%{budget}</strong> uren van het budget over"
   category:
     edit: edit
     remaining: Other

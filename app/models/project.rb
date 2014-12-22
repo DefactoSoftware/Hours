@@ -40,7 +40,9 @@ class Project < ActiveRecord::Base
   end
 
   def budget_status
-    budget - entries.sum(:hours)
+    if budget
+      budget - entries.sum(:hours)
+    end
   end
 
   private
