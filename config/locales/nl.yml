@@ -1,246 +1,5 @@
 ---
 nl:
-  account:
-    back_to_website: Terug naar website
-    confirm_destroy: Weet je zeker dat je je account wil verwijderen?
-    danger_zone: Danger Zone
-    delete: Verwijder mijn account
-    deleted: Je account is verwijderd.
-    email: Email
-    first_name: Voornaam
-    invalid_characters: bevat invalide karakters
-    last_name: Achternaam
-    password: Wachtwoord
-    repeat_password: Bevesting wachtwoord
-    restricted: restricted
-    subdomain: subdomein
-    warning: Het verwijderen van je account zal jouw en iedereens gegevens op %{subdomain}
-      verwijderen en kan niet ongedaan worden gemaakt.
-    users_instructions_html: "Collega's kunnen zich %{sign_up_path} registreren met
-      een email dat eindigt op <em> %{domain} </em>"
-  account_created_successfully: Aanmelden is gelukt
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            email:
-              invalid_email: "%{attribute} is geen mail van de organisatie"
-    models:
-      user: Gebruiker
-  back: Terug
-  category:
-    remaining: Other
-    edit: edit
-  category_created: De categorie is aangemaakt
-  category_updated: De categorie is gewijzigd
-  confirm: Weet u het zeker?
-  date:
-    formats:
-      default: "%d/%m/%Y"
-      with_weekday: "%a %m/%d/%y"
-    today: vandaag
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: ongeveer een uur
-        other: ongeveer %{count} uur
-      about_x_months:
-        one: ongeveer een maand
-        other: ongeveer %{count} maanden
-      about_x_years:
-        one: ongeveer een jaar
-        other: ongeveer %{count} jaar
-      almost_x_years:
-        one: bijna een jaar
-        other: bijna %{count} jaar
-      half_a_minute: een halve minuut
-      less_than_x_minutes:
-        one: minder dan een minuut
-        other: minder dan %{count} minuten
-      less_than_x_seconds:
-        one: minder dan een seconde
-        other: minder dan %{count} seconden
-      over_x_years:
-        one: meer dan een jaar
-        other: meer dan %{count} jaar
-      x_days:
-        one: 1 dag
-        other: "%{count} dagen"
-      x_minutes:
-        one: 1 minuut
-        other: "%{count} minuten"
-      x_months:
-        one: 1 maand
-        other: "%{count} maanden"
-      x_seconds:
-        one: 1 seconde
-        other: "%{count} seconden"
-  email:
-    confirmation:
-      confirm_password: Bevestig mijn account
-      salutation: Welkom %{email}!
-      text: 'Bevestig uw aanmelding met de link hieronder:'
-    reset_password:
-      change_password: Verander mijn wachtwoord
-      info_text: Uw wachtwoord wordt niet veranderdt tot u de link hierboven heb gebruikt
-        om een nieuwe aan te maken.
-      requested_link: 'Iemand heeft een aanvraag gedaan om uw wachtwoord te wijzigen.
-        U kut dit doen met de link hieronder:'
-      salutation: Hallo %{email} !
-      wrong_mail: Als deze aanvraag niet van u kwam, kunt u deze mail negeren.
-  entries:
-    index:
-      category: Categorie
-      date: Datum
-      delete: verwijderen
-      edit: aanpassen
-      edit_entry: Entry bewerken
-      hours: Uren
-      hours_indication: u
-      new: Nieuwe entry
-      project: Project
-      description: "Beschrijving of #hashtags"
-      total: 'Totaal: %{hours_spent}'
-      user_hours: "%{user}s uren"
-      per_project: Per project
-  entry_activity_html:
-    one: "%{user} heeft één uur gespendeerd aan %{category} op %{project}"
-    other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project}"
-  entry_created: Uren zijn aangemaakt
-  entry_deleted: De uren zijn verwijderd
-  entry_failed: Iets ging mis bij het opslaan van uw uren
-  entry_saved: Uren zijn opgeslagen
-  helpers:
-    submit:
-      category:
-        new: Creeër Categorie
-      create: Opslaan
-      project:
-        create: Creeër Project
-      update: Opslaan
-      user:
-        create: Creeër Account
-  helpful:
-    heading: Hulp nodig?
-    placeholder: Schrijf hier uw vraag...
-    tagline: Heeft u een vraag over Hours? Hulp nodig om te kunnen beginnen?
-    title: Hulp nodig?
-  hours: uren
-  info:
-    here: hier
-    no_categories_html: Zo te zien heb je nog geen categorieen aangemaakt. Dat kun
-      je %{categories_path} doen.
-    no_projects_html: Zo te zien heb je nog geen projecten aangemaakt. Dat kun je
-      %{new_project_path} doen.
-  main_text: Hier moet een supertoffe text komen te staan in het nederlands over hoe
-    tof hours is
-  navbar:
-    entries: "Mijn Uren"
-    dropdown:
-      edit_user: Gegevens aanpassen
-  no_hours_registered: Niemand heeft nog tijd aan %{project} besteed
-
-  project:
-    table_head:
-      hours: Uren
-      tag: Tag
-    show:
-      edit_link: aanpassen
-      per_user: Per gebruiker
-
-  project_activity_html:
-    one: "%{full_name} heeft %{hours} uren aan %{project} besteed"
-    other: "%{count} mensen hebben %{hours} uren aan %{project} besteed"
-  project_created: Het project is aangemaakt
-  project_updated: Het project is gewijzigd
-  read_more: lees verder
-  registration:
-    edit: Pas uw gegevens aan
-    gravatar_instructions_html: Update je profiel foto op <a href="https://www.gravatar.com"
-      target="_blank">Gravatar</a>
-    hint:
-      blank: laat het veld leeg als u het niet wilt aanpassen
-      current_password: we hebben uw huidig wachtwoord nodig om de veranderingen te
-        bevestigen
-    pending_information: 'In afwachting van bevestiging voor: %{unconfirmed_mail}'
-    update_button: Opslaan
-  sign_in: Login
-  sign_out: Uitloggen
-  sign_up: Aanmelden
-  simple_form:
-    labels:
-      entry:
-        category: Categorie
-        date: Datum
-        hours: Uren
-      user:
-        current_password: Huidig wachtwoord
-        first_name: Voornaam
-        last_name: Achternaam
-        password: Wachtwoord
-        password_confirmation: Wachtwoord bevestiging
-      project:
-        billable: Facturabel
-        name: Naam
-  time:
-    formats:
-      default: "%a, %b %-d, %Y at %r"
-      date: "%b %-d, %Y"
-      long: '%a, %b %-d, %Y at %r'
-      short: "%B %d"
-  titles:
-    accounts:
-      edit: Account Aanpassen
-      new: Registratie
-    activities: Activiteiten
-    application: Uren
-    categories:
-      index: Categoriëen
-      new: Nieuwe categorie
-      edit: Wijzig Categorie
-    entries:
-      index: "%{name}'s uren"
-    projects:
-      index: Projecten
-      new: Nieuw project
-      edit: Project aanpassen
-    reports:
-      index: Reports
-    users:
-      index: Gebruikers
-  views:
-    pagination:
-      first: Eerste
-      last: Laatste
-      next: Volgende
-      previous: Vorige
-  user_updated: Je account is geupdatet
-  users:
-    invitation_sent_at: "%{time_ago} geleden uitgenodigd"
-    confirm: Bevestig
-    email: Email
-    invite: Nodig uit
-
-  loader:
-    signing_in: Inloggen
-    saving: Opslaan
-
-  tags:
-    show:
-      users_title: per gebruiker
-      projects_title: per project
-      hours_indication_title:
-        one: uur
-        other: uren
-      hours_indication: u
-      user: Gebruiker
-      date: Datum
-      project: Project
-      hours: Uren
-      category: Categorie
-      tags: Tags
-
   audits:
     title: Audit Log
     date: "Datum:"
@@ -255,4 +14,133 @@ nl:
       update: gewijzigd
       create: gemaakt
       delete: verwijderd
-
+  account:
+    back_to_website: Terug naar website
+    confirm_destroy: Weet je zeker dat je je account wil verwijderen?
+    danger_zone: Danger Zone
+    delete: Verwijder mijn account
+    deleted: Je account is verwijderd.
+    email: Email
+    first_name: Voornaam
+    invalid_characters: bevat invalide karakters
+    last_name: Achternaam
+    password: Wachtwoord
+    repeat_password: Bevesting wachtwoord
+    subdomain: subdomein
+    warning: Het verwijderen van je account zal jouw en iedereens gegevens op %{subdomain}
+      verwijderen en kan niet ongedaan worden gemaakt.
+  back: Terug
+  category:
+    edit: edit
+    remaining: Other
+  category_created: De categorie is aangemaakt
+  category_updated: De categorie is gewijzigd
+  charts:
+    hours_spent_per_category: Uren besteed per categorie
+    hours_spent_per_project: Uren besteed per project
+    hours_spent_per_user: Uren besteed per gebruiker
+  client_created: Client succesvol aangemaakt
+  client_updated: Client succesvol bijgewerkt
+  confirm: Weet u het zeker?
+  email:
+    confirmation:
+      confirm_password: Bevestig mijn account
+      salutation: Welkom %{email}!
+    reset_password:
+      info_text: Uw wachtwoord wordt niet veranderdt tot u de link hierboven heb gebruikt
+        om een nieuwe aan te maken.
+      requested_link: 'Iemand heeft een aanvraag gedaan om uw wachtwoord te wijzigen.
+        U kut dit doen met de link hieronder:'
+      salutation: Hallo %{email} !
+      wrong_mail: Als deze aanvraag niet van u kwam, kunt u deze mail negeren.
+  entries:
+    index:
+      category: Categorie
+      date: Datum
+      delete: verwijderen
+      description: 'Beschrijving of #hashtags'
+      edit: aanpassen
+      edit_entry: Entry bewerken
+      hours: Uren
+      new: Nieuwe entry
+      project: Project
+      user_hours: "%{user}s uren"
+  entry_activity_html:
+    one: "%{user} heeft één uur gespendeerd aan %{category} op %{project}"
+    other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project}"
+  entry_created: Uren zijn aangemaakt
+  entry_deleted: De uren zijn verwijderd
+  entry_failed: Iets ging mis bij het opslaan van uw uren
+  entry_saved: Uren zijn opgeslagen
+  helpful:
+    heading: Hulp nodig?
+    placeholder: Schrijf hier uw vraag...
+    tagline: Heeft u een vraag over Hours? Hulp nodig om te kunnen beginnen?
+  info:
+    here: hier
+    no_categories_html: Zo te zien heb je nog geen categorieen aangemaakt. Dat kun
+      je %{categories_path} doen.
+    no_projects_html: Zo te zien heb je nog geen projecten aangemaakt. Dat kun je
+      %{new_project_path} doen.
+  loader:
+    saving: Opslaan
+    signing_in: Inloggen
+  navbar:
+    dropdown:
+      edit_user: Gegevens aanpassen
+    entries: Mijn Uren
+  no_hours_registered: Niemand heeft nog tijd aan %{project} besteed
+  project:
+    form:
+      client: Klant
+    show:
+      edit_link: aanpassen
+    table_head:
+      hours: Uren
+      tag: Tag
+  project_activity_html:
+    one: "%{full_name} heeft %{hours} uren aan %{project} besteed"
+    other: "%{count} mensen hebben %{hours} uren aan %{project} besteed"
+  project_created: Het project is aangemaakt
+  project_updated: Het project is gewijzigd
+  registration:
+    edit: Pas uw gegevens aan
+    gravatar_instructions_html: Update je profiel foto op <a href="https://www.gravatar.com"
+      target="_blank">Gravatar</a>
+    hint:
+      blank: laat het veld leeg als u het niet wilt aanpassen
+      current_password: we hebben uw huidig wachtwoord nodig om de veranderingen te
+        bevestigen"
+    update_button: Opslaan
+  report:
+    filters: filters
+    monthly: 1 maand
+    weekly: 1 week
+    yearly: 1 jaar
+  sign_in: Login
+  sign_out: Uitloggen
+  tags:
+    show:
+      hours_indication_title:
+        one: uur
+        other: uren
+    show_more: Toon meer...
+  titles:
+    accounts:
+      edit: Account Aanpassen
+    categories:
+      index: Categoriëen
+    clients:
+      index: Klanten
+      new: Nieuwe Klant
+    projects:
+      index: Projecten
+      new: Nieuw project
+    users:
+      index: Gebruikers
+  user_updated: Je account is bijgewerkt
+  users:
+    confirm: Bevestig
+    email: Email
+    invitation_sent_at: "%{time_ago} geleden uitgenodigd"
+    invite: Nodig uit

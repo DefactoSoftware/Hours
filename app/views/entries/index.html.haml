@@ -2,6 +2,5 @@
   .container
     - cache @user do
       = render "/header", title: t('entries.index.user_hours', user: @user.first_name)
-      .charts
-        = render "/charts/pie_chart", data: EntryStats.new(@user.entries).hours_for_subject_collection(Project.all).to_json, title: t('entries.index.per_project')
     = render 'entries_table'
+
