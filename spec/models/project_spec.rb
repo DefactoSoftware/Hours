@@ -41,6 +41,7 @@ describe Project do
       create(:project)
       project = create(:project)
       create(:project)
+      Timecop.scale(600)
       project.touch
 
       expect(Project.by_last_updated.first).to eq(project)
