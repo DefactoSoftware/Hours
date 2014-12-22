@@ -35,10 +35,14 @@ nl:
     remaining: Other
   category_created: De categorie is aangemaakt
   category_updated: De categorie is gewijzigd
+  change_password: Verander wachtwoord
   charts:
+    hours_per_day: Uren per dag
     hours_spent_per_category: Uren besteed per categorie
     hours_spent_per_project: Uren besteed per project
     hours_spent_per_user: Uren besteed per gebruiker
+  client:
+    edit: Bewerk
   client_created: Client succesvol aangemaakt
   client_updated: Client succesvol bijgewerkt
   confirm: Weet u het zeker?
@@ -114,6 +118,7 @@ nl:
     update_button: Opslaan
   report:
     filters: filters
+    hours_per_day: TRME Hours per day
     monthly: 1 maand
     weekly: 1 week
     yearly: 1 jaar
@@ -121,6 +126,7 @@ nl:
   sign_out: Uitloggen
   tags:
     show:
+      hours_indication: u
       hours_indication_title:
         one: uur
         other: uren
@@ -128,12 +134,19 @@ nl:
   titles:
     accounts:
       edit: Account Aanpassen
+    activities: Activiteiten
+    application: Hours
     categories:
+      edit: Bewerk Categorie
       index: Categoriëen
+      new: Nieuwe Categorie
     clients:
       index: Klanten
       new: Nieuwe Klant
+    entries:
+      index: %{name}'s Hours
     projects:
+      edit: Bewerk Project
       index: Projecten
       new: Nieuw project
     users:

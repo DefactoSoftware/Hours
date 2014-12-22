@@ -46,18 +46,10 @@ en:
   client_created: Client successfully created
   client_updated: Client successfully updated
   confirm: Are you sure?
-  devise:
-    mailer:
-      invitation_instructions:
-        accept: Accept
-        greeting: Greeting
-        ignore_html: Ignore html
-        someone_invited_you: Someone invited you
   email:
     confirmation:
       confirm_password: Confirm my account
       salutation: Welcome %{email}!
-    confirmation_text: Confirmation text
     reset_password:
       info_text: Your password won't change until you access the link above and create
         a new one.
