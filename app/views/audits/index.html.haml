@@ -1,17 +1,23 @@
 .outer
   .container
     %h1= t("audits.title")
-    %table
-      %thead
-        %tr
-          %th= t("audits.date")
-          %th= t("audits.action")
-          %th= t("audits.user")
-          %th= t("audits.updated")
-      %tbody
-        - @audits.each do |audit|
-          %tr.audit
-            %td.date= localize(audit.created_at, format: :long)
-            %td.action= audit.action
-            %td.user= audit.user.full_name
-            %td.changes= audit.audited_changes.keys.join(", ")
+    %ul.audits-list
+      - @audits.each do |audit|
+        %li
+          = time_tag audit.created_at
+          = render "application/avatar", user: audit.user
+          %strong
+            = link_to user_entries_path(audit.user) do
+              = audit.user.full_name
+          updated
+          = audit.audited_changes.keys.map { |key| "<code>#{key}</code>" }.join(", ").html_safe
+
+          / Make this collapsable?
+          %ul
+            - audit.audited_changes.keys.each do |key|
+              %li
+                %code= key
+                from
+                %code X
+                to
+                %code Y
