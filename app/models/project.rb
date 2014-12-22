@@ -7,6 +7,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  slug       :string(255)
+#  billable   :boolean          default(FALSE)
 #
 
 class Project < ActiveRecord::Base

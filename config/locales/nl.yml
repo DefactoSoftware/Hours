@@ -180,6 +180,9 @@ nl:
         last_name: Achternaam
         password: Wachtwoord
         password_confirmation: Wachtwoord bevestiging
+      project:
+        billable: Facturabel
+        name: Naam
   time:
     formats:
       date: "%b %-d, %Y"

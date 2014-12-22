@@ -17,12 +17,23 @@ feature "User manages projects" do
     expect(page).to have_content(I18n.t('project_created'))
   end
 
-  scenario "can not create a project with a new name" do
+  scenario "creates a billable project" do
     click_link "New Project"
 
-    fill_in "Name", with: ""
+    fill_in "Name", with: "My new project"
+    check "Billable"
     click_button "Create Project"
-    expect(page).to have_content("Please review the problems below")
+    expect(page).to have_content(I18n.t('project_created'))
+    expect(Project.last.billable).to be(true)
+  end
+
+  scenario "edit a none billable project to a billable project" do
+    project = create(:project)
+    visit edit_project_url(project, subdomain: subdomain)
+
+    check "Billable"
+    click_button "Update Project"
+    expect(project.reload.billable).to be(true)
   end
 
   scenario "go to the edit page of a project" do
