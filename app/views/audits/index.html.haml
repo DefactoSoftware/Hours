@@ -5,19 +5,19 @@
       %div.title-container
         %p.entry-title Entry
       %div
-        %span Date:
+        %span= t("audits.date")
         %span= @history.auditable.date
       %div
-        %span User:
+        %span= t("audits.user")
         %span= @history.auditable.user.name
       %div
-        %span Project:
+        %span= t("audits.project")
         %span= @history.auditable.project.name
       %div
-        %span Category:
+        %span= t("audits.category")
         %span= @history.auditable.category.name if @history.auditable.category
       %div
-        %span Hours:
+        %span= t("audits.hours")
         %span= @history.auditable.hours
     %ul.audits-list
       - @history.audits.each do |audit|
@@ -27,7 +27,7 @@
           %strong
             = link_to user_entries_path(audit.user) do
               = audit.user.full_name
-          = "#{audit.action}d"
+          = t("audits.actions.#{audit.action}")
           - if audit.creation?
             =  audit.auditable_type
           - else
@@ -38,13 +38,13 @@
               %li
                 %code= change.property
                 - if change.update?
-                  from
+                  = t("audits.from")
                   - if change.association? && !change.to.destroyed?
                     %code= link_to(change.from.name, change.from)
                   - else
                     %code= change.from
 
-                to
+                = t("audits.to")
                 - if change.association? && !change.to.destroyed?
                   %code= link_to(change.to.name, change.to)
                 - else

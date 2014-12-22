@@ -7,7 +7,6 @@
 
   > li {
     border-top: 1px solid #ddd;
-    border-radius: $base-border-radius;
     padding: 12px 0;
 
     ul {
@@ -52,7 +51,9 @@
     float: right;
     line-height: $avatar-size;
   }
+}
 
+.audits {
   .title-container {
     margin-top: -2em;
     display: block;
@@ -69,7 +70,7 @@
 
   .entry {
     border: solid 1px $light-gray;
-    border-radius: 4px;
+    border-radius: $base-border-radius;
     padding: 1em;
   }
 }

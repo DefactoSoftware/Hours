@@ -31,6 +31,7 @@ en:
     formats:
       default: '%a, %b %-d, %Y at %r'
       date: '%b %-d, %Y'
+      long: '%a, %b %-d, %Y at %r'
       short: '%B %d'
   helpers:
     submit:
@@ -181,7 +182,16 @@ en:
 
   audits:
     title: Audit Log
-    date: Date
-    action: Action
-    user: User
-    updated: Updated
+    date: "Date:"
+    action: "Action:"
+    user: "User:"
+    project: "Project:"
+    category: "Category:"
+    hours: "Hours:"
+    from: from
+    to: to
+    actions:
+      update: updated
+      create: created
+      delete: deleted
+
