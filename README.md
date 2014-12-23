@@ -14,7 +14,7 @@ It looks like this:
 
 <img src="http://i.imgur.com/L6cCxPd.png" width=500 alt="Projects overview" />
 
-<img src="http://i.imgur.com/w62ubzH.png" width=500 alt="Sigle project" />
+<img src="http://i.imgur.com/w62ubzH.png" width=500 alt="Single project" />
 
 <img src="http://i.imgur.com/gZWqVXT.png" width=500 alt="Entries" />
 
