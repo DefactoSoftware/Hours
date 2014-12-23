@@ -110,6 +110,7 @@ nl:
       new: Nieuwe entry
       project: Project
       user_hours: "%{user}s uren"
+      changes: veranderingen
   entry_activity_html:
     one: "%{user} heeft één uur gespendeerd aan %{category} op %{project}"
     other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project}"

@@ -7,8 +7,4 @@ class TimeSeries::WeeklyTimeSeries < TimeSeries
   def chart
     "/charts/bar_chart"
   end
-
-  def title
-    I18n.t("charts.hours_per_day")
-  end
 end

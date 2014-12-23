@@ -19,10 +19,6 @@ class TimeSeries::YearlyTimeSeries < TimeSeries
   end
 
   def hours_per_week(week)
-    puts "JEMOEDER"
-    puts week
-    puts week+1.week
-    puts @resource.entries.where(date: (week..week+1.week)).sum(:hours)
     @resource.entries.where(date: (week..week+1.week)).sum(:hours)
   end
 end
