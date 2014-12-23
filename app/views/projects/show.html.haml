@@ -2,7 +2,6 @@
   .outer
     .container
       = render partial: "project_detail", locals: { project: @project }
-
       = render "/time_span"
       .charts
         = render "charts/bar_chart", title: t("charts.hours_per_day", count: @time_series.days), data: @time_series.serialize.to_json

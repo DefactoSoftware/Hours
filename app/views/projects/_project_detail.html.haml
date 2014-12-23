@@ -1,11 +1,5 @@
 - present project do |project_presenter|
   .project
-    %ul.tags-list
-      - project.tags.each do |tag|
-        = link_to tag_path(tag) do
-          %li.tag= tag.name
-      %a#more-tags{:href => "#"}
-        %li= t("tags.show_more")
     %header
       %div.actions
         %span
