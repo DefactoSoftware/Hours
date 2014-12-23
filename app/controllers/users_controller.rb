@@ -1,8 +1,8 @@
-class UsersController < ApplicationController
-  before_filter :load_time_series, only: [:show]
+include TimeSeriesInitializer
 
+class UsersController < ApplicationController
   def show
-    @user = resource
+    @time_series = time_series_for(resource)
   end
 
   def index
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   private
 
   def resource
-    User.find_by_slug(params[:id])
+    @user ||= User.find_by_slug(params[:id])
   end
 
   def user_params

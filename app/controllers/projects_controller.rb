@@ -1,6 +1,6 @@
-class ProjectsController < ApplicationController
-  before_filter :load_time_series, only: [:show]
+include TimeSeriesInitializer
 
+class ProjectsController < ApplicationController
   def index
     @projects = Project.by_last_updated.page(params[:page]).per(7)
     @entry = Entry.new
@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    resource
+    @time_series = time_series_for(resource)
   end
 
   def edit

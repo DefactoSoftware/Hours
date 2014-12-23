@@ -12,17 +12,20 @@ describe TimeSeries do
 
   describe '#serialize' do
     it "returns the sum of hours for each day" do
-      time_series = TimeSeries.new(entries: user.entries, time_span: ((Date.new(2014, 1, 1))..Date.today))
+      time_series = TimeSeries.weekly(user)
       expect(time_series.serialize).to eq({
         labels: [
+          '29/12',
+          '30/12',
+          '31/12',
           '01/01',
           '02/01',
           '03/01',
-          '04/01'
+          '04/01',
         ],
 
         datasets: [{
-          data: [8, 0, 5, 0]
+          data: [0, 0, 0, 8, 0, 5, 0]
         }]
       })
     end
@@ -30,7 +33,7 @@ describe TimeSeries do
 
   describe "#days" do
     it "returns the number of days in the series" do
-      time_series = TimeSeries.new(entries: user.entries, time_span: TimeSeries::MONTHLY)
+      time_series = TimeSeries.monthly(user)
       expect(time_series.days).to eq(30)
     end
   end

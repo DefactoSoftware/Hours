@@ -1,8 +1,6 @@
 class TagsController < ApplicationController
-  before_filter :load_time_series, only: [:show]
-
   def show
-    @tag = resource
+    @time_series = time_series_for(resource)
   end
 
   private

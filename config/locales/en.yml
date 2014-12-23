@@ -38,6 +38,7 @@ en:
   change_password: Change password
   charts:
     hours_per_day: Hours per day
+    hours_per_week: Hours per week
     hours_spent_per_category: Hours spent per category
     hours_spent_per_project: Hours spent per project
     hours_spent_per_user: Hours spent per user
