@@ -185,8 +185,9 @@ nl:
         name: Naam
   time:
     formats:
-      date: "%b %-d, %Y"
       default: "%a, %b %-d, %Y at %r"
+      date: "%b %-d, %Y"
+      long: '%a, %b %-d, %Y at %r'
       short: "%B %d"
   titles:
     accounts:
@@ -239,3 +240,19 @@ nl:
       hours: Uren
       category: Categorie
       tags: Tags
+
+  audits:
+    title: Audit Log
+    date: "Datum:"
+    action: "Handeling:"
+    user: "Gebruiker:"
+    project: "Project:"
+    category: "Categorie:"
+    hours: "Hours:"
+    from: van
+    to: naar
+    actions:
+      update: gewijzigd
+      create: gemaakt
+      delete: verwijderd
+

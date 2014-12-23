@@ -34,6 +34,17 @@ describe Entry do
     it { should have_many :tags }
   end
 
+  it "is audited" do
+    entry = create(:entry)
+    user = create(:user)
+
+    Audited.audit_class.as_user(user) do
+      entry.update_attribute(:hours, 2)
+    end
+
+    expect(entry.audits.last.user).to eq(user)
+  end
+
   describe "#tag_list" do
     it "returns a string of comma separated values" do
       entry = create(:entry, description: "#omg #hashtags")

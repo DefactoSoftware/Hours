@@ -16,7 +16,9 @@ Hours::Application.routes.draw do
     devise_for :users, :controllers => { registrations: "users/registrations" }
     resources :projects, only: [:index, :edit, :new, :update, :create, :show]
     resources :categories, only: [:index, :create, :edit, :update]
-    resources :entries, only: [:create, :destroy, :update, :edit]
+    resources :entries, only: [:create, :destroy, :update, :edit] do
+      resources :audits, only: [:index]
+    end
     resources :users, only: [:index, :update] do
       resources :entries, only: :index
     end

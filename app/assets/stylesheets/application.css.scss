@@ -16,6 +16,7 @@
 @import "tags";
 @import "account";
 @import "modal";
+@import "audits";
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
 @import "pikaday";
 @import "selectize";
@@ -52,6 +53,7 @@ body {
 }
 
 h1 {
+  margin-bottom: 1em;
   text-align: center;
 
   @include media($medium-screen) {
