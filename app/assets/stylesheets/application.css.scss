@@ -40,7 +40,7 @@ body {
   line-height: 1.7em;
   background: #f7f6f0;
 
-  &.accounts-new {
+  &.accounts-new, &.accounts-create {
     background: image-url("sky.jpg") center center;
     background-size: cover;
     padding-top: 0;
@@ -75,7 +75,7 @@ h1 {
   padding: 25px;
   margin-bottom: 15px;
 
-  .accounts-new & {
+  .accounts-new &, .accounts-create & {
     background: transparent;
     box-shadow: none;
     color: #fff;
@@ -104,7 +104,7 @@ h1 {
   &.create {
   }
 
-  .accounts-new & {
+  .accounts-new &, .accounts-create & {
     width: 100%;
   }
 }
