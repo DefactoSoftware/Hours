@@ -7,7 +7,6 @@ class TimeSeries
   def initialize(entries: nil, time_span: nil)
     @entries = entries
     @time_span = time_span
-    @hours_per_day = hours_per_day(entries)
   end
 
   def serialize
@@ -15,7 +14,7 @@ class TimeSeries
       labels: @time_span.map { |date| date.strftime('%d/%m') },
       datasets: [
         {
-          data: @time_span.map { |date| @hours_per_day[date] || 0 }
+          data: @time_span.map { |date| hours_per_day[date] || 0 }
         }
       ]
     }
@@ -29,9 +28,13 @@ class TimeSeries
     @entries.where(created_at: @time_span)
   end
 
+  def yearly?
+    @time_span == YEARLY
+  end
+
   private
 
-  def hours_per_day(entries)
-    entries.order("DATE(date)").group("DATE(date)").sum(:hours)
+  def hours_per_day
+    @hours_per_day ||= @entries.order("DATE(date)").group("DATE(date)").sum(:hours)
   end
 end

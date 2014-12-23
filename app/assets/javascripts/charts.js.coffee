@@ -30,7 +30,37 @@ jQuery ->
       scaleGridLineColor: 'transparent',
       scaleFontFamily: "'OpenSans'",
       scaleFontColor: '#ccc',
-      fillColor: '#bbbbbb'
+      fillColor: '#bbbbbb',
+      responsive: true
+    })
+
+  if $('#line-chart').length > 0
+    $canvas = $('#line-chart');
+    data = $canvas.data('data');
+    steps = 4;
+    datasetIndex = 0
+    maxValue = 0
+    while datasetIndex < data.datasets.length
+      setMax = Math.max.apply(null, data.datasets[datasetIndex].data)
+      if maxValue is false or setMax > maxValue
+        maxValue = setMax
+      ++datasetIndex
+
+    context = $canvas[0].getContext('2d');
+    new Chart(context).Line(data, {
+      scaleShowGridLines: false,
+      scaleGridLineColor: 'transparent',
+      scaleFontFamily: "'OpenSans'",
+      scaleFontColor: '#ccc',
+      fillColor: '#bbbbbb',
+      datasetStrokeWidth : 0.1,
+      pointDotRadius : 1,
+      responsive: true,
+      scaleShowLables: false,
+      scaleOverride: true,
+      scaleSteps: steps,
+      scaleStepWidth: Math.ceil(maxValue / steps),
+      scaleStartValue: 0,
     })
 
   # Category spent charts
