@@ -26,10 +26,6 @@ feature "User views Entry Audit Trail" do
     expect(last_change.find(".changes")).to have_content "description from"
   end
 
-  scenario "dislays a deleted record" do
-
-  end
-
   private
 
   def update_entry
