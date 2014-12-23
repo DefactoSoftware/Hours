@@ -131,6 +131,8 @@ nl:
       update: Opslaan
       user:
         create: Creeër Account
+      client:
+        create: Creeër Klant
   info:
     here: hier
     no_categories_html: Zo te zien heb je nog geen categorieen aangemaakt. Dat kun
@@ -190,6 +192,10 @@ nl:
       project:
         billable: Facturabel
         name: Naam
+      client:
+        name: Naam
+        description: Beschrijving
+        logo: Logo
   tags:
     show:
       hours_indication: u
@@ -223,3 +229,6 @@ nl:
     email: Email
     invitation_sent_at: "%{time_ago} geleden uitgenodigd"
     invite: Nodig uit
+  views:
+    pagination:
+      truncate: ...
