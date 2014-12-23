@@ -8,8 +8,8 @@
       = link_to project_path(project) do
         %h2= project.name
       - if project.client
-        = link_to client_path(project.client) do
-          %h3= client_title(project.client)
+        = link_to client_path(project.client), class: "clients-header" do
+          = client_title(project.client)
     %hr/
   .activities-overview
     %ol.activities
