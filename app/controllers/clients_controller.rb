@@ -2,7 +2,6 @@ class ClientsController < ApplicationController
   before_filter :load_time_series, only: [:show]
 
   def show
-    resource
     @projects = resource.projects.by_last_updated.page(params[:page]).per(3)
   end
 
@@ -26,8 +25,7 @@ class ClientsController < ApplicationController
   end
 
   def update
-    resource
-    if @client.update_attributes(client_params)
+    if resource.update_attributes(client_params)
       redirect_to clients_path, notice: t(:client_updated)
     else
       render :edit

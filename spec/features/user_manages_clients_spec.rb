@@ -17,7 +17,7 @@ feature "User manages clients" do
   scenario "creates a client with a duplicate name" do
     create(:client, name: "duplicate name")
     create_client("Duplicate name")
-    expect(page).to have_content("Name has already been taken")
+    expect(page).to have_content I18n.t("errors.messages.taken")
   end
 
   scenario "displays a list of clients" do
@@ -49,7 +49,7 @@ feature "User manages clients" do
     expect(page).to have_content "Edit"
     click_link "Edit"
     fill_in "Name", with: "MySpace"
-    click_button "Update Client"
+    click_button I18n.t("helpers.submit.update", model: "Client")
     expect(page).to have_content "MySpace"
   end
 
@@ -58,7 +58,7 @@ feature "User manages clients" do
 
     visit edit_client_url(client, subdomain: subdomain)
     fill_in "Name", with: ""
-    click_button "Update Client"
+    click_button I18n.t("helpers.submit.update", model: "Client")
     expect(page).to have_content "Please review the problems below"
   end
 
@@ -84,6 +84,6 @@ feature "User manages clients" do
     visit clients_url(subdomain: subdomain)
     fill_in "Name", with: name
     fill_in "Description", with: description
-    click_button "Create Client"
+    click_button I18n.t("helpers.submit.create", model: "Client")
   end
 end

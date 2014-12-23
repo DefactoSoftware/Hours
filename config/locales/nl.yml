@@ -121,6 +121,16 @@ nl:
     heading: Hulp nodig?
     placeholder: Schrijf hier uw vraag...
     tagline: Heeft u een vraag over Hours? Hulp nodig om te kunnen beginnen?
+  helpers:
+    submit:
+      category:
+        new: Creeër Categorie
+      create: Opslaan
+      project:
+        create: Creeër Project
+      update: Opslaan
+      user:
+        create: Creeër Account
   info:
     here: hier
     no_categories_html: Zo te zien heb je nog geen categorieen aangemaakt. Dat kun
@@ -165,6 +175,21 @@ nl:
     yearly: 1 jaar
   sign_in: Login
   sign_out: Uitloggen
+  simple_form:
+    labels:
+      entry:
+        category: Categorie
+        date: Datum
+        hours: Uren
+      user:
+        current_password: Huidig wachtwoord
+        first_name: Voornaam
+        last_name: Achternaam
+        password: Wachtwoord
+        password_confirmation: Wachtwoord bevestiging
+      project:
+        billable: Facturabel
+        name: Naam
   tags:
     show:
       hours_indication: u
