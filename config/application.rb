@@ -14,6 +14,7 @@ Bundler.require(:default, Rails.env)
 module Hours
   class Application < Rails::Application
     require "hours"
+    require "time_series_initializer"
 
     config.active_record.default_timezone = :utc
 
@@ -30,6 +31,8 @@ module Hours
     config.after_initialize do |app|
       app.config.paths.add "app/presenters", eager_load: true
     end
+
+    # config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**/}')]
 
     # Settings in config/environments/* take precedence
     # over those specified here. Application configuration should

@@ -1,4 +1,10 @@
+include TimeSeriesInitializer
+
 class UsersController < ApplicationController
+  def show
+    @time_series = time_series_for(resource)
+  end
+
   def index
     @users = User.all
   end
@@ -17,6 +23,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def resource
+    @user ||= User.find_by_slug(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:first_name,

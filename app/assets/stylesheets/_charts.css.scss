@@ -1,0 +1,78 @@
+.charts {
+  @include clearfix;
+  margin: 0 -25px;
+  padding: 1em;
+  margin-bottom: 3em;
+  background: #fafafa;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+
+  p {
+    font-size: .7em;
+    font-weight: 700;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  #bar-chart {
+    @include transition(opacity .3s ease);
+    opacity: .6;
+  }
+
+  .chart-container {
+    @include clearfix;
+    float: left;
+    width: 100%;
+    background: #fafafa;
+
+    h2 {
+      text-align: center;
+      font-size: .7em;
+      font-weight: 700;
+      color: #ccc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @include media($medium-screen) {
+      width:50%;
+    }
+  }
+
+  .chart {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 3em auto;
+    margin-bottom: 2em;
+    font-weight: 100;
+    color: #999;
+
+    canvas {
+      margin: 0 auto;
+      position: absolute;
+      z-index: 10;
+    }
+
+    h2 {
+      text-align: center;
+      color: black;
+      margin-bottom:10px;
+    }
+
+    .spent-info {
+      position: relative;
+      top: 84px;
+      text-align: center;
+
+      .hours {
+        display: block;
+        font-size: 2em;
+        color: #333 !important;
+        letter-spacing: -2px;
+      }
+    }
+  }
+}
+

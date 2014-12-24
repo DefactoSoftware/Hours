@@ -1,0 +1,3 @@
+.hours-per-day
+  %p= t("charts.hours_per_day")
+  %canvas#bar-chart{"data-data" => time_series.serialize.to_json}

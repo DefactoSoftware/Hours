@@ -20,9 +20,6 @@ feature "User view tags overview" do
     hours_indication = I18n.t("tags.show.hours_indication")
     expect(page).to (
       have_content("#{tag.name} - 12 #{hours_indication}"))
-    expect(page).to have_content(entry.project.name)
-    expect(page).to have_content(entry.hours)
-    expect(page).to have_content(user.full_name)
     expect(page).to have_content(tag.name)
   end
 end

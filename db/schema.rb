@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217160309) do
+ActiveRecord::Schema.define(version: 20141224100904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 20141217160309) do
     t.datetime "updated_at"
   end
 
+  create_table "clients", force: true do |t|
+    t.string   "name",              default: "", null: false
+    t.string   "description",       default: ""
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
@@ -80,6 +89,7 @@ ActiveRecord::Schema.define(version: 20141217160309) do
   end
 
   add_index "entries", ["category_id"], name: "index_entries_on_category_id", using: :btree
+  add_index "entries", ["date"], name: "index_entries_on_date", using: :btree
   add_index "entries", ["project_id"], name: "index_entries_on_project_id", using: :btree
   add_index "entries", ["user_id"], name: "index_entries_on_user_id", using: :btree
 
@@ -88,13 +98,16 @@ ActiveRecord::Schema.define(version: 20141217160309) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "client_id"
+    t.boolean  "archived",   default: false, null: false
     t.boolean  "billable",   default: false
   end
 
+  add_index "projects", ["archived"], name: "index_projects_on_archived", using: :btree
   add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree
 
   create_table "taggings", force: true do |t|
-    t.integer  "tag_id"
+    t.integer  "tag_id",     null: false
     t.integer  "entry_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -8,6 +8,7 @@
 #  updated_at :datetime
 #  slug       :string(255)
 #  billable   :boolean          default(FALSE)
+#  client_id  :integer
 #
 
 class Project < ActiveRecord::Base
@@ -19,6 +20,7 @@ class Project < ActiveRecord::Base
   has_many :users, -> { uniq }, through: :entries
   has_many :categories, -> { uniq }, through: :entries
   has_many :tags, -> { uniq }, through: :entries
+  belongs_to :client
 
   scope :by_last_updated, -> { order("updated_at DESC") }
   scope :by_name, -> { order("lower(name)") }

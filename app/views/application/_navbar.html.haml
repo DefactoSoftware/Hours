@@ -22,6 +22,8 @@
                 %li
                   = link_to t("titles.users.index"), users_path
                 %li
+                  = link_to t("titles.clients.index"), clients_path
+                %li
                   = link_to t("navbar.dropdown.edit_user"), edit_user_path
                 - if current_user_owner?
                   %li

@@ -80,6 +80,10 @@ GEM
       json
     chart-js-rails (0.0.6)
       railties (> 3.1)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.4)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -176,6 +180,11 @@ GEM
       mini_portile (= 0.6.0)
     normalize-rails (3.0.1)
     orm_adapter (0.5.0)
+    paperclip (4.2.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pg (0.17.1)
     pikaday-gem (1.1.0.0)
       railties (>= 3.1)
@@ -347,6 +356,7 @@ DEPENDENCIES
   neat
   newrelic_rpm (>= 3.7.3)
   normalize-rails
+  paperclip (~> 4.2)
   pg
   pikaday-gem (~> 1.1.0.0)
   pry-rails

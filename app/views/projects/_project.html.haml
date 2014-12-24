@@ -9,6 +9,9 @@
           - project.tags.last(5).each do |tag|
             = link_to tag_path(tag) do
               %li.tag= tag.name
+        - if project.client
+          = link_to client_path(project.client), class: "clients-header" do
+            = client_title(project.client)
         %hr/
         .activities-overview
           %ol.activities

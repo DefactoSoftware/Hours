@@ -1,0 +1,7 @@
+.title-container {
+  @include clearfix;
+
+  h1 {
+    float: left;
+  }
+}

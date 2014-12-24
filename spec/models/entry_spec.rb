@@ -85,6 +85,7 @@ describe Entry do
   describe "#by_last_created_at" do
     it "orders the entries by created_at" do
       create(:entry)
+      Timecop.scale(600)
       last_entry = create(:entry)
       expect(Entry.by_last_created_at.first).to eq(last_entry)
     end

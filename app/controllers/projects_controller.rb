@@ -1,3 +1,5 @@
+include TimeSeriesInitializer
+
 class ProjectsController < ApplicationController
   def index
     @projects = Project.by_last_updated.page(params[:page]).per(7)
@@ -6,7 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    resource
+    @time_series = time_series_for(resource)
   end
 
   def edit
@@ -41,6 +43,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :billable)
+    params.require(:project).permit(:name, :billable, :client_id)
   end
 end

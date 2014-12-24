@@ -10,6 +10,7 @@
 #
 
 class Tag < ActiveRecord::Base
+  attr_reader :total_hours
   include Sluggable
 
   validates :name, presence: true,

@@ -51,13 +51,6 @@ feature "User registers time" do
     end
   end
 
-  scenario "orders by the latest updated project" do
-    create(:entry)
-    fill_in_entry
-    click_button "Create Entry"
-    expect(page).to have_selector("ul.project-list li:first-child", text: "Conversations")
-  end
-
   def fill_in_entry(hours: 4)
     select "Conversations", from: "Project"
     select "Design", from: "Category"

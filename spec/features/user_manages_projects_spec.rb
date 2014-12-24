@@ -10,11 +10,23 @@ feature "User manages projects" do
   end
 
   scenario "creates a project" do
+    client = create(:client)
+
     click_link "New Project"
 
     fill_in "Name", with: "My new project"
+    select(client.name, from: "project_client_id")
     click_button "Create Project"
     expect(page).to have_content(I18n.t('project_created'))
+    expect(page).to have_content(client.name)
+  end
+
+  scenario "creates a project with invalid data" do
+    click_link "New Project"
+
+    fill_in "Name", with: ""
+    click_button "Create Project"
+    expect(page).to have_content("can't be blank")
   end
 
   scenario "creates a billable project" do
@@ -44,12 +56,16 @@ feature "User manages projects" do
   end
 
   scenario "edit a project" do
+    new_client = create(:client)
     new_project_name = "A new project name"
     project = create(:project)
     visit edit_project_url(project, subdomain: subdomain)
     fill_in "Name", with: new_project_name
+    select(new_client.name, from: "project_client_id")
     click_button "Update Project"
+    expect(page).to have_content(I18n.t('project_updated'))
     expect(page).to have_content(new_project_name)
+    expect(page).to have_content(new_client.name)
   end
 
   scenario "edit a project with invalid data" do
