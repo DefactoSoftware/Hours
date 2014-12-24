@@ -20,6 +20,10 @@
       letter-spacing: 1px;
       float: left;
       margin-left: 10px;
+
+      a.active {
+        font-weight: bold;
+      }
     }
   }
 }
