@@ -18,6 +18,15 @@ feature "User manages their own hours" do
     expect(page).to have_content(user.entries.last.project.name)
   end
 
+  scenario "views their hours overview with a yearly filter" do
+    2.times { create(:entry, user: user) }
+    click_link I18n.t("titles.users.index")
+    click_link user.full_name
+    click_link I18n.t("report.yearly")
+
+    expect(page).to have_content(I18n.t("charts.hours_per_week"))
+  end
+
   scenario "autolinks tags in description" do
     create(:entry, user: user, description: "#hashtags are #awesome")
     click_link "My Hours"

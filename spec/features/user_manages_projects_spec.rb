@@ -21,6 +21,14 @@ feature "User manages projects" do
     expect(page).to have_content(client.name)
   end
 
+  scenario "creates a project with invalid data" do
+    click_link "New Project"
+
+    fill_in "Name", with: ""
+    click_button "Create Project"
+    expect(page).to have_content("can't be blank")
+  end
+
   scenario "creates a billable project" do
     click_link "New Project"
 

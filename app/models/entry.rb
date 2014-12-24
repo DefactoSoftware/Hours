@@ -41,10 +41,6 @@ class Entry < ActiveRecord::Base
     tags.map(&:name).join(", ")
   end
 
-  def week
-    date.strftime('%W')
-  end
-
   private
 
   def set_tags_from_description
