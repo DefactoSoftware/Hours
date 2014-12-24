@@ -99,6 +99,7 @@ en:
   project:
     form:
       client: Client
+      no_client: No Client
     show:
       edit_link: edit
     table_head:

@@ -151,6 +151,7 @@ nl:
   project:
     form:
       client: Klant
+      no_client: Geen klant
     show:
       edit_link: aanpassen
     table_head:
