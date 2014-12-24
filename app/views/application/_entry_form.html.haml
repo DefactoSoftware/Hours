@@ -2,7 +2,7 @@
   %h2= form_title
   = simple_form_for(@entry) do |f|
     = f.error_notification
-    = f.association :project, required: true, collection: Project.by_name, label: false, placeholder: t("entries.index.project")
+    = f.association :project, required: true, collection: Project.unarchived.by_name, label: false, placeholder: t("entries.index.project")
     = f.association :category, required: true, collection: Category.by_name, label: false, placeholder: t("entries.index.category")
     = f.input :hours, required: true, label: false, placeholder: t("entries.index.hours")
     = f.input :date, required: true, as: :string, input_html: { value: (@entry.date || Date.today).strftime("%d/%m/%Y"), id: "datepicker"}, label: false

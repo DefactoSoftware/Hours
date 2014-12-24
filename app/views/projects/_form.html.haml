@@ -5,4 +5,6 @@
     = f.association :client, required: false, collection: Client.by_name, label: false, placeholder: t("project.form.client"), include_blank: t("project.form.no_client")
     = f.label :billable
     = f.input :billable, as: :boolean, label: false
+    = f.label :archived
+    = f.input :archived, as: :boolean, label: false
     = f.button :submit, data: { disable_with: t("loader.saving") }
