@@ -168,8 +168,7 @@ nl:
       target="_blank">Gravatar</a>
     hint:
       blank: laat het veld leeg als u het niet wilt aanpassen
-      current_password: we hebben uw huidig wachtwoord nodig om de veranderingen te
-        bevestigen"
+      current_password: we hebben uw huidig wachtwoord nodig om de veranderingen te bevestigen
     update_button: Opslaan
   report:
     filters: filters
