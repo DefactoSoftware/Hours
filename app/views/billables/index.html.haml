@@ -1,0 +1,16 @@
+.outer
+  %ul.billables
+    - @projects.each do |project|
+      %li.project.container
+        %h1
+          = project.name
+        %table.entries
+          - if project.entries.not_billed.count > 0
+            - project.entries.not_billed.each do |entry|
+              %tr.info-row
+                %td=l(entry.date)
+                %td= link_to entry.project.name, entry.project
+                %td.center= entry.hours
+          - else
+            = "all entries billed"
+
