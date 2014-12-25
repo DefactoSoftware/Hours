@@ -1,10 +1,11 @@
 %p= t("devise.mailer.invitation_instructions.greeting")
+- subdomain = Apartment::Tenant.current == "public" ? "" : Apartment::Tenant.current 
 %p
   = t("devise.mailer.invitation_instructions.someone_invited_you", |
-    url: root_url(subdomain: Apartment::Tenant.current))           |
+    url: root_url(subdomain: subdomain))           |
 %p
   = link_to t("devise.mailer.invitation_instructions.accept"), |
     accept_invitation_url(@resource,                           |
     invitation_token: @token,                                  |
-    subdomain: Apartment::Tenant.current)                      |
+    subdomain: subdomain)                      |
   %p= t("devise.mailer.invitation_instructions.ignore_html")

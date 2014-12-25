@@ -210,6 +210,7 @@ nl:
     monthly: 1 maand
     weekly: 1 week
     yearly: 1 jaar
+  sign_up: Registreren
   sign_in: Login
   sign_out: Uitloggen
   simple_form:

@@ -70,7 +70,7 @@ The first time this mode is enabled, you will be able to create an initial accou
 
 Usage:
 
-Modify `lib/switch.rb` and set desired options as either `true` or `false` and restart foreman
+Modify `SINGLE_TENANT_MODE` in the .env and set it as either `true` or `false` and restart foreman
 
 Guidelines
 ----------

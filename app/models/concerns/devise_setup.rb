@@ -1,5 +1,5 @@
 module DeviseSetup
-  require 'switch'
+  require 'hours'
 
   extend ActiveSupport::Concern
 
