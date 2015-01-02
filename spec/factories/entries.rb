@@ -11,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  description :string(255)
+#  billed      :boolean
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

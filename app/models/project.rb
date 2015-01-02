@@ -11,6 +11,7 @@
 #  billable   :boolean          default(FALSE)
 #  client_id  :integer
 #  archived   :boolean          default(FALSE), not null
+#  billable   :boolean          default(FALSE)
 #
 
 class Project < ActiveRecord::Base

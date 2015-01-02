@@ -1,0 +1,7 @@
+%table.entries
+  - entries.not_billed.each do |entry|
+    %tr.info-row
+      %td=billable_entry_checkbox(entry)
+      %td=l(entry.date)
+      %td=entry.category.name
+      %td.center= entry.hours

@@ -107,3 +107,15 @@ $(document).keyup(function(event) {
     Hours.dismissModal();
   }
 });
+
+$(document).ready(function () {
+  $("#submit-billable-entries").click(function () {
+    $("#billable-entries-form").submit();
+  });
+
+  $(".mark-project-as-billed").click(function (element) {
+    $("input[data_project_id='"+$(element.target).attr('data_project_id')+"']").each(function (index, element) {
+      $(element).attr('checked', true);
+    });
+  })
+})

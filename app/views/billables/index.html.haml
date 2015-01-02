@@ -1,16 +1,23 @@
-.outer
-  %ul.billables
-    - @projects.each do |project|
-      %li.project.container
-        %h1
-          = project.name
-        %table.entries
-          - if project.entries.not_billed.count > 0
-            - project.entries.not_billed.each do |entry|
-              %tr.info-row
-                %td=l(entry.date)
-                %td= link_to entry.project.name, entry.project
-                %td.center= entry.hours
-          - else
-            = "all entries billed"
-
+.billables
+  .sidebar
+    %h1 Filters
+    .container
+      = form_tag("/billables", id: "filter_form", method: "get") do
+        = collection_select(:filters, :client_id, Client.by_name, :id, :name, include_blank: t("billables.filters.clients"))
+        = collection_select(:filters, :project_id, Project.by_name, :id, :name, include_blank: t("billables.filters.projects"))
+        = date_field(:filters, :from_date)
+        = date_field(:filters, :to_date)
+        = submit_tag(t("billables.buttons.filter"))
+    .container
+      %p.selected_entries
+      = submit_tag(t("billables.buttons.bill_selected"), id: "submit-billable-entries")
+  .outer
+    %h1 Billable Entries
+    - unless @entries.not_billed.any?
+      .info
+        %p= t("info.no_billable_entries_html")
+    = form_tag("/billables", method: "post", id: "billable-entries-form") do
+      - @clients.each do |client|
+        - if @entries.client_id(client.id).not_billed.any?
+          %h1= client.name
+          = render "projects", projects: @projects.where(client: client)

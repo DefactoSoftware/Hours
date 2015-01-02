@@ -17,6 +17,8 @@ class Client < ActiveRecord::Base
   scope :by_name, -> { order("lower(name)") }
   has_many :projects
 
+  has_many :entries, through: :projects
+
   has_attached_file :logo,
                     styles: { original: "100x100#" },
                     default_url: "",

@@ -11,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  description :string(255)
+#  billed      :boolean
 #
 
 class Entry < ActiveRecord::Base
@@ -20,6 +21,7 @@ class Entry < ActiveRecord::Base
 
   belongs_to :project, touch: true
   belongs_to :category
+  has_one :client, through: :project
   belongs_to :user, touch: true
   has_many :taggings, inverse_of: :entry
   has_many :tags, through: :taggings
@@ -35,6 +37,12 @@ class Entry < ActiveRecord::Base
   scope :by_last_created_at, -> { order("created_at DESC") }
   scope :by_date, -> { order("date DESC") }
   scope :not_billed, -> { where(billed: false) }
+  scope :billable, -> { where("billed IS NOT NULL") }
+
+  scope :client_id, -> (client_id) { where("client_id = ?", client_id).joins(:project) }
+  scope :project_id, -> (project_id) { where(project_id: project_id) }
+  scope :from_date, -> (from_date) { where("created_at > ?", from_date) }
+  scope :to_date, -> (to_date) { where("created_at < ?", to_date) }
 
   before_save :set_tags_from_description
 

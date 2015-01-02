@@ -17,7 +17,6 @@ FactoryGirl.define do
     end
   end
 end
-
 # == Schema Information
 #
 # Table name: projects
@@ -31,6 +30,7 @@ end
 #  billable   :boolean          default(FALSE)
 #  client_id  :integer
 #  archived   :boolean          default(FALSE), not null
+#  billable   :boolean          default(FALSE)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
