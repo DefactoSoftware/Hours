@@ -246,7 +246,7 @@ GEM
       sexp_processor (~> 4.0)
     ruby_parser (3.5.0)
       sexp_processor (~> 4.1)
-    safe_yaml (1.0.3)
+    safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.2)
       railties (>= 4.0.0, < 5.0)
