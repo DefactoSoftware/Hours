@@ -16,6 +16,7 @@ feature "User manages projects" do
 
     fill_in "Name", with: "My new project"
     select(client.name, from: "project_client_id")
+    fill_in "Description", with: "This is a **very** cool project!"
     click_button "Create Project"
     expect(page).to have_content(I18n.t('project_created'))
     expect(page).to have_content(client.name)
@@ -111,7 +112,7 @@ feature "User manages projects" do
   end
 
   scenario "views a single project" do
-    project = create(:project_with_entries)
+    project = create(:project_with_entries, description: "Cool, **markdown!**")
     entry = project.entries.last
     entry.update(description: "#TDD")
 
@@ -121,6 +122,7 @@ feature "User manages projects" do
     end
     expect(current_url).to eq(project_url(project, subdomain: subdomain))
     expect(page).to have_content("TDD")
+    expect(page).to have_content("Cool, markdown!")
   end
 
   scenario "views a single project with more" \

@@ -225,6 +225,7 @@ GEM
     rake (10.4.2)
     recipient_interceptor (0.1.2)
       mail
+    redcarpet (3.2.2)
     rspec-core (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.2)
@@ -365,6 +366,7 @@ DEPENDENCIES
   rails-assets-chartjs (~> 1.0.1.beta.4)
   rails_12factor
   recipient_interceptor
+  redcarpet
   rspec-rails (>= 2.14)
   sass-rails (~> 4.0.1)
   select2-rails
