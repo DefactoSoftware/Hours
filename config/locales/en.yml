@@ -77,6 +77,7 @@ en:
       project: Project
       user_hours: "%{user}'s hours"
       changes: changes
+      download_csv: Download as CSV
   entry_activity_html:
     one: "%{user} spent one hour doing %{category} on %{project}"
     other: "%{user} spent %{count} hours doing %{category} on %{project}"
