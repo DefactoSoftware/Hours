@@ -26,7 +26,6 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
 @import "pikaday";
 @import "selectize";
-@import "dc";
 @import "select2";
 @import "tagger";
 @import "jquery.atwho";
@@ -139,16 +138,6 @@ h1 {
     .color {
       display: inline-block;
     }
-  }
-}
-
-.dc-chart {
-  strong {
-    display: block;
-  }
-
-  g.row text {
-    fill: #333;
   }
 }
 
