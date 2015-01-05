@@ -14,6 +14,8 @@ require "paperclip/matchers"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
 
+ActiveRecord::Migration.maintain_test_schema!
+
 module Features
   # Extend this module in spec/support/features/*.rb
 end
