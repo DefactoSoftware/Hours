@@ -21,7 +21,7 @@ class BillablesController < ApplicationController
     @entries ||= Entry.billable
   end
 
-  def filter_params(params)
+  def filter_params
     params[:filters].slice(:client_id, :project_id, :from_date, :to_date, :billed)
   end
 end
