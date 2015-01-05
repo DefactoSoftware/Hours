@@ -6,34 +6,24 @@ class EntryCSVGenerator
   end
 
   def initialize(entries)
-    @entries = entries
+    @report = Report.new(entries)
   end
 
   def generate
     CSV.generate do |csv|
-      csv << columns
-      @entries.each do |entry|
-        csv << row(entry)
+      csv << @report.headers
+      @report.each_row do |entry|
+        csv << [
+          entry.date,
+          entry.user,
+          entry.project,
+          entry.category,
+          entry.project,
+          entry.hours,
+          entry.billable,
+          entry.description
+        ]
       end
     end
-  end
-
-  private
-
-  def columns
-    %w(date user project category client hours billable description).map(&:capitalize)
-  end
-
-  def row(entry)
-    [
-      entry.date,
-      entry.user.full_name,
-      entry.project.name,
-      entry.category.name,
-      entry.project.client.try(:name),
-      entry.hours,
-      entry.project.billable,
-      entry.description
-    ]
   end
 end
