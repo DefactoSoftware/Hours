@@ -10,6 +10,7 @@
       - if project.client
         = link_to client_path(project.client), class: "clients-header" do
           = client_title(project.client)
+      %p= markdown(project.description) if project.description
     %hr/
   .activities-overview
     %ol.activities

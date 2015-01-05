@@ -40,6 +40,7 @@ gem "jquery-atwho-rails" # autocomplete
 gem "haml-rails"
 gem "audited-activerecord", "~> 4.0"
 gem "paperclip", "~> 4.2"
+gem "redcarpet"
 
 # caching
 
