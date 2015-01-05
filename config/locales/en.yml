@@ -98,6 +98,7 @@ en:
       salutation: Hello %{email} !
       wrong_mail: If you didn't request this, please ignore this email.
   entries:
+    download_csv: Download as CSV
     index:
       category: Category
       date: Date
@@ -110,7 +111,6 @@ en:
       project: Project
       user_hours: "%{user}'s hours"
       changes: changes
-      download_csv: Download as CSV
   entry_activity_html:
     one: "%{user} spent one hour doing %{category} on %{project}"
     other: "%{user} spent %{count} hours doing %{category} on %{project}"
@@ -204,6 +204,7 @@ en:
       new: New Client
     entries:
       index: "%{name}'s Hours"
+      index: All Entries
     projects:
       index: Projects
       new: New Project

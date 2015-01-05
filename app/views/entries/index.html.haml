@@ -2,6 +2,6 @@
   .container
     - cache @user do
       = render "/header", title: t('entries.index.user_hours', user: @user.first_name)
-    = link_to t("entries.index.download_csv"), user_entries_path(@user, format: "csv")
+    = link_to t("entries.download_csv"), user_entries_path(@user, format: "csv")
     = render 'entries_table'
 

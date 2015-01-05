@@ -34,7 +34,7 @@ class ReportEntry
   end
 
   def client
-    @entry.client.try(:name)
+    @entry.project.client.try(:name)
   end
 
   def hours

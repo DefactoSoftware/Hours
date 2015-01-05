@@ -1,0 +1,25 @@
+.container
+  = link_to t("entries.download_csv"), entries_path(format: "csv")
+  %table
+    %thead
+      %tr
+        %th Date
+        %th User
+        %th Project
+        %th Category
+        %th Client
+        %th Hours
+        %th Billable
+        %th Description
+    %tbody
+    - @entries.each do |entry|
+      %tr.info-row
+        %td= entry.date
+        %td= link_to entry.user.full_name, entry.user
+        %td= link_to entry.project.name, entry.project
+        %td= link_to entry.category.name, entry.category
+        %td= link_to entry.project.client.name, entry.project.client if entry.project.client
+        %td= entry.hours
+        %td= entry.project.billable
+        %td= sanitize autolink_tags(entry.description)
+  = paginate @entries

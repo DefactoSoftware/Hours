@@ -12,10 +12,17 @@ class EntriesController < ApplicationController
   end
 
   def index
-    @user = User.find_by_slug(params[:user_id])
+    if scoped?
+      @user = User.find_by_slug(params[:user_id])
+      @entries = @user.entries.by_date.page(params[:page]).per(20)
+    else
+      @entries = Entry.by_date.page(params[:page]).per(20)
+      render template: "entries/report" unless params[:format] == "csv"
+    end
+
     respond_to do |format|
-      format.html { @entries = @user.entries.by_date.page(params[:page]).per(20) }
-      format.csv { send_csv(@user) }
+      format.html { @entries }
+      format.csv { send_csv(@entries) }
     end
   end
 
@@ -53,11 +60,16 @@ class EntriesController < ApplicationController
     Date.strptime(params[:entry][:date], DATE_FORMAT)
   end
 
-  def send_csv(user)
+  def send_csv(entries)
+    name = scoped? ? @user.full_name : current_account.subdomain
     send_data(
-      EntryCSVGenerator.generate(user.entries.by_date),
-      filename: "#{user.full_name}-entries-#{DateTime.now}.csv",
+      EntryCSVGenerator.generate(entries),
+      filename: "#{name}-entries-#{DateTime.now}.csv",
       type: "text/csv"
     )
+  end
+
+  def scoped?
+    params[:user_id]
   end
 end

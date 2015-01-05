@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature "User Report" do
+feature "User views own report" do
   let(:subdomain) { generate(:subdomain) }
   let(:user) { build(:user) }
 
@@ -18,5 +18,4 @@ feature "User Report" do
     click_link I18n.t("report.weekly")
     expect(page).to have_content(I18n.t("report.hours_per_day", count: 7))
   end
-
 end
