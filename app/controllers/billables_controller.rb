@@ -1,8 +1,9 @@
 class BillablesController < ApplicationController
+  include Filterable
 
   def index
     resource
-    filter_entries if params[:filters]
+    @entries = filter_collection(resource) if params[:filters]
     @projects = Project.all
     @clients = Client.all
   end
@@ -15,12 +16,6 @@ class BillablesController < ApplicationController
   end
 
   private
-
-  def filter_entries
-    filter_params(params).each do |filter, value|
-      @entries = resource.public_send(filter, value) if value.present?
-    end
-  end
 
   def resource
     @entries ||= Entry.billable
