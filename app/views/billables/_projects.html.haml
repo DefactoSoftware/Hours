@@ -1,5 +1,5 @@
 - projects.each do |project|
-  - if @entries.project_id(project.id).not_billed.any?
+  - if @entries.project_id(project.id).any?
     .container
       %h1= project.name
       = render "entries", entries: @entries.project_id(project.id), project: project

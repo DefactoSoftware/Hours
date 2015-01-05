@@ -1,17 +1,51 @@
 .billables {
+  @include span-columns(12);
   .sidebar {
-    .container {
-
+    @include media($large-screen) {
+      @include span-columns(3);
+      margin: 2em 2em 0 0;
     }
-    width: 25%;
-    margin: 3em;
+    @include media($medium-screen) {
+      @include span-columns(3);
+      margin: 2em 2em 0 0;
+    }
+    @include media($laptop-screen) {
+      @include span-columns(3);
+      margin: 2em 2em 0 0;
+    }
+    @include span-columns(12);
+
     float:right;
+
   }
 
   .outer {
-    margin: 3em;
+    @include media($large-screen) {
+      @include span-columns(8);
+      margin: 2em 0 0 2em;
+    }
+    @include media($medium-screen) {
+      @include span-columns(8);
+      margin: 2em 0 0 2em;
+    }
+    @include media($laptop-screen) {
+      @include span-columns(8);
+      margin: 2em 0 0 2em;
+    }
+
+    @include span-columns(12);
+
     max-width: 90em;
-    width: 65%;
     float:left;
+  }
+}
+
+#filter_form {
+  select {
+    width: 100%;
+  }
+
+  input {
+    margin-bottom: 1em;
   }
 }

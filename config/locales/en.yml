@@ -45,9 +45,17 @@ en:
       un_archive_link: Un-archive
   back: Back
   billables:
-    mark_project_as_billed: Mark all the entries in this project as billed
+    buttons:
+      bill_selected: Bill selected entries
+      filter: Filter entries
     filters:
+      billed: Billed
+      billed_label: Billed or not
+      billed_empty: All billable entries
       clients: Clients
+      from_date_label: From date
+      not_billed: Not billed
+      to_date_label: To date
       projects: Projects
     buttons:
       bill_selected: Bill selected entries

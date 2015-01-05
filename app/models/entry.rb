@@ -41,8 +41,9 @@ class Entry < ActiveRecord::Base
 
   scope :client_id, -> (client_id) { where("client_id = ?", client_id).joins(:project) }
   scope :project_id, -> (project_id) { where(project_id: project_id) }
-  scope :from_date, -> (from_date) { where("created_at > ?", from_date) }
-  scope :to_date, -> (to_date) { where("created_at < ?", to_date) }
+  scope :from_date, -> (from_date) { where("entries.created_at > ?", from_date) }
+  scope :to_date, -> (to_date) { where("entries.created_at < ?", to_date) }
+  scope :billed, -> (billed) { where("billed = ?", billed) }
 
   before_save :set_tags_from_description
 

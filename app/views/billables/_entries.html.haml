@@ -1,7 +1,15 @@
 %table.entries
-  - entries.not_billed.each do |entry|
+  %th
+    %tr
+      %td Billed
+      %td Date
+      %td Category
+      %td Hours
+      %td User
+  - entries.billable.each do |entry|
     %tr.info-row
       %td=billable_entry_checkbox(entry)
       %td=l(entry.date)
       %td=entry.category.name
       %td.center= entry.hours
+      %td=entry.user.full_name
