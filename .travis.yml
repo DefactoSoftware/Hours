@@ -2,9 +2,6 @@ rvm:
 - 2.2.0
 bundler_args: --without debug development
 cache: bundler
-script:
-- bundle exec rake db:test:prepare
-- bundle exec rake
 before_script:
 - cp .sample.env .env
 - cp config/database.travis.yml config/database.yml
