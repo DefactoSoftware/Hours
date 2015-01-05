@@ -79,6 +79,9 @@
     display: inline-block;
   }
 
+  .project-budget {
+  }
+
   .projects-overview {
     @include span-columns(12);
     padding: 0;

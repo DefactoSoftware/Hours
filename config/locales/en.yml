@@ -36,6 +36,7 @@ en:
       hours: Hours
       un_archive_link: Un-archive
   back: Back
+  budget_html: "<strong>%{budget_left}</strong> of <strong>%{budget}</strong> hours left on budget"
   category:
     edit: edit
     remaining: Other

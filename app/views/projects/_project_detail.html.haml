@@ -10,6 +10,9 @@
       - if project.client
         = link_to client_path(project.client), class: "clients-header" do
           = client_title(project.client)
+      - if project.budget
+        .project-budget
+          = t(:budget_html, budget_left: project.budget_status, budget: project.budget)
       %p= markdown(project.description) if project.description
     %hr/
   .activities-overview

@@ -7,9 +7,10 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  slug       :string(255)
+#  budget     :integer
 #  billable   :boolean          default(FALSE)
 #  client_id  :integer
-#  archived   :boolean
+#  archived   :boolean          default(FALSE), not null
 #
 
 class Project < ActiveRecord::Base
@@ -36,6 +37,12 @@ class Project < ActiveRecord::Base
 
   def label
     name
+  end
+
+  def budget_status
+    if budget
+      budget - entries.sum(:hours)
+    end
   end
 
   private

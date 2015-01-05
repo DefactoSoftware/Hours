@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20150102125918) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "budget"
     t.boolean  "billable",    default: false
     t.integer  "client_id"
     t.boolean  "archived",    default: false, null: false

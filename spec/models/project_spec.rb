@@ -7,8 +7,10 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  slug       :string(255)
-#  client_id  :integer
+#  budget     :integer
 #  billable   :boolean          default(FALSE)
+#  client_id  :integer
+#  archived   :boolean          default(FALSE), not null
 #
 
 require "spec_helper"
@@ -53,6 +55,15 @@ describe Project do
       create(:project, name: "B")
       a = create(:project, name: "a")
       expect(Project.by_name.first).to eq(a)
+    end
+  end
+
+  describe "#budget" do
+    it "can have a budget" do
+      project = create(:project, budget: 11)
+      create(:entry, hours: 3, project: project)
+      create(:entry, hours: 2, project: project)
+      expect(project.budget_status).to eq(6)
     end
   end
 end
