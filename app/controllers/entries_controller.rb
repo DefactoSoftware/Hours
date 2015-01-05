@@ -13,7 +13,10 @@ class EntriesController < ApplicationController
 
   def index
     @user = User.find_by_slug(params[:user_id])
-    @entries = @user.entries.by_date.page(params[:page]).per(20)
+    respond_to do |format|
+      format.html { @entries = @user.entries.by_date.page(params[:page]).per(20) }
+      format.csv { send_csv(@user) }
+    end
   end
 
   def update
@@ -48,5 +51,13 @@ class EntriesController < ApplicationController
 
   def parsed_date
     Date.strptime(params[:entry][:date], DATE_FORMAT)
+  end
+
+  def send_csv(user)
+    send_data(
+      EntryCSVGenerator.generate(user.entries.by_date),
+      filename: "#{user.full_name}-entries-#{DateTime.now}.csv",
+      type: "text/csv"
+    )
   end
 end
