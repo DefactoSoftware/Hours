@@ -2,8 +2,11 @@ class BillablesController < ApplicationController
   include Filterable
 
   def index
-    resource
-    @entries = filter_collection(resource) if params[:filters]
+    if params[:filters]
+      @entries = filter_collection(resource)
+    else
+      resource
+    end
     @projects = Project.all
     @clients = Client.all
   end
