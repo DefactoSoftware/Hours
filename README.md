@@ -70,7 +70,8 @@ The first time this mode is enabled, you will be able to create an initial accou
 
 Usage:
 
-Modify `SINGLE_TENANT_MODE` in the .env and set it as either `true` or `false` and restart foreman
+To use the single tenant mode, you can add SINGLE_TENANT_MODE to your enviroment variables with the value `true`. On development you can set this in your .env with `SINGLE_TENANT_MODE=true` and restart foreman. On heroku it's under the `Config Variables`.  
+The first user in single tenant mode can be created by a rake task `rake create_user`. We'll ask you for your credentials.
 
 Guidelines
 ----------

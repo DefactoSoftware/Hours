@@ -35,7 +35,14 @@
 
 class User < ActiveRecord::Base
   include Sluggable
-  include DeviseSetup
+
+  devise :database_authenticatable,   
+         :recoverable,   
+         :rememberable,    
+         :trackable,   
+         :validatable,   
+         :confirmable,   
+         :invitable
 
   validates_presence_of :first_name, :last_name
 
