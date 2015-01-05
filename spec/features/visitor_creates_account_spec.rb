@@ -32,12 +32,12 @@ feature "Account Creation" do
     visit root_url(subdomain: false)
     click_link "Free trial"
 
-    fill_in :account_owner_attributes_first_name, with: "John"
-    fill_in :account_owner_attributes_last_name, with: "Doe"
-    fill_in :account_owner_attributes_email, with: email
-    fill_in :account_owner_attributes_password, with: "secure123!@#"
-    fill_in :account_owner_attributes_password_confirmation, with: "secure123!@#"
-    fill_in :account_subdomain, with: subdomain
+    fill_in :signup_first_name, with: "John"
+    fill_in :signup_last_name, with: "Doe"
+    fill_in :signup_email, with: email
+    fill_in :signup_password, with: "secure123!@#"
+    fill_in :signup_password_confirmation, with: "secure123!@#"
+    fill_in :signup_subdomain, with: subdomain
 
     click_button "Create Account"
   end

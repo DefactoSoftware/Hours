@@ -17,6 +17,7 @@ en:
   account:
     back_to_website: back to the website
     confirm_destroy: Are you sure you want to delete your account?
+    create: Create Account
     danger_zone: Danger Zone
     delete: Delete my account
     deleted: Your account was deleted. Sorry to see you go. :(

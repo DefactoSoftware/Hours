@@ -35,6 +35,5 @@ describe Account do
 
   describe "associations" do
     it { should belong_to :owner }
-    it { should accept_nested_attributes_for :owner }
   end
 end
