@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102125918) do
+ActiveRecord::Schema.define(version: 20150106133726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20150102125918) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "delayed_jobs", force: true do |t|
@@ -86,8 +88,10 @@ ActiveRecord::Schema.define(version: 20150102125918) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description"
+    t.boolean  "billed"
   end
 
+  add_index "entries", ["billed"], name: "index_entries_on_billed", using: :btree
   add_index "entries", ["category_id"], name: "index_entries_on_category_id", using: :btree
   add_index "entries", ["date"], name: "index_entries_on_date", using: :btree
   add_index "entries", ["project_id"], name: "index_entries_on_project_id", using: :btree
@@ -98,10 +102,10 @@ ActiveRecord::Schema.define(version: 20150102125918) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
-    t.integer  "budget"
-    t.boolean  "billable",    default: false
     t.integer  "client_id"
     t.boolean  "archived",    default: false, null: false
+    t.boolean  "billable",    default: false
+    t.integer  "budget"
     t.text     "description"
   end
 

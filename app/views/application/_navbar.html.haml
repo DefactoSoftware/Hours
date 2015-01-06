@@ -2,7 +2,6 @@
   .nav
     %ul
       = nav_path t("titles.projects.index"), root_path
-      = nav_path t("titles.archives.index"), archives_path
       = nav_path t("navbar.entries"), user_entries_path(current_user)
   - cache current_user do
     .nav-user
@@ -24,6 +23,8 @@
                   = link_to t("titles.users.index"), users_path
                 %li
                   = link_to t("titles.clients.index"), clients_path
+                %li
+                  = link_to t("titles.archives.index"), archives_path
                 %li
                   = link_to t("navbar.dropdown.edit_user"), edit_user_path
                 - if current_user_owner?
