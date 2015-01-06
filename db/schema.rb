@@ -105,15 +105,15 @@ ActiveRecord::Schema.define(version: 20150106133726) do
     t.integer  "client_id"
     t.integer  "budget"
     t.text     "description"
-    t.boolean  "archived",   default: false, null: false
     t.boolean  "billable",   default: false
+    t.boolean  "archived",   default: false, null: false
   end
 
   add_index "projects", ["archived"], name: "index_projects_on_archived", using: :btree
   add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree
 
   create_table "taggings", force: true do |t|
-    t.integer  "tag_id",     null: false
+    t.integer  "tag_id"
     t.integer  "entry_id"
     t.datetime "created_at"
     t.datetime "updated_at"
