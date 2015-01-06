@@ -31,6 +31,8 @@ var Hours = Hours || {
   }
 };
 
+var SelectedBillables = 0;
+
 var picker = new Pikaday({
   field: $('#datepicker')[0],
   format: 'DD/MM/YYYY'
@@ -109,8 +111,22 @@ $(document).keyup(function(event) {
 });
 
 $(document).ready(function () {
-  $("#submit-billable-entries").click(function () {
+  $("#submit-billable-entries").click(function (e) {
+    e.preventDefault();
     $("#billable-entries-form").submit();
+  });
+
+  $("#submit-billable-entries").bind('ajax:complete', function() {
+    window.location.reload()
+  });
+
+  $("input[type=checkbox]").click(function (e) {
+    if ($(e.target).prop('checked')) {
+      SelectedBillables += 1;
+    } else {
+      SelectedBillables -= 1;
+    }
+    $("#amount_marked_entries").text("You've marked "+SelectedBillables+" entries to be billed")
   });
 
   $(".mark-project-as-billed").click(function (element) {

@@ -13,7 +13,8 @@ class BillablesController < ApplicationController
 
   def bill_entries
     params[:entries_to_bill].each do |entry_id|
-      Entry.find(entry_id).update_attribute(:billed, true)
+      entry = Entry.find(entry_id)
+      entry.update_attribute(:billed, true)
     end
     redirect_to billables_path
   end

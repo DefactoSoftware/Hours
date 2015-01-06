@@ -36,7 +36,11 @@ module ApplicationHelper
   end
 
   def billable_entry_checkbox(entry)
-    tag(:input, type: "checkbox", name: "entries_to_bill[]", value: entry.id, checked: entry.billed, data_project_id: entry.project.id)
+    if entry.billed
+      "√"
+    else
+      tag(:input, type: "checkbox", name: "entries_to_bill[]", value: entry.id, data_project_id: entry.project.id)
+    end
   end
 
   def link_to_time_span(span)

@@ -45,7 +45,11 @@
     width: 100%;
   }
 
-  input {
+  input, button {
     margin-bottom: 1em;
+  }
+
+  button {
+    margin-left: 2em;
   }
 }
