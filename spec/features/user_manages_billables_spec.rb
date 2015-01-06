@@ -10,7 +10,20 @@ feature "User manages billables" do
   end
 
   scenario "bill an entry" do
+    client = create(:client)
+    project = create(:project, client: client, billable: true)
+    entry = create(:entry, project: project, billed: false)
+
     visit billables_url(subdomain: subdomain)
-    create(:entry, billable: true)
+
+    puts page.body
+
+    find(:css, ".bill_checkbox[value='#{entry.id}']").set(true)
+
+    click_button("Bill selected entries")
+
+    puts page.body
+
+    expect(page.body).to have_content("√")
   end
 end

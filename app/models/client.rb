@@ -15,6 +15,7 @@ class Client < ActiveRecord::Base
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false }
   scope :by_name, -> { order("lower(name)") }
+  scope :by_last_updated, -> { order("updated_at DESC") }
   has_many :projects
 
   has_many :entries, through: :projects

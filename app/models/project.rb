@@ -25,7 +25,7 @@ class Project < ActiveRecord::Base
   has_many :users, -> { uniq }, through: :entries
   has_many :categories, -> { uniq }, through: :entries
   has_many :tags, -> { uniq }, through: :entries
-  belongs_to :client
+  belongs_to :client, touch: true
 
   scope :by_last_updated, -> { order("updated_at DESC") }
   scope :by_name, -> { order("lower(name)") }

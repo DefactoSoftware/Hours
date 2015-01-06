@@ -7,14 +7,16 @@ class BillablesController < ApplicationController
     else
       resource
     end
-    @projects = Project.all
-    @clients = Client.all
+    @projects = Project.by_last_updated
+    @clients = Client.by_last_updated
   end
 
   def bill_entries
-    params[:entries_to_bill].each do |entry_id|
-      entry = Entry.find(entry_id)
-      entry.update_attribute(:billed, true)
+    if params[:entries_to_bill]
+      params[:entries_to_bill].each do |entry_id|
+        entry = Entry.find(entry_id)
+        entry.update_attribute(:billed, true)
+      end
     end
     redirect_to billables_path
   end
