@@ -22,7 +22,7 @@ FactoryGirl.define do
       after(:build) do |account|
         ActiveRecord::Base.connection.clear_cache!
         Apartment::Tenant.create(account.subdomain)
-        Apartment::Tenant.switch!(account.subdomain)
+        Apartment::Tenant.switch(account.subdomain)
       end
       after(:create) do
         Apartment::Tenant.reset
