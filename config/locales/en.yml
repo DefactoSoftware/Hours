@@ -45,6 +45,7 @@ en:
       un_archive_link: Un-archive
   back: Back
   billables:
+    billable_entries: Billable Entries
     buttons:
       bill_selected: Bill selected entries
       filter: Filter entries
@@ -60,6 +61,12 @@ en:
     buttons:
       bill_selected: Bill selected entries
       filter: filter
+    table:
+      hours: Hours
+      date: Date
+      user: User
+      category: Category
+      billed: Billed
   boolean:
     "true": "yes"
     "false": "no"

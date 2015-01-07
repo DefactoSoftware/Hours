@@ -3,8 +3,11 @@
     %h1 Filters
     .container
       = render "filters"
+    .container
+      %button#submit-billable-entries= t("billables.buttons.bill_selected")
+      %p#amount_marked_entries
   .outer
-    %h1 Billable Entries
+    %h1= t("billables.billable_entries")
     - unless @entries.any?
       .info
         %p= t("info.no_billable_entries_html")

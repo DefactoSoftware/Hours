@@ -8,5 +8,3 @@
   = label(:billed, t("billables.filters.billed_label"))
   = select(:filters, :billed, options_for_select([[t("billables.filters.not_billed"), false], [t("billables.filters.billed"), true]], selected_param(:billed)), include_blank: t("billables.filters.billed_empty"))
   = submit_tag(t("billables.buttons.filter"))
-  %button#submit-billable-entries= t("billables.buttons.bill_selected")
-  %p#amount_marked_entries

@@ -9,6 +9,14 @@
     }
     margin: 2em 0 0 2em;
     @include span-columns(12);
+
+    .container {
+      min-height: 9em;
+
+      #submit-billable-entries {
+        margin-bottom: 1em;
+      }
+    }
   }
 
   .outer {

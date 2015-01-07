@@ -1,15 +1,17 @@
 %table.entries
   %th
     %tr
-      %td Billed
-      %td Date
-      %td Category
-      %td Hours
-      %td User
+      %td= t("billables.table.billed")
+      %td= t("billables.table.date")
+      %td= t("billables.table.category")
+      %td= t("billables.table.hours")
+      %td= t("billables.table.user")
   - entries.billable.each do |entry|
     %tr.info-row
       %td=billable_entry_checkbox(entry)
       %td=l(entry.date)
       %td=entry.category.name
       %td.center= entry.hours
-      %td=entry.user.full_name
+      %td
+        = link_to entry.user do
+          = entry.user.full_name

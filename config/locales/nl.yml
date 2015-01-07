@@ -55,6 +55,26 @@ nl:
     models:
       user: Gebruiker
   back: Terug
+  billables:
+    billable_entries: Factureerbare Entries
+    buttons:
+      bill_selected: Factureer geselecteerde entries
+      filter: Filter entries
+    filters:
+      billed: Gefactureerd
+      billed_label: Gefactureerd/Niet Gefactureerd
+      billed_empty: Alle Factureerbare entries
+      clients: Clients
+      from_date_label: Van datum
+      not_billed: Niet Gefactureerd
+      to_date_label: Tot datum
+      projects: Projecten
+    table:
+      hours: Uren
+      date: Datum
+      user: Gebruiker
+      category: Categorie
+      billed: Gefactureerd
   boolean:
     "true": "ja"
     "false": "nee"
@@ -245,6 +265,8 @@ nl:
     archives:
       index: Gearchiveerde projecten
     application: Uren
+    billables:
+      index: Factureerbare hours
     categories:
       edit: Bewerk Categorie
       index: Categoriëen
