@@ -9,7 +9,8 @@
       .info
         %p= t("info.no_billable_entries_html")
     = form_tag("/billables", method: "post", id: "billable-entries-form") do
-      - @clients.each do |client|
-        - if @entries.client_id(client.id).any?
-          %h1= client.name
-          = render "projects", projects: @projects.where(client: client)
+      - cache [cache_keys_for_all(:clients, :entries, :projects), current_locale] do
+        - @clients.each do |client|
+          - if @entries.client_id(client.id).any?
+            %h1= client.name
+            = render "projects", projects: @projects.where(client: client)
