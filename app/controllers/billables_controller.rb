@@ -1,12 +1,6 @@
 class BillablesController < ApplicationController
-  include Filterable
-
   def index
-    if params[:filters]
-      @entries = filter_collection(resource)
-    else
-      resource
-    end
+    @entries = EntryQuery.new(resource, filter_params).filter
     @projects = Project.by_last_updated
     @clients = Client.by_last_updated
   end
@@ -28,6 +22,6 @@ class BillablesController < ApplicationController
   end
 
   def filter_params
-    params[:filters].slice(:client_id, :project_id, :from_date, :to_date, :billed)
+    params[:filters]
   end
 end

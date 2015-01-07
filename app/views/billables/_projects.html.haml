@@ -1,8 +1,8 @@
 - projects.each do |project|
-  - if @entries.project_id(project.id).any?
+  - if EntryQuery.new(@entries, { project_id: project.id }).filter.any?
     .container
       %h1= project.name
-      = render "entries", entries: @entries.project_id(project.id), project: project
+      = render "entries", entries: EntryQuery.new(@entries, {project_id: project.id}).filter, project: project
       = content_tag(:a, class: 'mark-project-as-billed', data_project_id: project.id) do
         = t("billables.mark_project_as_billed")
       %div
