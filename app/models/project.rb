@@ -16,6 +16,8 @@
 class Project < ActiveRecord::Base
   include Sluggable
 
+  audited allow_mass_assignment: true
+
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false }
   has_many :entries
