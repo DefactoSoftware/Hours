@@ -12,20 +12,23 @@ insight on how we spend our time on different projects.
 
 It looks like this:
 
-<img src="http://i.imgur.com/L6cCxPd.png" width=500 alt="Projects overview" />
+<img src="http://i.imgur.com/UGotYJu.png" width=500 alt="Projects overview" />
 
-<img src="http://i.imgur.com/w62ubzH.png" width=500 alt="Single project" />
+<img src="http://i.imgur.com/SZd6Oaw.png" width=500 alt="Single project" />
 
-<img src="http://i.imgur.com/gZWqVXT.png" width=500 alt="Entries" />
+<img src="http://i.imgur.com/gJxWWnc.png" width=500 alt="Entries" />
+
+<img src="http://i.imgur.com/QfMsVjb.png" width=500 alt="Audit Log" />
+
+<img src="http://i.imgur.com/y4RLCEg.png" width=500 alt="Entry" />
+
+
+
 
 Roadmap
 -------
 
-As we're using Hours we're constantly thinking of ways to improve it and there are a couple of features that we'd like to implement:
-- Billable/non billable hours
-- Better reporting
-- Exporting data
-- Mobile apps
+As we're using Hours we're constantly thinking of ways to improve it and we'd love to hear your thoughts!
 
 System Dependencies
 -------------------
