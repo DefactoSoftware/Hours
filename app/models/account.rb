@@ -24,8 +24,6 @@ class Account < ActiveRecord::Base
 
   has_many :users, inverse_of: :organization
 
-  accepts_nested_attributes_for :owner
-
   private
 
   def downcase_subdomain
