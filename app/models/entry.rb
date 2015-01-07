@@ -37,7 +37,7 @@ class Entry < ActiveRecord::Base
   scope :by_last_created_at, -> { order("created_at DESC") }
   scope :by_date, -> { order("date DESC") }
   scope :not_billed, -> { where(billed: false) }
-  scope :billable, -> { where("billed IS NOT NULL") }
+  scope :billable, -> { where("billable").joins(:project) }
 
   scope :client_id, -> (client_id) { where("client_id = ?", client_id).joins(:project) }
   scope :project_id, -> (project_id) { where(project_id: project_id) }
