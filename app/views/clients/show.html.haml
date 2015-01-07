@@ -1,0 +1,21 @@
+.outer
+  .container
+    - cache @client do
+      .clients
+        %header
+          = link_to t("client.edit"), edit_client_path(@client)
+          %h1
+            = client_title(@client)
+            \-
+            \#{EntryStats.new(@client.entries).total_hours}
+            \#{t('tags.show.hours_indication_title', count: EntryStats.new(@client.entries).total_hours)}
+          %p
+            = @client.description
+      = render "/time_span"
+      .charts
+        = render @time_series.chart, time_series: @time_series
+      .charts
+        = render "/charts/pie_chart", title: t("charts.hours_per_project"), data: EntryStats.new(@time_series.entries_for_time_span).hours_for_subject_collection(User.all).to_json
+        = render "/charts/pie_chart", title: t("charts.hours_per_client"), data: EntryStats.new(@time_series.entries_for_time_span).hours_for_subject_collection(Project.all).to_json
+  %ul.clients-projects-overview
+    = render "project", projects: @projects

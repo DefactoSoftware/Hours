@@ -14,7 +14,7 @@ It looks like this:
 
 <img src="http://i.imgur.com/L6cCxPd.png" width=500 alt="Projects overview" />
 
-<img src="http://i.imgur.com/w62ubzH.png" width=500 alt="Sigle project" />
+<img src="http://i.imgur.com/w62ubzH.png" width=500 alt="Single project" />
 
 <img src="http://i.imgur.com/gZWqVXT.png" width=500 alt="Entries" />
 
@@ -65,6 +65,7 @@ Guidelines
 - Please adhere to the [Thoughtbot ruby styleguide](https://github.com/thoughtbot/guides/tree/master/style#ruby)
 - All code and commit messages should be in English
 - Commit messages are written in the imperative with a short, descriptive title. Good => `Return a 204 when updating a question`, bad => `Changed http response` or `I updated the http response on the update action in the QuestionController because we're not showing any data there`. The first line should always be 50 characters or less and that it should be followed by a blank line.
+- Please localize all strings and add i18n keys to the locale files sorted by key in ascending order
 
 License
 -------

@@ -1,0 +1,24 @@
+- cache static_cache_key_for(:team) do
+  .hero.team-header
+    .hero-inner
+      .hero-copy
+        = link_to root_path do
+          %h1#logo
+            = image_tag("logo-white-shadow.png", alt: 'Hours')
+        %h2 The Team
+  .main
+    .copy
+      %ul.team
+        %li
+          %a{:href => "https://github.com/jurre"}
+            = image_tag("jurre.jpg")
+          %p Jurre Stender
+        %li
+          %a{:href => "https://github.com/dkhgh"}
+            = image_tag("hugo.jpg")
+          %p Hugo Veeger
+        %li
+          %a{:href => "https://github.com/sn3p"}
+            = image_tag("matthijs.jpg")
+          %p Matthijs Kuiper
+  = render "footer"

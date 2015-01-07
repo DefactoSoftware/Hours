@@ -10,6 +10,7 @@
 #  date        :date             not null
 #  created_at  :datetime
 #  updated_at  :datetime
+#  description :string(255)
 #
 
 require 'spec_helper'
@@ -31,6 +32,17 @@ describe Entry do
     it { should belong_to :user }
     it { should have_many :taggings }
     it { should have_many :tags }
+  end
+
+  it "is audited" do
+    entry = create(:entry)
+    user = create(:user)
+
+    Audited.audit_class.as_user(user) do
+      entry.update_attribute(:hours, 2)
+    end
+
+    expect(entry.audits.last.user).to eq(user)
   end
 
   describe "#tag_list" do
@@ -73,6 +85,7 @@ describe Entry do
   describe "#by_last_created_at" do
     it "orders the entries by created_at" do
       create(:entry)
+      Timecop.scale(600)
       last_entry = create(:entry)
       expect(Entry.by_last_created_at.first).to eq(last_entry)
     end

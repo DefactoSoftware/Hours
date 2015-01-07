@@ -7,13 +7,13 @@ class ProjectPresenter
   end
 
   def show_categories
-    template.render partial: "category",
+    template.render partial: "projects/category",
                     collection: categories_with_remainder,
                     locals: { project: @project }
   end
 
   def show_categories_bar
-    template.render partial: "categories_bar",
+    template.render partial: "projects/categories_bar",
                     as: :category,
                     collection: categories_with_remainder,
                     locals: { project: @project }

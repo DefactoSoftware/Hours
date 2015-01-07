@@ -1,5 +1,19 @@
 ---
 nl:
+  audits:
+    title: Audit Log
+    date: "Datum:"
+    action: "Handeling:"
+    user: "Gebruiker:"
+    project: "Project:"
+    category: "Categorie:"
+    hours: "Hours:"
+    from: van
+    to: naar
+    actions:
+      update: gewijzigd
+      create: gemaakt
+      delete: verwijderd
   account:
     back_to_website: Terug naar website
     confirm_destroy: Weet je zeker dat je je account wil verwijderen?
@@ -12,13 +26,18 @@ nl:
     last_name: Achternaam
     password: Wachtwoord
     repeat_password: Bevesting wachtwoord
-    restricted: restricted
     subdomain: subdomein
     warning: Het verwijderen van je account zal jouw en iedereens gegevens op %{subdomain}
       verwijderen en kan niet ongedaan worden gemaakt.
     users_instructions_html: "Collega's kunnen zich %{sign_up_path} registreren met
       een email dat eindigt op <em> %{domain} </em>"
   account_created_successfully: Aanmelden is gelukt
+  archives:
+    index:
+      date: Datum
+      project: Project
+      hours: Uren
+      un_archive_link: Dearchiveren
   activerecord:
     errors:
       models:
@@ -29,11 +48,22 @@ nl:
     models:
       user: Gebruiker
   back: Terug
+  budget_html: "<strong>%{budget_left}</strong> van <strong>%{budget}</strong> uren van het budget over"
   category:
-    remaining: Other
     edit: edit
+    remaining: Other
   category_created: De categorie is aangemaakt
   category_updated: De categorie is gewijzigd
+  change_password: Verander wachtwoord
+  charts:
+    hours_per_day: Uren per dag
+    hours_spent_per_category: Uren besteed per categorie
+    hours_spent_per_project: Uren besteed per project
+    hours_spent_per_user: Uren besteed per gebruiker
+  client:
+    edit: Bewerk
+  client_created: Client succesvol aangemaakt
+  client_updated: Client succesvol bijgewerkt
   confirm: Weet u het zeker?
   date:
     formats:
@@ -80,9 +110,7 @@ nl:
     confirmation:
       confirm_password: Bevestig mijn account
       salutation: Welkom %{email}!
-      text: 'Bevestig uw aanmelding met de link hieronder:'
     reset_password:
-      change_password: Verander mijn wachtwoord
       info_text: Uw wachtwoord wordt niet veranderdt tot u de link hierboven heb gebruikt
         om een nieuwe aan te maken.
       requested_link: 'Iemand heeft een aanvraag gedaan om uw wachtwoord te wijzigen.
@@ -94,16 +122,14 @@ nl:
       category: Categorie
       date: Datum
       delete: verwijderen
+      description: 'Beschrijving of #hashtags'
       edit: aanpassen
       edit_entry: Entry bewerken
       hours: Uren
-      hours_indication: u
       new: Nieuwe entry
       project: Project
-      description: "Beschrijving of #hashtags"
-      total: 'Totaal: %{hours_spent}'
       user_hours: "%{user}s uren"
-      per_project: Per project
+      changes: veranderingen
   entry_activity_html:
     one: "%{user} heeft één uur gespendeerd aan %{category} op %{project}"
     other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project}"
@@ -111,6 +137,10 @@ nl:
   entry_deleted: De uren zijn verwijderd
   entry_failed: Iets ging mis bij het opslaan van uw uren
   entry_saved: Uren zijn opgeslagen
+  helpful:
+    heading: Hulp nodig?
+    placeholder: Schrijf hier uw vraag...
+    tagline: Heeft u een vraag over Hours? Hulp nodig om te kunnen beginnen?
   helpers:
     submit:
       category:
@@ -121,35 +151,39 @@ nl:
       update: Opslaan
       user:
         create: Creeër Account
-  helpful:
-    heading: Hulp nodig?
-    placeholder: Schrijf hier uw vraag...
-    tagline: Heeft u een vraag over Hours? Hulp nodig om te kunnen beginnen?
-    title: Hulp nodig?
-  hours: uren
+      client:
+        create: Creeër Klant
   info:
     here: hier
     no_categories_html: Zo te zien heb je nog geen categorieen aangemaakt. Dat kun
       je %{categories_path} doen.
     no_projects_html: Zo te zien heb je nog geen projecten aangemaakt. Dat kun je
       %{new_project_path} doen.
-  main_text: Hier moet een supertoffe text komen te staan in het nederlands over hoe
-    tof hours is
+  loader:
+    saving: Opslaan
+    signing_in: Inloggen
   navbar:
-    entries: "Mijn Uren"
     dropdown:
       edit_user: Gegevens aanpassen
+    entries: Mijn Uren
   no_hours_registered: Niemand heeft nog tijd aan %{project} besteed
   project:
+    form:
+      client: Klant
+      no_client: Geen klant
+    show:
+      archive_link: Archiveren
+      un_archive_link: Dearchiveren
+      edit_link: aanpassen
+      per_user: Per gebruiker
     table_head:
       hours: Uren
       tag: Tag
-    show:
-      per_user: Per gebruiker
-  project_activity_html:
+    project_activity_html:
     one: "%{full_name} heeft %{hours} uren aan %{project} besteed"
     other: "%{count} mensen hebben %{hours} uren aan %{project} besteed"
   project_created: Het project is aangemaakt
+  project_updated: Het project is gewijzigd
   read_more: lees verder
   registration:
     edit: Pas uw gegevens aan
@@ -157,13 +191,16 @@ nl:
       target="_blank">Gravatar</a>
     hint:
       blank: laat het veld leeg als u het niet wilt aanpassen
-      current_password: we hebben uw huidig wachtwoord nodig om de veranderingen te
-        bevestigen
-    pending_information: 'In afwachting van bevestiging voor: %{unconfirmed_mail}'
+      current_password: we hebben uw huidig wachtwoord nodig om de veranderingen te bevestigen
     update_button: Opslaan
+  report:
+    filters: filters
+    hours_per_day: Uren per dag
+    monthly: 1 maand
+    weekly: 1 week
+    yearly: 1 jaar
   sign_in: Login
   sign_out: Uitloggen
-  sign_up: Aanmelden
   simple_form:
     labels:
       entry:
@@ -176,54 +213,48 @@ nl:
         last_name: Achternaam
         password: Wachtwoord
         password_confirmation: Wachtwoord bevestiging
-  time:
-    formats:
-      date: "%b %-d, %Y"
-      default: "%a, %b %-d, %Y at %r"
-      short: "%B %d"
-  titles:
-    accounts:
-      edit: Account Aanpassen
-      new: Registratie
-    activities: Activiteiten
-    application: Uren
-    categories:
-      index: Categoriëen
-      new: Nieuwe categorie
-      edit: Wijzig Categorie
-    entries:
-      index: "%{name}'s uren"
-    projects:
-      index: Projecten
-      new: Nieuw project
-    reports:
-      index: Reports
-    users:
-      index: Gebruikers
-  views:
-    pagination:
-      first: Eerste
-      last: Laatste
-      next: Volgende
-      previous: Vorige
-  user_updated: Je account is geupdatet
-  users:
-    invitation_sent_at: "%{time_ago} geleden uitgenodigd"
-    confirm: Bevestig
-    email: Email
-    invite: Nodig uit
-
+      project:
+        billable: Facturabel
+        name: Naam
+      client:
+        name: Naam
+        description: Beschrijving
+        logo: Logo
   tags:
     show:
-      users_title: per gebruiker
-      projects_title: per project
+      hours_indication: u
       hours_indication_title:
         one: uur
         other: uren
-      hours_indication: u
-      user: Gebruiker
-      date: Datum
-      project: Project
-      hours: Uren
-      category: Categorie
-      tags: Tags
+    show_more: Toon meer...
+  titles:
+    accounts:
+      edit: Account Aanpassen
+    activities: Activiteiten
+    archives:
+      index: Gearchiveerde projecten
+    application: Uren
+    categories:
+      edit: Bewerk Categorie
+      index: Categoriëen
+      new: Nieuwe Categorie
+    clients:
+      index: Klanten
+      new: Nieuwe Klant
+    entries:
+      index: "%{name} zijn Uren"
+    projects:
+      edit: Bewerk Project
+      index: Projecten
+      new: Nieuw project
+    users:
+      index: Gebruikers
+  user_updated: Je account is bijgewerkt
+  users:
+    confirm: Bevestig
+    email: Email
+    invitation_sent_at: "%{time_ago} geleden uitgenodigd"
+    invite: Nodig uit
+  views:
+    pagination:
+      truncate: ...

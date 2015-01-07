@@ -1,0 +1,11 @@
+.outer
+  .container
+    = simple_form_for resource, as: resource_name, |
+      url: invitation_path(resource_name),         |
+      html: { :method => :put } do |f|             |
+      = f.input :invitation_token, as: :hidden
+      = f.input :first_name
+      = f.input :last_name
+      = f.input :password
+      = f.input :password_confirmation
+      = f.button :submit, t("users.confirm")

@@ -1,0 +1,43 @@
+.client {
+  span {
+    vertical-align: super;
+  }
+
+  .color {
+    width: 25px;
+    height: 25px;
+    vertical-align: baseline;
+    margin-right: 0.5em;
+  }
+
+  img {
+    margin-right: 0.5em;
+  }
+
+  a.edit {
+    float: right;
+  }
+
+  .logo {
+    width: 25px;
+    height: 25px;
+  }
+
+  ul {
+    list-style:none;
+  }
+}
+
+.clients {
+  header {
+    a {
+      float: right;
+    }
+
+    .color {
+      width: 30px;
+      height: 30px;
+      margin-right: 0.3em;
+    }
+  }
+}

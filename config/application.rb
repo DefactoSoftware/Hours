@@ -14,6 +14,7 @@ Bundler.require(:default, Rails.env)
 module Hours
   class Application < Rails::Application
     require "hours"
+    require "time_series_initializer"
 
     config.active_record.default_timezone = :utc
 
@@ -31,6 +32,8 @@ module Hours
       app.config.paths.add "app/presenters", eager_load: true
     end
 
+    # config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**/}')]
+
     # Settings in config/environments/* take precedence
     # over those specified here. Application configuration should
     # go into files in config/initializers -- all .rb files in
@@ -42,11 +45,17 @@ module Hours
     # time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
 
+    # Don't force available locales, i.e. in case an unsupported locale is passed
+    # just silently switch to the default language (:en) instead of throwing
+    # an error.
+    I18n.config.enforce_available_locales = false
+
     # The default locale is :en and all translations
     # from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales',
     #                                              '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.secret_token = ENV["SECRET_TOKEN"]
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

@@ -1,0 +1,3 @@
+.hours-per-week
+  %p= t("charts.hours_per_week")
+  %canvas#line-chart{"data-data" => time_series.serialize.to_json}

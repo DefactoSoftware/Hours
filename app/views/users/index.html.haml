@@ -1,0 +1,19 @@
+.outer
+  .container
+    %h1= title
+    .users-overview
+      %table
+        %tbody
+          - @users.each do |user|
+            %tr
+              %td
+                = link_to user.full_name, user_path(user) if user.confirmed?
+              %td= user.email
+              %td
+                - unless user.accepted_or_not_invited?
+                  = t("users.invitation_sent_at",                            |
+                    time_ago: time_ago_in_words(user.invitation_created_at)) |
+    .invitation-form
+      = simple_form_for(User.new, url: user_invitation_path) do |f|
+        = f.input :email, placeholder: t("users.email"), label: false, required: true
+        = f.button :submit, t("users.invite")

@@ -10,10 +10,13 @@
 #  date        :date             not null
 #  created_at  :datetime
 #  updated_at  :datetime
+#  description :string(255)
 #
 
 class Entry < ActiveRecord::Base
   include Twitter::Extractor
+
+  audited allow_mass_assignment: true
 
   belongs_to :project, touch: true
   belongs_to :category
@@ -29,7 +32,7 @@ class Entry < ActiveRecord::Base
   validates :date, presence: true
   accepts_nested_attributes_for :taggings
 
-  scope :by_last_created_at, -> { order("created_at desc") }
+  scope :by_last_created_at, -> { order("created_at DESC") }
   scope :by_date, -> { order("date DESC") }
 
   before_save :set_tags_from_description

@@ -46,6 +46,10 @@
   }
 }
 
+.pika-single button {
+  min-width: 0;
+}
+
 .pika-next, .pika-prev {
   box-shadow: none;
   border: none;
@@ -79,6 +83,39 @@
   @include media($medium-screen) {
     font-size: $base-font-size;
   }
+
+  .entries-table-wrapper {
+    margin: 25px -25px 0;
+    // background: #fafafa;
+
+    .entries-table {
+      margin: 0;
+      // border-top: 1px solid #ddd;
+
+      th, td {
+        padding: 0.75em 25px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        font-size: .7em;
+        color: #ccc;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      tbody tr {
+        @include transition(all .3s ease);
+        // background: #fafafa;
+        color: #666;
+
+        &:hover {
+          // background: darken(#fafafa, 2%);
+          color: #333;
+        }
+      }
+    }
+  }
 }
 
 .legend {
@@ -91,24 +128,33 @@
 }
 
 .entries-table {
+  // date
   th:nth-child(1) {
     width: 10%;
   }
-
+  // project
   th:nth-child(2) {
     width: 12%;
   }
-
+  // hours
   th:nth-child(3) {
     width: 8%;
   }
-
+  // category
   th:nth-child(4) {
     width: 20%;
   }
-
+  // description
   th:nth-child(5) {
-    width: 40%;
+    width: 30%;
+  }
+  // actions
+  th:nth-child(6) {
+    width: 10%;
+  }
+  // changes
+  th:nth-child(7) {
+    width: 10%;
   }
 
   @media screen and (max-width: $medium-screen) {

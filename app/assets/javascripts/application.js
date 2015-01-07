@@ -68,7 +68,7 @@ $("#entry_tag_list").selectize({
   }
 });
 
-$(document).ready(function(){
+$(document).ready(function() {
   $('.submit-button').prop('disabled', true);
   $('#content').keyup(function() {
     $('.submit-button').prop('disabled', $(this).val() === '');
@@ -80,6 +80,7 @@ $(document).ready(function(){
 
   $('#entry_project_id').select2();
   $('#entry_category_id').select2();
+  $('#project_client_id').select2();
 
   if ($('body').hasClass('projects-index')) {
     new Tagger($(".taggable"));
@@ -93,6 +94,10 @@ $(document).ready(function(){
     at: '#',
     data: $('#entry_description').data('data')
   });
+
+  $('.modal-window')
+    .on('click', Hours.dismissModal)
+    .on('click', 'div', function(e) { e.stopPropagation() });
 });
 
 $(document).keyup(function(event) {

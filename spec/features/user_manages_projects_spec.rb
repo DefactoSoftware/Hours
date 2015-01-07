@@ -10,11 +10,71 @@ feature "User manages projects" do
   end
 
   scenario "creates a project" do
+    client = create(:client)
+
     click_link "New Project"
 
     fill_in "Name", with: "My new project"
+    select(client.name, from: "project_client_id")
+    fill_in "Description", with: "This is a **very** cool project!"
     click_button "Create Project"
     expect(page).to have_content(I18n.t('project_created'))
+    expect(page).to have_content(client.name)
+  end
+
+  scenario "creates a project with invalid data" do
+    click_link "New Project"
+
+    fill_in "Name", with: ""
+    click_button "Create Project"
+    expect(page).to have_content("can't be blank")
+  end
+
+  scenario "creates a billable project" do
+    click_link "New Project"
+
+    fill_in "Name", with: "My new project"
+    check "Billable"
+    click_button "Create Project"
+    expect(page).to have_content(I18n.t('project_created'))
+    expect(Project.last.billable).to be(true)
+  end
+
+  scenario "edit a none billable project to a billable project" do
+    project = create(:project)
+    visit edit_project_url(project, subdomain: subdomain)
+
+    check "Billable"
+    click_button "Update Project"
+    expect(project.reload.billable).to be(true)
+  end
+
+  scenario "go to the edit page of a project" do
+    project = create(:project)
+    visit project_url(project, subdomain: subdomain)
+    click_link "edit"
+    expect(current_url).to eq(edit_project_url(project, subdomain: subdomain))
+  end
+
+  scenario "edit a project" do
+    new_client = create(:client)
+    new_project_name = "A new project name"
+    project = create(:project)
+    visit edit_project_url(project, subdomain: subdomain)
+    fill_in "Name", with: new_project_name
+    select(new_client.name, from: "project_client_id")
+    click_button "Update Project"
+    expect(page).to have_content(I18n.t('project_updated'))
+    expect(page).to have_content(new_project_name)
+    expect(page).to have_content(new_client.name)
+  end
+
+  scenario "edit a project with invalid data" do
+    project = create(:project)
+    visit edit_project_url(project, subdomain: subdomain)
+    fill_in "Name", with: ""
+    click_button "Update Project"
+    expect(page).to have_content("can't be blank")
   end
 
   scenario "does not have access to other accounts projects" do
@@ -52,7 +112,7 @@ feature "User manages projects" do
   end
 
   scenario "views a single project" do
-    project = create(:project_with_entries)
+    project = create(:project_with_entries, description: "Cool, **markdown!**")
     entry = project.entries.last
     entry.update(description: "#TDD")
 
@@ -62,6 +122,7 @@ feature "User manages projects" do
     end
     expect(current_url).to eq(project_url(project, subdomain: subdomain))
     expect(page).to have_content("TDD")
+    expect(page).to have_content("Cool, markdown!")
   end
 
   scenario "views a single project with more" \

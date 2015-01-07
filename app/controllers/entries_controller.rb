@@ -13,13 +13,14 @@ class EntriesController < ApplicationController
 
   def index
     @user = User.find_by_slug(params[:user_id])
-    @entries = @user.entries.by_date.page(params[:page]).per(10)
+    respond_to do |format|
+      format.html { @entries = @user.entries.by_date.page(params[:page]).per(20) }
+      format.csv { send_csv(@user) }
+    end
   end
 
   def update
-    @entry = entry
-    @entry.update_attributes(entry_params)
-    if entry.save
+    if resource.update_attributes(entry_params)
       redirect_to user_entries_path(current_user), notice: t("entry_saved")
     else
       render "edit", notice: t("entry_failed")
@@ -27,17 +28,20 @@ class EntriesController < ApplicationController
   end
 
   def edit
-    @entry = entry
+    resource
   end
 
 
   def destroy
-    @entry = entry
-    @entry.destroy
+    resource.destroy
     redirect_to user_entries_path(current_user), notice: t('entry_deleted')
   end
 
   private
+
+  def resource
+    @entry ||= current_user.entries.find(params[:id])
+  end
 
   def entry_params
     params.require(:entry)
@@ -49,7 +53,11 @@ class EntriesController < ApplicationController
     Date.strptime(params[:entry][:date], DATE_FORMAT)
   end
 
-  def entry
-    current_user.entries.find(params[:id])
+  def send_csv(user)
+    send_data(
+      EntryCSVGenerator.generate(user.entries.by_date),
+      filename: "#{user.full_name}-entries-#{DateTime.now}.csv",
+      type: "text/csv"
+    )
   end
 end

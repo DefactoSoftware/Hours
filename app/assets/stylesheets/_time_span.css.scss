@@ -1,0 +1,29 @@
+
+.time-container {
+  @include clearfix;
+  margin: 1em;
+
+  p {
+    float: right;
+    // font-size: em;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  ul.time-span {
+    float: right;
+
+    li {
+      color: #ccc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      float: left;
+      margin-left: 10px;
+
+      a.active {
+        font-weight: bold;
+      }
+    }
+  }
+}

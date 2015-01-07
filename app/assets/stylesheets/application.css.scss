@@ -11,15 +11,21 @@
 @import "progress-bars";
 @import "activity-feed";
 @import "projects";
+@import "project";
 @import "entries";
 @import "users";
 @import "tags";
 @import "account";
 @import "modal";
+@import "audits";
+@import "clients";
+@import "logo";
+@import "charts";
+@import "time_span";
+@import "header";
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
 @import "pikaday";
 @import "selectize";
-@import "dc";
 @import "select2";
 @import "tagger";
 @import "jquery.atwho";
@@ -39,7 +45,7 @@ body {
   line-height: 1.7em;
   background: #f7f6f0;
 
-  &.accounts-new {
+  &.accounts-new, &.accounts-create {
     background: image-url("sky.jpg") center center;
     background-size: cover;
     padding-top: 0;
@@ -52,6 +58,7 @@ body {
 }
 
 h1 {
+  margin-bottom: 1em;
   text-align: center;
 
   @include media($medium-screen) {
@@ -73,7 +80,7 @@ h1 {
   padding: 25px;
   margin-bottom: 15px;
 
-  .accounts-new & {
+  .accounts-new &, .accounts-create & {
     background: transparent;
     box-shadow: none;
     color: #fff;
@@ -102,7 +109,7 @@ h1 {
   &.create {
   }
 
-  .accounts-new & {
+  .accounts-new &, .accounts-create & {
     width: 100%;
   }
 }
@@ -134,16 +141,6 @@ h1 {
   }
 }
 
-.dc-chart {
-  strong {
-    display: block;
-  }
-
-  g.row text {
-    fill: #333;
-  }
-}
-
 #flash_notice {
   @include flash($notice-color);
 }
@@ -162,39 +159,4 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 0.9em;
-}
-
-.chart {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 10px auto;
-  margin-bottom: 50px;
-  font-weight: 100;
-  color: #999;
-
-  canvas {
-    margin: 0 auto;
-    position: absolute;
-    z-index: 10;
-  }
-
-  h2 {
-    text-align: center;
-    color: black;
-    margin-bottom:10px;
-  }
-
-  .spent-info {
-    position: relative;
-    top: 84px;
-    text-align: center;
-
-    .hours {
-      display: block;
-      font-size: 2em;
-      color: #333 !important;
-      letter-spacing: -2px;
-    }
-  }
 }

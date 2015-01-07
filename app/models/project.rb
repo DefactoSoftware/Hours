@@ -7,6 +7,10 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  slug       :string(255)
+#  budget     :integer
+#  billable   :boolean          default(FALSE)
+#  client_id  :integer
+#  archived   :boolean          default(FALSE), not null
 #
 
 class Project < ActiveRecord::Base
@@ -18,9 +22,12 @@ class Project < ActiveRecord::Base
   has_many :users, -> { uniq }, through: :entries
   has_many :categories, -> { uniq }, through: :entries
   has_many :tags, -> { uniq }, through: :entries
+  belongs_to :client
 
   scope :by_last_updated, -> { order("updated_at DESC") }
   scope :by_name, -> { order("lower(name)") }
+  scope :are_archived, -> { where(archived: true) }
+  scope :unarchived, -> { where(archived: false) }
 
   def sorted_categories
     categories.sort_by do |category|
@@ -30,6 +37,12 @@ class Project < ActiveRecord::Base
 
   def label
     name
+  end
+
+  def budget_status
+    if budget
+      budget - entries.sum(:hours)
+    end
   end
 
   private

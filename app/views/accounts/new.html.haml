@@ -1,0 +1,16 @@
+.container
+  %h1 Free Trial
+  %title= title
+  = simple_form_for(@account) do |f|
+    = f.error_notification
+    .form-inputs
+      = f.simple_fields_for :owner do |o|
+        = o.input :first_name, required: true, label: false, placeholder: t("account.first_name")
+        = o.input :last_name, required: true, label: false, placeholder: t("account.last_name")
+        = o.input :email, required: true, label: false, placeholder: t("account.email")
+        = o.input :password, required: true, label: false, placeholder: t("account.password")
+        = o.input :password_confirmation, required: true, label: false, placeholder: t("account.repeat_password")
+      = f.input :subdomain, :required => true, label: false, placeholder: t("account.subdomain")
+      = f.button :submit, data: { disable_with: t("loader.saving") }
+  = link_to root_path do
+    %p= t("account.back_to_website")

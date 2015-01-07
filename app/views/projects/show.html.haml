@@ -1,0 +1,19 @@
+- cache @project do
+  .outer
+    .container
+      = render partial: "project_detail", locals: { project: @project }
+      = render "/time_span"
+      .charts
+        = render @time_series.chart, time_series: @time_series
+      .charts
+        = render "/charts/pie_chart", title: t('charts.hours_spent_per_user'), data: EntryStats.new(@time_series.entries_for_time_span).hours_for_subject_collection(User.all).to_json
+        = render "/charts/pie_chart", title: t('charts.hours_spent_per_category'), data: EntryStats.new(@time_series.entries_for_time_span).hours_for_subject_collection(Category.all).to_json
+      %table
+        %tbody
+          %tr
+            %th= t('project.table_head.tag')
+            %th= t('project.table_head.hours')
+          - @project.tags.each do |tag|
+            %tr
+              %td= link_to tag.name, tag_path(tag)
+              %td= EntryStats.new(tag.entries, @project).hours_for_subject

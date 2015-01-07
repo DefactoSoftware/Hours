@@ -1,0 +1,76 @@
+.audits-list {
+  $avatar-size: 30px;
+
+  color: #999;
+  margin-top: 15px;
+  font-size: 16px;
+
+  > li {
+    border-top: 1px solid #ddd;
+    padding: 12px 0;
+
+    ul {
+      // display: none;
+      background: #f8f8f8;
+      margin: 8px 0 0;
+      margin-bottom: -12px;
+    }
+
+    li {
+      border-bottom: 2px solid #fff;
+      font-size: .9em;
+      padding: .1em .4em;
+    }
+  }
+
+  .avatar {
+    display: inline-block;
+    height: $avatar-size;
+    font-size: 1.2em;
+    line-height: $avatar-size;
+    margin-right: 5px;
+    width: $avatar-size;
+
+    .image-circle {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  strong {
+    color: $base-font-color;
+  }
+
+  code {
+    color: $base-font-color;
+    font-size: 16px;
+    font-size: .9em;
+  }
+
+  time {
+    float: right;
+    line-height: $avatar-size;
+  }
+}
+
+.audits {
+  .title-container {
+    margin-top: -2em;
+    display: block;
+    text-align: center;
+  }
+
+  .entry-title {
+    background-color: white;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0 1em;
+    color: $light-gray;
+  }
+
+  .entry {
+    border: solid 1px $light-gray;
+    border-radius: $base-border-radius;
+    padding: 1em;
+  }
+}

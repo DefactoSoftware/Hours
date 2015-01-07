@@ -55,6 +55,15 @@ feature "User manages categories" do
     expect(page).to have_content "ahw yes"
   end
 
+  scenario "can not edit the category with wrong data" do
+    category = create(:category, name: "editing")
+
+    visit edit_category_url(category, subdomain: subdomain)
+    fill_in "Name", with: ""
+    click_button "Update Category"
+    expect(page).to have_content "Please review the problems below"
+  end
+
   def create_category(name)
     visit categories_url(subdomain: subdomain)
     fill_in "Name", with: name

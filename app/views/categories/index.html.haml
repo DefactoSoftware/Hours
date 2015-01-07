@@ -1,0 +1,7 @@
+.outer
+  .container
+    %h1= title
+    %hr/
+    %ul.categories-overview= render partial: "category", collection: @categories
+    %hr/
+    = render partial: "form"

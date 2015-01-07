@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901133357) do
+ActiveRecord::Schema.define(version: 20150106133726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,42 @@ ActiveRecord::Schema.define(version: 20140901133357) do
     t.datetime "updated_at"
   end
 
+  create_table "audits", force: true do |t|
+    t.integer  "auditable_id"
+    t.string   "auditable_type"
+    t.integer  "associated_id"
+    t.string   "associated_type"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "username"
+    t.string   "action"
+    t.text     "audited_changes"
+    t.integer  "version",         default: 0
+    t.string   "comment"
+    t.string   "remote_address"
+    t.string   "request_uuid"
+    t.datetime "created_at"
+  end
+
+  add_index "audits", ["associated_id", "associated_type"], name: "associated_index", using: :btree
+  add_index "audits", ["auditable_id", "auditable_type"], name: "auditable_index", using: :btree
+  add_index "audits", ["created_at"], name: "index_audits_on_created_at", using: :btree
+  add_index "audits", ["request_uuid"], name: "index_audits_on_request_uuid", using: :btree
+  add_index "audits", ["user_id", "user_type"], name: "user_index", using: :btree
+
   create_table "categories", force: true do |t|
     t.string   "name",       default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "clients", force: true do |t|
+    t.string   "name",              default: "", null: false
+    t.string   "description",       default: ""
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,19 +88,28 @@ ActiveRecord::Schema.define(version: 20140901133357) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description"
+    t.boolean  "billed"
   end
 
+  add_index "entries", ["billed"], name: "index_entries_on_billed", using: :btree
   add_index "entries", ["category_id"], name: "index_entries_on_category_id", using: :btree
+  add_index "entries", ["date"], name: "index_entries_on_date", using: :btree
   add_index "entries", ["project_id"], name: "index_entries_on_project_id", using: :btree
   add_index "entries", ["user_id"], name: "index_entries_on_user_id", using: :btree
 
   create_table "projects", force: true do |t|
-    t.string   "name",       default: "", null: false
+    t.string   "name",        default: "",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "client_id"
+    t.boolean  "archived",    default: false, null: false
+    t.boolean  "billable",    default: false
+    t.integer  "budget"
+    t.text     "description"
   end
 
+  add_index "projects", ["archived"], name: "index_projects_on_archived", using: :btree
   add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree
 
   create_table "taggings", force: true do |t|

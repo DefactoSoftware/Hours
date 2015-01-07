@@ -1,0 +1,8 @@
+.outer
+  .container
+    %h1= title
+    .danger-zone
+      %h2= t("account.danger_zone")
+      %p= t("account.warning", subdomain: @current_domain)
+      = button_to(t("account.delete"), { controller: :accounts, action: :destroy }, |
+          method: :delete, data: { confirm: t("account.confirm_destroy") })

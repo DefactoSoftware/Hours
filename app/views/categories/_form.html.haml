@@ -1,0 +1,5 @@
+= simple_form_for(@category) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name, required: true, autofocus: true
+    = f.button :submit, data: { disable_with: t("loader.saving") }

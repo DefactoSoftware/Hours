@@ -1,171 +1,178 @@
+---
 en:
-  titles:
-    application: Hours
-    accounts:
-      new: Registration
-      edit: Edit Account
-    projects:
-      index: Projects
-      new: New Project
-    categories:
-      index: Categories
-      new: New Category
-      edit: Edit Category
-    activities: Activities
-    entries:
-      index: "%{name}'s Hours"
-    reports:
-      index: Reports
-    users:
-      index: Users
-  category:
-    remaining: Other
-    edit: edit
-  date:
-    formats:
-      default: '%m/%d/%Y'
-      with_weekday: '%a %m/%d/%y'
-
-  time:
-    formats:
-      default: '%a, %b %-d, %Y at %r'
-      date: '%b %-d, %Y'
-      short: '%B %d'
-  helpers:
-    submit:
-      user:
-        create: Create Account
-      project:
-        create: Create Project
-      category:
-        new: Create Category
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            email:
-              invalid_email: "%{attribute} does not match organization email"
-  main_text: "Hours puts the <strong>our</strong> back into attendance management. We'll help you to take both the <em>attendance</em> and the <em>management</em> out of it, so you can focus on doing great work and having fun."
-
-  entries:
-    index:
-      new: New Entry
-      edit_entry: Edit Entry
-      date: Date
-      project: Project
-      hours: Hours
-      category: Category
-      description: "Description or #hashtags"
-      user_hours: "%{user}'s hours"
-      delete: delete
-      edit: edit
-      total: "Total %{hours_spent}"
-      hours_indication: h
-      per_project: Per project
-
-  back: Back
-  confirm: Are you sure?
-  sign_in: Sign in
-  sign_up: Sign Up
-  sign_out: Sign Out
-  account_created_successfully: Signed up successfully
-  project_created: Project successfully created
-  category_created: Category successfully created
-  category_updated: Category successfully updated
-  no_hours_registered: "Nobody spent any time on %{project} yet"
-  project_activity_html:
-    one: "%{full_name} spent %{hours} hours working on %{project}"
-    other: "%{count} people spent %{hours} hours working on %{project}"
-  entry_created: Entry successfully created
-  entry_saved: Entry successfully saved
-  entry_failed: Something went wrong saving your entry
-  entry_deleted: Entry successfully deleted
-  entry_activity_html:
-    one: "%{user} spent one hour doing %{category} on %{project}"
-    other: "%{user} spent %{count} hours doing %{category} on %{project}"
-  hours: hours
-  user_updated: Your account was successfully updated
-
-  helpful:
-    heading: Need help?
-    title: Need help?
-    tagline: Have a question about Hours? Need some help getting started?
-    placeholder: Write your question here...
-
-  email:
-    confirmation:
-      text: "You can confirm your account email through the link below:"
-      salutation: "Welcome %{email}!"
-      confirm_password: "Confirm my account"
-    reset_password:
-      salutation: "Hello %{email} !"
-      requested_link: "Someone has requested a link to change your password. You can do this through the link below."
-      wrong_mail: "If you didn't request this, please ignore this email."
-      info_text: "Your password won't change until you access the link above and create a new one."
-      change_password: "Change my password"
-
-  registration:
-    pending_information: "Currently waiting confirmation for: %{unconfirmed_mail}"
-    update_button: "Update"
-    hint:
-      blank: "leave it blank if you don't want to change it"
-      current_password: "we need your current password to confirm your changes"
-    edit: "Edit %{resource_name}"
-    gravatar_instructions_html: Update your profile pic on <a href="https://www.gravatar.com" target="_blank">Gravatar</a>
-
+  audits:
+    title: Audit Log
+    date: "Date:"
+    action: "Action:"
+    user: "User:"
+    project: "Project:"
+    category: "Category:"
+    hours: "Hours:"
+    from: from
+    to: to
+    actions:
+      update: updated
+      create: created
+      delete: deleted
   account:
-    invalid_characters: "contains invalid characters"
-    restricted: "restricted"
-    first_name: First Name
-    last_name: Last Name
+    back_to_website: back to the website
+    confirm_destroy: Are you sure you want to delete your account?
+    danger_zone: Danger Zone
+    delete: Delete my account
+    deleted: Your account was deleted. Sorry to see you go. :(
     email: Email
+    first_name: First Name
+    invalid_characters: contains invalid characters
+    last_name: Last Name
     password: Password
     repeat_password: Repeat Password
     subdomain: Subdomain
-    back_to_website: back to the website
-    danger_zone: Danger Zone
-    warning: Deleting your account will remove you and everyone else's data from %{subdomain} and cannot be undone.
-    delete: Delete my account
-    confirm_destroy: Are you sure you want to delete your account?
-    deleted: Your account was deleted. Sorry to see you go. :(
-    users_instructions_html: Coworkers can sign up %{sign_up_path} as long as they have an email that ends with <em> %{domain} </em>
-
-  project:
-    table_head:
-      tag: Tag
+    warning: Deleting your account will remove you and everyone else's data from %{subdomain}
+      and cannot be undone.
+  archives:
+    index:
+      date: Date
+      project: Project
       hours: Hours
-    show:
-      per_user: Per user
-
-  navbar:
-    entries: "My Hours"
-    dropdown:
-      edit_user: "Edit profile"
-
+      un_archive_link: Un-archive
+  back: Back
+  budget_html: "<strong>%{budget_left}</strong> of <strong>%{budget}</strong> hours left on budget"
+  category:
+    edit: edit
+    remaining: Other
+  category_created: Category successfully created
+  category_updated: Category successfully updated
+  change_password: Change password
+  charts:
+    hours_per_day: Hours per day
+    hours_per_week: Hours per week
+    hours_spent_per_category: Hours spent per category
+    hours_spent_per_project: Hours spent per project
+    hours_spent_per_user: Hours spent per user
+  client:
+    edit: Edit
+  client_created: Client successfully created
+  client_updated: Client successfully updated
+  confirm: Are you sure?
+  email:
+    confirmation:
+      confirm_password: Confirm my account
+      salutation: Welcome %{email}!
+    reset_password:
+      info_text: Your password won't change until you access the link above and create
+        a new one.
+      requested_link: Someone has requested a link to change your password. You can
+        do this through the link below.
+      salutation: Hello %{email} !
+      wrong_mail: If you didn't request this, please ignore this email.
+  entries:
+    index:
+      category: Category
+      date: Date
+      delete: delete
+      description: 'Description or #hashtags'
+      edit: edit
+      edit_entry: Edit Entry
+      hours: Hours
+      new: New Entry
+      project: Project
+      user_hours: "%{user}'s hours"
+      changes: changes
+      download_csv: Download as CSV
+  entry_activity_html:
+    one: "%{user} spent one hour doing %{category} on %{project}"
+    other: "%{user} spent %{count} hours doing %{category} on %{project}"
+  entry_created: Entry successfully created
+  entry_deleted: Entry successfully deleted
+  entry_failed: Something went wrong saving your entry
+  entry_saved: Entry successfully saved
+  helpful:
+    heading: Need help?
+    placeholder: Write your question here...
+    tagline: Have a question about Hours? Need some help getting started?
+  helpers:
+    submit:
+      project:
+        update: Update Project
   info:
     here: here
-    no_projects_html: "It looks like you don't have any projects set up yet, you can set one up %{new_project_path}."
-    no_categories_html: "It looks like you don't have any categories set up yet, you can set one up %{categories_path}."
-
-  users:
-    invitation_sent_at: Invited %{time_ago} ago
-    confirm: Confirm
-    email: Email
-    invite: Invite User
-
+    no_categories_html: It looks like you don't have any categories set up yet, you
+      can set one up %{categories_path}.
+    no_projects_html: It looks like you don't have any projects set up yet, you can
+      set one up %{new_project_path}.
+  loader:
+    saving: Saving
+    signing_in: Sigining in
+  navbar:
+    dropdown:
+      edit_user: Edit profile
+    entries: My Hours
+  no_hours_registered: Nobody spent any time on %{project} yet
+  project:
+    form:
+      client: Client
+      no_client: No Client
+    show:
+      archive_link: Archive
+      un_archive_link: Un-archive
+      edit_link: edit
+      per_user: Per user
+    table_head:
+      hours: Hours
+      tag: Tag
+  project_activity_html:
+    one: "%{full_name} spent %{hours} hours working on %{project}"
+    other: "%{count} people spent %{hours} hours working on %{project}"
+  project_created: Project successfully created
+  project_updated: Project successfully updated
+  registration:
+    edit: Edit %{resource_name}
+    gravatar_instructions_html: Update your profile pic on <a href="https://www.gravatar.com"
+      target="_blank">Gravatar</a>
+    hint:
+      blank: leave it blank if you don't want to change it
+      current_password: we need your current password to confirm your changes
+    update_button: Update
+  report:
+    filters: filters
+    hours_per_day: Hours per day
+    monthly: 1 month
+    weekly: 1 week
+    yearly: 1 year
+  restricted: Restricted
+  sign_in: Sign in
+  sign_out: Sign Out
   tags:
     show:
-      users_title: per user
-      projects_title: per project
       hours_indication_title:
         one: hour
         other: hours
       hours_indication: h
-      user: User
-      date: Date
-      project: Project
-      hours: Hours
-      category: Category
-      tags: Tags
     show_more: show more...
+  titles:
+    activities: Activities
+    application: Hours
+    accounts:
+      edit: Edit Account
+    archives:
+      index: Archives
+    categories:
+      index: Categories
+      new: New Category
+      edit: Edit Category
+    clients:
+      index: Clients
+      new: New Client
+    entries:
+      index: "%{name}'s Hours"
+    projects:
+      index: Projects
+      new: New Project
+      edit: Edit Project
+    users:
+      index: Users
+  users:
+    email: Email
+    invite: Invite User
+    invitation_sent_at: Invited %{time_ago} ago
+    confirm: Confirm
