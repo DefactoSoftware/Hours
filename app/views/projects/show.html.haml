@@ -1,4 +1,4 @@
-- cache @project do
+- cache [@project, params[:time_span]] do
   .outer
     .container
       = render partial: "project_detail", locals: { project: @project }
