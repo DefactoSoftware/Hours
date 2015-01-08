@@ -87,7 +87,7 @@ end
 
 class AuditChange::NilAssociation
   def initialize
-    @name = "nothing"
+    @name = I18n.t("audits.nothing")
   end
 
   def destroyed?

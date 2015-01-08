@@ -1,6 +1,7 @@
 ---
 en:
   audits:
+    nothing: nothing
     title: Audit Log
     date: "Date:"
     action: "Action:"

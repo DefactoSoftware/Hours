@@ -1,6 +1,7 @@
 ---
 nl:
   audits:
+    nothing: niets
     title: Audit Log
     date: "Datum:"
     action: "Handeling:"
