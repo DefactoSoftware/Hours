@@ -36,7 +36,6 @@ class Entry < ActiveRecord::Base
 
   scope :by_last_created_at, -> { order("created_at DESC") }
   scope :by_date, -> { order("date DESC") }
-  scope :not_billed, -> { where(billed: false) }
   scope :billable, -> { where("billable").joins(:project) }
 
   before_save :set_tags_from_description

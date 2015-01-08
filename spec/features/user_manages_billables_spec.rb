@@ -42,43 +42,5 @@ feature "User manages billables" do
       expect(entries_table).to have_content(client1.name)
       expect(entries_table).to_not have_content(client2.name)
     end
-
-    scenario "project" do
-      client1 = create(:client)
-      client2 = create(:client)
-      project1 = create(:project, client: client1, billable: true)
-      project2 = create(:project, client: client2, billable: true)
-      create(:entry, project: project1, billed: false)
-      create(:entry, project: project2, billed: false)
-
-      visit billables_url(subdomain: subdomain)
-
-      select(project1.name, from: 'filters_project_id')
-      click_button("Filter entries")
-
-      entries_table = find('.outer').text
-      expect(entries_table).to have_content(project1.name)
-      expect(entries_table).to_not have_content(project2.name)
-    end
-
-    scenario "billed" do
-      client1 = create(:client)
-      client2 = create(:client)
-      project1 = create(:project, client: client1, billable: true)
-      project2 = create(:project, client: client2, billable: true)
-      create(:entry, project: project1, billed: false)
-      create(:entry, project: project2, billed: true)
-
-      visit billables_url(subdomain: subdomain)
-
-      select("Not billed", from: 'filters_billed')
-      click_button("Filter entries")
-
-      entries_table = find('.outer').text
-      expect(entries_table).to have_content(client1.name)
-      expect(entries_table).to have_content(project1.name)
-      expect(entries_table).to_not have_content(client2.name)
-      expect(entries_table).to_not have_content(project2.name)
-    end
   end
 end

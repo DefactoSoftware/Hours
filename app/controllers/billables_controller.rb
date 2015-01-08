@@ -1,6 +1,6 @@
 class BillablesController < ApplicationController
   def index
-    @entries = EntryQuery.new(resource, filter_params).filter
+    @entries = EntryQuery.new(resource, params[:filters]).filter
     @projects = Project.by_last_updated
     @clients = Client.by_last_updated
   end
@@ -19,9 +19,5 @@ class BillablesController < ApplicationController
 
   def resource
     @entries ||= Entry.billable
-  end
-
-  def filter_params
-    params[:filters]
   end
 end
