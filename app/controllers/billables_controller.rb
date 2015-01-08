@@ -1,8 +1,7 @@
 class BillablesController < ApplicationController
   def index
-    @entries = EntryQuery.new(resource, params[:filters]).filter
-    @projects = Project.by_last_updated
-    @clients = Client.by_last_updated
+    entries = EntryQuery.new(resource, params[:filters]).filter
+    @billable_list = BillableList.new(entries)
   end
 
   def bill_entries

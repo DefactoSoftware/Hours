@@ -13,7 +13,6 @@
         %p= t("info.no_billable_entries_html")
     = form_tag("/billables", method: "post", id: "billable-entries-form") do
       - cache [cache_keys_for_all(:clients, :entries, :projects), current_locale] do
-        - @clients.each do |client|
-          - if EntryQuery.new(@entries, { client_id: client.id }).filter.any?
-            %h1= client.name
-            = render "projects", projects: @projects.where(client: client)
+        - @billable_list.clients.each do |client|
+          %h1= client.name
+          = render "projects", projects: @billable_list.projects_for_client(client)

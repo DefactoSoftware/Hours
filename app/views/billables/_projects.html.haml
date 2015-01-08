@@ -1,10 +1,9 @@
 - projects.each do |project|
-  - if EntryQuery.new(@entries, { project_id: project.id }).filter.any?
-    .container
-      %h1= project.name
-      = render "entries", entries: EntryQuery.new(@entries, {project_id: project.id}).filter, project: project
-      = content_tag(:a, class: 'mark-project-as-billed', data_project_id: project.id) do
-        = t("billables.mark_project_as_billed")
-      %div
-        %button.submit-billable-entries= t("billables.buttons.bill_selected")
+  .container
+    %h1= project.name
+    = render "entries", entries: @billable_list.entries_for_project(project), project: project
+    = content_tag(:a, class: 'mark-project-as-billed', data_project_id: project.id) do
+      = t("billables.mark_project_as_billed")
+    %div
+      %button.submit-billable-entries= t("billables.buttons.bill_selected")
 
