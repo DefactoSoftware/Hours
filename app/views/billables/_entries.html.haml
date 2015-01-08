@@ -1,13 +1,12 @@
 %table.entries
-  %th
-    %tr
-      %td
-        %input{ type: "checkbox", "data-project-id" => project.id, class: "bill-project" }
-        = t("billables.table.billed")
-      %td= t("billables.table.date")
-      %td= t("billables.table.category")
-      %td= t("billables.table.hours")
-      %td= t("billables.table.user")
+  %tr
+    %th
+      %input{ type: "checkbox", "data-project-id" => project.id, class: "bill-project" }
+      = t("billables.table.billed")
+    %th= t("billables.table.date")
+    %th= t("billables.table.category")
+    %th= t("billables.table.hours")
+    %th= t("billables.table.user")
   - entries.billable.each do |entry|
     %tr.info-row
       %td=billable_entry_checkbox(entry)
