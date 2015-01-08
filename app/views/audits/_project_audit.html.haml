@@ -1,0 +1,22 @@
+.entry
+  %div.title-container
+    %p.entry-title Project
+  %div
+    %span= t("audits.name")
+    %span= @history.auditable.name
+  %div
+    %span= t("audits.client")
+    %span= @history.auditable.client.name if @history.auditable.client
+  %div
+    %span= t("audits.description")
+    %span= @history.auditable.description
+  %div
+    %span= t("audits.budget")
+    %span= @history.auditable.budget
+  %div
+    %span= t("audits.billable")
+    %span= t("boolean.#{@history.auditable.billable}")
+  %div
+    %span= t("audits.archived")
+    %span= t("boolean.#{@history.auditable.archived}")
+= render partial: "audits"

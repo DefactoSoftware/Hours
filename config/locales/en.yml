@@ -6,6 +6,12 @@ en:
     action: "Action:"
     user: "User:"
     project: "Project:"
+    name: "Name:"
+    client: "Client:"
+    description: "Description:"
+    billable: "Billable:"
+    archived: "Archived:"
+    budget: "Budget:"
     category: "Category:"
     hours: "Hours:"
     from: from
@@ -37,6 +43,9 @@ en:
       hours: Hours
       un_archive_link: Un-archive
   back: Back
+  boolean:
+    "true": "yes"
+    "false": "no"
   budget_html: "<strong>%{budget_left}</strong> of <strong>%{budget}</strong> hours left on budget"
   category:
     edit: edit
@@ -115,6 +124,7 @@ en:
       no_client: No Client
     show:
       archive_link: Archive
+      changes_link: changes
       un_archive_link: Un-archive
       edit_link: edit
       per_user: Per user

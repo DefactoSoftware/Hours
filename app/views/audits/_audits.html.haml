@@ -1,0 +1,30 @@
+%ul.audits-list
+  - @history.audits.each do |audit|
+    %li.audit
+      = time_tag audit.created_at
+      = render "application/avatar", user: audit.user
+      %strong
+        = link_to user_entries_path(audit.user) do
+          = audit.user.full_name
+      = t("audits.actions.#{audit.action}")
+      - if audit.creation?
+        =  audit.auditable_type
+      - else
+        = audit.audit_changes.map { |change| "<code>#{change.property}</code>" }.join(", ").html_safe
+
+      %ul.changes
+        - audit.audit_changes.each do |change|
+          %li
+            %code= change.property
+            - if change.update?
+              = t("audits.from")
+              - if change.association? && !change.from.destroyed?
+                %code= link_to(change.from.name, change.from)
+              - else
+                %code= change.from
+
+            = t("audits.to")
+            - if change.association? && !change.to.destroyed?
+              %code= link_to(change.to.name, change.to)
+            - else
+              %code= change.to

@@ -6,6 +6,12 @@ nl:
     action: "Handeling:"
     user: "Gebruiker:"
     project: "Project:"
+    name: "Naam:"
+    client: "Klant:"
+    description: "Beschrijving:"
+    billable: "Facturabel:"
+    archived: "Gearchiveerd:"
+    budget: "Budget:"
     category: "Categorie:"
     hours: "Hours:"
     from: van
@@ -48,6 +54,9 @@ nl:
     models:
       user: Gebruiker
   back: Terug
+  boolean:
+    "true": "ja"
+    "false": "nee"
   budget_html: "<strong>%{budget_left}</strong> van <strong>%{budget}</strong> uren van het budget over"
   category:
     edit: edit
@@ -129,7 +138,7 @@ nl:
       new: Nieuwe entry
       project: Project
       user_hours: "%{user}s uren"
-      changes: veranderingen
+      changes: wijzigingen
   entry_activity_html:
     one: "%{user} heeft één uur gespendeerd aan %{category} op %{project}"
     other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project}"
@@ -173,6 +182,7 @@ nl:
       no_client: Geen klant
     show:
       archive_link: Archiveren
+      changes_link: wijzigingen
       un_archive_link: Dearchiveren
       edit_link: aanpassen
       per_user: Per gebruiker
