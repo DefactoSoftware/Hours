@@ -39,7 +39,7 @@ module ApplicationHelper
     if entry.billed
       "√"
     else
-      tag(:input, type: "checkbox", name: "entries_to_bill[]", class: "bill_checkbox", value: entry.id, data_project_id: entry.project.id)
+      tag(:input, type: "checkbox", name: "entries_to_bill[]", class: "bill_checkbox", value: entry.id, "data-project-id" => entry.project.id)
     end
   end
 

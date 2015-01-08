@@ -1,7 +1,9 @@
 %table.entries
   %th
     %tr
-      %td= t("billables.table.billed")
+      %td
+        %input{ type: "checkbox", "data-project-id" => project.id, class: "bill-project" }
+        = t("billables.table.billed")
       %td= t("billables.table.date")
       %td= t("billables.table.category")
       %td= t("billables.table.hours")

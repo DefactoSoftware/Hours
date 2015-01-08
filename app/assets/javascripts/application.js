@@ -38,13 +38,13 @@ var picker = new Pikaday({
   format: 'DD/MM/YYYY'
 });
 
-$(".alert").ready(function() {
+$('.alert').ready(function() {
   setTimeout(function() {
-    $("#flash").fadeOut();
+    $('#flash').fadeOut();
   }, 5000);
 });
 
-$("#entry_tag_list").selectize({
+$('#entry_tag_list').selectize({
   valueField: 'tag',
   labelField: 'tag',
   searchField: 'tag',
@@ -85,7 +85,7 @@ $(document).ready(function() {
   $('#project_client_id').select2();
 
   if ($('body').hasClass('projects-index')) {
-    new Tagger($(".taggable"));
+    new Tagger($('.taggable'));
   }
 
   if ($('.tags-list').length > 0) {
@@ -99,7 +99,7 @@ $(document).ready(function() {
 
   $('.modal-window')
     .on('click', Hours.dismissModal)
-    .on('click', 'div', function(e) { e.stopPropagation() });
+    .on('click', 'div', function(e) { e.stopPropagation(); });
 });
 
 $(document).keyup(function(event) {
@@ -111,27 +111,30 @@ $(document).keyup(function(event) {
 });
 
 $(document).ready(function () {
-  $("#submit-billable-entries").click(function (e) {
+  function countCheckedBoxes() {
+    var selectedEntriesCount = $('.bill_checkbox:checked').length;
+    var lang = $('body').data('language');
+    $('#amount_marked_entries').text(I18n[lang].checked.pre + selectedEntriesCount + I18n[lang].checked.post);
+  }
+
+  $('#submit-billable-entries').click(function (e) {
     e.preventDefault();
-    $("#billable-entries-form").submit();
+    $('#billable-entries-form').submit();
   });
 
-  $("#submit-billable-entries").bind('ajax:complete', function() {
-    window.location.reload()
+  $('#submit-billable-entries').bind('ajax:complete', function() {
+    window.location.reload();
   });
 
-  $("input[type=checkbox]").click(function (e) {
-    if ($(e.target).prop('checked')) {
-      SelectedBillables += 1;
-    } else {
-      SelectedBillables -= 1;
-    }
-    $("#amount_marked_entries").text("You've marked "+SelectedBillables+" entries to be billed")
+  $('.bill_checkbox').change(function (e) {
+    countCheckedBoxes();
   });
 
-  $(".mark-project-as-billed").click(function (element) {
-    $("input[data_project_id='"+$(element.target).attr('data_project_id')+"']").each(function (index, element) {
-      $(element).attr('checked', true);
+  $('.bill-project').click(function (element) {
+    var checked = $(element.target).prop('checked');
+    $('input[data-project-id="' + $(element.target).attr('data-project-id') + '"]').each(function (index, element) {
+      $(element).prop('checked', checked);
+      countCheckedBoxes();
     });
-  })
-})
+  });
+});
