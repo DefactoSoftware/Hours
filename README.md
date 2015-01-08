@@ -66,7 +66,6 @@ Feature Flags
 Description:
 
 Single Tenant Mode: Initialize application in single tenant mode. Disabled by default.
-The first time this mode is enabled, you will be able to create an initial account on the sign in page.
 
 Usage:
 

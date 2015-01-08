@@ -1,10 +1,10 @@
 %p= t("devise.mailer.invitation_instructions.greeting")
 %p
   = t("devise.mailer.invitation_instructions.someone_invited_you", |
-    url: root_url(subdomain: @current_subdomain))           |
+    url: root_url(subdomain: current_subdomain))           |
 %p
   = link_to t("devise.mailer.invitation_instructions.accept"), |
     accept_invitation_url(@resource,                           |
     invitation_token: @token,                                  |
-    subdomain: @current_subdomain)                      |
+    subdomain: current_subdomain)                      |
   %p= t("devise.mailer.invitation_instructions.ignore_html")
