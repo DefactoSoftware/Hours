@@ -2,8 +2,8 @@ class BillableList
   attr_reader :clients
   def initialize(entries)
     @entries = entries
-    @projects = Project.where(id: @entries.map(&:project_id))
-    @clients = Client.where(id: @entries.map { |entry| entry.client.id })
+    @projects = Project.where(id: @entries.map(&:project_id)).by_last_updated
+    @clients = Client.where(id: @entries.map { |entry| entry.client.id }).by_last_updated
   end
 
   def entries_for_project(project)
