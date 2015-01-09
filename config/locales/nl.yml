@@ -182,14 +182,15 @@ nl:
       client: Klant
       no_client: Geen klant
     show:
-      archive_link: Archiveren
       changes_link: wijzigingen
-      un_archive_link: Dearchiveren
       edit_link: aanpassen
       per_user: Per gebruiker
     table_head:
       hours: Uren
       tag: Tag
+    edit:
+      archive_link: Archiveren
+      un_archive_link: Dearchiveren
     project_activity_html:
     one: "%{full_name} heeft %{hours} uren aan %{project} besteed"
     other: "%{count} mensen hebben %{hours} uren aan %{project} besteed"

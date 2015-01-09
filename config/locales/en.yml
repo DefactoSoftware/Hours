@@ -124,14 +124,15 @@ en:
       client: Client
       no_client: No Client
     show:
-      archive_link: Archive
       changes_link: changes
-      un_archive_link: Un-archive
       edit_link: edit
       per_user: Per user
     table_head:
       hours: Hours
       tag: Tag
+    edit:
+      archive_link: Archive
+      un_archive_link: Un-archive
   project_activity_html:
     one: "%{full_name} spent %{hours} hours working on %{project}"
     other: "%{count} people spent %{hours} hours working on %{project}"
