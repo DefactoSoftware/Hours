@@ -1,11 +1,12 @@
+%div.marked_entries
+  %p#amount_marked_entries
+    Select entries to bill
+  %button{id: "submit-billable-entries", disabled: true}
+    =t("billables.buttons.bill_selected")
 .billables
   .sidebar
-    %h1 Filters
     .container
       = render "filters"
-    .container
-      %button#submit-billable-entries= t("billables.buttons.bill_selected")
-      %p#amount_marked_entries
   .outer
     %h1= t("billables.billable_entries")
     - unless @entries.any?

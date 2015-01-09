@@ -7,7 +7,7 @@ class EntryQuery
   def filter
     result = entries
     filter_params.each do |filter, value|
-      result = result.public_send(filter, value) if present(value)
+      result = result.public_send(filter, value) if present?(value)
     end
     result
   end
@@ -20,7 +20,7 @@ class EntryQuery
     params ? params.slice(:client_id, :project_id, :billed, :to_date, :from_date).reject { |_, value| value.nil? } : []
   end
 
-  def present(value)
+  def present?(value)
     value != "" && value != nil
   end
 

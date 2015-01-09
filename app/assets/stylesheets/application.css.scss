@@ -115,6 +115,11 @@ h1 {
   }
 }
 
+.button-grey {
+  @extend %button;
+  background-color: grey !important;
+}
+
 .image-circle {
   border-radius: 50%;
 }

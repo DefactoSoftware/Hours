@@ -3,6 +3,7 @@ $(document).ready(function () {
     var selectedEntriesCount = $('.bill_checkbox:checked').length;
     var lang = $('body').data('language');
     $('#amount_marked_entries').text(I18n[lang].checked.pre + selectedEntriesCount + I18n[lang].checked.post);
+    $('#submit-billable-entries').attr("disabled", selectedEntriesCount === 0);
   }
 
   $('#submit-billable-entries').click(function (e) {

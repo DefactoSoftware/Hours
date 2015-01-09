@@ -2,6 +2,4 @@
   .container
     %h1= project.name
     = render "entries", entries: @billable_list.entries_for_project(project), project: project
-    %div
-      %button.submit-billable-entries= t("billables.buttons.bill_selected")
-
+    %button.submit-billable-entries= t("billables.buttons.bill_selected")
