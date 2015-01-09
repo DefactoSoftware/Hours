@@ -11,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  description :string(255)
+#  billed      :boolean
 #
 
 class Entry < ActiveRecord::Base
@@ -20,6 +21,7 @@ class Entry < ActiveRecord::Base
 
   belongs_to :project, touch: true
   belongs_to :category
+  has_one :client, through: :project
   belongs_to :user, touch: true
   has_many :taggings, inverse_of: :entry
   has_many :tags, through: :taggings
@@ -34,6 +36,7 @@ class Entry < ActiveRecord::Base
 
   scope :by_last_created_at, -> { order("created_at DESC") }
   scope :by_date, -> { order("date DESC") }
+  scope :billable, -> { where("billable").joins(:project) }
 
   before_save :set_tags_from_description
 

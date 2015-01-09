@@ -1,0 +1,18 @@
+%table.entries
+  %tr
+    %th
+      %input{ type: "checkbox", "data-project-id" => project.id, class: "bill-project" }
+      = t("billables.table.billed")
+    %th= t("billables.table.date")
+    %th= t("billables.table.category")
+    %th= t("billables.table.hours")
+    %th= t("billables.table.user")
+  - entries.billable.each do |entry|
+    %tr.info-row
+      %td=billable_entry_checkbox(entry)
+      %td=l(entry.date)
+      %td=entry.category.name
+      %td.center= entry.hours
+      %td
+        = link_to entry.user do
+          = entry.user.full_name

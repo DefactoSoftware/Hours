@@ -44,6 +44,26 @@ en:
       hours: Hours
       un_archive_link: Un-archive
   back: Back
+  billables:
+    billable_entries: Billable Entries
+    buttons:
+      bill_selected: Bill selected entries
+      filter: Filter entries
+    filters:
+      billed: Billed
+      billed_label: Billed or not
+      billed_empty: All billable entries
+      clients: Clients
+      from_date_label: From date
+      not_billed: Not billed
+      to_date_label: To date
+      projects: Projects
+    table:
+      hours: Hours
+      date: Date
+      user: User
+      category: Category
+      billed: Billed
   boolean:
     "true": "yes"
     "false": "no"
@@ -111,6 +131,9 @@ en:
       can set one up %{categories_path}.
     no_projects_html: It looks like you don't have any projects set up yet, you can
       set one up %{new_project_path}.
+    no_billable_projects_html: It looks like you don't have any billable projects yet, you can
+      set one up %{new_project_path}.
+    no_billable_entries_html: It looks like you've either billed all billable entries or there are simply no billable entries yet.
   loader:
     saving: Saving
     signing_in: Sigining in
@@ -168,6 +191,8 @@ en:
       edit: Edit Account
     archives:
       index: Archives
+    billables:
+      index: Billable Entries
     categories:
       index: Categories
       new: New Category

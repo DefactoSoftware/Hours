@@ -23,6 +23,7 @@
 @import "charts";
 @import "time_span";
 @import "header";
+@import "billables";
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
 @import "pikaday";
 @import "selectize";
@@ -112,6 +113,11 @@ h1 {
   .accounts-new &, .accounts-create & {
     width: 100%;
   }
+}
+
+.button-grey {
+  @extend %button;
+  background-color: grey !important;
 }
 
 .image-circle {

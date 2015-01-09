@@ -35,9 +35,21 @@ module ApplicationHelper
     I18n.locale
   end
 
+  def billable_entry_checkbox(entry)
+    if entry.billed
+      "√"
+    else
+      tag(:input, type: "checkbox", name: "entries_to_bill[]", class: "bill_checkbox", value: entry.id, "data-project-id" => entry.project.id)
+    end
+  end
+
   def link_to_time_span(span)
     params_time_span = params.fetch(:time_span) { "monthly" }
     link_params = params_time_span == span ? { class: "active" } : {}
     link_to t("report.#{span}"), url_for(time_span: span), link_params
+  end
+
+  def selected_param(param)
+    params[:filters][param] if params[:filters]
   end
 end

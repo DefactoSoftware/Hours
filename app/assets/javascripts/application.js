@@ -20,6 +20,7 @@
 //= require select2
 //= require charts
 //= require i18n
+//= require billables
 //= require date-formatter
 //= require feed
 //= require_tree .
@@ -36,13 +37,13 @@ var picker = new Pikaday({
   format: 'DD/MM/YYYY'
 });
 
-$(".alert").ready(function() {
+$('.alert').ready(function() {
   setTimeout(function() {
-    $("#flash").fadeOut();
+    $('#flash').fadeOut();
   }, 5000);
 });
 
-$("#entry_tag_list").selectize({
+$('#entry_tag_list').selectize({
   valueField: 'tag',
   labelField: 'tag',
   searchField: 'tag',
@@ -83,7 +84,7 @@ $(document).ready(function() {
   $('#project_client_id').select2();
 
   if ($('body').hasClass('projects-index')) {
-    new Tagger($(".taggable"));
+    new Tagger($('.taggable'));
   }
 
   if ($('.tags-list').length > 0) {
@@ -97,7 +98,7 @@ $(document).ready(function() {
 
   $('.modal-window')
     .on('click', Hours.dismissModal)
-    .on('click', 'div', function(e) { e.stopPropagation() });
+    .on('click', 'div', function(e) { e.stopPropagation(); });
 });
 
 $(document).keyup(function(event) {
@@ -107,3 +108,4 @@ $(document).keyup(function(event) {
     Hours.dismissModal();
   }
 });
+
