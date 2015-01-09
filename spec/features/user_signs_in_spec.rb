@@ -14,10 +14,6 @@ feature "User signs in" do
     expect(page).to have_content(I18n.t("devise.failure.invalid"))
   end
 
-  scenario "does not allow sign in unless on subdomain" do
-    expect { visit new_user_session_path }.to raise_error ActionController::RoutingError
-  end
-
   scenario "does not allow users to sign in on someone elses subdomain" do
     user2 = build(:user)
     account2 = create(:account_with_schema, owner: user2)
