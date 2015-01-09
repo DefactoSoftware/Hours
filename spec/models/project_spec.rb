@@ -31,6 +31,17 @@ describe Project do
     it { should belong_to :client }
   end
 
+  it "is audited" do
+    project = create(:project, name: "ProjectAwesome")
+    user = create(:user)
+
+    Audited.audit_class.as_user(user) do
+      project.update_attribute(:archived, true)
+    end
+
+    expect(project.audits.last.user).to eq(user)
+  end
+
   describe "#label" do
     it "returns the projects name" do
       project = create(:project, name: "ProjectAwesome")
