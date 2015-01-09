@@ -5,13 +5,13 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @new_category = Category.new(category_params)
-    if @new_category.save
+    new_category = Category.new(category_params)
+    if new_category.save
       redirect_to categories_path, notice: t(:category_created)
     else
       set_index_params
       redirect_to categories_path,
-                  notice: @new_category.errors.full_messages.join(" ")
+                  notice: new_category.errors.full_messages.join(" ")
     end
   end
 

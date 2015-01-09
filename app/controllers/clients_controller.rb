@@ -9,13 +9,13 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @new_client = Client.new(client_params)
-    if @new_client.save
+    new_client = Client.new(client_params)
+    if new_client.save
       redirect_to clients_path, notice: t(:client_created)
     else
       set_index_params
       redirect_to clients_path,
-                  notice: @new_client.errors.full_messages.join(" ")
+                  notice: new_client.errors.full_messages.join(" ")
     end
   end
 
