@@ -20,6 +20,7 @@
 //= require select2
 //= require charts
 //= require i18n
+//= require billables
 //= require date-formatter
 //= require feed
 //= require_tree .
@@ -30,8 +31,6 @@ var Hours = Hours || {
     $('.modal-state').attr('checked', false);
   }
 };
-
-var SelectedBillables = 0;
 
 var picker = new Pikaday({
   field: $('#datepicker')[0],
@@ -110,31 +109,3 @@ $(document).keyup(function(event) {
   }
 });
 
-$(document).ready(function () {
-  function countCheckedBoxes() {
-    var selectedEntriesCount = $('.bill_checkbox:checked').length;
-    var lang = $('body').data('language');
-    $('#amount_marked_entries').text(I18n[lang].checked.pre + selectedEntriesCount + I18n[lang].checked.post);
-  }
-
-  $('#submit-billable-entries').click(function (e) {
-    e.preventDefault();
-    $('#billable-entries-form').submit();
-  });
-
-  $('#billable-entries-form').bind('ajax:complete', function() {
-    window.location.reload();
-  });
-
-  $('.bill_checkbox').change(function (e) {
-    countCheckedBoxes();
-  });
-
-  $('.bill-project').click(function (element) {
-    var checked = $(element.target).prop('checked');
-    $('input[data-project-id="' + $(element.target).attr('data-project-id') + '"]').each(function (index, element) {
-      $(element).prop('checked', checked);
-      countCheckedBoxes();
-    });
-  });
-});
