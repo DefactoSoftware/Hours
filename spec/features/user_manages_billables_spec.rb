@@ -20,6 +20,8 @@ feature "User manages billables" do
 
     find(:css, ".submit-billable-entries").click
 
+    visit billables_url(subdomain: subdomain)
+
     expect(page.body).to have_content("√")
     expect(page.body).to_not have_selector(".bill_checkbox[value='#{entry.id}']")
   end
@@ -36,7 +38,7 @@ feature "User manages billables" do
       visit billables_url(subdomain: subdomain)
 
       select(client1.name, from: 'filters_client_id')
-      click_button("Filter entries")
+      find(:css, "input[value='#{I18n.t('billables.buttons.filter')}']").click
 
       entries_table = find('.outer').text
       expect(entries_table).to have_content(client1.name)

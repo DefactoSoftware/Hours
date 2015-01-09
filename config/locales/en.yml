@@ -58,9 +58,6 @@ en:
       not_billed: Not billed
       to_date_label: To date
       projects: Projects
-    buttons:
-      bill_selected: Bill selected entries
-      filter: filter
     table:
       hours: Hours
       date: Date

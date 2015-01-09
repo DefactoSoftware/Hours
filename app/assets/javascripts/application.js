@@ -122,7 +122,7 @@ $(document).ready(function () {
     $('#billable-entries-form').submit();
   });
 
-  $('#submit-billable-entries').bind('ajax:complete', function() {
+  $('#billable-entries-form').bind('ajax:complete', function() {
     window.location.reload();
   });
 

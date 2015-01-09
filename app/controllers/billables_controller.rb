@@ -11,7 +11,7 @@ class BillablesController < ApplicationController
         entry.update_attribute(:billed, true)
       end
     end
-    redirect_to billables_path
+    render json: nil, status: 200
   end
 
   private
