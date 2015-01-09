@@ -53,7 +53,6 @@ GEM
     audited-activerecord (4.0.0)
       activerecord (~> 4.0)
       audited (= 4.0.0)
-    awesome_print (1.2.0)
     bcrypt (3.1.9)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -203,9 +202,6 @@ GEM
     pg (0.17.1)
     pikaday-gem (1.1.0.0)
       railties (>= 3.1)
-    polyglot (0.3.5)
-    powder (0.2.1)
-      thor (>= 0.11.5)
     pry (0.10.0)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -351,7 +347,6 @@ DEPENDENCIES
   annotate
   apartment (~> 0.26.0)
   audited-activerecord (~> 4.0)
-  awesome_print
   better_errors
   binding_of_caller
   bitters
@@ -390,7 +385,6 @@ DEPENDENCIES
   paperclip (~> 4.2)
   pg
   pikaday-gem (~> 1.1.0.0)
-  powder
   pry
   pry-rails
   rack-timeout
