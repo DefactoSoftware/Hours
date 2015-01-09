@@ -8,3 +8,25 @@ input[type="submit"] {
   vertical-align: middle;
   white-space: nowrap;
 }
+
+.button {
+  @extend %button;
+  &:hover {
+    color: white;
+  }
+  &.create {
+  }
+
+  .accounts-new &, .accounts-create & {
+    width: 100%;
+  }
+}
+
+.button-gray { 
+  @extend %button;
+  background-color: $medium-gray !important;
+  &:hover {
+    background-color: $medium-dark-gray !important;
+  }
+}
+

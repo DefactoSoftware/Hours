@@ -11,12 +11,11 @@ feature "User manages archived projects" do
 
   scenario "archive a project" do
     project = create(:project)
-
+  
     visit edit_project_url(project, subdomain: subdomain)
-    check "Archived"
-    click_button I18n.t("helpers.submit.project.update")
+    click_button I18n.t("project.edit.archive_link")  
 
-    expect(page).to have_content(I18n.t("project_updated"))
+    expect(project.reload.archived).to eq(true)
   end
 
   scenario "display a list of archived projects" do
@@ -32,10 +31,9 @@ feature "User manages archived projects" do
     project = create(:project, archived: true)
 
     visit edit_project_url(project, subdomain: subdomain)
-    uncheck "Archived"
-    click_button I18n.t("helpers.submit.project.update")
+    click_button I18n.t("project.edit.un_archive_link")
 
-    expect(page).to have_content(I18n.t("project_updated"))
+    expect(project.reload.archived).to eq(false)
   end
 
   scenario "dont display archived projects on root" do
