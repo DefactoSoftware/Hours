@@ -1,3 +1,5 @@
+/* global I18n */
+
 $(document).ready(function () {
   function countCheckedBoxes() {
     var selectedEntriesCount = $('.bill_checkbox:checked').length;
@@ -15,7 +17,7 @@ $(document).ready(function () {
     window.location.reload();
   });
 
-  $('.bill_checkbox').change(function (e) {
+  $('.bill_checkbox').change(function () {
     countCheckedBoxes();
   });
 
