@@ -1,5 +1,8 @@
 .container
-  = link_to t("entries.download_csv"), entries_path(format: "csv")
+  .sidebar
+    .container
+      = render partial: "entries/filters", locals: { filter_url: reports_path }
+      = link_to t("entries.download_csv"), reports_path(params.merge(format: "csv"))
   %table
     %thead
       %tr

@@ -6,7 +6,7 @@
 .billables
   .sidebar
     .container
-      = render "filters"
+      = render partial: "entries/filters", locals: { filter_url: billables_path }
   .outer
     %h1= t("billables.billable_entries")
     - unless @entries.any?

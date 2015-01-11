@@ -4,9 +4,11 @@ resources :projects, only: [:index, :edit, :new, :update, :create, :show] do
   resources :audits, only: [:index]
 end
 resources :categories, only: [:index, :create, :edit, :update]
-resources :entries, only: [:create, :destroy, :update, :edit, :index] do
+resources :entries, only: [:create, :destroy, :update, :edit] do
   resources :audits, only: [:index]
 end
+
+resources :reports, only: [:index]
 
 resources :billables, only: [:index]
 

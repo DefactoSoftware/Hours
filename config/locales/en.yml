@@ -53,7 +53,7 @@ en:
       title: Filters
       billed: Billed
       billed_label: Billed or not
-      billed_empty: All billable entries
+      billed_empty: All entries
       clients: Clients
       from_date_label: From date
       not_billed: Not billed

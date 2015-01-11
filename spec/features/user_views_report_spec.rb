@@ -11,7 +11,7 @@ feature "User Report" do
 
   scenario "views all entries" do
     create(:entry)
-    visit entries_url(subdomain: subdomain)
+    visit reports_url(subdomain: subdomain)
 
     expect(page).to have_content(I18n.t("entries.download_csv"))
     expect(page).to have_selector(".info-row")

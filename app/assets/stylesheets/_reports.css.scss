@@ -1,0 +1,14 @@
+.reports {
+  .sidebar {
+    @include media($laptop-screen) {
+      @include span-columns(3);
+      float:right;
+    }
+    float:right;
+    @include span-columns(12);
+
+    h1 {
+      margin-bottom: 1em;
+    }
+  }
+}
