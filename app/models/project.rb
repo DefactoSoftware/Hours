@@ -43,11 +43,7 @@ class Project < ActiveRecord::Base
   end
 
   def set_entries_billed_to_false
-    if billable
-      entries.each { |entry| entry.update_attribute(:billed, false) }
-    else
-      entries.each { |entry| entry.update_attribute(:billed, nil) }
-    end
+    entries.each { |entry| entry.update_attribute(:billed, billable ? false : nil) }
   end
 
   def label
@@ -55,9 +51,7 @@ class Project < ActiveRecord::Base
   end
 
   def budget_status
-    if budget
-      budget - entries.sum(:hours)
-    end
+    budget - entries.sum(:hours) if budget
   end
 
   private
