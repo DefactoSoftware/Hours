@@ -1,11 +1,8 @@
-%h3 Filters
-= form_tag("/billables", id: "filter_form", method: "get") do
-  = collection_select(:filters, :client_id, Client.by_name, :id, :name, include_blank: t("billables.filters.clients"), selected: selected_param(:client_id))
-  = collection_select(:filters, :project_id, Project.by_name, :id, :name, include_blank: t("billables.filters.projects"), selected: selected_param(:project_id))
-  = label(:from_date, t("billables.filters.from_date_label"))
-  = date_field(:filters, :from_date, value: selected_param(:from_date))
-  = label(:to_date, t("billables.filters.to_date_label"))
-  = date_field(:filters, :to_date, value: selected_param(:to_date))
-  = label(:billed, t("billables.filters.billed_label"))
-  = select(:filters, :billed, options_for_select([[t("billables.filters.not_billed"), false], [t("billables.filters.billed"), true]], selected_param(:billed)), include_blank: t("billables.filters.billed_empty"))
-  = submit_tag(t("billables.buttons.filter"), class: "button-grey")
+%h3= t("billables.filters.title")
+= simple_form_for(@filters, url: billables_path, method: "get") do |f|
+  = f.input :client_id, collection: @filters.clients, label: false, include_blank: t("billables.filters.clients")
+  = f.input :project_id, collection: @filters.projects, label: false, include_blank: t("billables.filters.projects")
+  = f.input :from_date, as: :date, html5: true
+  = f.input :to_date, as: :date, html5: true
+  = f.input :billed, collection: @filters.billed_options, label: false, include_blank: t("billables.filters.billed_empty")
+  = f.button :submit, t("billables.buttons.filter"), class: "button-grey"

@@ -50,6 +50,7 @@ en:
       bill_selected: Bill selected entries
       filter: Filter entries
     filters:
+      title: Filters
       billed: Billed
       billed_label: Billed or not
       billed_empty: All billable entries

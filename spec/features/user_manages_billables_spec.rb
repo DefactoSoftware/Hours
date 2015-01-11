@@ -37,7 +37,7 @@ feature "User manages billables" do
 
       visit billables_url(subdomain: subdomain)
 
-      select(client1.name, from: 'filters_client_id')
+      select(client1.name, from: 'entry_filter_client_id')
       find(:css, "input[value='#{I18n.t('billables.buttons.filter')}']").click
 
       entries_table = find('.outer').text
