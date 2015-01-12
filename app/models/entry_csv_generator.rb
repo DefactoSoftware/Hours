@@ -21,6 +21,7 @@ class EntryCSVGenerator
           entry.client,
           entry.hours,
           entry.billable,
+          entry.billed,
           entry.description
         ]
       end

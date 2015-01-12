@@ -1,5 +1,7 @@
 class EntriesController < ApplicationController
-  DATE_FORMAT = "%d/%m/%Y"
+  include CSVDownload
+
+  DATE_FORMAT = "%d/%m/%Y".freeze
 
   def create
     @entry = Entry.new(entry_params)
@@ -13,9 +15,11 @@ class EntriesController < ApplicationController
 
   def index
     @user = User.find_by_slug(params[:user_id])
+    @entries = @user.entries.by_date.page(params[:page]).per(20)
+
     respond_to do |format|
-      format.html { @entries = @user.entries.by_date.page(params[:page]).per(20) }
-      format.csv { send_csv(@user) }
+      format.html { @entries }
+      format.csv { send_csv(name: @user.name, entries: @entries) }
     end
   end
 
@@ -51,13 +55,5 @@ class EntriesController < ApplicationController
 
   def parsed_date
     Date.strptime(params[:entry][:date], DATE_FORMAT)
-  end
-
-  def send_csv(user)
-    send_data(
-      EntryCSVGenerator.generate(user.entries.by_date),
-      filename: "#{user.full_name}-entries-#{DateTime.now}.csv",
-      type: "text/csv"
-    )
   end
 end

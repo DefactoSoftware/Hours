@@ -53,7 +53,7 @@ en:
       title: Filters
       billed: Billed
       billed_label: Billed or not
-      billed_empty: All billable entries
+      billed_empty: Billed or not
       clients: Clients
       from_date_label: From date
       not_billed: Not billed
@@ -98,6 +98,7 @@ en:
       salutation: Hello %{email} !
       wrong_mail: If you didn't request this, please ignore this email.
   entries:
+    download_csv: Download as CSV
     index:
       category: Category
       date: Date
@@ -110,7 +111,6 @@ en:
       project: Project
       user_hours: "%{user}'s hours"
       changes: changes
-      download_csv: Download as CSV
   entry_activity_html:
     one: "%{user} spent one hour doing %{category} on %{project}"
     other: "%{user} spent %{count} hours doing %{category} on %{project}"
@@ -171,6 +171,16 @@ en:
       current_password: we need your current password to confirm your changes
     update_button: Update
   report:
+    headers:
+      date: Date
+      user: User
+      project: Project
+      category: Category
+      client: Client
+      hours: Hours
+      billable: Billable
+      billed: Billed
+      description: Description
     filters: filters
     hours_per_day: Hours per day
     monthly: 1 month
@@ -204,12 +214,15 @@ en:
       new: New Client
     entries:
       index: "%{name}'s Hours"
+      index: All Entries
     projects:
       index: Projects
       new: New Project
       edit: Edit Project
     users:
       index: Users
+    report:
+      index: Reporting
   users:
     email: Email
     invite: Invite User

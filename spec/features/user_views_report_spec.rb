@@ -7,16 +7,13 @@ feature "User Report" do
   before(:each) do
     create(:account_with_schema, subdomain: subdomain, owner: user)
     sign_in_user(user, subdomain: subdomain)
-    visit user_url(user, subdomain: subdomain)
   end
 
-  scenario "views own report" do
-    expect(page).to have_content(I18n.t("report.hours_per_day", count: 30))
-  end
+  scenario "views all entries" do
+    create(:entry)
+    visit reports_url(subdomain: subdomain)
 
-  scenario "views last week" do
-    click_link I18n.t("report.weekly")
-    expect(page).to have_content(I18n.t("report.hours_per_day", count: 7))
+    expect(page).to have_content(I18n.t("entries.download_csv"))
+    expect(page).to have_selector(".info-row")
   end
-
 end

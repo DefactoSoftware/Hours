@@ -8,6 +8,8 @@ resources :entries, only: [:create, :destroy, :update, :edit] do
   resources :audits, only: [:index]
 end
 
+resources :reports, only: [:index]
+
 resources :billables, only: [:index]
 
 resources :users, only: [:index, :update, :show] do

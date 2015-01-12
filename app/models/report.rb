@@ -4,48 +4,12 @@ class Report
   end
 
   def headers
-    %w(date user project category client hours billable description).map(&:capitalize)
+    %w(date user project category client hours billable billed description).map do |header|
+      I18n.translate("report.headers.#{header}")
+    end
   end
 
   def each_row(&block)
     @entries.each(&block)
-  end
-end
-
-class ReportEntry
-  def initialize(entry)
-    @entry = entry
-  end
-
-  def date
-    @entry.date
-  end
-
-  def user
-    @entry.user.full_name
-  end
-
-  def project
-    @entry.project.name
-  end
-
-  def category
-    @entry.category.name
-  end
-
-  def client
-    @entry.client.try(:name)
-  end
-
-  def hours
-    @entry.hours
-  end
-
-  def billable
-    @entry.project.billable
-  end
-
-  def description
-    @entry.description
   end
 end
