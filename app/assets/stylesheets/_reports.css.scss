@@ -1,4 +1,13 @@
 .reports {
+  .container {
+    min-height: 100%;
+  }
+
+  table {
+    font-size: 10px;
+    width: 70%;
+  }
+
   .sidebar {
     @include media($laptop-screen) {
       @include span-columns(3);
