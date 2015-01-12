@@ -53,7 +53,7 @@ en:
       title: Filters
       billed: Billed
       billed_label: Billed or not
-      billed_empty: All entries
+      billed_empty: Billed or not
       clients: Clients
       from_date_label: From date
       not_billed: Not billed
@@ -171,6 +171,16 @@ en:
       current_password: we need your current password to confirm your changes
     update_button: Update
   report:
+    headers:
+      date: Date
+      user: User
+      project: Project
+      category: Category
+      client: Client
+      hours: Hours
+      billable: Billable
+      billed: Billed
+      description: Description
     filters: filters
     hours_per_day: Hours per day
     monthly: 1 month

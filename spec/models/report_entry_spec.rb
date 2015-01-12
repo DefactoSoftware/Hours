@@ -35,4 +35,8 @@ describe ReportEntry do
   it "#description" do
     expect(report_entry.description).to eq(entry.description)
   end
+
+  it "#billable" do
+    expect(report_entry.billed).to eq(entry.billed)
+  end
 end

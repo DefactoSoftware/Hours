@@ -52,4 +52,8 @@ module ApplicationHelper
   def selected_param(param)
     params[:filters][param] if params[:filters]
   end
+
+  def download_csv_params
+    params.except(:controller, :action).merge(format: "csv")
+  end
 end

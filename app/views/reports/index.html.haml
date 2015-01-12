@@ -2,18 +2,19 @@
   .sidebar
     .container
       = render partial: "entries/filters", locals: { filter_url: reports_path }
-      = link_to t("entries.download_csv"), reports_path(params.merge(format: "csv"))
+      = link_to t("entries.download_csv"), reports_path(download_csv_params)
   %table
     %thead
       %tr
-        %th Date
-        %th User
-        %th Project
-        %th Category
-        %th Client
-        %th Hours
-        %th Billable
-        %th Description
+        %th= t("reports.headers.date")
+        %th= t("reports.headers.user")
+        %th= t("reports.headers.project")
+        %th= t("reports.headers.category")
+        %th= t("reports.headers.client")
+        %th= t("reports.headers.hours")
+        %th= t("reports.headers.billable")
+        %th= t("reports.headers.billed")
+        %th= t("reports.headers.description")
     %tbody
     - @entries.each do |entry|
       %tr.info-row
@@ -24,5 +25,6 @@
         %td= link_to entry.project.client.name, entry.project.client if entry.project.client
         %td= entry.hours
         %td= entry.project.billable
+        %td= entry.billed
         %td= sanitize autolink_tags(entry.description)
   = paginate @entries
