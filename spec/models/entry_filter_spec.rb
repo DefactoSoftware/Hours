@@ -23,8 +23,8 @@ describe EntryFilter do
     filter = EntryFilter.new
 
     expect(filter.billed_options).to eq([
-      [I18n.t("billables.filters.not_billed"), false],
-      [I18n.t("billables.filters.billed"), true]
+      [I18n.t("entry_filters.not_billed"), false],
+      [I18n.t("entry_filters.billed"), true]
     ])
   end
 end

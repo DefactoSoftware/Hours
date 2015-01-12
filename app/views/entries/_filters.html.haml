@@ -1,8 +1,0 @@
-%h3= t("billables.filters.title")
-= simple_form_for(@filters, url: filter_url, method: "get") do |f|
-  = f.input :client_id, collection: @filters.clients, label: false, include_blank: t("billables.filters.clients")
-  = f.input :project_id, collection: @filters.projects, label: false, include_blank: t("billables.filters.projects")
-  = f.input :from_date, as: :date, html5: true
-  = f.input :to_date, as: :date, html5: true
-  = f.input :billed, collection: @filters.billed_options, label: false, include_blank: t("billables.filters.billed_empty")
-  = f.button :submit, t("billables.buttons.filter"), class: "button-grey"

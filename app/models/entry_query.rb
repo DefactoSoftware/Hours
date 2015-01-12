@@ -17,7 +17,7 @@ class EntryQuery
   attr_reader :entries, :params
 
   def filter_params
-    params ? params.slice(:client_id, :project_id, :billed, :to_date, :from_date).reject { |_, value| value.nil? } : []
+    EntryFilter::Params.new(params).rejecting_nil
   end
 
   def present?(value)
@@ -43,6 +43,10 @@ class EntryQuery
 
     def to_date(param)
       where("entries.created_at < ?", param)
+    end
+
+    def archived(param)
+      joins(:project).where("archived = ?", param)
     end
   end
 end
