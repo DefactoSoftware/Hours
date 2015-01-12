@@ -1,0 +1,30 @@
+.reports {
+  .container {
+    min-height: 100%;
+  }
+
+  table {
+    font-size: 10px;
+    width: 70%;
+  }
+
+  td.description {
+    max-width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sidebar {
+    @include media($laptop-screen) {
+      @include span-columns(3);
+      float:right;
+    }
+    float:right;
+    @include span-columns(12);
+
+    h1 {
+      margin-bottom: 1em;
+    }
+  }
+}

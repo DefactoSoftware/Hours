@@ -32,6 +32,19 @@ describe AuditChange do
     end
   end
 
+  context "remove association" do
+    let(:change) { ["client_id", [1,nil]] }
+    let(:audit_change) { AuditChange::Update.new(change) }
+
+    it "to_string" do
+      expect(audit_change.to.to_s).to eq("nothing")
+    end
+
+    it "#destroyed?" do
+      expect(audit_change.to.destroyed?).to eq(true)
+    end
+  end
+
   context "with values" do
     let(:change) { ["description", ["Foo", "Bar"]] }
     let(:audit_change) { AuditChange::Update.new(change) }

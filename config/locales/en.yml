@@ -1,11 +1,18 @@
 ---
 en:
   audits:
+    nothing: nothing
     title: Audit Log
     date: "Date:"
     action: "Action:"
     user: "User:"
     project: "Project:"
+    name: "Name:"
+    client: "Client:"
+    description: "Description:"
+    billable: "Billable:"
+    archived: "Archived:"
+    budget: "Budget:"
     category: "Category:"
     hours: "Hours:"
     from: from
@@ -17,6 +24,7 @@ en:
   account:
     back_to_website: back to the website
     confirm_destroy: Are you sure you want to delete your account?
+    create: Create Account
     danger_zone: Danger Zone
     delete: Delete my account
     deleted: Your account was deleted. Sorry to see you go. :(
@@ -36,6 +44,30 @@ en:
       hours: Hours
       un_archive_link: Un-archive
   back: Back
+  billables:
+    billable_entries: Billable Entries
+    buttons:
+      bill_selected: Bill selected entries
+      filter: Filter entries
+    filters:
+      title: Filters
+      billed: Billed
+      billed_label: Billed or not
+      billed_empty: Billed or not
+      clients: Clients
+      from_date_label: From date
+      not_billed: Not billed
+      to_date_label: To date
+      projects: Projects
+    table:
+      hours: Hours
+      date: Date
+      user: User
+      category: Category
+      billed: Billed
+  boolean:
+    "true": "yes"
+    "false": "no"
   budget_html: "<strong>%{budget_left}</strong> of <strong>%{budget}</strong> hours left on budget"
   category:
     edit: edit
@@ -66,6 +98,7 @@ en:
       salutation: Hello %{email} !
       wrong_mail: If you didn't request this, please ignore this email.
   entries:
+    download_csv: Download as CSV
     index:
       category: Category
       date: Date
@@ -78,7 +111,6 @@ en:
       project: Project
       user_hours: "%{user}'s hours"
       changes: changes
-      download_csv: Download as CSV
   entry_activity_html:
     one: "%{user} spent one hour doing %{category} on %{project}"
     other: "%{user} spent %{count} hours doing %{category} on %{project}"
@@ -100,6 +132,9 @@ en:
       can set one up %{categories_path}.
     no_projects_html: It looks like you don't have any projects set up yet, you can
       set one up %{new_project_path}.
+    no_billable_projects_html: It looks like you don't have any billable projects yet, you can
+      set one up %{new_project_path}.
+    no_billable_entries_html: It looks like you've either billed all billable entries or there are simply no billable entries yet.
   loader:
     saving: Saving
     signing_in: Sigining in
@@ -109,17 +144,21 @@ en:
     entries: My Hours
   no_hours_registered: Nobody spent any time on %{project} yet
   project:
+    errors:
+      client_missing: If the project is billable it needs a client
     form:
       client: Client
       no_client: No Client
     show:
-      archive_link: Archive
-      un_archive_link: Un-archive
+      changes_link: changes
       edit_link: edit
       per_user: Per user
     table_head:
       hours: Hours
       tag: Tag
+    edit:
+      archive_link: Archive
+      un_archive_link: Un-archive
   project_activity_html:
     one: "%{full_name} spent %{hours} hours working on %{project}"
     other: "%{count} people spent %{hours} hours working on %{project}"
@@ -134,6 +173,16 @@ en:
       current_password: we need your current password to confirm your changes
     update_button: Update
   report:
+    headers:
+      date: Date
+      user: User
+      project: Project
+      category: Category
+      client: Client
+      hours: Hours
+      billable: Billable
+      billed: Billed
+      description: Description
     filters: filters
     hours_per_day: Hours per day
     monthly: 1 month
@@ -156,6 +205,8 @@ en:
       edit: Edit Account
     archives:
       index: Archives
+    billables:
+      index: Billable Entries
     categories:
       index: Categories
       new: New Category
@@ -165,12 +216,15 @@ en:
       new: New Client
     entries:
       index: "%{name}'s Hours"
+      index: All Entries
     projects:
       index: Projects
       new: New Project
       edit: Edit Project
     users:
       index: Users
+    report:
+      index: Reporting
   users:
     email: Email
     invite: Invite User

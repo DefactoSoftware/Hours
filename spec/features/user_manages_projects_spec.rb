@@ -31,9 +31,11 @@ feature "User manages projects" do
   end
 
   scenario "creates a billable project" do
+    client = create(:client)
     click_link "New Project"
 
     fill_in "Name", with: "My new project"
+    select(client.name, from: "project_client_id")
     check "Billable"
     click_button "Create Project"
     expect(page).to have_content(I18n.t('project_created'))
@@ -41,9 +43,11 @@ feature "User manages projects" do
   end
 
   scenario "edit a none billable project to a billable project" do
+    client = create(:client)
     project = create(:project)
     visit edit_project_url(project, subdomain: subdomain)
 
+    select(client.name, from: "project_client_id")
     check "Billable"
     click_button "Update Project"
     expect(project.reload.billable).to be(true)

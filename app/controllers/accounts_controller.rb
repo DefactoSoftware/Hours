@@ -3,17 +3,16 @@ class AccountsController < ApplicationController
   before_action :authorize!, only: [:edit, :destroy]
 
   def new
-    @account = Account.new
-    @account.build_owner
+    @signup = Signup.new
   end
 
   def create
-    @account = Account.new(account_params)
-    if @account.valid?
-      Apartment::Tenant.create(@account.subdomain)
-      Apartment::Tenant.switch(@account.subdomain)
-      @account.save
-      redirect_to new_user_session_url(subdomain: @account.subdomain)
+    @signup = Signup.new(signup_params)
+    if @signup.valid?
+      Apartment::Tenant.create(@signup.subdomain)
+      Apartment::Tenant.switch(@signup.subdomain)
+      @signup.save
+      redirect_to new_user_session_url(subdomain: @signup.subdomain)
     else
       render action: "new"
     end
@@ -30,13 +29,10 @@ class AccountsController < ApplicationController
 
   private
 
-  def account_params
-    params.require(:account)
-          .permit(:subdomain,
-                  owner_attributes: [
-                    :first_name, :last_name, :email,
-                    :password, :password_confirmation]
-                 )
+  def signup_params
+    params.require(:signup)
+          .permit(:subdomain, :first_name, :last_name, :email,
+                    :password, :password_confirmation)
   end
 
   def authorize!

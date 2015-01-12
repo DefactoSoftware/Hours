@@ -12,20 +12,23 @@ insight on how we spend our time on different projects.
 
 It looks like this:
 
-<img src="http://i.imgur.com/L6cCxPd.png" width=500 alt="Projects overview" />
+<img src="http://i.imgur.com/UGotYJu.png" width=500 alt="Projects overview" />
 
-<img src="http://i.imgur.com/w62ubzH.png" width=500 alt="Single project" />
+<img src="http://i.imgur.com/SZd6Oaw.png" width=500 alt="Single project" />
 
-<img src="http://i.imgur.com/gZWqVXT.png" width=500 alt="Entries" />
+<img src="http://i.imgur.com/gJxWWnc.png" width=500 alt="Entries" />
+
+<img src="http://i.imgur.com/QfMsVjb.png" width=500 alt="Audit Log" />
+
+<img src="http://i.imgur.com/y4RLCEg.png" width=500 alt="Entry" />
+
+
+
 
 Roadmap
 -------
 
-As we're using Hours we're constantly thinking of ways to improve it and there are a couple of features that we'd like to implement:
-- Billable/non billable hours
-- Better reporting
-- Exporting data
-- Mobile apps
+As we're using Hours we're constantly thinking of ways to improve it and we'd love to hear your thoughts!
 
 System Dependencies
 -------------------
@@ -56,6 +59,18 @@ In order to activate caching in development you can add `CACHE_DEVELOPMENT="anyt
 
 [foreman]: http://ddollar.github.io/foreman/
 [pow]: http://pow.cx
+
+Feature Flags
+-------------
+
+Description:
+
+Single Tenant Mode: Initialize application in single tenant mode. Disabled by default.
+
+Usage:
+
+To use the single tenant mode, you can add SINGLE_TENANT_MODE to your enviroment variables with the value `true`. On development you can set this in your .env with `SINGLE_TENANT_MODE=true` and restart foreman. On heroku it's under the `Config Variables`.  
+The first user in single tenant mode can be created by a rake task `rake create_user`. We'll ask you for your credentials.
 
 Guidelines
 ----------

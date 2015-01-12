@@ -1,15 +1,5 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
+/* global Pikaday, Tagger, TagExpander */
+
 //= require jquery
 //= require jquery_ujs
 //= require jquery.atwho
@@ -20,6 +10,7 @@
 //= require select2
 //= require charts
 //= require i18n
+//= require billables
 //= require date-formatter
 //= require feed
 //= require_tree .
@@ -31,18 +22,18 @@ var Hours = Hours || {
   }
 };
 
-var picker = new Pikaday({
+new Pikaday({
   field: $('#datepicker')[0],
   format: 'DD/MM/YYYY'
 });
 
-$(".alert").ready(function() {
+$('.alert').ready(function() {
   setTimeout(function() {
-    $("#flash").fadeOut();
+    $('#flash').fadeOut();
   }, 5000);
 });
 
-$("#entry_tag_list").selectize({
+$('#entry_tag_list').selectize({
   valueField: 'tag',
   labelField: 'tag',
   searchField: 'tag',
@@ -83,7 +74,7 @@ $(document).ready(function() {
   $('#project_client_id').select2();
 
   if ($('body').hasClass('projects-index')) {
-    new Tagger($(".taggable"));
+    new Tagger($('.taggable'));
   }
 
   if ($('.tags-list').length > 0) {
@@ -97,7 +88,7 @@ $(document).ready(function() {
 
   $('.modal-window')
     .on('click', Hours.dismissModal)
-    .on('click', 'div', function(e) { e.stopPropagation() });
+    .on('click', 'div', function(e) { e.stopPropagation(); });
 });
 
 $(document).keyup(function(event) {
@@ -107,3 +98,16 @@ $(document).keyup(function(event) {
     Hours.dismissModal();
   }
 });
+
+$(".project_billable > checkbox").ready(function () {
+  enableBillableCheckbox();
+});
+
+$("#project_client_id").change(function () {
+  enableBillableCheckbox();
+});
+
+var enableBillableCheckbox = function () {
+  var disable = $("#project_client_id").val() === "";
+  $("#project_billable").prop("disabled", disable);
+}

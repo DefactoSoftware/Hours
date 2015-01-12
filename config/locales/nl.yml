@@ -1,11 +1,18 @@
 ---
 nl:
   audits:
+    nothing: niets
     title: Audit Log
     date: "Datum:"
     action: "Handeling:"
     user: "Gebruiker:"
     project: "Project:"
+    name: "Naam:"
+    client: "Klant:"
+    description: "Beschrijving:"
+    billable: "Facturabel:"
+    archived: "Gearchiveerd:"
+    budget: "Budget:"
     category: "Categorie:"
     hours: "Hours:"
     from: van
@@ -48,6 +55,29 @@ nl:
     models:
       user: Gebruiker
   back: Terug
+  billables:
+    billable_entries: Factureerbare Entries
+    buttons:
+      bill_selected: Factureer geselecteerde entries
+      filter: Filter entries
+    filters:
+      billed: Gefactureerd
+      billed_label: Gefactureerd/Niet Gefactureerd
+      billed_empty: Alle Factureerbare entries
+      clients: Clients
+      from_date_label: Van datum
+      not_billed: Niet Gefactureerd
+      to_date_label: Tot datum
+      projects: Projecten
+    table:
+      hours: Uren
+      date: Datum
+      user: Gebruiker
+      category: Categorie
+      billed: Gefactureerd
+  boolean:
+    "true": "ja"
+    "false": "nee"
   budget_html: "<strong>%{budget_left}</strong> van <strong>%{budget}</strong> uren van het budget over"
   category:
     edit: edit
@@ -129,7 +159,7 @@ nl:
       new: Nieuwe entry
       project: Project
       user_hours: "%{user}s uren"
-      changes: veranderingen
+      changes: wijzigingen
   entry_activity_html:
     one: "%{user} heeft één uur gespendeerd aan %{category} op %{project}"
     other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project}"
@@ -168,17 +198,21 @@ nl:
     entries: Mijn Uren
   no_hours_registered: Niemand heeft nog tijd aan %{project} besteed
   project:
+    errors:
+      client_missing: Als het project factureerbaar is moet er een klant geselecteerd worden
     form:
       client: Klant
       no_client: Geen klant
     show:
-      archive_link: Archiveren
-      un_archive_link: Dearchiveren
+      changes_link: wijzigingen
       edit_link: aanpassen
       per_user: Per gebruiker
     table_head:
       hours: Uren
       tag: Tag
+    edit:
+      archive_link: Archiveren
+      un_archive_link: Dearchiveren
     project_activity_html:
     one: "%{full_name} heeft %{hours} uren aan %{project} besteed"
     other: "%{count} mensen hebben %{hours} uren aan %{project} besteed"
@@ -234,6 +268,8 @@ nl:
     archives:
       index: Gearchiveerde projecten
     application: Uren
+    billables:
+      index: Factureerbare hours
     categories:
       edit: Bewerk Categorie
       index: Categoriëen

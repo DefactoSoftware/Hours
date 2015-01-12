@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20150106133726) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accounts", force: true do |t|
+  create_table "accounts", force: :cascade do |t|
     t.string   "subdomain",  default: "", null: false
     t.integer  "owner_id",   default: 0,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "audits", force: true do |t|
+  create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
     t.string   "auditable_type"
     t.integer  "associated_id"
@@ -46,13 +46,13 @@ ActiveRecord::Schema.define(version: 20150106133726) do
   add_index "audits", ["request_uuid"], name: "index_audits_on_request_uuid", using: :btree
   add_index "audits", ["user_id", "user_type"], name: "user_index", using: :btree
 
-  create_table "categories", force: true do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "name",       default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "clients", force: true do |t|
+  create_table "clients", force: :cascade do |t|
     t.string   "name",              default: "", null: false
     t.string   "description",       default: ""
     t.string   "logo_file_name"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20150106133726) do
     t.datetime "updated_at"
   end
 
-  create_table "delayed_jobs", force: true do |t|
+  create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
     t.text     "handler",                null: false
@@ -79,16 +79,16 @@ ActiveRecord::Schema.define(version: 20150106133726) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
-  create_table "entries", force: true do |t|
-    t.integer  "project_id",  null: false
-    t.integer  "category_id", null: false
-    t.integer  "user_id",     null: false
-    t.integer  "hours",       null: false
-    t.date     "date",        null: false
+  create_table "entries", force: :cascade do |t|
+    t.integer  "project_id",                  null: false
+    t.integer  "category_id",                 null: false
+    t.integer  "user_id",                     null: false
+    t.integer  "hours",                       null: false
+    t.date     "date",                        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description"
-    t.boolean  "billed"
+    t.boolean  "billed",      default: false
   end
 
   add_index "entries", ["billed"], name: "index_entries_on_billed", using: :btree
@@ -97,23 +97,25 @@ ActiveRecord::Schema.define(version: 20150106133726) do
   add_index "entries", ["project_id"], name: "index_entries_on_project_id", using: :btree
   add_index "entries", ["user_id"], name: "index_entries_on_user_id", using: :btree
 
-  create_table "projects", force: true do |t|
+  create_table "projects", force: :cascade do |t|
     t.string   "name",        default: "",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
-    t.integer  "client_id"
-    t.boolean  "archived",    default: false, null: false
     t.boolean  "billable",    default: false
+    t.integer  "client_id"
     t.integer  "budget"
+    t.boolean  "billable",    default: false
+    t.boolean  "archived",    default: false, null: false
     t.text     "description"
+    t.integer  "budget"
   end
 
   add_index "projects", ["archived"], name: "index_projects_on_archived", using: :btree
   add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree
 
-  create_table "taggings", force: true do |t|
-    t.integer  "tag_id",     null: false
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
     t.integer  "entry_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -122,7 +124,7 @@ ActiveRecord::Schema.define(version: 20150106133726) do
   add_index "taggings", ["entry_id"], name: "index_taggings_on_entry_id", using: :btree
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
 
-  create_table "tags", force: true do |t|
+  create_table "tags", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -131,7 +133,7 @@ ActiveRecord::Schema.define(version: 20150106133726) do
 
   add_index "tags", ["slug"], name: "index_tags_on_slug", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "first_name",             default: "", null: false
     t.string   "last_name",              default: "", null: false
     t.string   "email",                  default: "", null: false

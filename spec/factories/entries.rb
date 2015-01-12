@@ -11,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  description :string(255)
+#  billed      :boolean
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
@@ -23,5 +24,9 @@ FactoryGirl.define do
     hours 1
     date "2014-02-26 22:06:47"
     user
+
+    factory :entry_with_client do
+      project { create(:project, client: create(:client)) }
+    end
   end
 end
