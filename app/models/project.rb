@@ -35,16 +35,10 @@ class Project < ActiveRecord::Base
   scope :unarchived, -> { where(archived: false) }
   scope :billable, -> { where(billable: true) }
 
-  after_update :set_entries_billed_to_false
-
   def sorted_categories
     categories.sort_by do |category|
       EntryStats.new(entries, category).percentage_for_subject
     end.reverse
-  end
-
-  def set_entries_billed_to_false
-    entries.each { |entry| entry.update_attribute(:billed, billable ? false : nil) }
   end
 
   def label
