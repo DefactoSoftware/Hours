@@ -5,17 +5,17 @@ class ClientsController < ApplicationController
   end
 
   def index
-    set_index_params
+    @client = Client.new
+    @clients = Client.by_name
   end
 
   def create
-    new_client = Client.new(client_params)
-    if new_client.save
+    @client = Client.new(client_params)
+    if @client.save
       redirect_to clients_path, notice: t(:client_created)
     else
-      set_index_params
-      redirect_to clients_path,
-                  notice: new_client.errors.full_messages.join(" ")
+      @clients = Client.by_name
+      render "clients/index"
     end
   end
 
@@ -35,11 +35,6 @@ class ClientsController < ApplicationController
 
   def resource
     @client ||= Client.find(params[:id])
-  end
-
-  def set_index_params
-    @client = Client.new
-    @clients = Client.by_name
   end
 
   def client_params

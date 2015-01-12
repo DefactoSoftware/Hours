@@ -17,7 +17,7 @@ feature "User manages categories" do
   scenario "creates a category with a duplicate name" do
     create(:category, name: "duplicate name")
     create_category("Duplicate name")
-    expect(page).to have_content("Name has already been taken")
+    expect(page).to have_content("has already been taken")
   end
 
   scenario "displays a list of categories" do

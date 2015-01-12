@@ -1,17 +1,18 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:edit, :update]
+
   def index
-    set_index_params
+    @category = Category.new
+    @categories = Category.by_name
   end
 
   def create
-    new_category = Category.new(category_params)
-    if new_category.save
+    @category = Category.new(category_params)
+    if @category.save
       redirect_to categories_path, notice: t(:category_created)
     else
-      set_index_params
-      redirect_to categories_path,
-                  notice: new_category.errors.full_messages.join(" ")
+      @categories = Category.by_name
+      render "categories/index"
     end
   end
 
@@ -30,11 +31,6 @@ class CategoriesController < ApplicationController
 
   def find_category
     @category = Category.find(params[:id])
-  end
-
-  def set_index_params
-    @category = Category.new
-    @categories = Category.by_name
   end
 
   def category_params
