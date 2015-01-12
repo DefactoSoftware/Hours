@@ -144,6 +144,8 @@ en:
     entries: My Hours
   no_hours_registered: Nobody spent any time on %{project} yet
   project:
+    errors:
+      client_missing: If the project is billable it needs a client
     form:
       client: Client
       no_client: No Client

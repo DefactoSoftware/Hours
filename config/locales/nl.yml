@@ -198,6 +198,8 @@ nl:
     entries: Mijn Uren
   no_hours_registered: Niemand heeft nog tijd aan %{project} besteed
   project:
+    errors:
+      client_missing: Als het project factureerbaar is moet er een klant geselecteerd worden
     form:
       client: Klant
       no_client: Geen klant

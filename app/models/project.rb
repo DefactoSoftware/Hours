@@ -21,6 +21,10 @@ class Project < ActiveRecord::Base
 
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false }
+  validate do |project|
+    ClientBillableValidator.new(project).validate
+  end
+
   has_many :entries
   has_many :users, -> { uniq }, through: :entries
   has_many :categories, -> { uniq }, through: :entries
@@ -58,5 +62,17 @@ class Project < ActiveRecord::Base
 
   def slug_source
     name
+  end
+
+  class ClientBillableValidator
+    def initialize(project)
+      @project = project
+    end
+
+    def validate
+      if (@project.billable && !@project.client)
+        @project.errors[:client] << I18n.t("project.errors.client_missing")
+      end
+    end
   end
 end
