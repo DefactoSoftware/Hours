@@ -1,8 +1,8 @@
 .outer
   .container
     - if @project.archived?
-      = button_to t("project.edit.un_archive_link"), project_path(@project, project: { archived: false }), method: "put", class: "button-gray archive-button"  
-    - else 
-      = button_to t("project.edit.archive_link"), project_path(@project, project: { archived: true }), method: "put", class: "button-gray archive-button" 
-    %h1= title 
+      = button_to t("project.edit.un_archive_link"), project_path(@project, project: { archived: false }), method: "put", class: "button-grey archive-button"
+    - else
+      = button_to t("project.edit.archive_link"), project_path(@project, project: { archived: true }), method: "put", class: "button-grey archive-button"
+    %h1= title
     = render partial: "form"
