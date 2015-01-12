@@ -12,7 +12,7 @@ class EntryFilter
   def initialize(params = {})
     super(filter params)
     @clients = Client.by_name
-    @projects = Project.by_name
+    @projects = Project.unarchived.by_name
   end
 
   def billed_options

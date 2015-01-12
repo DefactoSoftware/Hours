@@ -16,7 +16,7 @@ describe EntryFilter do
   it "#projects" do
     filter = EntryFilter.new
 
-    expect(filter.projects).to eq(Project.by_name)
+    expect(filter.projects).to eq(Project.unarchived.by_name)
   end
 
   it "billed_options" do
