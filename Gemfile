@@ -24,7 +24,7 @@ gem "uglifier"
 gem "unicorn"
 gem "devise", "~> 3.4.1"
 gem "devise_invitable"
-gem "apartment", "~> 0.26.0" 
+gem "apartment", "~> 0.26.0"
 gem "pikaday-gem", "~> 1.1.0.0"
 gem "momentjs-rails"
 gem "gravatar_image_tag"
@@ -36,7 +36,7 @@ gem "http_accept_language"
 gem "normalize-rails"
 gem "rails-assets-chartjs", "~> 1.0.1.beta.4"
 gem "twitter-text" # hashtag parsing
-gem "jquery-atwho-rails" # autocomplete
+gem "jquery-atwho-rails", "~> 1.0.0" # autocomplete
 gem "haml-rails"
 gem "audited-activerecord", "~> 4.0"
 gem "paperclip", "~> 4.2"
