@@ -31,6 +31,7 @@
 @import "select2";
 @import "tagger";
 @import "jquery.atwho";
+@import "components";
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -56,15 +57,6 @@ body {
     @include media($medium-screen) {
       font-size: $base-font-size;
     }
-  }
-}
-
-h1 {
-  margin-bottom: 1em;
-  text-align: center;
-
-  @include media($medium-screen) {
-    text-align: inherit;
   }
 }
 
