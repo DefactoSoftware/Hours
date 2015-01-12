@@ -101,4 +101,12 @@ describe Entry do
       expect(Entry.by_date.first).to eq(latest)
     end
   end
+
+  it "#with_clients" do
+    client = create(:client)
+    create(:entry)
+    create(:entry).project.update_attribute(:client, client)
+
+    expect(Entry.with_clients.count).to eq(1)
+  end
 end

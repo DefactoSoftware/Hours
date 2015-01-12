@@ -26,17 +26,16 @@ class Entry < ActiveRecord::Base
   has_many :taggings, inverse_of: :entry
   has_many :tags, through: :taggings
 
-  validates :user, presence: true
-  validates :project, presence: true
-  validates :category, presence: true
+  validates :user, :project, :category, :date, presence: true
   validates :hours, presence: true,
                     numericality: { greater_than: 0, only_integer: true }
-  validates :date, presence: true
+
   accepts_nested_attributes_for :taggings
 
   scope :by_last_created_at, -> { order("created_at DESC") }
   scope :by_date, -> { order("date DESC") }
   scope :billable, -> { where("billable").joins(:project) }
+  scope :with_clients, -> { where.not("projects.client_id" => nil).joins(:project) }
 
   before_save :set_tags_from_description
 
