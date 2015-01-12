@@ -21,6 +21,16 @@ describe Project do
   describe "validations" do
     it { should validate_presence_of :name }
     it { should validate_uniqueness_of :name }
+
+    it "is not valid with billable true and no client" do
+      project = Project.new(name: "test", billable: true, client: nil)
+      expect(project).to_not be_valid
+    end
+
+    it "is valid with a client and billable true" do
+      project = Project.new(name: "test", billable: true, client: build_stubbed(:client))
+      expect(project).to be_valid
+    end
   end
 
   describe "associations" do
