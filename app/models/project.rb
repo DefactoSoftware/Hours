@@ -21,6 +21,7 @@ class Project < ActiveRecord::Base
 
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false }
+  validates_with ClientBillableValidator
   has_many :entries
   has_many :users, -> { uniq }, through: :entries
   has_many :categories, -> { uniq }, through: :entries

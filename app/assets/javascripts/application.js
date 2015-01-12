@@ -99,3 +99,15 @@ $(document).keyup(function(event) {
   }
 });
 
+$(".project_billable > checkbox").ready(function () {
+  enableBillableCheckbox();
+});
+
+$("#project_client_id").change(function () {
+  enableBillableCheckbox();
+});
+
+var enableBillableCheckbox = function () {
+  var disable = $("#project_client_id").val() === "";
+  $("#project_billable").prop("disabled", disable);
+}
