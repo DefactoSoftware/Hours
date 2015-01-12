@@ -18,7 +18,7 @@ class EntryCSVGenerator
           entry.user,
           entry.project,
           entry.category,
-          entry.project,
+          entry.client,
           entry.hours,
           entry.billable,
           entry.description
