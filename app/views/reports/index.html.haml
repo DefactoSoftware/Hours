@@ -21,10 +21,10 @@
         %td= entry.date
         %td= link_to entry.user.full_name, entry.user
         %td= link_to entry.project.name, entry.project
-        %td= link_to entry.category.name, entry.category
+        %td= entry.category.name
         %td= link_to entry.project.client.name, entry.project.client if entry.project.client
         %td= entry.hours
         %td= entry.project.billable
         %td= entry.billed
-        %td= sanitize autolink_tags(entry.description)
+        %td.description= sanitize autolink_tags(entry.description)
   = paginate @entries

@@ -8,6 +8,13 @@
     width: 70%;
   }
 
+  td.description {
+    max-width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .sidebar {
     @include media($laptop-screen) {
       @include span-columns(3);
