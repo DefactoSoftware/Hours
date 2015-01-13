@@ -28,7 +28,7 @@
       = project_presenter.show_categories_bar
   .activity-description
     - if project.users.count > 0
-      = t(:project_activity_html, full_name: "<strong> #{project.users.first.full_name} </strong>".html_safe, count: project.users.count, hours: "<strong>#{EntryStats.new(project.entries).total_hours}</strong>".html_safe, project: "<strong>#{project.name}</strong>".html_safe)
+      = t(:project_activity_html, full_name: "<strong> #{html_escape project.users.first.full_name} </strong>".html_safe, count: project.users.count, hours: "<strong>#{EntryStats.new(project.entries).total_hours}</strong>".html_safe, project: "<strong>#{html_escape project.name}</strong>".html_safe)
     - else
       = t(:no_hours_registered, project: project.name)
     .active-people.hide-for-mobile
