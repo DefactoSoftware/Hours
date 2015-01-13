@@ -1,7 +1,7 @@
 .container
   .sidebar
     .container
-      = render partial: "entries/filters", locals: { filter_url: reports_path }
+      = render "filters"
       = link_to t("entries.download_csv"), reports_path(download_csv_params)
   %table
     %thead
