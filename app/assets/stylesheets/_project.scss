@@ -7,6 +7,11 @@
 }
 
 #new_project, .edit_project {
+
+  input[type=number] {
+    width: 500px;
+  }
+
   .button {
     width: 100%;
   }
@@ -16,7 +21,6 @@
 
     input {
       resize: none;
-      -webkit-font-smoothing: antialiased;
       font-smoothing: antialiased;
     }
   }
@@ -27,7 +31,7 @@
   }
 
   .select {
-    width: 100%;
+    width: 500px;
   }
 }
 

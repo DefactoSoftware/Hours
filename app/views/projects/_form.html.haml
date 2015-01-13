@@ -1,12 +1,16 @@
 = simple_form_for(@project) do |f|
   = f.error_notification
   .form-inputs
-    = f.input :name, required: true, autofocus: true
-    = f.association :client, required: false, collection: Client.by_name, label: false, placeholder: t("project.form.client"), include_blank: t("project.form.no_client")
-    = f.label :billable
-    = f.input :billable, as: :switch, label: false
+    = f.input :name, required: true
     = f.input :description, as: :text, input_html: { rows: 5 }
     = f.input :budget, as: :integer
+    = f.association :client, required: false, collection: Client.by_name, placeholder: t("project.form.client"), include_blank: t("project.form.no_client")
+    = f.label :billable
+    = f.input :billable, as: :switch, label: false
+
+
+
+
     = f.button :submit, data: { disable_with: t("loader.saving") }
 
 
