@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe EntryQuery do
   let(:client) { create(:client) }
-  let(:project) { create(:project, client: client) }
+  let(:project) { create(:project, archived: true, client: client) }
   let!(:entry) { create(:entry, billed: false, project: project, created_at: 20.days.ago) }
   let!(:entry2) { create(:entry, billed: true, created_at: 10.days.ago) }
   let(:params) { {} }
@@ -26,6 +26,10 @@ describe EntryQuery do
 
     it "filters the entries on not billed" do
       expect(filter({ billed: entry.billed}).count).to eq(1)
+    end
+
+    it "filters the entries on archived" do
+      expect(filter({ archived: true }).count).to eq(1)
     end
 
     it "filters on all params" do

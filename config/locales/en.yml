@@ -49,16 +49,6 @@ en:
     buttons:
       bill_selected: Bill selected entries
       filter: Filter entries
-    filters:
-      title: Filters
-      billed: Billed
-      billed_label: Billed or not
-      billed_empty: Billed or not
-      clients: Clients
-      from_date_label: From date
-      not_billed: Not billed
-      to_date_label: To date
-      projects: Projects
     table:
       hours: Hours
       date: Date
@@ -230,3 +220,17 @@ en:
     invite: Invite User
     invitation_sent_at: Invited %{time_ago} ago
     confirm: Confirm
+
+  entry_filters:
+    title: Filters
+    billed: Billed
+    billed_label: Billed or not
+    billed_empty: Billed or not
+    clients: Clients
+    from_date_label: From date
+    not_billed: Not billed
+    to_date_label: To date
+    projects: Projects
+    archived_empty: Archived and Unarchived
+    archived: Archived
+    not_archived: Not Archived
