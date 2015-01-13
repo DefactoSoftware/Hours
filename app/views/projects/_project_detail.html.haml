@@ -3,10 +3,6 @@
     %header
       %div.actions
         %div
-          - if !project.audits.empty?
-            = link_to project_audits_path(project) do
-              = t("project.show.changes_link")
-        %div
           = link_to edit_project_path(project) do
             = t("project.show.edit_link")
       = link_to project_path(project) do

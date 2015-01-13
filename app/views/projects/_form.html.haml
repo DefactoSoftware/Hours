@@ -7,10 +7,10 @@
     = f.association :client, required: false, collection: Client.by_name, placeholder: t("project.form.client"), include_blank: t("project.form.no_client")
     = f.label :billable
     = f.input :billable, as: :switch, label: false
-
-
-
-
     = f.button :submit, data: { disable_with: t("loader.saving") }
+    
+    - if !@project.audits.empty?
+      = link_to project_audits_path(@project), class: "audit-link" do
+        = t("project.show.changes_link")
 
 

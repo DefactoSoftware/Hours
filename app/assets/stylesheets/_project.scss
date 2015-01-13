@@ -2,6 +2,7 @@
   header {
     .actions {
       float: right;
+      line-height: 40px;
     }
   }
 }
@@ -37,15 +38,23 @@
 
 .clients-header {
   display: block;
+
   img {
     vertical-align: bottom;
   }
+
   span {
     font-size: 1em;
-    font-weight: 700;
+    margin-right: 7px;
   }
 }
 
-.archive-button {
+.archive-link {
   float: right;
+  line-height: 45px;  
+}
+
+.audit-link {
+  float: right;
+  line-height: 40px;
 }

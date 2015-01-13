@@ -60,6 +60,15 @@ body {
   }
 }
 
+h1 {   
+  margin-bottom: 1em;    
+  text-align: center;      
+ 
+  @include media($medium-screen) {   
+    text-align: inherit;
+  }
+}
+
 .outer {
   @include outer-container;
 }
