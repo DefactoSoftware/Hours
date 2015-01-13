@@ -74,5 +74,11 @@
         }
       }
     }
+
+    &[disabled] {
+      + .checkbox {
+        opacity: .5;
+      }
+    }
   }
 }
