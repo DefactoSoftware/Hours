@@ -214,8 +214,8 @@ nl:
       archive_link: Archiveren
       un_archive_link: Dearchiveren
     project_activity_html:
-    one: "%{full_name} heeft %{hours} uren aan %{project} besteed"
-    other: "%{count} mensen hebben %{hours} uren aan %{project} besteed"
+    one: "<strong>%{full_name}</strong> heeft <strong>%{hours}</strong> uren aan <strong>%{project}</strong> besteed"
+    other: "<strong>%{count}</strong> mensen hebben <strong>%{hours}</strong> uren aan <strong>%{project}</strong> besteed"
   project_created: Het project is aangemaakt
   project_updated: Het project is gewijzigd
   read_more: lees verder

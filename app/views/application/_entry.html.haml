@@ -4,9 +4,7 @@
       .avatar-container
         = render "application/avatar", user: entry.user
       .entry-text
-        = t(:entry_activity_html,                                                                                                          |
-          user: "<a href='#{user_path(entry.user)}'>#{html_escape entry.user.first_name}</a>".html_safe,                                       |
-          count: entry.hours,                                                                                                              |
-          category: "<span style='font-weight: bold; color:#{ entry.category.name.pastel_color } '>#{html_escape entry.category.name}</span>".html_safe, |
-          project: "<a href='#{project_path(entry.project)}'>#{ html_escape entry.project.name }</a>".html_safe )                                        |
+        = t(:entry_activity_html, user: link_to(entry.user.first_name, user_path(entry.user)), count: entry.hours, |
+          category: colored_span(entry.category.name.pastel_color, entry.category.name), |
+          project: link_to(entry.project.name, entry.project))
         %span.timestamp{"data-timestamp" => entry.date}= l entry.date

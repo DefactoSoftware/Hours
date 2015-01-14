@@ -56,4 +56,10 @@ module ApplicationHelper
   def download_csv_params
     params.except(:controller, :action).merge(format: "csv")
   end
+
+  def colored_span(color, content)
+    content_tag(:span, style: "font-weight: bold; color:#{color};") do
+      content
+    end
+  end
 end
