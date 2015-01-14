@@ -150,8 +150,8 @@ en:
       archive_link: Archive
       un_archive_link: Un-archive
   project_activity_html:
-    one: "%{full_name} spent %{hours} hours working on %{project}"
-    other: "%{count} people spent %{hours} hours working on %{project}"
+    one: "<strong>%{full_name}</strong> spent <strong>%{hours}</strong> hours working on <strong>%{project}</strong>"
+    other: "<strong>%{count} people spent <strong>%{hours}</strong> hours working on <strong>%{project}</strong>"
   project_created: Project successfully created
   project_updated: Project successfully updated
   registration:
