@@ -9,7 +9,7 @@
           %th
       %tbody
         - @projects.each do |project|
-          - cache [project, current_locale] do
+          - localized_cache [project, current_locale] do
             %tr.info-row
               %td= l(project.updated_at.to_date)
               %td= link_to project.name, project

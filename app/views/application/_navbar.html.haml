@@ -3,7 +3,7 @@
     %ul
       = nav_path t("titles.projects.index"), root_path
       = nav_path t("navbar.entries"), user_entries_path(current_user)
-  - cache current_user do
+  - localized_cache current_user do
     .nav-user
       %ul
         %li#user-nav.dropdown

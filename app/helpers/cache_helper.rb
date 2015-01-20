@@ -24,4 +24,9 @@ module CacheHelper
   def cache_key_for_current_user(obj)
     [obj, (obj.user == current_user)]
   end
+
+  def localized_cache(key, &block)
+    key = Array(key) << current_locale
+    cache(key, &block)
+  end
 end
