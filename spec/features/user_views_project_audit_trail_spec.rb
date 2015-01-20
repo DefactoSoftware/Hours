@@ -11,11 +11,11 @@ feature "User views Project Audit Trail" do
   end
 
   scenario "links to audit path" do
-    visit project_url(project, subdomain: subdomain)
+    visit edit_project_url(project, subdomain: subdomain)
     #note that creation itself is already a change,
     #so the change-link is only not shown in case of a migration
-    actions = page.find(".actions div:first-child a")
-    expect(actions).to have_content("changes")
+    audit_link = page.find(".audit-link")
+    expect(audit_link).to have_content("changes")
   end
 
   scenario "displays audit trail" do
