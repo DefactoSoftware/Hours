@@ -1,10 +1,10 @@
 .outer
   .wrapper
     .projects-overview
-      - cache [cache_keys_for_all(:projects, :categories, :tags), current_locale] do
+      - localized_cache [cache_keys_for_all(:projects, :categories, :tags), current_locale] do
         = render partial: "application/entry_form", locals: { form_title: t("entries.index.new") }
       %ul.project-list
-        - cache cache_keys_for_all(:projects, :categories) do
+        - localized_cache cache_keys_for_all(:projects, :categories) do
           - unless Project.any?
             .info
               %p= t("info.no_projects_html", new_project_path: link_to(t("info.here"), new_project_path))
@@ -16,5 +16,5 @@
         = link_to t("titles.projects.new"), new_project_path, id: "new-project-button", class: "button create"
     .activity-feed
       %ul
-        - cache [cache_key_for_all(:entries), current_locale] do
+        - localized_cache [cache_key_for_all(:entries), current_locale] do
           = render partial: "entry", collection: @activities

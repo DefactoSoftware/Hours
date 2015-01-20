@@ -1,6 +1,6 @@
 .outer
   .container
-    - cache @tag do
+    - localized_cache @tag do
       = render "/header", title: "#{@tag.name} - #{EntryStats.new(@tag.entries).total_hours} #{t('tags.show.hours_indication_title', count: EntryStats.new(@tag.entries).total_hours)}"
     .charts
       = render @time_series.chart, time_series: @time_series

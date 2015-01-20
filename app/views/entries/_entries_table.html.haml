@@ -11,7 +11,7 @@
       %th.right.hide-for-mobile
   %tbody
     - @entries.each do |entry|
-      - cache cache_key_for_current_user(entry) do
+      - localized_cache cache_key_for_current_user(entry) do
         %tr.info-row
           %td= l(entry.date)
           %td= link_to entry.project.name, entry.project

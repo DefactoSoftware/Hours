@@ -1,6 +1,6 @@
 .outer
   .container
-    - cache @client do
+    - localized_cache @client do
       .clients
         %header
           = link_to t("client.edit"), edit_client_path(@client)
