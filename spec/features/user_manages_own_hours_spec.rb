@@ -68,7 +68,7 @@ feature "User manages their own hours" do
     new_project = create(:project)
     new_category = create(:category)
     new_hours = rand(1..100)
-    new_date = Date.today.strftime("%d/%m/%Y")
+    new_date = Date.current.strftime("%d/%m/%Y")
 
     edit_entry(new_project, new_category, new_hours, new_date)
 
@@ -87,7 +87,7 @@ feature "User manages their own hours" do
     new_project = create(:project)
     new_category = create(:category)
     new_hours = "these are not valid hours"
-    new_date = Date.today.strftime("%d/%m/%Y")
+    new_date = Date.current.strftime("%d/%m/%Y")
 
     edit_entry(new_project, new_category, new_hours, new_date)
 
