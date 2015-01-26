@@ -27,6 +27,6 @@ def build_user
            last_name: last_name,
            email: email,
            password: password,
-           confirmed_at: Date.today)
+           confirmed_at: Date.current)
 end
   
