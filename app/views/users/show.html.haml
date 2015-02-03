@@ -1,3 +1,5 @@
+- content_for :page_title, @user.full_name
+
 .outer
   .container
     = render "/header", title: @user.full_name

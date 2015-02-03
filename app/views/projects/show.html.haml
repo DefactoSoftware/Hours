@@ -1,3 +1,5 @@
+- content_for :page_title, @project.name
+
 - localized_cache [@project, params[:time_span]] do
   .outer
     .container
