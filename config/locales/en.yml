@@ -205,7 +205,6 @@ en:
       index: Clients
       new: New Client
     entries:
-      index: "%{name}'s Hours"
       index: All Entries
     projects:
       index: Projects
@@ -213,7 +212,7 @@ en:
       edit: Edit Project
     users:
       index: Users
-    report:
+    reports:
       index: Reporting
   users:
     email: Email
