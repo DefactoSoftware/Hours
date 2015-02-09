@@ -14,7 +14,7 @@ module MarkdownHelper
       strikethrough:                true
     }
 
-    renderer = Redcarpet::Render::HTML.new(options)
+    renderer = Redcarpet::Render::Safe.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
 
     markdown.render(text).html_safe

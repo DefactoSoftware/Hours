@@ -13,7 +13,7 @@ feature "User manages their own hours" do
     2.times { create(:entry, user: user) }
     click_link "My Hours"
 
-    expect(page.title).to eq(I18n.t("titles.entries.index", name: user.first_name))
+    expect(page.title).to eq("#{user.full_name} | Hours")
     expect(page).to have_content("#{user.first_name}'s hours")
     expect(page).to have_content(user.entries.last.project.name)
   end
@@ -68,7 +68,7 @@ feature "User manages their own hours" do
     new_project = create(:project)
     new_category = create(:category)
     new_hours = rand(1..100)
-    new_date = Date.today.strftime("%d/%m/%Y")
+    new_date = Date.current.strftime("%d/%m/%Y")
 
     edit_entry(new_project, new_category, new_hours, new_date)
 
@@ -87,7 +87,7 @@ feature "User manages their own hours" do
     new_project = create(:project)
     new_category = create(:category)
     new_hours = "these are not valid hours"
-    new_date = Date.today.strftime("%d/%m/%Y")
+    new_date = Date.current.strftime("%d/%m/%Y")
 
     edit_entry(new_project, new_category, new_hours, new_date)
 

@@ -1,7 +1,7 @@
 class TimeSeries::YearlyTimeSeries < TimeSeries
   def initialize(resource)
     @resource = resource
-    @time_span = (364.days.ago.to_date..Date.today).freeze
+    @time_span = (364.days.ago.to_date..Date.current).freeze
   end
 
   def chart
