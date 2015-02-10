@@ -1,4 +1,8 @@
 module Hours
+  def self.google_analytics_id
+    ENV["GOOGLE_ANALYTICS_KEY"]
+  end
+  
   def self.helpful_url
     ENV["HELPFUL_URL"]
   end
