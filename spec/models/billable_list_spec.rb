@@ -15,14 +15,4 @@ describe BillableList do
   it "has a list of clients" do
     expect(billable_list.clients.count).to eq(1)
   end
-
-  it "has a list of projects" do
-    expect(billable_list.projects_for_client(client2).count).to eq(1)
-    expect(billable_list.projects_for_client(client1).count).to eq(0)
-  end
-
-  it "has entries for a project" do
-    expect(billable_list.entries_for_project(project1).count).to eq(0)
-    expect(billable_list.entries_for_project(project2).count).to eq(1)
-  end
 end

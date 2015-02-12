@@ -22,7 +22,7 @@ feature "User manages billables" do
 
     visit billables_url(subdomain: subdomain)
 
-    expect(page.body).to have_content("√")
+    expect(entry.reload.billed).to eq(true)
     expect(page.body).to_not have_selector(".bill_checkbox[value='#{entry.id}']")
   end
 

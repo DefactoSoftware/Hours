@@ -1,8 +1,8 @@
 class BillablesController < ApplicationController
   def index
-    entries = EntryQuery.new(resource, params[:entry_filter]).filter
+    entries = EntryQuery.new(resource, entry_filter_or_default).filter
     @billable_list = BillableList.new(entries)
-    @filters = EntryFilter.new(params[:entry_filter])
+    @filters = EntryFilter.new(entry_filter_or_default)
   end
 
   def bill_entries
@@ -17,7 +17,11 @@ class BillablesController < ApplicationController
 
   private
 
+  def entry_filter_or_default
+    params[:entry_filter] || { billed: false }
+  end
+
   def resource
-    @entries ||= Entry.billable
+    @entries ||= Entry.includes(:category, :user).billable
   end
 end
