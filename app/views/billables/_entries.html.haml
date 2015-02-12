@@ -7,7 +7,7 @@
     %th= t("billables.table.category")
     %th= t("billables.table.hours")
     %th= t("billables.table.user")
-  - entries.billable.each do |entry|
+  - entries.each do |entry|
     %tr.info-row
       %td=billable_entry_checkbox(entry)
       %td=l(entry.date)
