@@ -15,4 +15,4 @@
     = form_tag("/billables", method: "post", remote: true, id: "billable-entries-form") do
       - @billable_list.clients.each do |client|
         %h1= client.name
-        = render "projects", projects: @billable_list.projects_for_client(client)
+        = render "projects", projects: client.projects

@@ -28,7 +28,7 @@ class Project < ActiveRecord::Base
   has_many :tags, -> { uniq }, through: :entries
   belongs_to :client, touch: true
 
-  scope :by_last_updated, -> { order("updated_at DESC") }
+  scope :by_last_updated, -> { order("projects.updated_at DESC") }
   scope :by_name, -> { order("lower(name)") }
 
   scope :are_archived, -> { where(archived: true) }
