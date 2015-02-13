@@ -1,12 +1,13 @@
 require "csv"
 
 class ClockwiseImporter
-  def initialize(path)
-    @csv_path = path
+  def initialize(csv_path:, tenant:)
+    @csv_path = csv_path
+    @tenant = tenant
   end
 
   def import!
-    Apartment::Tenant.switch :defacto
+    Apartment::Tenant.switch tenant
     Entry.transaction do
       CSV.foreach(@csv_path, headers: true) do |r|
         row = ImportRow.new(r[0].split(";"))
