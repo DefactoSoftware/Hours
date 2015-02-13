@@ -32,6 +32,14 @@ class EntryFilter
       [I18n.t("entry_filters.archived"), true]
     ]
   end
+
+  def from_date
+    DateTime.parse(@from_date) if @from_date.present?
+  end
+
+  def to_date
+    DateTime.parse(@to_date) if @to_date.present?
+  end
 end
 
 class EntryFilter
