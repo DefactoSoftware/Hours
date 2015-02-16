@@ -5,7 +5,6 @@
 //= require jquery.atwho
 //= require moment
 //= require pikaday
-//= require selectize
 //= require chartjs
 //= require select2
 //= require charts
@@ -31,32 +30,6 @@ $('.alert').ready(function() {
   setTimeout(function() {
     $('#flash').fadeOut();
   }, 5000);
-});
-
-$('#entry_tag_list').selectize({
-  valueField: 'tag',
-  labelField: 'tag',
-  searchField: 'tag',
-  plugins: ['remove_button'],
-  delimiter: ',',
-  createOnBlur: true,
-  persist: false,
-  create: function(input) {
-    return {
-      value: input,
-      tag: input
-    };
-  },
-  load: function(query, callback) {
-    var data = $('#entry_tag_list').data('data');
-    if (!query.length) {
-      return callback(data);
-    }
-    var result = $.grep(data, function(e) {
-      return e.tag.indexOf(query) === 0;
-    });
-    return callback(result);
-  }
 });
 
 $(document).ready(function() {
