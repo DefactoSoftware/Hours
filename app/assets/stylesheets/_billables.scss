@@ -1,6 +1,7 @@
 .billables {
   @include span-columns(12);
   overflow: auto;
+  display: table;
   .sidebar {
     @include media($laptop-screen) {
       @include span-columns(3);
