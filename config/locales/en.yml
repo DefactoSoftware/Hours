@@ -23,6 +23,7 @@ en:
     budget: "Budget:"
     category: "Category:"
     hours: "Hours:"
+    mileages: "Kilometers"
     from: from
     to: to
     actions:
@@ -51,6 +52,12 @@ en:
       project: Project
       hours: Hours
       un_archive_link: Un-archive
+  activerecord:
+    attributes:
+      hour:
+        value: "Hours"
+      mileage:
+        value: "Mileages"
   back: Back
   billables:
     billable_entries: Billable Entries
@@ -99,24 +106,30 @@ en:
       salutation: Hello %{email} !
       wrong_mail: If you didn't request this, please ignore this email.
   entries:
-    download_csv: Download as CSV
+    download_csv: Download all entries as CSV
     index:
       category: Category
       date: Date
       delete: delete
       description: 'Description or #hashtags'
       edit: edit
-      edit_entry: Edit Entry
+      edit_hours_entry: Edit Hours Entry
+      edit_mileages_entry: Edit Kilometers Entry
       hours: Hours
+      mileages: Kilometers
       new: New Entry
       project: Project
-      user_hours: "%{user}'s hours"
+      user_entries: "%{user}'s entries"
       changes: changes
   entry_activity_html:
     one: "%{user} spent one hour doing %{category} on %{project}"
     other: "%{user} spent %{count} hours doing %{category} on %{project}"
-  entry_created: Entry successfully created
-  entry_deleted: Entry successfully deleted
+  entry_created:
+    hours: Hours entry successfully created
+    mileages: Kilometers entry successfully created
+  entry_deleted:
+    hours: Hours Entry successfully deleted
+    mileages: Kilometers Entry successfully deleted
   entry_failed: Something went wrong saving your entry
   entry_saved: Entry successfully saved
   helpful:
@@ -125,8 +138,14 @@ en:
     tagline: Have a question about Hours? Need some help getting started?
   helpers:
     submit:
+      create: Create Entry
+      update: Update Entry
       project:
+        create: Create Project
         update: Update Project
+      category:
+        create: Create Category
+        update: Update Category
   info:
     here: here
     no_categories_html: It looks like you don't have any categories set up yet, you
@@ -142,7 +161,7 @@ en:
   navbar:
     dropdown:
       edit_user: Edit profile
-    entries: My Hours
+    entries: My Entries
   no_hours_registered: Nobody spent any time on %{project} yet
   project:
     errors:
@@ -181,6 +200,7 @@ en:
       category: Category
       client: Client
       hours: Hours
+      mileages: Kilometers
       billable: Billable
       billed: Billed
       description: Description

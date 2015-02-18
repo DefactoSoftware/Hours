@@ -24,7 +24,7 @@
             = project_presenter.show_categories_bar
         .activity-description
           - if project.users.count > 0
-            = t(:project_activity_html, full_name: project.users.first.full_name, count: project.users.count, hours: EntryStats.new(project.entries).total_hours, project: project.name)
+            = t(:project_activity_html, full_name: project.users.first.full_name, count: project.users.count, hours: EntryStats.new(project.hours).total_hours, project: project.name)
           - else
             = t(:no_hours_registered, project: project.name)
           .active-people

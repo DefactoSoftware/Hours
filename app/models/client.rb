@@ -3,12 +3,14 @@
 # Table name: clients
 #
 #  id                :integer          not null, primary key
-#  name              :string(255)      default(""), not null
-#  description       :string(255)      default("")
-#  logo_file_name    :string(255)
-#  logo_content_type :string(255)
+#  name              :string           default(""), not null
+#  description       :string           default("")
+#  logo_file_name    :string
+#  logo_content_type :string
 #  logo_file_size    :integer
 #  logo_updated_at   :datetime
+#  created_at        :datetime
+#  updated_at        :datetime
 #
 
 class Client < ActiveRecord::Base
@@ -18,15 +20,14 @@ class Client < ActiveRecord::Base
   scope :by_last_updated, -> { order("clients.updated_at DESC") }
   has_many :projects
 
-  has_many :entries, through: :projects
+  has_many :hours, through: :projects
+  has_many :mileages, through: :projects
 
   has_attached_file :logo,
                     styles: { original: "100x100#" },
                     default_url: "",
                     s3_protocol: ""
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
-
-  has_many :entries, through: :projects
 
   def logo_url
     logo.url(:original)

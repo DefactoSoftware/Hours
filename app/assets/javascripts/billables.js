@@ -23,7 +23,10 @@ $(document).ready(function () {
 
   $('.bill-project').click(function (element) {
     var checked = $(element.target).prop('checked');
-    $('input[data-project-id="' + $(element.target).attr('data-project-id') + '"]').each(function (index, element) {
+    $('input[data-project-id="' + $(element.target).attr('data-project-id') +
+      '"][value^="' +
+      $(element.target).attr('data-entry_type') + '"] ').
+      each(function (index, element) {
       $(element).prop('checked', checked);
       countCheckedBoxes();
     });

@@ -3,8 +3,8 @@
 # Table name: taggings
 #
 #  id         :integer          not null, primary key
-#  tag_id     :integer          not null
-#  entry_id   :integer
+#  tag_id     :integer
+#  hour_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -14,6 +14,6 @@
 FactoryGirl.define do
   factory :tagging do
     tag
-    entry
+    hour
   end
 end

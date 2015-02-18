@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     users_path
   end
 
+  def to_object(entry_type)
+    entry_type.singularize.camelize.constantize
+  end
+
   private
 
   helper_method def current_subdomain

@@ -27,7 +27,7 @@ class TimeSeries
   end
 
   def entries_for_time_span
-    @resource.entries.where(created_at: range_for_entries)
+    @resource.hours.where(created_at: range_for_entries)
   end
 
   private
@@ -37,7 +37,7 @@ class TimeSeries
   end
 
   def labels
-    @time_span.map { |date| date.strftime('%d/%m') }
+    @time_span.map { |date| date.strftime("%d/%m") }
   end
 
   def data
@@ -45,6 +45,7 @@ class TimeSeries
   end
 
   def hours_per_day
-    @hours_per_day ||= @resource.entries.order("DATE(date)").group("DATE(date)").sum(:hours)
+    @hours_per_day ||=
+      @resource.hours.order("DATE(date)").group("DATE(date)").sum(:value)
   end
 end

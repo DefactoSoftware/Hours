@@ -3,12 +3,14 @@
 # Table name: clients
 #
 #  id                :integer          not null, primary key
-#  name              :string(255)      default(""), not null
-#  description       :string(255)      default("")
-#  logo_file_name    :string(255)
-#  logo_content_type :string(255)
+#  name              :string           default(""), not null
+#  description       :string           default("")
+#  logo_file_name    :string
+#  logo_content_type :string
 #  logo_file_size    :integer
 #  logo_updated_at   :datetime
+#  created_at        :datetime
+#  updated_at        :datetime
 #
 
 require "spec_helper"

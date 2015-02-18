@@ -3,10 +3,10 @@
 # Table name: tags
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)      not null
+#  name       :string           not null
 #  created_at :datetime
 #  updated_at :datetime
-#  slug       :string(255)
+#  slug       :string
 #
 
 class Tag < ActiveRecord::Base
@@ -17,9 +17,9 @@ class Tag < ActiveRecord::Base
                    uniqueness: { case_sensitive: false }
 
   has_many :taggings
-  has_many :entries, through: :taggings
-  has_many :projects, -> { uniq }, through: :entries
-  has_many :users, -> { uniq }, through: :entries
+  has_many :hours, through: :taggings
+  has_many :projects, -> { uniq }, through: :hours
+  has_many :users, -> { uniq }, through: :hours
   belongs_to :project
 
   def self.list

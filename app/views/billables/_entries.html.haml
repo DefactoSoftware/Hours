@@ -7,6 +7,7 @@
     %th= t("billables.table.category")
     %th= t("billables.table.hours")
     %th= t("billables.table.user")
+    %th= t("billables.table.unbill")
   - entries.each do |entry|
     %tr.info-row
       %td=billable_entry_checkbox(entry)
@@ -16,3 +17,7 @@
       %td
         = link_to entry.user do
           = entry.user.full_name
+      %td
+        - if entry.billed?
+          %button{name: "entries_to_unbill[]", class: "unbill_button", value: entry.id}
+            = t("billables.table.unbill")

@@ -5,11 +5,11 @@ describe TimeSeries do
 
   before(:each) do
     Timecop.freeze(DateTime.new(2014, 1, 4))
-    create(:entry, hours: 6, date: DateTime.new(2014, 1, 1), user: user)
-    create(:entry, hours: 2, date: DateTime.new(2014, 1, 1), user: user)
-    create(:entry, hours: 5, date: DateTime.new(2014, 1, 3), user: user)
-    create(:entry, hours: 5, date: DateTime.new(2013, 11, 3), user: user)
-    create(:entry, hours: 5, date: DateTime.new(2013, 12, 13), user: user)
+    create(:hour, value: 6, date: DateTime.new(2014, 1, 1), user: user)
+    create(:hour, value: 2, date: DateTime.new(2014, 1, 1), user: user)
+    create(:hour, value: 5, date: DateTime.new(2014, 1, 3), user: user)
+    create(:hour, value: 5, date: DateTime.new(2013, 11, 3), user: user)
+    create(:hour, value: 5, date: DateTime.new(2013, 12, 13), user: user)
   end
 
   let(:weekly_time_series) { TimeSeries.weekly(user) }

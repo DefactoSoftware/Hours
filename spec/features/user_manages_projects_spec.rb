@@ -11,34 +11,33 @@ feature "User manages projects" do
 
   scenario "creates a project" do
     client = create(:client)
-
-    click_link "New Project"
+    click_link I18n.t("titles.projects.new")
 
     fill_in "Name", with: "My new project"
     select(client.name, from: "project_client_id")
     fill_in "Description", with: "This is a **very** cool project!"
-    click_button "Create Project"
-    expect(page).to have_content(I18n.t('project_created'))
+    click_button I18n.t("helpers.submit.project.create")
+    expect(page).to have_content(I18n.t("project_created"))
     expect(page).to have_content(client.name)
   end
 
   scenario "creates a project with invalid data" do
-    click_link "New Project"
+    click_link I18n.t("titles.projects.new")
 
     fill_in "Name", with: ""
-    click_button "Create Project"
+    click_button I18n.t("helpers.submit.project.create")
     expect(page).to have_content("can't be blank")
   end
 
   scenario "creates a billable project" do
     client = create(:client)
-    click_link "New Project"
+    click_link I18n.t("titles.projects.new")
 
     fill_in "Name", with: "My new project"
     select(client.name, from: "project_client_id")
     check "Billable"
-    click_button "Create Project"
-    expect(page).to have_content(I18n.t('project_created'))
+    click_button I18n.t("helpers.submit.project.create")
+    expect(page).to have_content(I18n.t("project_created"))
     expect(Project.last.billable).to be(true)
   end
 
@@ -49,14 +48,14 @@ feature "User manages projects" do
 
     select(client.name, from: "project_client_id")
     check "Billable"
-    click_button "Update Project"
+    click_button I18n.t("helpers.submit.project.update")
     expect(project.reload.billable).to be(true)
   end
 
   scenario "go to the edit page of a project" do
     project = create(:project)
     visit project_url(project, subdomain: subdomain)
-    click_link "edit"
+    click_link I18n.t("project.show.edit_link")
     expect(current_url).to eq(edit_project_url(project, subdomain: subdomain))
   end
 
@@ -67,8 +66,8 @@ feature "User manages projects" do
     visit edit_project_url(project, subdomain: subdomain)
     fill_in "Name", with: new_project_name
     select(new_client.name, from: "project_client_id")
-    click_button "Update Project"
-    expect(page).to have_content(I18n.t('project_updated'))
+    click_button I18n.t("helpers.submit.project.update")
+    expect(page).to have_content(I18n.t("project_updated"))
     expect(page).to have_content(new_project_name)
     expect(page).to have_content(new_client.name)
   end
@@ -77,7 +76,7 @@ feature "User manages projects" do
     project = create(:project)
     visit edit_project_url(project, subdomain: subdomain)
     fill_in "Name", with: ""
-    click_button "Update Project"
+    click_button I18n.t("helpers.submit.project.update")
     expect(page).to have_content("can't be blank")
   end
 
@@ -116,8 +115,8 @@ feature "User manages projects" do
   end
 
   scenario "views a single project" do
-    project = create(:project_with_entries, description: "Cool, **markdown!**")
-    entry = project.entries.last
+    project = create(:project_with_hours, description: "Cool, **markdown!**")
+    entry = project.hours.last
     entry.update(description: "#TDD")
 
     visit root_url(subdomain: subdomain)
@@ -131,7 +130,7 @@ feature "User manages projects" do
 
   scenario "views a single project with more" \
            "than the maximum shown categories" do
-    project = create(:project_with_more_than_maximum_entries)
+    project = create(:project_with_more_than_maximum_hours)
 
     visit project_url(project, subdomain: subdomain)
 
@@ -140,7 +139,7 @@ feature "User manages projects" do
 
   scenario "views a single project with" \
            "less then the maximum shown categories" do
-    project = create(:project_with_entries)
+    project = create(:project_with_hours)
 
     visit project_url(project, subdomain: subdomain)
 
@@ -149,13 +148,13 @@ feature "User manages projects" do
 
   scenario "views his own hours" do
     project = create(:project)
-    create(:entry, project: project, user: user, description: "#refactoring")
+    create(:hour, project: project, user: user, description: "#refactoring")
 
     visit root_url(subdomain: subdomain)
-    click_link "My Hours"
+    click_link I18n.t("navbar.entries")
 
     expect(page).to have_content(project.name)
-    expect(page).to have_content(project.entries.last.category.name)
+    expect(page).to have_content(project.hours.last.category.name)
     expect(page).to have_content("refactoring")
   end
 end

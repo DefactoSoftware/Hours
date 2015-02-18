@@ -44,8 +44,9 @@ $(document).ready(function() {
     on('click', 'div', function(e) { e.stopPropagation();
   });
 
-  $('#entry_project_id').select2();
-  $('#entry_category_id').select2();
+  $('#hour_project_id').select2();
+  $('#hour_category_id').select2();
+  $('#mileage_project_id').select2();
   $('#project_client_id').select2();
 
   if ($('body').hasClass('projects-index')) {

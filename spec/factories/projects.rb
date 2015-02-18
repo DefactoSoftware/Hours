@@ -4,15 +4,15 @@ FactoryGirl.define do
     billable false
     archived false
 
-    factory :project_with_entries do
+    factory :project_with_hours do
       after(:create) do |project, evaluator|
-        create_list(:entry, 2, project: project)
+        create_list(:hour, 2, project: project)
       end
     end
 
-    factory :project_with_more_than_maximum_entries do
+    factory :project_with_more_than_maximum_hours do
       after(:create) do |project, evaluator|
-        create_list(:entry, 7, project: project)
+        create_list(:hour, 7, project: project)
       end
     end
   end
@@ -21,16 +21,16 @@ end
 #
 # Table name: projects
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)      default(""), not null
-#  created_at :datetime
-#  updated_at :datetime
-#  slug       :string(255)
-#  budget     :integer
-#  billable   :boolean          default(FALSE)
-#  client_id  :integer
-#  archived   :boolean          default(FALSE), not null
-#  billable   :boolean          default(FALSE)
+#  id          :integer          not null, primary key
+#  name        :string           default(""), not null
+#  created_at  :datetime
+#  updated_at  :datetime
+#  slug        :string
+#  budget      :integer
+#  billable    :boolean          default("false")
+#  client_id   :integer
+#  archived    :boolean          default("false"), not null
+#  description :text
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

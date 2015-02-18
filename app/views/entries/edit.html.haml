@@ -1,4 +1,6 @@
 .outer
   .wrapper
     .projects-overview
-      = render partial: "application/entry_form", locals: { form_title: t("entries.index.edit_entry") }
+      .edit-entry-wrapper
+        %h2= t("entries.index.edit_entry")
+        = render partial: "application/#{params[:controller]}_entry_form", locals: { form_title: t("entries.index.edit_#{params[:controller]}_entry") }
