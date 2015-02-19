@@ -1,5 +1,5 @@
 - projects.each do |project|
   .container
-    %h1= project.name
+    %h3= project.name
     = render "entries", entries: project.entries, project: project
     %button.submit-billable-entries= t("billables.buttons.bill_selected")

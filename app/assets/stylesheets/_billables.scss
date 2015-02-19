@@ -1,30 +1,35 @@
 .billables {
-  @include span-columns(12);
-  overflow: auto;
-  display: table;
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
   .sidebar {
+    @include span-columns(12);
+    float: right;
+
     @include media($laptop-screen) {
       @include span-columns(3);
-      float:right;
-    }
-    float:right;
-    margin: 12em 0 0 2em;
-    @include span-columns(12);
-
-    h1 {
-      margin-bottom: 1em;
     }
   }
+
   .outer {
-    @include media($laptop-screen) {
-      @include span-columns(8);
-      margin: 2em 0 0 2em;
-      float: left;
+    @include span-columns(12);
+    max-width: 90em;
+
+    @include media ($medium-screen) {
+      padding: 1em;
     }
 
-    @include span-columns(12);
-
-    max-width: 90em;
+    @include media($laptop-screen) {
+      @include span-columns(9);
+      float: left;
+      padding: 2em;
+    }
 
     .submit-billable-entries {
       @include media($laptop-screen) {
@@ -35,18 +40,6 @@
 }
 
 .marked_entries {
-  @include media($laptop-screen) {
-    width: 25%;
-    margin-left: 75%;
-  }
-  position: fixed;
-  z-index: 10;
-  margin: auto;
-  box-shadow: 0px 2px 2px rgba(83, 63, 63, 0.3);
-  border-radius: 0.1875em;
-  padding: 1em;
-  width:100%;
-  background: white;
 
   p {
     line-height: 2.5em;
