@@ -16,7 +16,7 @@ describe EntryFilter do
   it "#users" do
     filter = EntryFilter.new
 
-    expect(filter.users).to eq(User.all)
+    expect(filter.users).to eq(User.by_name)
   end
 
   it "#projects" do

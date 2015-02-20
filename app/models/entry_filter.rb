@@ -18,7 +18,7 @@ class EntryFilter
     super(Params.new(params))
     @clients = Client.by_name
     @projects = Project.by_name
-    @users = User.all
+    @users = User.by_name
   end
 
   def billed_options
