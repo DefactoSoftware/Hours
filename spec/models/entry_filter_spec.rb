@@ -13,6 +13,12 @@ describe EntryFilter do
     expect(filter.clients).to eq(Client.by_name)
   end
 
+  it "#users" do
+    filter = EntryFilter.new
+
+    expect(filter.users).to eq(User.all)
+  end
+
   it "#projects" do
     filter = EntryFilter.new
 
