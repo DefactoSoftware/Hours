@@ -4,6 +4,7 @@ class EntryFilter
   KEYS = [
     :client_id,
     :project_id,
+    :user,
     :billed,
     :to_date,
     :from_date,
@@ -11,12 +12,13 @@ class EntryFilter
   ].freeze
 
   attr_accessor(*KEYS)
-  attr_reader :projects, :clients
+  attr_reader :projects, :clients, :users
 
   def initialize(params = {})
     super(Params.new(params))
     @clients = Client.by_name
     @projects = Project.by_name
+    @users = User.all
   end
 
   def billed_options

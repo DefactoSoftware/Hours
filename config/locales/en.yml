@@ -219,17 +219,17 @@ en:
     invite: Invite User
     invitation_sent_at: Invited %{time_ago} ago
     confirm: Confirm
-
   entry_filters:
     title: Filters
-    billed: Billed
-    billed_label: Billed or not
-    billed_empty: Billed or not
-    clients: Clients
+    clients: All Clients
+    projects: All Projects
+    users: All Users
     from_date_label: From date
-    not_billed: Not billed
     to_date_label: To date
-    projects: Projects
+    billed_label: Billed or not
+    billed: Billed
+    not_billed: Not billed
+    billed_empty: Billed or not
     archived_empty: Archived and Unarchived
     archived: Archived
     not_archived: Not Archived

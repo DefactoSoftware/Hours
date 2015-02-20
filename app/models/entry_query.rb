@@ -33,6 +33,10 @@ class EntryQuery
       where(project_id: param)
     end
 
+    def user(param)
+      where(user_id: param)
+    end
+
     def billed(param)
       where(billed: param)
     end
