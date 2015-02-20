@@ -36,12 +36,12 @@
 class User < ActiveRecord::Base
   include Sluggable
 
-  devise :database_authenticatable,   
-         :recoverable,   
-         :rememberable,    
-         :trackable,   
-         :validatable,   
-         :confirmable,   
+  devise :database_authenticatable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :confirmable,
          :invitable
 
   validates_presence_of :first_name, :last_name
@@ -50,6 +50,8 @@ class User < ActiveRecord::Base
   belongs_to :organization, class_name: "Account", inverse_of: :users
   has_many :entries
   has_many :projects, -> { uniq }, through: :entries
+
+  scope :by_name, -> { order("lower(last_name)") }
 
   def full_name
     "#{first_name} #{last_name}"
