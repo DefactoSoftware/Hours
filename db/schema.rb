@@ -102,13 +102,11 @@ ActiveRecord::Schema.define(version: 20150106133726) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "budget"
     t.boolean  "billable",    default: false
     t.integer  "client_id"
-    t.integer  "budget"
-    t.boolean  "billable",    default: false
     t.boolean  "archived",    default: false, null: false
     t.text     "description"
-    t.integer  "budget"
   end
 
   add_index "projects", ["archived"], name: "index_projects_on_archived", using: :btree
