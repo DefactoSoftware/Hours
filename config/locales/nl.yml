@@ -287,6 +287,8 @@ nl:
       new: Nieuw project
     users:
       index: Gebruikers
+    reports:
+      index: Rapport
   user_updated: Je account is bijgewerkt
   users:
     confirm: Bevestig
