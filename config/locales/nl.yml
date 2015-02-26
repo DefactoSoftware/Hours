@@ -36,8 +36,9 @@ nl:
     subdomain: subdomein
     warning: Het verwijderen van je account zal jouw en iedereens gegevens op %{subdomain}
       verwijderen en kan niet ongedaan worden gemaakt.
-    users_instructions_html: "Collega's kunnen zich %{sign_up_path} registreren met
-      een email dat eindigt op <em> %{domain} </em>"
+    users_instructions_html: |
+      Collega's kunnen zich %{sign_up_path} registreren met
+      een email dat eindigt op <em> %{domain} </em>
   account_created_successfully: Aanmelden is gelukt
   archives:
     index:
@@ -143,8 +144,9 @@ nl:
     reset_password:
       info_text: Uw wachtwoord wordt niet veranderdt tot u de link hierboven heb gebruikt
         om een nieuwe aan te maken.
-      requested_link: 'Iemand heeft een aanvraag gedaan om uw wachtwoord te wijzigen.
-        U kut dit doen met de link hieronder:'
+      requested_link: |
+        Iemand heeft een aanvraag gedaan om uw wachtwoord te wijzigen.
+        U kut dit doen met de link hieronder:
       salutation: Hallo %{email} !
       wrong_mail: Als deze aanvraag niet van u kwam, kunt u deze mail negeren.
   entries:
@@ -285,6 +287,8 @@ nl:
       new: Nieuw project
     users:
       index: Gebruikers
+    reports:
+      index: Rapport
   user_updated: Je account is bijgewerkt
   users:
     confirm: Bevestig
@@ -294,3 +298,18 @@ nl:
   views:
     pagination:
       truncate: ...
+
+  entry_filters:
+    title: Filters
+    clients: Alle  klanten
+    projects: Alle projecten
+    users: Alle gebruikers
+    from_date_label: Vanaf
+    to_date_label: Tot
+    billed_label: Gefactureerd en niet gefactureerd
+    billed: Gefactureerd
+    not_billed: Niet gefactureerd
+    billed_empty: Gefactureerd of niet
+    archived_empty: Gearchiveerde en actieve projecten
+    archived: Gearchiveerde projecten
+    not_archived: Actieve projecten

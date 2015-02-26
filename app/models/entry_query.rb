@@ -33,16 +33,20 @@ class EntryQuery
       where(project_id: param)
     end
 
+    def user(param)
+      where(user_id: param)
+    end
+
     def billed(param)
       where(billed: param)
     end
 
     def from_date(param)
-      where("entries.created_at > ?", param)
+      where("entries.date > ?", param)
     end
 
     def to_date(param)
-      where("entries.created_at < ?", param)
+      where("entries.date < ?", param)
     end
 
     def archived(param)

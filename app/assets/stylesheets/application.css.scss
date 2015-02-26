@@ -27,7 +27,6 @@
 @import "reports";
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
 @import "pikaday";
-@import "selectize";
 @import "select2";
 @import "tagger";
 @import "jquery.atwho";
@@ -167,4 +166,25 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 0.9em;
+}
+
+.select2-container .select2-choice {
+  background: none;
+  background-image: none;
+  height: 34px;
+  margin-right: 1px;
+
+  .select2-chosen {
+    margin-top: 2px;
+  }
+}
+
+.select2-container .select2-choice .select2-arrow {
+  background: none;
+  background-image: none;
+  border-left: none;
+
+  b {
+    margin-top: 2px;
+  }
 }

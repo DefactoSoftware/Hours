@@ -13,7 +13,6 @@
       .info
         %p= t("info.no_billable_entries_html")
     = form_tag("/billables", method: "post", remote: true, id: "billable-entries-form") do
-      - localized_cache [cache_keys_for_all(:clients, :entries, :projects), current_locale] do
-        - @billable_list.clients.each do |client|
-          %h1= client.name
-          = render "projects", projects: @billable_list.projects_for_client(client)
+      - @billable_list.clients.each do |client|
+        %h1= client.name
+        = render "projects", projects: client.projects
