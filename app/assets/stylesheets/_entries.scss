@@ -128,6 +128,24 @@
 }
 
 .entries-table {
+  line-height: 20px;
+  table-layout: auto;
+
+  td,
+  th {
+    padding: 4px 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
   // date
   th:nth-child(1) {
     width: 10%;
@@ -147,6 +165,7 @@
   // description
   th:nth-child(5) {
     width: 30%;
+    white-space: normal;
   }
   // actions
   th:nth-child(6) {
@@ -171,11 +190,14 @@
     }
   }
 
-  td {
-    padding: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .weekday {
+    color: $medium-gray;
+    font-size: 0.9em;
+  }
+
+  .description {
+    font-size: 0.9em;
+    white-space: normal;
   }
 
   .center {
