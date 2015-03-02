@@ -59,11 +59,11 @@ body {
   }
 }
 
-h1 {   
-  margin-bottom: 1em;    
-  text-align: center;      
- 
-  @include media($medium-screen) {   
+h1 {
+  margin-bottom: 1em;
+  text-align: center;
+
+  @include media($medium-screen) {
     text-align: inherit;
   }
 }
@@ -160,12 +160,6 @@ h1 {
   @media screen and (max-width: $medium-screen) {
     display: none;
   }
-}
-
-.table-description {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 0.9em;
 }
 
 .select2-container .select2-choice {
