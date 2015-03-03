@@ -10,7 +10,7 @@ class EntryCSVGenerator
   end
 
   def generate
-    CSV.generate do |csv|
+    CSV.generate(options) do |csv|
       csv << @report.headers
       @report.each_row do |entry|
         csv << [
@@ -26,5 +26,13 @@ class EntryCSVGenerator
         ]
       end
     end
+  end
+
+  def options
+    return {
+      col_sep: ";"
+    } if I18n.locale.in?([:nl, :de])
+
+    CSV::DEFAULT_OPTIONS
   end
 end

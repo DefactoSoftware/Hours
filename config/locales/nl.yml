@@ -238,6 +238,16 @@ nl:
       current_password: we hebben uw huidig wachtwoord nodig om de veranderingen te bevestigen
     update_button: Opslaan
   report:
+    headers:
+      date: Datum
+      user: Gebruiker
+      project: Project
+      category: Categorie
+      client: Klant
+      hours: Uren
+      billable: Facturabel
+      billed: Gefactureerd
+      description: Beschrijving
     filters: filters
     hours_per_day: Uren per dag
     monthly: 1 maand
