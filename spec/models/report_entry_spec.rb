@@ -4,8 +4,8 @@ describe ReportEntry do
   let(:entry) { create(:entry_with_client) }
   subject(:report_entry) { ReportEntry.new(entry) }
 
-  it "#date" do
-    expect(report_entry.date).to eq(entry.date)
+  it "#date localized" do
+    expect(report_entry.date).to eq(I18n.l entry.date)
   end
 
   it "#user" do
