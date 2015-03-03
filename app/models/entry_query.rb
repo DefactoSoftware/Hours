@@ -42,11 +42,11 @@ class EntryQuery
     end
 
     def from_date(param)
-      where("entries.date > ?", param)
+      where("entries.date >= ?", param)
     end
 
     def to_date(param)
-      where("entries.date < ?", param)
+      where("entries.date <= ?", param)
     end
 
     def archived(param)
