@@ -133,10 +133,7 @@
 
   td,
   th {
-    padding: 4px 4px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    padding: 4px;
 
     &:first-child {
       padding-left: 0;
