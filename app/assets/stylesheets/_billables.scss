@@ -39,6 +39,8 @@
     width: 25%;
     margin-left: 75%;
   }
+  top: 50px;
+  right: 0;
   position: fixed;
   z-index: 10;
   margin: auto;
@@ -51,6 +53,42 @@
   p {
     line-height: 2.5em;
   }
+}
+
+.checkbox {
+  width: 3em;
+}
+
+.status {
+  @include media($laptop-screen) {
+    text-align: center;
+    width: 8em;
+    opacity: 1;
+  }
+  opacity: 0;
+  width: 0;
+}
+
+.green-row {
+  background-color: rgba(0,255,0,0.08);
+}
+
+.billable.info-row:hover {
+    background-color: rgba(0,0,255,0.08);
+    cursor: pointer
+}
+
+.billable.info-row::select {
+    background-color: rgba(0,0,255,0.2);
+}
+
+.billable.info-row.selected {
+  font-weight: bold;
+}
+
+#submit-billable-entries-bill,
+#submit-billable-entries-unbill {
+  margin-bottom: 0.3em;
 }
 
 #new_entry_filter {

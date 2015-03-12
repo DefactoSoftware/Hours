@@ -1,21 +1,23 @@
 %h3= t("entries.index.hours")
 %table.entries
   %tr
-    %th
-      %input{ type: "checkbox", "data-project-id" => project.id, "data-entry_type" => "hours", class: "bill-project" }
-      = t("billables.table.billed")
+    %th.checkbox
+      %input{ type: "checkbox", "data-project-id" => project.id, "data-entry_type" => "hours", class: "select-all", remote: true }
     %th= t("billables.table.date")
     %th= t("billables.table.category")
     %th= t("billables.table.hours")
     %th= t("billables.table.user")
-  - entries.each do |entry|
-    %tr.info-row
-      %td=billable_entry_checkbox(entry, "hours")
-      %td=I18n.l (entry.date)
-      %td=entry.category.name
-      %td.center= entry.value
+    %th.status= t("billables.table.billed")
+
+  - entries.each do |hours|
+    %tr.info-row.billable{ class: ("green-row" if hours.billed?) }
+      %td=billable_entry_checkbox(hours, "hours")
+      %td=I18n.l (hours.date)
+      %td=hours.category.name
+      %td.center= hours.value
       %td
-        = link_to entry.user do
-          = entry.user.full_name
-
-
+        = link_to hours.user do
+          = hours.user.full_name
+      %td.status
+        - if hours.billed?
+          .green ✓

@@ -9,24 +9,24 @@ feature "User manages billables" do
     sign_in_user(user, subdomain: subdomain)
   end
 
-  scenario "bill an hours entry" do
+  scenario "bills an hours entry" do
     client = create(:client)
     project = create(:project, client: client, billable: true)
     entry = create(:hour, project: project, billed: false)
 
     visit billables_url(subdomain: subdomain)
 
-    find(:css, ".bill_checkbox").set(true)
-
-    find(:css, ".submit-billable-entries").click
+    find(:css, ".bill-checkbox").set(true)
+    find(:css, "#submit-billable-entries-bill").click
 
     visit billables_url(subdomain: subdomain)
 
     expect(entry.reload.billed).to eq(true)
-    expect(page.body).to_not have_selector(".bill_checkbox")
+    expect(page.body).to_not have_selector(
+      ".bill-checkbox[value='#{entry.id}']")
   end
 
-  scenario "bill a mileages entry" do
+  scenario "bills a mileages entry" do
     client = create(:client)
     project = create(:project, client: client, billable: true)
     user = create(:user)
@@ -34,14 +34,52 @@ feature "User manages billables" do
       :mileage, project: project, user: user, value: 2, billed: false)
 
     visit billables_url(subdomain: subdomain)
-    find(:css, ".bill_checkbox").set(true)
+    find(:css, ".bill-checkbox").set(true)
 
-    find(:css, ".submit-billable-entries").click
+    find(:css, "#submit-billable-entries-bill").click
 
     visit billables_url(subdomain: subdomain)
 
     expect(entry.reload.billed).to eq(true)
-    expect(page.body).to_not have_selector(".bill_checkbox")
+    expect(page.body).to_not have_selector(".bill-checkbox")
+    expect(page.body).to_not have_selector(
+      ".bill-checkbox[value='#{entry.id}']")
+  end
+
+  scenario "unbills an hours entry" do
+    client = create(:client)
+    project = create(:project, client: client, billable: true)
+    entry = create(:hour, project: project, billed: true)
+
+    visit billables_url(subdomain: subdomain)
+
+    select(I18n.t("entry_filters.billed_label"), from: "entry_filter_billed")
+    find(:css, "input[value='#{I18n.t('billables.buttons.filter')}']").click
+
+    find(:css, ".bill-checkbox").set(true)
+    find(:css, "#submit-billable-entries-unbill").click
+    visit billables_url(subdomain: subdomain)
+
+    expect(entry.reload.billed).to eq(false)
+    expect(page.body).to have_selector(".bill-checkbox[value='#{entry.id}']")
+  end
+
+  scenario "unbills a mileages entry" do
+    client = create(:client)
+    project = create(:project, client: client, billable: true)
+    entry = create(:mileage, project: project, billed: true)
+
+    visit billables_url(subdomain: subdomain)
+
+    select(I18n.t("entry_filters.billed_label"), from: "entry_filter_billed")
+    find(:css, "input[value='#{I18n.t('billables.buttons.filter')}']").click
+
+    find(:css, ".bill-checkbox").set(true)
+    find(:css, "#submit-billable-entries-unbill").click
+    visit billables_url(subdomain: subdomain)
+
+    expect(entry.reload.billed).to eq(false)
+    expect(page.body).to have_selector(".bill-checkbox[value='#{entry.id}']")
   end
 
   context "filters" do

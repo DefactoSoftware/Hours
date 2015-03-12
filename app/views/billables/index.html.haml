@@ -1,8 +1,3 @@
-%div.marked_entries
-  %p#amount_marked_entries
-    =t("billables.select_marked")
-  %button{id: "submit-billable-entries", disabled: true}
-    =t("billables.buttons.bill_selected")
 .billables
   .sidebar
     .container
@@ -12,9 +7,14 @@
     - unless @hours_entries.any? || @mileages_entries.any?
       .info
         %p= t("info.no_billable_entries_html")
-    = form_tag("/billables", method: "post", remote: true, id: "billable-entries-form", autocomplete: "off") do
+    = form_tag("/billables", method: "post", id: "billable-entries-form", autocomplete: "off") do
       - @billable_list.clients.each do |client|
         %h1= client.name
         = render "projects", projects: client.projects
-
-
+      %div.marked_entries
+        %p#amount_marked_entries
+          =t("billables.select_marked")
+        %button{id: "submit-billable-entries-bill", :name => "billed", :value => "true", disabled: true}
+          =t("billables.buttons.bill_selected")
+        %button{id: "submit-billable-entries-unbill", class: " button-grey", :name => "billed", :value => "false", disabled: true}
+          =t("billables.buttons.unbill_selected")

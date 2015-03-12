@@ -39,10 +39,6 @@ class ProjectsController < ApplicationController
 
   private
 
-  def entry_type
-    request.fullpath == mileage_entry_path ? "mileages" : "hours"
-  end
-
   def resource
     @project ||= Project.find_by_slug(params[:id])
   end

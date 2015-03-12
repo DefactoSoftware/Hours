@@ -77,7 +77,8 @@ nl:
     billable_entries: Facturabele entries
     select_marked: Selecteer entries om te factureren
     buttons:
-      bill_selected: Factureer geselecteerde entries
+      bill_selected: Factureren
+      unbill_selected: Terugdraaien
       filter: Filter entries
     filters:
       billed: Gefactureerd

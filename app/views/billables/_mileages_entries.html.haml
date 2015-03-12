@@ -1,19 +1,22 @@
 %h3= t("entries.index.mileages")
 %table.entries
   %tr
+    %th.checkbox
+      %input{ type: "checkbox", "data-project-id" => project.id, "data-entry_type" => "mileages", class: "select-all" }
+    %th.date= t("billables.table.date")
     %th
-      %input{ type: "checkbox", "data-project-id" => project.id, "data-entry_type" => "mileages", class: "bill-project" }
-      = t("billables.table.billed")
-    %th= t("billables.table.date")
-    %th
-    %th= t("entries.index.mileages")
+    %th.value= t("entries.index.mileages")
     %th= t("billables.table.user")
-  - entries.each do |entry|
-    %tr.info-row
-      %td=billable_entry_checkbox(entry, "mileages")
-      %td=I18n.l (entry.date)
+    %th.status= t("billables.table.billed")
+  - entries.each do |mileages|
+    %tr.info-row.billable{ class: ("green-row" if mileages.billed?) }
+      %td=billable_entry_checkbox(mileages, "mileages")
+      %td=I18n.l (mileages.date)
       %td
-      %td.center= entry.value
+      %td.center= mileages.value
       %td
-        = link_to entry.user do
-          = entry.user.full_name
+        = link_to mileages.user do
+          = mileages.user.full_name
+      %td.status
+        - if mileages.billed?
+          .green ✓

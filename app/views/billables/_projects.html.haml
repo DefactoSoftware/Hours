@@ -7,4 +7,4 @@
       = render "hours_entries", entries: hours, project: project
     - unless mileages.empty?
       = render "mileages_entries", entries: mileages, project: project
-    %button.submit-billable-entries= t("billables.buttons.bill_selected")
+    %button.submit-billable-entries{ :name => "billed", :value => "true" }= t("billables.buttons.bill_selected")

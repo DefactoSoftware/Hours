@@ -116,9 +116,19 @@ h1 {
   }
 }
 
-.button-grey {
+.button-grey,
+button.button-grey,
+input[type="submit"].button-grey {
   @extend %button;
-  background-color: grey !important;
+  background-color: $secondary-button-color;
+
+  &:hover {
+    background-color: $secondary-button-hover-color;
+  }
+
+  &:disabled {
+    background-color: lighten($secondary-button-color, 20%);
+  }
 }
 
 .image-circle {
@@ -190,7 +200,6 @@ h1 {
     background-color: red;
     -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-
 }
 
 .avatar-container {
@@ -199,4 +208,12 @@ h1 {
     width: 25px;
     height: 35px;
   }
+}
+
+.red {
+  color: $red;
+}
+
+.green {
+  color: $green;
 }
