@@ -236,8 +236,11 @@ en:
     to_date_label: To date
     billed_label: Billed or not
     billed: Billed
+    billable: Billable
     not_billed: Not billed
+    not_billable: Not billable
     billed_empty: Billed or not
+    billable_empty: Billable or not
     archived_empty: Archived and Unarchived
     archived: Archived
     not_archived: Not Archived

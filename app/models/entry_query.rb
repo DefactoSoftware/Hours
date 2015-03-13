@@ -52,5 +52,9 @@ class EntryQuery
     def archived(param)
       joins(:project).where("archived = ?", param)
     end
+
+    def billable(param)
+      joins(:project).where("billable = ?", param)
+    end
   end
 end

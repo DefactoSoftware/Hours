@@ -326,8 +326,11 @@ nl:
     to_date_label: Tot
     billed_label: Gefactureerd en niet gefactureerd
     billed: Gefactureerd
+    billable: Factureerbaar
     not_billed: Niet gefactureerd
+    not_billable: Not factureerdbaar
     billed_empty: Gefactureerd of niet
+    billable_empty: Factureerbaar of niet
     archived_empty: Gearchiveerde en actieve projecten
     archived: Gearchiveerde projecten
     not_archived: Actieve projecten
