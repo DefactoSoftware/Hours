@@ -13,7 +13,7 @@
 //= require date-formatter
 //= require feed
 //= require_tree .
-
+//= reguire filters
 
 var Hours = Hours || {
   dismissModal: function() {

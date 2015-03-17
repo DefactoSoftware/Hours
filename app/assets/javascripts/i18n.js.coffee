@@ -1,5 +1,6 @@
 window.I18n =
   en:
+    projects: 'All Projects'
     date:
       today: 'today'
       yesterday: 'yesterday'
@@ -10,6 +11,7 @@ window.I18n =
       pre: 'You\'ve marked '
       post: ' entries to be billed'
   nl:
+    projects: 'Alle projecten'
     date:
       today: 'vandaag'
       yesterday: 'gister'

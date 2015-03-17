@@ -6,6 +6,20 @@ class ProjectsController < ApplicationController
     @hours_entry = Hour.new
     @mileages_entry = Mileage.new
     @activities = Hour.by_last_created_at.limit(30)
+    @entry_type = entry_type
+    @entry_path = entries_path
+
+
+    respond_to do |format|
+      format.html { }
+      format.json {
+        projects = Project.unarchived
+        if !params[:client_id].empty?
+          projects = projects.by_client(params[:client_id])
+        end
+        render :json => projects, :only => [:name, :client_id, :id]
+      }
+    end
   end
 
   def show
@@ -38,6 +52,12 @@ class ProjectsController < ApplicationController
   end
 
   private
+
+  def filter
+    if !params[:list].nil?
+      params[:list][:search]
+    end
+  end
 
   def entry_type
     request.fullpath == mileage_entry_path ? "mileages" : "hours"

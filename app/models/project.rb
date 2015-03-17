@@ -35,6 +35,7 @@ class Project < ActiveRecord::Base
   scope :are_archived, -> { where(archived: true) }
   scope :unarchived, -> { where(archived: false) }
   scope :billable, -> { where(billable: true) }
+  scope :by_client, -> (client_id) { where("client_id = ?", client_id) }
 
   def sorted_categories
     categories.sort_by do |category|
