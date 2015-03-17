@@ -7,6 +7,7 @@ class ReportsController < ApplicationController
                      page(params[:hours_pages]).per(20)
     @mileages_entries = entries(Mileage.query(params[:entry_filter])).
                         page(params[:mileages_pages]).per(20)
+    @entry_collection = EntryCollection.new(@hours_entries, @mileages_entries)
 
     respond_to do |format|
       format.html

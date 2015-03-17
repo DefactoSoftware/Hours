@@ -207,7 +207,9 @@ en:
       mileages: Kilometers
       billable: Billable
       billed: Billed
+      unbilled: Unbilled
       description: Description
+      total: Total
     filters: filters
     hours_per_day: Hours per day
     monthly: 1 month

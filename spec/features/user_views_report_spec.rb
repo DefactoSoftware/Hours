@@ -39,5 +39,35 @@ feature "User Report" do
       expect(page).to have_content(entry1.description)
       expect(page).to_not have_content(entry2.description)
     end
+
+    scenario "views total hours statistics" do
+      value1 = 25
+      value2 = 75
+      create(:hour, value: value1, billed: false)
+      create(:hour, value: value2, billed: true)
+
+      visit reports_url(subdomain: subdomain)
+
+      within("table.totals") do
+        expect(page).to have_content((value1 + value2).to_s)
+        expect(page).to have_content(value1.to_s)
+        expect(page).to have_content(value2.to_s)
+      end
+    end
+
+    scenario "views total mileages statistics" do
+      value1 = 50
+      value2 = 125
+      create(:mileage, value: value1, billed: false)
+      create(:mileage, value: value2, billed: true)
+
+      visit reports_url(subdomain: subdomain)
+
+      within("table.totals") do
+        expect(page).to have_content((value1 + value2).to_s)
+        expect(page).to have_content(value1.to_s)
+        expect(page).to have_content(value2.to_s)
+      end
+    end
   end
 end

@@ -33,6 +33,7 @@ nl:
   account:
     back_to_website: Terug naar website
     confirm_destroy: Weet je zeker dat je je account wil verwijderen?
+    create: Maak account aan
     danger_zone: Danger Zone
     delete: Verwijder mijn account
     deleted: Je account is verwijderd.
@@ -215,7 +216,7 @@ nl:
       je %{categories_path} doen.
     no_projects_html: Zo te zien heb je nog geen projecten aangemaakt. Dat kun je
       %{new_project_path} doen.
-    no_billable_projects_html: Zo te zien heb je nog geen factureerbare projecten. Dat kun je %{new_project_path} doen.
+    no_billable_projects_html: Zo te zien heb je nog geen factureerbare projecten aangemaakt. Dat kun je %{new_project_path} doen.
     no_billable_entries_html: Zo te zien heb je geen entries die voldoen aan je zoekcriteria.
   loader:
     saving: Opslaan
@@ -266,7 +267,9 @@ nl:
       mileages: Kilometers
       billable: Facturabel
       billed: Gefactureerd
+      unbilled: Niet gefactureerd
       description: Beschrijving
+      total: Totaal
     filters: filters
     hours_per_day: Uren per dag
     monthly: 1 maand

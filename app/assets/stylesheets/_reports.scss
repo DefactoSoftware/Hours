@@ -3,9 +3,14 @@
     min-height: 100%;
   }
 
-  table {
+  table.reports {
     font-size: 10px;
     width: 100%;
+  }
+
+  table.totals {
+    font-size: 11px;
+    border-bottom: none;
   }
 
   td.description {
@@ -13,6 +18,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  td.red,
+  td.green,
+  td.blue {
+    font-size: 20px;
   }
 
   .sidebar {

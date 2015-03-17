@@ -3,11 +3,9 @@
     .container
       = render "filters"
       = link_to t("entries.download_csv"), reports_path(download_csv_params)
+    .container
+      = render "statistics"
   .reports-tabs-container
     %ul.accordion-tabs
       = render partial: "hours_reports"
       = render partial: "mileages_reports"
-
-
-
-

@@ -1,0 +1,18 @@
+%table.totals
+  %thead
+    %tr
+      %th
+      %th= t("report.headers.total")
+      %th= t("report.headers.billed")
+      %th= t("report.headers.unbilled")
+  %tbody
+    %tr.info-row
+      %td= t("report.headers.hours")
+      %td.blue= @entry_collection.total_hours
+      %td.green= @entry_collection.total_billed_hours
+      %td.red= @entry_collection.total_unbilled_hours
+    %tr.info-row
+      %td= t("report.headers.mileages")
+      %td.blue= @entry_collection.total_mileages
+      %td.green= @entry_collection.total_billed_mileages
+      %td.red= @entry_collection.total_unbilled_mileages
