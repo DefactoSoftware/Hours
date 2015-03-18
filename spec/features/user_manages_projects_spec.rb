@@ -102,6 +102,20 @@ feature "User manages projects" do
     end
   end
 
+  scenario "searches for a project" do
+    project1 = create(:project, name: "CAPP11")
+    project2 = create(:project, name: "Capollo13")
+    visit root_url(subdomain: subdomain)
+
+    fill_in I18n.t("search.bar"), with: project1.name
+    click_button(I18n.t("search.button"))
+
+    within ".project-list" do
+      expect(page).to have_content(project1.name)
+      expect(page).not_to have_content(project2.name)
+    end
+  end
+
   scenario "will paginate projects" do
     8.times do
       create(:project)

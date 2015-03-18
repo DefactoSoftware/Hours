@@ -51,6 +51,14 @@ class Project < ActiveRecord::Base
     budget - hours.sum(:value) if budget
   end
 
+  def self.search(search)
+    if search
+      unarchived.by_last_updated.where(["name LIKE ?", "%#{search}%"])
+    else
+      unarchived.by_last_updated
+    end
+  end
+
   private
 
   def slug_source

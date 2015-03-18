@@ -2,13 +2,10 @@ include TimeSeriesInitializer
 
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.unarchived.by_last_updated.page(params[:page]).per(7)
+    @projects = Project.search(filter).page(params[:page]).per(7)
     @hours_entry = Hour.new
     @mileages_entry = Mileage.new
     @activities = Hour.by_last_created_at.limit(30)
-    @entry_type = entry_type
-    @entry_path = entries_path
-
 
     respond_to do |format|
       format.html { }
@@ -57,10 +54,6 @@ class ProjectsController < ApplicationController
     if !params[:list].nil?
       params[:list][:search]
     end
-  end
-
-  def entry_type
-    request.fullpath == mileage_entry_path ? "mileages" : "hours"
   end
 
   def resource

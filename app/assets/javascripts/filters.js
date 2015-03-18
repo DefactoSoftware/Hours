@@ -17,17 +17,25 @@ Hours.reportFilter = {
     {
       $("#entry_filter_project_id").empty()
 
-      var rows = $("<option value>" +  I18n[$('body').data('language')].projects + "</option>");
+      var rows = $(
+        "<option value>" +
+        I18n[$("body").data("language")].projects +
+        "</option>"
+      );
 
       $.each(data, function(i, j)
       {
-        rows.push($("<option value=\"" + j.id + "\">" + j.name + "</option>")[0]);
+        rows.push(
+          $("<option value=\"" +
+          j.id + "\">" + j.name +
+          "</option>")[0]
+        );
       });
 
       $(rows).appendTo("#entry_filter_project_id");
     });
   }
-}
+};
 
 $(function() {
   Hours.reportFilter.init();

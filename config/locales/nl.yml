@@ -272,6 +272,9 @@ nl:
     monthly: 1 maand
     weekly: 1 week
     yearly: 1 jaar
+  search:
+    button: Zoeken
+    bar: Zoekterm
   sign_in: Login
   sign_out: Uitloggen
   simple_form:

@@ -1,0 +1,4 @@
+.nav-search
+  = simple_form_for :list, url: root_path, :method => :get do |f|
+    = f.input :search, as: :search, label: false, placeholder: t("search.bar")
+    = f.button :submit, t("search.button")
