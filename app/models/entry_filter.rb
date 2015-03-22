@@ -8,7 +8,8 @@ class EntryFilter
     :billed,
     :to_date,
     :from_date,
-    :archived
+    :archived,
+    :billable
   ].freeze
 
   attr_accessor(*KEYS)
@@ -25,6 +26,13 @@ class EntryFilter
     [
       [I18n.t("entry_filters.not_billed"), false],
       [I18n.t("entry_filters.billed"), true]
+    ]
+  end
+
+  def billable_options
+    [
+      [I18n.t("entry_filters.not_billable"), false],
+      [I18n.t("entry_filters.billable"), true]
     ]
   end
 

@@ -7,4 +7,5 @@
   = f.input :to_date, as: :date, html5: true
   = f.input :billed, collection: @filters.billed_options, label: false, include_blank: t("entry_filters.billed_empty")
   = f.input :archived, collection: @filters.archived_options, label: false, include_blank: t("entry_filters.archived_empty")
+  = f.input :billable, collection: @filters.billable_options, label: false, include_blank: t("entry_filters.billable_empty")
   = f.button :submit, t("billables.buttons.filter"), class: "button-grey"
