@@ -21,9 +21,11 @@ var Hours = Hours || {
   }
 };
 
-new Pikaday({
-  field: $('#datepicker')[0],
-  format: 'DD/MM/YYYY'
+$('.datepicker').each(function () {
+  new Pikaday({
+    field: this,
+    format: I18n[$('body').data('language')].date.format
+  });
 });
 
 $('.alert').ready(function() {

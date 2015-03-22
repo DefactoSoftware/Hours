@@ -109,7 +109,6 @@ nl:
       default: "%d/%m/%Y"
       with_weekday: "%a %m/%d/%y"
     today: vandaag
-  datetime:
     distance_in_words:
       about_x_hours:
         one: ongeveer een uur

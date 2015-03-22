@@ -84,6 +84,9 @@ en:
   client_created: Client successfully created
   client_updated: Client successfully updated
   confirm: Are you sure?
+  date:
+    formats:
+      default: "%m/%d/%Y"
   email:
     confirmation:
       confirm_password: Confirm my account
