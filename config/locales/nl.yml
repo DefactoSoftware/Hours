@@ -74,14 +74,15 @@ nl:
       user: Gebruiker
   back: Terug
   billables:
-    billable_entries: Factureerbare Entries
+    billable_entries: Facturabele entries
+    select_marked: Selecteer entries om te factureren
     buttons:
       bill_selected: Factureer geselecteerde entries
       filter: Filter entries
     filters:
       billed: Gefactureerd
       billed_label: Gefactureerd/Niet Gefactureerd
-      billed_empty: Alle Factureerbare entries
+      billed_empty: Alle facturabele entries
       clients: Clients
       from_date_label: Van datum
       not_billed: Niet Gefactureerd
@@ -223,7 +224,7 @@ nl:
   no_hours_registered: Niemand heeft nog tijd aan %{project} besteed
   project:
     errors:
-      client_missing: Als het project factureerbaar is moet er een klant geselecteerd worden
+      client_missing: Als het project facturabel is moet er een klant geselecteerd worden
     form:
       client: Klant
       no_client: Geen klant
@@ -304,7 +305,7 @@ nl:
       index: Gearchiveerde projecten
     application: Uren
     billables:
-      index: Factureerbare hours
+      index: Facturabele uren
     categories:
       edit: Bewerk Categorie
       index: Categoriëen
@@ -341,11 +342,11 @@ nl:
     to_date_label: Tot
     billed_label: Gefactureerd en niet gefactureerd
     billed: Gefactureerd
-    billable: Factureerbaar
+    billable: Facturabel
     not_billed: Niet gefactureerd
     not_billable: Not factureerdbaar
     billed_empty: Gefactureerd of niet
-    billable_empty: Factureerbaar of niet
+    billable_empty: Facturabel of niet
     archived_empty: Gearchiveerde en actieve projecten
     archived: Gearchiveerde projecten
     not_archived: Actieve projecten

@@ -61,6 +61,7 @@ en:
   back: Back
   billables:
     billable_entries: Billable Entries
+    select_marked: Select entries to bill
     buttons:
       bill_selected: Bill selected entries
       filter: Filter entries
