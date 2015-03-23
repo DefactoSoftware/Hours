@@ -87,8 +87,8 @@ feature "User manages billables" do
       date1 = Date.yesterday
       date2 = Date.current
 
-      mileage1 = create(:mileage, project: project, billed: false, date: date1)
-      mileage2 = create(:mileage, project: project, billed: false, date: date2)
+      create(:mileage, project: project, billed: false, date: date1)
+      create(:mileage, project: project, billed: false, date: date2)
 
       visit billables_url(subdomain: subdomain)
 
@@ -107,8 +107,8 @@ feature "User manages billables" do
       date1 = Date.yesterday
       date2 = Date.current
 
-      hours1 = create(:hour, project: project, billed: false, date: date1)
-      hours2 = create(:hour, project: project, billed: false, date: date2)
+      create(:hour, project: project, billed: false, date: date1)
+      create(:hour, project: project, billed: false, date: date2)
 
       visit billables_url(subdomain: subdomain)
 

@@ -8,12 +8,12 @@
       %ul.accordion-tabs
         %li.tab-header-and-content-left
           %a.tab-link{:href => "#hours"}= t("entries.index.hours")
-          #hours.tab-content
+          #hours-tab.tab-content
             %table.entries-table
               = render 'hours_table'
         %li.tab-header-and-content-right
           %a.tab-link{:href => "#mileages"}= t("entries.index.mileages")
-          #mileages.tab-content
+          #mileages-tab.tab-content
             %table.entries-table
               = render 'mileages_table'
 

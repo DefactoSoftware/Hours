@@ -43,7 +43,7 @@ feature "User manages their own mileage" do
 
   scenario "can not edit someone elses entries" do
     other_user = create(:user)
-    mileage = create(:mileage, user: other_user)
+    create(:mileage, user: other_user)
 
     visit user_entries_url(other_user, subdomain: subdomain)
     expect(page).to_not have_content("edit")

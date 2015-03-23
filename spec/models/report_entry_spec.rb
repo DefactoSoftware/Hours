@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe ReportEntry do
   let(:hour) { create(:hour_with_client) }
-  let(:mileage) { create (:mileage_with_client)}
+  let(:mileage) { create (:mileage_with_client) }
   subject(:report_entry) { ReportEntry.new(hour) }
   subject(:report_entry2) { ReportEntry.new(mileage) }
 

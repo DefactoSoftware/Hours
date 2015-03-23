@@ -73,4 +73,3 @@ class User < ActiveRecord::Base
     first_name[0] + last_name[0]
   end
 end
-

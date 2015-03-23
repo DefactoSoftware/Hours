@@ -7,8 +7,10 @@ describe EntryCSVGenerator do
   let(:third_entry) { build_stubbed(:mileage) }
   let(:fourth_entry) { build_stubbed(:mileage) }
 
-  let(:generator) { EntryCSVGenerator.new([first_entry, second_entry],[third_entry, fourth_entry]) }
-
+  let(:generator) do
+    EntryCSVGenerator.new([first_entry, second_entry],
+                          [third_entry, fourth_entry])
+  end
 
   it "generates csv" do
     csv = generator.generate
@@ -18,7 +20,6 @@ describe EntryCSVGenerator do
     expect(csv.lines.second.split(",").count).to eq(9)
     expect(csv.lines.last.split(",").count).to eq(7)
   end
-
 
   it "localizes the separator" do
     I18n.locale = :nl

@@ -84,7 +84,7 @@ feature "User manages their own hours" do
     create(:hour, user: other_user)
 
     visit user_entries_url(other_user, subdomain: subdomain)
-    expect(page).to_not have_content("edit")
+    expect(page).to_not have_content(I18n.t("entries.index.edit"))
   end
 
   scenario "can not delete someone elses entries" do
@@ -93,7 +93,7 @@ feature "User manages their own hours" do
     create(:hour, user: other_user)
 
     visit user_entries_url(other_user, subdomain: subdomain)
-    expect(page).to_not have_content("delete")
+    expect(page).to_not have_content(I18n.t("entries.index.delete"))
   end
 
   let(:new_value) { "Not a number" }
@@ -107,12 +107,13 @@ feature "User manages their own hours" do
 
     edit_entry(new_project, new_category, new_value, new_date, new_description)
 
-    expect(page).to have_content("Something went wrong saving your entry")
+    expect(page).to have_content(I18n.t("entry_failed"))
   end
 
   private
 
-  def edit_entry(new_project, new_category, new_value, new_date, new_description)
+  def edit_entry(new_project, new_category, new_value,
+                  new_date, new_description)
     create(:hour, user: user)
     click_link I18n.t("navbar.entries")
     click_link I18n.t("entries.index.edit")

@@ -5,13 +5,13 @@ FactoryGirl.define do
     archived false
 
     factory :project_with_hours do
-      after(:create) do |project, evaluator|
+      after(:create) do |project, _evaluator|
         create_list(:hour, 2, project: project)
       end
     end
 
     factory :project_with_more_than_maximum_hours do
-      after(:create) do |project, evaluator|
+      after(:create) do |project, _evaluator|
         create_list(:hour, 7, project: project)
       end
     end
@@ -34,4 +34,3 @@ end
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
-

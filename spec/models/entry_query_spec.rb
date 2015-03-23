@@ -27,19 +27,16 @@ describe EntryQuery do
     it "filters the entries on from_date" do
       expect(hours_filter(from_date: hour.date + 1.day).count).to eq(1)
       expect(mileages_filter(from_date: mileage.date + 1.day).count).to eq(1)
-
     end
 
     it "filters the entries on to date" do
       expect(hours_filter(to_date: hour2.date - 1.day).count).to eq(1)
       expect(mileages_filter(to_date: mileage2.date - 1.day).count).to eq(1)
-
     end
 
     it "filters the entries on not billed" do
       expect(hours_filter(billed: hour.billed).count).to eq(1)
       expect(mileages_filter(billed: mileage.billed).count).to eq(1)
-
     end
 
     it "filters the entries on archived" do
@@ -49,23 +46,19 @@ describe EntryQuery do
 
     it "filters on all params" do
       expect(hours_filter(
-        {
-          billed: hour.billed,
-          to_date: hour2.date + 1.day,
-          from_date: hour.date - 1.day,
-          client_id: hour.client.id,
-          project_id: hour.project.id
-        }
+        billed: hour.billed,
+        to_date: hour2.date + 1.day,
+        from_date: hour.date - 1.day,
+        client_id: hour.client.id,
+        project_id: hour.project.id
       ).count).to eq(1)
 
       expect(mileages_filter(
-        {
-          billed: mileage.billed,
-          to_date: mileage2.date + 1.day,
-          from_date: mileage.date - 1.day,
-          client_id: mileage.client.id,
-          project_id: mileage.project.id
-        }
+        billed: mileage.billed,
+        to_date: mileage2.date + 1.day,
+        from_date: mileage.date - 1.day,
+        client_id: mileage.client.id,
+        project_id: mileage.project.id
       ).count).to eq(1)
     end
 
