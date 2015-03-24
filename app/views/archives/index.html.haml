@@ -13,7 +13,7 @@
             %tr.info-row
               %td= l(project.updated_at.to_date)
               %td= link_to project.name, project
-              %td.center= EntryStats.new(project.entries).total_hours
+              %td.center= EntryStats.new(project.hours).total_hours
               %td
                 = link_to project_path(project_id: project.id, id: project.slug, project: { archived: false }), method: :put do
                   = t("archives.index.un_archive_link")

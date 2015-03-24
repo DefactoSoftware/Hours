@@ -3,8 +3,11 @@ include TimeSeriesInitializer
 class ProjectsController < ApplicationController
   def index
     @projects = Project.unarchived.by_last_updated.page(params[:page]).per(7)
-    @entry = Entry.new
-    @activities = Entry.by_last_created_at.limit(30)
+    @hours_entry = Hour.new
+    @mileages_entry = Mileage.new
+    @activities = Hour.by_last_created_at.limit(30)
+    @entry_type = entry_type
+    @entry_path = entries_path
   end
 
   def show
@@ -38,11 +41,16 @@ class ProjectsController < ApplicationController
 
   private
 
+  def entry_type
+    request.fullpath == mileage_entry_path ? "mileages" : "hours"
+  end
+
   def resource
     @project ||= Project.find_by_slug(params[:id])
   end
 
   def project_params
-    params.require(:project).permit(:name, :billable, :client_id, :archived, :description, :budget)
+    params.require(:project).
+      permit(:name, :billable, :client_id, :archived, :description, :budget)
   end
 end

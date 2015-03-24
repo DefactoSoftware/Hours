@@ -23,6 +23,7 @@ nl:
     budget: "Budget:"
     category: "Categorie:"
     hours: "Hours:"
+    mileages: "Kilometers"
     from: van
     to: naar
     actions:
@@ -55,7 +56,15 @@ nl:
       hours: Uren
       un_archive_link: Dearchiveren
   activerecord:
+    attributes:
+      hour:
+        value: "Uren"
+      mileage:
+        value: "Kilometers"
     errors:
+      messages:
+        blank: "invoer mag niet leeg zijn"
+        not_a_number: "invoer is geen nummer"
       models:
         user:
           attributes:
@@ -65,14 +74,15 @@ nl:
       user: Gebruiker
   back: Terug
   billables:
-    billable_entries: Factureerbare Entries
+    billable_entries: Facturabele entries
+    select_marked: Selecteer entries om te factureren
     buttons:
       bill_selected: Factureer geselecteerde entries
       filter: Filter entries
     filters:
       billed: Gefactureerd
       billed_label: Gefactureerd/Niet Gefactureerd
-      billed_empty: Alle Factureerbare entries
+      billed_empty: Alle facturabele entries
       clients: Clients
       from_date_label: Van datum
       not_billed: Niet Gefactureerd
@@ -157,6 +167,7 @@ nl:
       salutation: Hallo %{email} !
       wrong_mail: Als deze aanvraag niet van u kwam, kunt u deze mail negeren.
   entries:
+    download_csv: Download alle inboekingen als CSV
     index:
       category: Categorie
       date: Datum
@@ -165,15 +176,20 @@ nl:
       edit: aanpassen
       edit_entry: Entry bewerken
       hours: Uren
+      mileages: Kilometers
       new: Nieuwe entry
       project: Project
-      user_hours: "%{user}s uren"
+      user_entries: "%{user}s boekingen"
       changes: wijzigingen
   entry_activity_html:
     one: "%{user} heeft één uur gespendeerd aan %{category} op %{project}"
     other: "%{user} heeft %{count} uren gespendeerd aan %{category} op %{project}"
-  entry_created: Uren zijn aangemaakt
-  entry_deleted: De uren zijn verwijderd
+  entry_created:
+    hours: Uren zijn aangemaakt
+    mileages: Kilometers zijn aangemaakt
+  entry_deleted:
+    hours: De uren zijn verwijderd
+    mileages: De kilometers zijn verwijderd
   entry_failed: Iets ging mis bij het opslaan van uw uren
   entry_saved: Uren zijn opgeslagen
   helpful:
@@ -208,7 +224,7 @@ nl:
   no_hours_registered: Niemand heeft nog tijd aan %{project} besteed
   project:
     errors:
-      client_missing: Als het project factureerbaar is moet er een klant geselecteerd worden
+      client_missing: Als het project facturabel is moet er een klant geselecteerd worden
     form:
       client: Klant
       no_client: Geen klant
@@ -222,7 +238,7 @@ nl:
     edit:
       archive_link: Archiveren
       un_archive_link: Dearchiveren
-    project_activity_html:
+  project_activity_html:
     one: "<strong>%{full_name}</strong> heeft <strong>%{hours}</strong> uren aan <strong>%{project}</strong> besteed"
     other: "<strong>%{count}</strong> mensen hebben <strong>%{hours}</strong> uren aan <strong>%{project}</strong> besteed"
   project_created: Het project is aangemaakt
@@ -244,6 +260,7 @@ nl:
       category: Categorie
       client: Klant
       hours: Uren
+      mileages: Kilometers
       billable: Facturabel
       billed: Gefactureerd
       description: Beschrijving
@@ -288,7 +305,7 @@ nl:
       index: Gearchiveerde projecten
     application: Uren
     billables:
-      index: Factureerbare hours
+      index: Facturabele uren
     categories:
       edit: Bewerk Categorie
       index: Categoriëen
@@ -325,11 +342,11 @@ nl:
     to_date_label: Tot
     billed_label: Gefactureerd en niet gefactureerd
     billed: Gefactureerd
-    billable: Factureerbaar
+    billable: Facturabel
     not_billed: Niet gefactureerd
     not_billable: Not factureerdbaar
     billed_empty: Gefactureerd of niet
-    billable_empty: Factureerbaar of niet
+    billable_empty: Facturabel of niet
     archived_empty: Gearchiveerde en actieve projecten
     archived: Gearchiveerde projecten
     not_archived: Actieve projecten

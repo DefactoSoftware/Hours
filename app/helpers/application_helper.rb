@@ -2,12 +2,15 @@ module ApplicationHelper
   include Twitter::Autolink
 
   def autolink_tags(text)
-    auto_link(text, { hashtag_url_base: "/tags/", hashtag_class: "hashtag" })
+    auto_link(text, hashtag_url_base: "/tags/", hashtag_class: "hashtag")
   end
 
-  def nav_path(link_text, link_path, http_method=nil)
+  def nav_path(link_text, link_path, http_method = nil)
     css_class = "navigation"
-    css_class << " current" if current_page?(link_path)
+    css_class << " current" if
+      current_page?(link_path) ||
+      (current_page?(mileage_entry_path) &&
+      link_text == t("titles.projects.index"))
     content_tag :li, class: css_class do
       link_to(link_text, link_path, http_method)
     end
@@ -23,9 +26,13 @@ module ApplicationHelper
   def client_title(client)
     html = ""
     if client.logo_url != ""
-      html << image_tag(client.logo_url, { class: "logo" })
+      html << image_tag(client.logo_url, class: "logo")
     else
-      html << content_tag(:span, "", {class: "color", style: "background-color:#{client.name.pastel_color};"})
+      html << content_tag(
+        :span,
+        "",
+        class: "color",
+        style: "background-color:#{client.name.pastel_color};")
     end
     html << content_tag(:span, client.name)
     html.html_safe
@@ -35,11 +42,16 @@ module ApplicationHelper
     I18n.locale
   end
 
-  def billable_entry_checkbox(entry)
+  def billable_entry_checkbox(entry, entry_type)
     if entry.billed
       "√"
     else
-      tag(:input, type: "checkbox", name: "entries_to_bill[]", class: "bill_checkbox", value: entry.id, "data-project-id" => entry.project.id)
+      tag(:input,
+          type: "checkbox",
+          name: "entries_to_bill[]",
+          class: "bill_checkbox",
+          value: "#{entry_type}-#{entry.id}",
+          "data-project-id" => entry.project.id)
     end
   end
 

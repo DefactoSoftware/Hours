@@ -2,16 +2,23 @@ require "spec_helper"
 require "csv"
 
 describe EntryCSVGenerator do
-  let(:first_entry) { build_stubbed(:entry) }
-  let(:second_entry) { build_stubbed(:entry) }
-  let(:generator) { EntryCSVGenerator.new([first_entry, second_entry]) }
+  let(:first_entry) { build_stubbed(:hour) }
+  let(:second_entry) { build_stubbed(:hour) }
+  let(:third_entry) { build_stubbed(:mileage) }
+  let(:fourth_entry) { build_stubbed(:mileage) }
+
+  let(:generator) do
+    EntryCSVGenerator.new([first_entry, second_entry],
+                          [third_entry, fourth_entry])
+  end
 
   it "generates csv" do
     csv = generator.generate
     expect(csv).to include(
       "Date,User,Project,Category,Client,Hours,Billable,Billed,Description")
-    expect(csv.lines.count).to eq(3)
-    expect(csv.lines.last.split(",").count).to eq(9)
+    expect(csv.lines.count).to eq(8)
+    expect(csv.lines.second.split(",").count).to eq(9)
+    expect(csv.lines.last.split(",").count).to eq(7)
   end
 
   it "localizes the separator" do

@@ -19,42 +19,43 @@ feature "User registers time" do
 
   context "without taggings" do
     scenario "track time for a project" do
-
-      within "#new_entry" do
+      within ".tab-header-and-content-left" do
         fill_in_entry
-        click_button "Create Entry"
+        click_button (I18n.t("helpers.submit.create"))
       end
 
-      expect(page).to have_content I18n.t("entry_created")
+      expect(page).to have_content (I18n.t("entry_created.hours"))
     end
 
     scenario "validates that hours are integers" do
-      within "#new_entry" do
+      within ".tab-header-and-content-left" do
         fill_in_entry(hours: 0.5)
-        click_button "Create Entry"
+        click_button (I18n.t("helpers.submit.create"))
       end
-      expect(page).to have_content("Hours must be an integer")
+      expect(page).to have_content(
+        I18n.t("activerecord.attributes.hour.value") + " must be an integer")
     end
   end
 
   context "with taggings" do
     scenario "track time for a project with tags" do
-      within "#new_entry" do
+      within ".tab-header-and-content-left" do
         fill_in_entry
-        fill_in "entry_description", with: "Did some #pairprogramming with Hugo #internal"
+        fill_in "hour_description",
+                with: "Did some #pairprogramming with Hugo #internal"
 
-        click_button "Create Entry"
+        click_button (I18n.t("helpers.submit.create"))
       end
 
-      expect(page).to have_content I18n.t("entry_created")
-      expect(Entry.last.tags.count).to eq(2)
+      expect(page).to have_content (I18n.t("entry_created.hours"))
+      expect(Hour.last.tags.count).to eq(2)
     end
   end
 
   def fill_in_entry(hours: 4)
     select "Conversations", from: "Project"
     select "Design", from: "Category"
-    fill_in "Hours", with: hours
-    fill_in "entry_date", with: "01/02/2014"
+    fill_in "hour_value", with: hours
+    fill_in "hour_date", with: "01/02/2014"
   end
 end

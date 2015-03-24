@@ -1,6 +1,6 @@
 %div.marked_entries
   %p#amount_marked_entries
-    Select entries to bill
+    =t("billables.select_marked")
   %button{id: "submit-billable-entries", disabled: true}
     =t("billables.buttons.bill_selected")
 .billables
@@ -9,10 +9,11 @@
       = render partial: "filters", locals: { filter_url: billables_path }
   .outer
     %h1= t("billables.billable_entries")
-    - unless @entries.any?
+    - unless @hours_entries.any? || @mileages_entries.any?
       .info
         %p= t("info.no_billable_entries_html")
     = form_tag("/billables", method: "post", remote: true, id: "billable-entries-form") do
       - @billable_list.clients.each do |client|
         %h1= client.name
         = render "projects", projects: client.projects
+

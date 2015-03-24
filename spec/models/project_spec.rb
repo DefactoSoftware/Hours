@@ -2,15 +2,16 @@
 #
 # Table name: projects
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)      default(""), not null
-#  created_at :datetime
-#  updated_at :datetime
-#  slug       :string(255)
-#  budget     :integer
-#  billable   :boolean          default(FALSE)
-#  client_id  :integer
-#  archived   :boolean          default(FALSE), not null
+#  id          :integer          not null, primary key
+#  name        :string           default(""), not null
+#  created_at  :datetime
+#  updated_at  :datetime
+#  slug        :string
+#  budget      :integer
+#  billable    :boolean          default("false")
+#  client_id   :integer
+#  archived    :boolean          default("false"), not null
+#  description :text
 #
 
 require "spec_helper"
@@ -36,7 +37,8 @@ describe Project do
   describe "associations" do
     it { should have_many :users }
     it { should have_many :categories }
-    it { should have_many :entries }
+    it { should have_many :hours }
+    it { should have_many :mileages }
     it { should have_many :tags }
     it { should belong_to :client }
   end
@@ -82,8 +84,8 @@ describe Project do
   describe "#budget" do
     it "can have a budget" do
       project = create(:project, budget: 11)
-      create(:entry, hours: 3, project: project)
-      create(:entry, hours: 2, project: project)
+      create(:hour, value: 3, project: project)
+      create(:hour, value: 2, project: project)
       expect(project.budget_status).to eq(6)
     end
   end

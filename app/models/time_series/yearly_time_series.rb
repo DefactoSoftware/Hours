@@ -15,10 +15,10 @@ class TimeSeries::YearlyTimeSeries < TimeSeries
   end
 
   def labels
-    @time_span.step(7).map { |date| date.strftime('%V') }
+    @time_span.step(7).map { |date| date.strftime("%V") }
   end
 
   def hours_per_week(week)
-    @resource.entries.where(date: ((week-1.week)..week)).sum(:hours)
+    @resource.hours.where(date: ((week - 1.week)..week)).sum(:value)
   end
 end

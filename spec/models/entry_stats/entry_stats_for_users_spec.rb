@@ -7,7 +7,7 @@ describe EntryStats do
         entry_with_hours_project_user(2, project, user)
         entry_with_hours_project_user(3, project, user)
         entry_with_hours_user(5, user)
-        entry_stats = EntryStats.new(user.entries, project)
+        entry_stats = EntryStats.new(user.hours, project)
         expect(entry_stats.hours_for_subject).to eq(5)
       end
     end
@@ -19,7 +19,7 @@ describe EntryStats do
         project2 = create(:project)
         entry_with_hours_project_user(2, project1, user)
         entry_with_hours_project_user(2, project2, user)
-        entry_stats = EntryStats.new(user.entries, project1)
+        entry_stats = EntryStats.new(user.hours, project1)
         expect(entry_stats.percentage_for_subject).to eq(50)
       end
     end
