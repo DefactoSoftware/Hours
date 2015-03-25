@@ -214,6 +214,8 @@ nl:
       je %{categories_path} doen.
     no_projects_html: Zo te zien heb je nog geen projecten aangemaakt. Dat kun je
       %{new_project_path} doen.
+    no_billable_projects_html: Zo te zien heb je nog geen factureerbare projecten. Dat kun je %{new_project_path} doen.
+    no_billable_entries_html: Zo te zien heb je geen entries die voldoen aan je zoekcriteria.
   loader:
     saving: Opslaan
     signing_in: Inloggen
@@ -344,7 +346,7 @@ nl:
     billed: Gefactureerd
     billable: Facturabel
     not_billed: Niet gefactureerd
-    not_billable: Not factureerdbaar
+    not_billable: Niet factureerbaar
     billed_empty: Gefactureerd of niet
     billable_empty: Facturabel of niet
     archived_empty: Gearchiveerde en actieve projecten

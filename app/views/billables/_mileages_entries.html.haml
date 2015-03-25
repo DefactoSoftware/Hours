@@ -2,7 +2,7 @@
 %table.entries
   %tr
     %th
-      %input{ type: "checkbox", "data-project-id" => project.id, "data-entry_type" => "mileage", class: "bill-project" }
+      %input{ type: "checkbox", "data-project-id" => project.id, "data-entry_type" => "mileages", class: "bill-project" }
       = t("billables.table.billed")
     %th= t("billables.table.date")
     %th
@@ -10,7 +10,7 @@
     %th= t("billables.table.user")
   - entries.each do |entry|
     %tr.info-row
-      %td=billable_entry_checkbox(entry, "mileage")
+      %td=billable_entry_checkbox(entry, "mileages")
       %td=I18n.l (entry.date)
       %td
       %td.center= entry.value

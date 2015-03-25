@@ -12,9 +12,11 @@ class EntryCSVGenerator
 
   def generate
     CSV.generate(options) do |csv|
-      csv << %w()
+      csv << []
+      csv << [I18n.translate("report.headers.hours")]
       fill_fields("hours", csv)
-      csv << %w()
+      csv << []
+      csv << [I18n.translate("report.headers.mileages")]
       fill_fields("mileages", csv)
     end
   end

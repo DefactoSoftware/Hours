@@ -6,8 +6,6 @@ class ProjectsController < ApplicationController
     @hours_entry = Hour.new
     @mileages_entry = Mileage.new
     @activities = Hour.by_last_created_at.limit(30)
-    @entry_type = entry_type
-    @entry_path = entries_path
   end
 
   def show

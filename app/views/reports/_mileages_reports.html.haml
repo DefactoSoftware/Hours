@@ -1,6 +1,6 @@
 %li.tab-header-and-content
-  %a.tab-link{:href => "javascript:void(0)"}= t("entries.index.mileages")
-  .tab-reports-content
+  %a.tab-link{href: "#mileages"}= t("entries.index.mileages")
+  #mileages-tab.tab-reports-content
     %table.entries-table
       %table
         %thead
@@ -26,3 +26,5 @@
           %td.hide-for-mobile= entry.project.billable
           %td.hide-for-mobile= entry.billed
           %td.hide-for-mobile
+
+    = paginate @mileages_entries, param_name: :mileages_pages

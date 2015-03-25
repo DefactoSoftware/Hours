@@ -7,12 +7,12 @@
           .projects-tabs-container
             %ul.accordion-tabs
               %li.tab-header-and-content-left
-                %a.tab-link{:href => "#hours"}= t("entries.index.hours")
+                %a.tab-link{href: "#hours"}= t("entries.index.hours")
                 #hours-tab.tab-content
                   %table.entries-table
                     = render partial: "application/hours_entry_form", locals: { form_title: t("entries.index.new_hours")  }
               %li.tab-header-and-content-right
-                %a.tab-link{:href => "#mileages"}= t("entries.index.mileages")
+                %a.tab-link{href: "#mileages"}= t("entries.index.mileages")
                 #mileages-tab.tab-content
                   %table.entries-table
                     = render partial: "application/mileages_entry_form", locals: { form_title: t("entries.index.new_mileages") }

@@ -19,4 +19,8 @@ class Mileage < Entry
   scope :with_clients, -> {
     where.not("projects.client_id" => nil).joins(:project)
   }
+
+  def self.query(params, includes = nil)
+    EntryQuery.new(self.includes(includes).by_date, params, "mileages").filter
+  end
 end
