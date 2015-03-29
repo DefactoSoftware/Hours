@@ -53,6 +53,15 @@ GEM
     audited-activerecord (4.0.0)
       activerecord (~> 4.0)
       audited (= 4.0.0)
+    aws-sdk (2.0.33)
+      aws-sdk-resources (= 2.0.33)
+    aws-sdk-core (2.0.33)
+      builder (~> 3.0)
+      jmespath (~> 1.0)
+      multi_json (~> 1.0)
+      multi_xml (~> 0.5)
+    aws-sdk-resources (2.0.33)
+      aws-sdk-core (= 2.0.33)
     bcrypt (3.1.9)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -161,6 +170,8 @@ GEM
     hike (1.2.3)
     http_accept_language (2.0.1)
     i18n (0.7.0)
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
     jquery-atwho-rails (1.0.0)
     jquery-rails (3.1.1)
       railties (>= 3.0, < 5.0)
@@ -186,6 +197,7 @@ GEM
     momentjs-rails (2.7.0)
       railties (>= 3.1)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     neat (1.5.1)
       bourbon (>= 3.1)
       sass (~> 3.2.19)
@@ -348,6 +360,7 @@ DEPENDENCIES
   annotate
   apartment (~> 0.26.0)
   audited-activerecord (~> 4.0)
+  aws-sdk
   better_errors
   binding_of_caller
   bitters
