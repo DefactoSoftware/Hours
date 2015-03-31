@@ -4,9 +4,10 @@ class MileagesController < EntriesController
     @entry.user = current_user
 
     if @entry.save
-      redirect_to mileage_entry_path, notice: t("entry_created.mileages")
+      redirect_to root_path + "##{controller_name}", notice:
+        t("entry_created.mileages")
     else
-      redirect_to mileage_entry_path, notice:
+      redirect_to root_path + "##{controller_name}", notice:
         @entry.errors.full_messages.join(". ")
     end
   end
@@ -21,6 +22,7 @@ class MileagesController < EntriesController
   end
 
   def edit
+    super
     resource
   end
 

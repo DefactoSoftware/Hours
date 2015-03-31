@@ -39,6 +39,10 @@ class Hour < Entry
     tags.map(&:name).join(", ")
   end
 
+  def self.query(params, includes = nil)
+    EntryQuery.new(self.includes(includes).by_date, params, "hours").filter
+  end
+
   private
 
   def set_tags_from_description

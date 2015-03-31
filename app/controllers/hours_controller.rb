@@ -19,6 +19,7 @@ class HoursController < EntriesController
   end
 
   def edit
+    super
     resource
   end
 

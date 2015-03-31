@@ -7,17 +7,14 @@
     .entries-tabs-container
       %ul.accordion-tabs
         %li.tab-header-and-content-left
-          %a.tab-link{:href => "#hours"}= t("entries.index.hours")
+          %a.tab-link{href: "#hours"}= t("entries.index.hours")
           #hours-tab.tab-content
             %table.entries-table
               = render 'hours_table'
+            = paginate @hours_entries, param_name: :hours_pages
         %li.tab-header-and-content-right
-          %a.tab-link{:href => "#mileages"}= t("entries.index.mileages")
+          %a.tab-link{href: "#mileages"}= t("entries.index.mileages")
           #mileages-tab.tab-content
             %table.entries-table
               = render 'mileages_table'
-
-
-
-
-
+            = paginate @mileages_entries, param_name: :mileages_pages

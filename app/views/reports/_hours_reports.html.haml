@@ -1,6 +1,6 @@
 %li.tab-header-and-content
-  %a.is-active.tab-link{:href => "javascript:void(0)"}= t("entries.index.hours")
-  .tab-reports-content
+  %a.is-active.tab-link{href: "#hours"}= t("entries.index.hours")
+  #hours-tab.tab-reports-content
     %table.entries-table
       %table
         %thead
@@ -27,4 +27,4 @@
             %td.hide-for-mobile= entry.billed
             %td.description.hide-for-mobile= sanitize autolink_tags(entry.description)
 
-  / = paginate @hours_entries
+    = paginate @hours_entries, param_name: :hours_pages

@@ -22,11 +22,8 @@ class ApplicationController < ActionController::Base
     users_path
   end
 
-  def to_object(entry_type)
-    entry_type.singularize.camelize.constantize
-  end
-
   private
+
   helper_method :current_subdomain, :current_user_owner?
 
   def current_subdomain

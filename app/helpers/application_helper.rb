@@ -8,9 +8,7 @@ module ApplicationHelper
   def nav_path(link_text, link_path, http_method = nil)
     css_class = "navigation"
     css_class << " current" if
-      current_page?(link_path) ||
-      (current_page?(mileage_entry_path) &&
-      link_text == t("titles.projects.index"))
+      current_page?(link_path)
     content_tag :li, class: css_class do
       link_to(link_text, link_path, http_method)
     end
@@ -48,9 +46,9 @@ module ApplicationHelper
     else
       tag(:input,
           type: "checkbox",
-          name: "entries_to_bill[]",
+          name: "#{entry_type}_to_bill[]",
           class: "bill_checkbox",
-          value: "#{entry_type}-#{entry.id}",
+          value: "#{entry.id}",
           "data-project-id" => entry.project.id)
     end
   end

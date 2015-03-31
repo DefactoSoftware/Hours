@@ -147,6 +147,9 @@ en:
       category:
         create: Create Category
         update: Update Category
+      client:
+        create: Create Client
+        update: Update Client
   info:
     here: here
     no_categories_html: It looks like you don't have any categories set up yet, you
@@ -155,7 +158,7 @@ en:
       set one up %{new_project_path}.
     no_billable_projects_html: It looks like you don't have any billable projects yet, you can
       set one up %{new_project_path}.
-    no_billable_entries_html: It looks like you've either billed all billable entries or there are simply no billable entries yet.
+    no_billable_entries_html: It looks like no entries meet your filter requirements yet.
   loader:
     saving: Saving
     signing_in: Sigining in

@@ -57,9 +57,9 @@ $(document).ready(function() {
     new TagExpander();
   }
 
-  $('#entry_description').atwho({
+  $('#hour_description').atwho({
     at: '#',
-    data: $('#entry_description').data('data')
+    data: $('#hour_description').data('data')
   });
 
   $('.modal-window')

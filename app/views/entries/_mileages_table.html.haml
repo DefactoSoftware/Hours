@@ -25,4 +25,3 @@
             |
             = link_to t('entries.index.delete'), mileage_path(entry) , method: :delete, class: "destroy", data: { confirm: t(:confirm) }
         %td.changes.right.hide-for-mobile= link_to t('entries.index.changes'), mileage_audits_path(entry) if entry.audits.any?
-= paginate @mileages_entries

@@ -3,8 +3,11 @@ class ReportsController < ApplicationController
 
   def index
     @filters = EntryFilter.new(params[:entry_filter])
-    @hours_entries = entries("hours")
-    @mileages_entries = entries("mileages")
+
+    @hours_entries = entries(Hour.query(params[:entry_filter])).
+                     page(params[:hours_pages]).per(20)
+    @mileages_entries = entries(Mileage.query(params[:entry_filter])).
+                        page(params[:mileages_pages]).per(20)
 
     respond_to do |format|
       format.html
@@ -19,12 +22,7 @@ class ReportsController < ApplicationController
 
   private
 
-  def entries(entry_type)
-    entries = EntryQuery.new(
-      to_object(entry_type).by_date,
-      params[:entry_filter],
-      entry_type
-    ).filter
+  def entries(entries)
     if params[:format] == "csv"
       entries
     else
