@@ -198,16 +198,17 @@ nl:
     tagline: Heeft u een vraag over Hours? Hulp nodig om te kunnen beginnen?
   helpers:
     submit:
-      category:
-        new: Creeër Categorie
       create: Opslaan
-      project:
-        create: Creeër Project
       update: Opslaan
-      user:
-        create: Creeër Account
+      project:
+        create: Opslaan
+        update: Opslaan
+      category:
+        create: Opslaan
+        update: Opslaan
       client:
-        create: Creeër Klant
+        create: Opslaan
+        update: Opslaan
   info:
     here: hier
     no_categories_html: Zo te zien heb je nog geen categorieen aangemaakt. Dat kun

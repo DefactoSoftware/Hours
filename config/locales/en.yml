@@ -147,6 +147,9 @@ en:
       category:
         create: Create Category
         update: Update Category
+      client:
+        create: Create Client
+        update: Update Client
   info:
     here: here
     no_categories_html: It looks like you don't have any categories set up yet, you

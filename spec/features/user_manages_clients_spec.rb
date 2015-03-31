@@ -49,7 +49,7 @@ feature "User manages clients" do
     expect(page).to have_content "Edit"
     click_link "Edit"
     fill_in "Name", with: "MySpace"
-    click_button I18n.t("helpers.submit.update", model: "Client")
+    click_button I18n.t("helpers.submit.client.update", model: "Client")
     expect(page).to have_content "MySpace"
   end
 
@@ -58,7 +58,7 @@ feature "User manages clients" do
 
     visit edit_client_url(client, subdomain: subdomain)
     fill_in "Name", with: ""
-    click_button I18n.t("helpers.submit.update", model: "Client")
+    click_button I18n.t("helpers.submit.client.update", model: "Client")
     expect(page).to have_content "Please review the problems below"
   end
 
@@ -84,6 +84,6 @@ feature "User manages clients" do
     visit clients_url(subdomain: subdomain)
     fill_in "Name", with: name
     fill_in "Description", with: description
-    click_button I18n.t("helpers.submit.create", model: "Client")
+    click_button I18n.t("helpers.submit.client.create", model: "Client")
   end
 end
