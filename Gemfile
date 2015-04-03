@@ -42,6 +42,7 @@ gem "audited-activerecord", "~> 4.0"
 gem "paperclip", "~> 4.2"
 gem "aws-sdk", "< 2.0"
 gem "redcarpet"
+gem "holidays"
 
 # caching
 
