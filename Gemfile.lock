@@ -168,6 +168,7 @@ GEM
     high_voltage (2.2.0)
     highline (1.6.21)
     hike (1.2.3)
+    holidays (1.2.0)
     http_accept_language (2.0.1)
     i18n (0.7.0)
     jmespath (1.0.2)
@@ -384,6 +385,7 @@ DEPENDENCIES
   haml-rails
   hashtel (~> 0.0.2)
   high_voltage
+  holidays
   http_accept_language
   jquery-atwho-rails (~> 1.0.0)
   jquery-rails

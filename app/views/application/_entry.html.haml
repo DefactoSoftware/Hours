@@ -2,7 +2,7 @@
   %li
     %div{:clas => "entry"}
       .avatar-container
-        = render "application/avatar", user: entry.user
+        = render "application/avatar", user: entry.user, easter: easter_check
       .entry-text
         = t(:entry_activity_html, user: link_to(entry.user.first_name, user_path(entry.user)), count: entry.value, |
           category: colored_span(entry.category.name.pastel_color, entry.category.name), |

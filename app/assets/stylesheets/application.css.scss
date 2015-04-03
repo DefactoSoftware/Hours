@@ -182,3 +182,21 @@ h1 {
     margin-top: 2px;
   }
 }
+
+.avatar.egg {
+    display: inline-block;
+    width: 30px;
+    height: 35px;
+    background-color: red;
+    -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+
+}
+
+.avatar-container {
+  .avatar.egg {
+    line-height: 40px;
+    width: 25px;
+    height: 35px;
+  }
+}

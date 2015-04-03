@@ -2,7 +2,7 @@
   - @history.audits.each do |audit|
     %li.audit
       = time_tag audit.created_at
-      = render "application/avatar", user: audit.user
+      = render "application/avatar", user: audit.user, easter: easter_check
       %strong
         = link_to user_entries_path(audit.user) do
           = audit.user.full_name
