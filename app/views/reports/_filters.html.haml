@@ -3,8 +3,8 @@
   = f.input :client_id, collection: @filters.clients, label: false, include_blank: t("entry_filters.clients")
   = f.input :project_id, collection: @filters.projects, label: false, include_blank: t("entry_filters.projects")
   = f.input :user, collection: @filters.users, label: false, include_blank: t("entry_filters.users")
-  = f.input :from_date, as: :date, html5: true
-  = f.input :to_date, as: :date, html5: true
+  = f.input :from_date, input_html: { class: "datepicker", value: @filters.from_date ? @filters.from_date.strftime(I18n.t("date.formats.default")) : "" }
+  = f.input :to_date, input_html: { class: "datepicker", value: @filters.to_date ? @filters.to_date.strftime(I18n.t("date.formats.default")) : "" }
   = f.input :billed, collection: @filters.billed_options, label: false, include_blank: t("entry_filters.billed_empty")
   = f.input :archived, collection: @filters.archived_options, label: false, include_blank: t("entry_filters.archived_empty")
   = f.input :billable, collection: @filters.billable_options, label: false, include_blank: t("entry_filters.billable_empty")
