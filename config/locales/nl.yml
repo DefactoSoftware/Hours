@@ -300,6 +300,9 @@ nl:
         one: uur
         other: uren
     show_more: Toon meer...
+  time:
+    formats:
+      long: " %d-%m-%Y %H:%M"
   titles:
     accounts:
       edit: Account Aanpassen

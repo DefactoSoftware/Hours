@@ -14,7 +14,7 @@
             .dropdown-arrow
             .dropdown-content
               .user-info
-                = render "application/avatar", user: current_user, easter: easter_check
+                = render "application/avatar", user: current_user, easter: easter?
                 %span.user-name= current_user.first_name
               %ul
                 %li= link_to t("titles.categories.index"), categories_path
