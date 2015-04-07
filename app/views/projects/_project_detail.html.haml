@@ -29,4 +29,4 @@
       = t(:no_hours_registered, project: project.name)
     .active-people.hide-for-mobile
       - project.users.each do |user|
-        = render "application/avatar", user: user, easter: easter_check
+        = render "application/avatar", user: user, easter: easter?

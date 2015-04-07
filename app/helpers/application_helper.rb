@@ -73,7 +73,8 @@ module ApplicationHelper
     end
   end
 
-  def easter_check
-    Holidays.on(Date.today, :nl)[0][:name] == "Pasen"
+  def easter?
+    holiday = Holidays.on(Date.today, :nl)
+    holiday[0][:name] == "Pasen" if holiday.any?
   end
 end
