@@ -6,7 +6,7 @@ describe RemainingCategory do
 
   before(:each) do
     5.times do
-      create(:entry, project: project)
+      create(:hour, project: project)
     end
   end
 

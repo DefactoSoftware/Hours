@@ -2,16 +2,16 @@
 #
 # Table name: projects
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)      default(""), not null
-#  created_at :datetime
-#  updated_at :datetime
-#  slug       :string(255)
-#  budget     :integer
-#  billable   :boolean          default(FALSE)
-#  client_id  :integer
-#  archived   :boolean          default(FALSE), not null
-#  billable   :boolean          default(FALSE)
+#  id          :integer          not null, primary key
+#  name        :string           default(""), not null
+#  created_at  :datetime
+#  updated_at  :datetime
+#  slug        :string
+#  budget      :integer
+#  billable    :boolean          default("false")
+#  client_id   :integer
+#  archived    :boolean          default("false"), not null
+#  description :text
 #
 
 class Project < ActiveRecord::Base
@@ -22,10 +22,11 @@ class Project < ActiveRecord::Base
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false }
   validates_with ClientBillableValidator
-  has_many :entries
-  has_many :users, -> { uniq }, through: :entries
-  has_many :categories, -> { uniq }, through: :entries
-  has_many :tags, -> { uniq }, through: :entries
+  has_many :hours
+  has_many :mileages
+  has_many :users, -> { uniq }, through: :hours
+  has_many :categories, -> { uniq }, through: :hours
+  has_many :tags, -> { uniq }, through: :hours
   belongs_to :client, touch: true
 
   scope :by_last_updated, -> { order("projects.updated_at DESC") }
@@ -37,7 +38,7 @@ class Project < ActiveRecord::Base
 
   def sorted_categories
     categories.sort_by do |category|
-      EntryStats.new(entries, category).percentage_for_subject
+      EntryStats.new(hours, category).percentage_for_subject
     end.reverse
   end
 
@@ -46,7 +47,7 @@ class Project < ActiveRecord::Base
   end
 
   def budget_status
-    budget - entries.sum(:hours) if budget
+    budget - hours.sum(:value) if budget
   end
 
   private

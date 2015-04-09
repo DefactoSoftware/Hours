@@ -10,9 +10,9 @@ feature "User view tags overview" do
 
     tag = create(:tag)
     project = create(:project)
-    entry = create(:entry, user: user, project: project, hours: 6)
+    entry = create(:hour, user: user, project: project, value: 6)
     entry.tags << tag
-    create(:entry, user: user, project: project, hours: 6).tags << tag
+    create(:hour, user: user, project: project, value: 6).tags << tag
 
     click_link "Projects"
     click_link tag.name

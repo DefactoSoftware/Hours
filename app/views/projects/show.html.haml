@@ -18,4 +18,4 @@
           - @project.tags.each do |tag|
             %tr
               %td= link_to tag.name, tag_path(tag)
-              %td= EntryStats.new(tag.entries, @project).hours_for_subject
+              %td= EntryStats.new(tag.hours, @project).hours_for_subject

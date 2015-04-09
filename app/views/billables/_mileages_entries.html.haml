@@ -1,0 +1,19 @@
+%h3= t("entries.index.mileages")
+%table.entries
+  %tr
+    %th
+      %input{ type: "checkbox", "data-project-id" => project.id, "data-entry_type" => "mileages", class: "bill-project" }
+      = t("billables.table.billed")
+    %th= t("billables.table.date")
+    %th
+    %th= t("entries.index.mileages")
+    %th= t("billables.table.user")
+  - entries.each do |entry|
+    %tr.info-row
+      %td=billable_entry_checkbox(entry, "mileages")
+      %td=I18n.l (entry.date)
+      %td
+      %td.center= entry.value
+      %td
+        = link_to entry.user do
+          = entry.user.full_name

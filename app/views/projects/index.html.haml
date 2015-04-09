@@ -2,7 +2,20 @@
   .wrapper
     .projects-overview
       - localized_cache [cache_keys_for_all(:projects, :categories, :tags), current_locale] do
-        = render partial: "application/entry_form", locals: { form_title: t("entries.index.new") }
+        .new-entry-wrapper
+          %h2= t("entries.index.new")
+          .projects-tabs-container
+            %ul.accordion-tabs
+              %li.tab-header-and-content-left
+                %a.tab-link{href: "#hours"}= t("entries.index.hours")
+                #hours-tab.tab-content
+                  %table.entries-table
+                    = render partial: "application/hours_entry_form", locals: { form_title: t("entries.index.new_hours")  }
+              %li.tab-header-and-content-right
+                %a.tab-link{href: "#mileages"}= t("entries.index.mileages")
+                #mileages-tab.tab-content
+                  %table.entries-table
+                    = render partial: "application/mileages_entry_form", locals: { form_title: t("entries.index.new_mileages") }
       %ul.project-list
         - localized_cache cache_keys_for_all(:projects, :categories) do
           - unless Project.any?
@@ -16,5 +29,5 @@
         = link_to t("titles.projects.new"), new_project_path, id: "new-project-button", class: "button create"
     .activity-feed
       %ul
-        - localized_cache [cache_key_for_all(:entries), current_locale] do
+        - localized_cache [cache_key_for_all(:hours), current_locale] do
           = render partial: "entry", collection: @activities

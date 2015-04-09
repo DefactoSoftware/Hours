@@ -1,10 +1,16 @@
 class BillableList
-  attr_reader :clients
+  attr_reader :clients, :hours_entries, :mileages_entries
 
-  def initialize(entries)
-    @entries = entries
-    @clients = Client.eager_load(projects: [entries: [:user, :category]]).where(
-      "entries.id in (?)", entries.map(&:id)
+  def initialize(hours_entries, mileages_entries)
+    @hours_entries = hours_entries
+    @mileages_entries = mileages_entries
+
+    @clients = Client.eager_load(
+      projects: [hours: [:user, :category],
+                 mileages: [:user]]).where(
+                   "hours.id in (?) OR mileages.id in (?)",
+                   hours_entries.map(&:id),
+                   mileages_entries.map(&:id)
     ).by_last_updated
   end
 end

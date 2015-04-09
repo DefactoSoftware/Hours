@@ -1,7 +1,7 @@
 module CSVDownload
-  def send_csv(name:, entries:)
+  def send_csv(name:, hours_entries:, mileages_entries:)
     send_data(
-      EntryCSVGenerator.generate(entries),
+      EntryCSVGenerator.generate(hours_entries, mileages_entries),
       filename: "#{name}-entries-#{DateTime.now}.csv",
       type: "text/csv"
     )

@@ -2,7 +2,7 @@
   .container
     %h2
       = t("registration.edit", resource_name: @user.class.model_name.human)
-    = render "application/avatar", user: @user
+    = render "application/avatar", user: @user, easter: easter?
     %p= t("registration.gravatar_instructions_html")
     = simple_form_for(@user) do |f|
       = f.error_notification

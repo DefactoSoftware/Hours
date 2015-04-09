@@ -1,10 +1,12 @@
-devise_for :users, :controllers => { registrations: "users/registrations" }
+devise_for :users, controllers: { registrations: "users/registrations" }
 resources :archives, only: [:index]
 resources :projects, only: [:index, :edit, :new, :update, :create, :show] do
   resources :audits, only: [:index]
 end
 resources :categories, only: [:index, :create, :edit, :update]
-resources :entries, only: [:create, :destroy, :update, :edit] do
+resources :entries, only: [:index]
+
+resources :hours, :mileages, only: [:create, :destroy, :update, :edit, :patch]do
   resources :audits, only: [:index]
 end
 

@@ -3,10 +3,10 @@
 # Table name: tags
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)      not null
+#  name       :string           not null
 #  created_at :datetime
 #  updated_at :datetime
-#  slug       :string(255)
+#  slug       :string
 #
 
 require "spec_helper"
@@ -24,6 +24,6 @@ describe Tag do
 
   describe "associations" do
     it { should have_many :taggings }
-    it { should have_many :entries }
+    it { should have_many :hours }
   end
 end

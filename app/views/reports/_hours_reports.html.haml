@@ -1,0 +1,30 @@
+%li.tab-header-and-content
+  %a.is-active.tab-link{href: "#hours"}= t("entries.index.hours")
+  #hours-tab.tab-reports-content
+    %table.entries-table
+      %table
+        %thead
+          %tr
+            %th= t("report.headers.date")
+            %th= t("report.headers.user")
+            %th= t("report.headers.project")
+            %th.hide-for-mobile= t("report.headers.category")
+            %th.hide-for-mobile= t("report.headers.client")
+            %th= t("report.headers.hours")
+            %th.hide-for-mobile= t("report.headers.billable")
+            %th.hide-for-mobile= t("report.headers.billed")
+            %th.hide-for-mobile= t("report.headers.description")
+        %tbody
+        - @hours_entries.each do |entry|
+          %tr.info-row
+            %td= entry.date
+            %td= link_to entry.user.full_name, entry.user
+            %td= link_to entry.project.name, entry.project
+            %td.hide-for-mobile= entry.category.name
+            %td.hide-for-mobile= link_to entry.project.client.name, entry.project.client if entry.project.client
+            %td= entry.value
+            %td.hide-for-mobile= entry.project.billable
+            %td.hide-for-mobile= entry.billed
+            %td.description.hide-for-mobile= sanitize autolink_tags(entry.description)
+
+    = paginate @hours_entries, param_name: :hours_pages

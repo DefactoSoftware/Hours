@@ -21,9 +21,11 @@ var Hours = Hours || {
   }
 };
 
-new Pikaday({
-  field: $('#datepicker')[0],
-  format: 'DD/MM/YYYY'
+$('.datepicker').each(function () {
+  new Pikaday({
+    field: this,
+    format: I18n[$('body').data('language')].date.format
+  });
 });
 
 $('.alert').ready(function() {
@@ -42,8 +44,9 @@ $(document).ready(function() {
     on('click', 'div', function(e) { e.stopPropagation();
   });
 
-  $('#entry_project_id').select2();
-  $('#entry_category_id').select2();
+  $('#hour_project_id').select2();
+  $('#hour_category_id').select2();
+  $('#mileage_project_id').select2();
   $('#project_client_id').select2();
 
   if ($('body').hasClass('projects-index')) {
@@ -54,9 +57,9 @@ $(document).ready(function() {
     new TagExpander();
   }
 
-  $('#entry_description').atwho({
+  $('#hour_description').atwho({
     at: '#',
-    data: $('#entry_description').data('data')
+    data: $('#hour_description').data('data')
   });
 
   $('.modal-window')

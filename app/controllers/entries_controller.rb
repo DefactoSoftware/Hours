@@ -3,57 +3,40 @@ class EntriesController < ApplicationController
 
   DATE_FORMAT = "%d/%m/%Y".freeze
 
-  def create
-    @entry = Entry.new(entry_params)
-    @entry.user = current_user
-    if @entry.save
-      redirect_to root_path, notice: t(:entry_created)
-    else
-      redirect_to root_path, notice: @entry.errors.full_messages.join(" ")
-    end
-  end
-
   def index
     @user = User.find_by_slug(params[:user_id])
-    @entries = @user.entries.by_date.page(params[:page]).per(20)
+    @hours_entries = @user.hours.by_date.page(params[:hours_pages]).per(20)
+    @mileages_entries = @user.mileages.by_date.page(
+      params[:mileages_pages]).per(20)
 
     respond_to do |format|
-      format.html { @entries }
-      format.csv { send_csv(name: @user.name, entries: @entries) }
+      format.html { @mileages_entries + @hours_entries }
+      format.csv do
+        send_csv(
+          name: @user.name,
+          hours_entries: @user.hours.by_date,
+          mileages_entries: @user.mileages.by_date)
+      end
     end
   end
-
-  def update
-    if resource.update_attributes(entry_params)
-      redirect_to user_entries_path(current_user), notice: t("entry_saved")
-    else
-      render "edit", notice: t("entry_failed")
-    end
-  end
-
-  def edit
-    resource
-  end
-
 
   def destroy
     resource.destroy
-    redirect_to user_entries_path(current_user), notice: t('entry_deleted')
+    redirect_to user_entries_path(current_user) + "##{controller_name}",
+                notice: t("entry_deleted.#{controller_name}")
+  end
+
+  def edit
+    @entry_type = set_entry_type
   end
 
   private
 
-  def resource
-    @entry ||= current_user.entries.find(params[:id])
+  def set_entry_type
+    params[:controller]
   end
 
-  def entry_params
-    params.require(:entry)
-      .permit(:project_id, :category_id, :hours, :description, :date)
-      .merge(date: parsed_date)
-  end
-
-  def parsed_date
-    Date.strptime(params[:entry][:date], DATE_FORMAT)
+  def parsed_date(entry_type)
+    Date.strptime(params[entry_type][:date], DATE_FORMAT)
   end
 end

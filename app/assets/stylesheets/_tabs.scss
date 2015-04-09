@@ -1,0 +1,112 @@
+.entries-tabs-container{
+  margin-left: -25px;
+  margin-right: -25px;
+}
+
+.reports-tabs-container {
+  @include media(max-width $medium-screen) {
+    width:100%;
+  }
+  width:73%;
+}
+
+.accordion-tabs {
+  @include clearfix;
+  line-height: 1.5;
+  margin-bottom: $base-spacing;
+
+  @include media(max-width $medium-screen) {
+    border: $tab-border;
+    border-radius: $base-border-radius;
+  }
+
+  .tab-header-and-content {
+    @include media($medium-screen) {
+      display: inline;
+    }
+    list-style: none;
+
+    &:first-child .tab-link {
+      @include media(max-width $medium-screen) {
+        border-top: 0;
+      }
+      border-top-left-radius: $base-border-radius;
+      border-top-right-radius: $base-border-radius;
+    }
+
+    &:last-child .tab-link {
+      @include media(max-width $medium-screen) {
+        border-bottom-left-radius: $base-border-radius;
+        border-bottom-right-radius: $base-border-radius;
+      }
+    }
+  }
+
+  .tab-header-and-content-left {
+    @extend .tab-header-and-content;
+    margin-left:20px;
+    @include media(max-width $medium-screen) {
+       margin-left: 0;
+    }
+  }
+
+  .tab-header-and-content-right {
+    @extend .tab-header-and-content;
+  }
+
+  .tab-link {
+    @include media($medium-screen) {
+      @include inline-block;
+      border-top: 0;
+      border-top-left-radius: $base-border-radius;
+      border-top-right-radius: $base-border-radius;
+    }
+    background-color: $tab-inactive-color;
+    border-top: $tab-border;
+    color: $dark-gray;
+    display: block;
+    font-weight: bold;
+    padding: $base-spacing/2 $gutter/2;
+    text-decoration: none;
+    padding-left: 10px;
+
+
+    &:hover {
+      color: $base-link-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &.is-active {
+      @include media($medium-screen) {
+        background-color: $tab-active-background;
+        border: $tab-border;
+        border-bottom-color: $tab-active-background;
+        margin-bottom: -1px;
+      }
+      background-color: $tab-active-background;
+    }
+  }
+
+  .tab-content {
+    @include media($medium-screen) {
+      border-top: $tab-border;
+      border-bottom: $tab-border;
+      float: left;
+    }
+    background: $tab-content-background;
+    display: none;
+    padding: $base-spacing $gutter;
+    width: 100%;
+  }
+
+  .tab-reports-content{
+    @extend .tab-content;
+    border: $tab-border;
+    border-bottom-left-radius: $base-border-radius;
+    border-bottom-right-radius: $base-border-radius;
+    border-top-right-radius: $base-border-radius;
+  }
+}

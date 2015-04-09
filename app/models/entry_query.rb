@@ -1,6 +1,7 @@
 class EntryQuery
-  def initialize(entries, params)
+  def initialize(entries, params, entry_type)
     @entries = entries.extending(Scopes)
+    Scopes.set(entry_type)
     @params = params
   end
 
@@ -21,7 +22,7 @@ class EntryQuery
   end
 
   def present?(value)
-    value != "" && value != nil
+    value != "" && !value.nil?
   end
 
   module Scopes
@@ -42,15 +43,27 @@ class EntryQuery
     end
 
     def from_date(param)
-      where("entries.date >= ?", param)
+      where("#{Scopes.get}.date >= ?", param)
     end
 
     def to_date(param)
-      where("entries.date <= ?", param)
+      where("#{Scopes.get}.date <= ?", param)
     end
 
     def archived(param)
       joins(:project).where("archived = ?", param)
+    end
+
+    def billable(param)
+      joins(:project).where("billable = ?", param)
+    end
+
+    def self.set(entry_type)
+      @entry_type = entry_type
+    end
+
+    def self.get
+      @entry_type
     end
   end
 end

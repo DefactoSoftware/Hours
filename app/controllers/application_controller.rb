@@ -10,24 +10,28 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:accept_invitation).concat([:first_name, :last_name])
+    devise_parameter_sanitizer.for(:accept_invitation).
+      concat([:first_name, :last_name])
   end
 
   def authenticate_inviter!
     current_user || authenticate_user!
   end
 
-  def after_invite_path_for(resource_name)
+  def after_invite_path_for(*)
     users_path
   end
 
   private
 
-  helper_method def current_subdomain
-    @current_subdomain ||= current_account.subdomain unless Hours.single_tenant_mode?
+  helper_method :current_subdomain, :current_user_owner?
+
+  def current_subdomain
+    @current_subdomain ||=
+      current_account.subdomain unless Hours.single_tenant_mode?
   end
 
-  helper_method def current_user_owner?
+  def current_user_owner?
     current_account.owner == current_user unless Hours.single_tenant_mode?
   end
 
@@ -47,6 +51,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+    I18n.locale =
+      http_accept_language.compatible_language_from(I18n.available_locales)
   end
 end

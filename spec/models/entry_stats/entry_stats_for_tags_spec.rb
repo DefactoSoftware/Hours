@@ -7,7 +7,7 @@ describe EntryStats do
     describe "#hours_for" do
       context "with no entries" do
         it "returns 0" do
-          entry_stats = EntryStats.new(tag.entries, project)
+          entry_stats = EntryStats.new(tag.hours, project)
           expect(entry_stats.hours_for_subject).to eq(0)
         end
       end
@@ -16,7 +16,7 @@ describe EntryStats do
         it "returns the hours spent" do
           entry_with_hours_project_tag(2, project, tag)
           entry_with_hours_project_tag(3, project, tag)
-          entry_stats = EntryStats.new(tag.entries, project)
+          entry_stats = EntryStats.new(tag.hours, project)
           expect(entry_stats.hours_for_subject).to eq(5)
         end
       end
@@ -27,7 +27,7 @@ describe EntryStats do
         it "returns the percentage of hours spent" do
           entry_with_hours_project_tag_user(3, project, tag, user)
           entry_with_hours_project_tag(3, project, tag)
-          entry_stats = EntryStats.new(tag.entries, user)
+          entry_stats = EntryStats.new(tag.hours, user)
           expect(entry_stats.percentage_for_subject).to eq(50)
         end
       end
@@ -38,14 +38,14 @@ describe EntryStats do
         it "returns the percentage of hours spent" do
           entry_with_hours_project_tag(2, project, tag)
           entry_with_hours_tag(2, tag)
-          entry_stats = EntryStats.new(tag.entries, project)
+          entry_stats = EntryStats.new(tag.hours, project)
           expect(entry_stats.percentage_for_subject).to eq(50)
         end
       end
     end
 
     describe "#total_hours" do
-      let(:entry_stats) { EntryStats.new(tag.entries) }
+      let(:entry_stats) { EntryStats.new(tag.hours) }
       context "with no entries" do
         it "returns 0" do
           expect(entry_stats.total_hours).to eq(0)

@@ -9,11 +9,11 @@ class EntryStats
   end
 
   def hours_for_subject
-    entries_for_subject.sum(:hours)
+    hour_entries_for_subject.sum(:value)
   end
 
   def total_hours
-    @entries.sum(:hours)
+    @entries.sum(:value)
   end
 
   def hours_for_subject_collection(collection)
@@ -30,7 +30,7 @@ class EntryStats
 
   private
 
-  def entries_for_subject
+  def hour_entries_for_subject
     if @subject.instance_of?(RemainingCategory)
       @entries.where("category_id in (?)", @subject.ids)
     else

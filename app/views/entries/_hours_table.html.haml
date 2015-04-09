@@ -1,0 +1,32 @@
+%thead
+  %tr
+    %th= t("entries.index.date")
+    %th= t("entries.index.project")
+    %th.center= t("entries.index.hours")
+    %th.hide-for-mobile= t("entries.index.category")
+    %th.hide-for-mobile= t("entries.index.description")
+    - if @user == current_user
+      %th.right
+    %th.right.hide-for-mobile
+%tbody
+  - @hours_entries.each do |entry|
+    - localized_cache cache_key_for_current_user(entry) do
+      %tr.info-row
+        %td.date
+          %div.weekday= t("weekdays." + entry.date.strftime('%A').downcase)
+          = I18n.l (entry.date)
+        %td.project= link_to entry.project.name, entry.project
+        %td.hours.center= entry.value
+        %td.category.hide-for-mobile
+          %span.color{:style => "background-color:#{entry.category.name.pastel_color};"}
+          = entry.category.name
+        %td.description.hide-for-mobile
+          = sanitize autolink_tags(entry.description)
+        - if @user == current_user
+          %td.actions.right
+            = link_to t('entries.index.edit'), edit_hour_path(entry)
+            |
+            = link_to t('entries.index.delete'), hour_path(entry), method: :delete, class: "destroy", data: { confirm: t(:confirm) }
+        %td.changes.right.hide-for-mobile
+          = link_to t('entries.index.changes'), hour_audits_path(entry) if entry.audits.count > 1
+

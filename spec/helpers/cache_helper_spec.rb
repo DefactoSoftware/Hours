@@ -18,7 +18,7 @@ describe CacheHelper do
       current_user = build(:user)
       other_user = build(:user)
       yet_another_user = build(:user)
-      entry = build(:entry, user: current_user)
+      entry = build(:hour, user: current_user)
 
       expect(helper).to receive(:current_user).and_return(current_user)
       current_users_cache_key = helper.cache_key_for_current_user(entry)

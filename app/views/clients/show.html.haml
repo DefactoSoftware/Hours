@@ -9,8 +9,8 @@
           %h1
             = client_title(@client)
             \-
-            \#{EntryStats.new(@client.entries).total_hours}
-            \#{t('tags.show.hours_indication_title', count: EntryStats.new(@client.entries).total_hours)}
+            \#{EntryStats.new(@client.hours).total_hours}
+            \#{t('tags.show.hours_indication_title', count: EntryStats.new(@client.hours).total_hours)}
           %p
             = @client.description
       = render "/time_span"

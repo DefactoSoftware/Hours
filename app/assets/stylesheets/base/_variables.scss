@@ -10,13 +10,16 @@ $base-line-height: $base-font-size * 1.5;
 $unitless-line-height: $base-line-height / ($base-line-height * 0 + 1); // Strip units from line-height: https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#Prefer_unitless_numbers_for_line-height_values
 $header-line-height: $base-font-size * 1.25;
 $base-border-radius: em(3);
+$base-spacing: 1.5em !default;
 
 // Colors
 $blue: #477DCA;
-$dark-gray: #333;
+
+$black: #000000;
 $medium-dark-gray: #555555;
-$medium-gray: #999;
 $light-gray: #DDD;
+$medium-gray: #999;
+$dark-gray: #333;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
@@ -55,3 +58,10 @@ $form-box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
 $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;
+
+// Tabs
+$tab-border: 1px solid $base-border-color;
+$tab-content-background: lighten($light-gray, 10);
+$tab-active-background: $tab-content-background;
+$tab-inactive-color: $base-background-color;
+$tab-inactive-hover-color: darken($light-gray, 5);
