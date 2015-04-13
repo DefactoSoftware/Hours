@@ -1,4 +1,4 @@
-= simple_form_for(@hours_entry) do |f|
+= simple_form_for @hours_entry do |f|
   = f.error_notification
   = f.association :project, required: true, collection: Project.unarchived.by_name, label: false, placeholder: t("entries.index.project")
   = f.association :category, required: true, collection: Category.by_name, label: false, placeholder: t("entries.index.category")

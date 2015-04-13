@@ -1,4 +1,4 @@
-= simple_form_for(@mileages_entry) do |f|
+= simple_form_for @mileages_entry do |f|
   = f.error_notification
   = f.association :project, required: true, collection: Project.unarchived.by_name, label: false, placeholder: t("entries.index.project")
   = f.input :value, required: true, as: :integer, label:false, placeholder: t("entries.index.mileages")
