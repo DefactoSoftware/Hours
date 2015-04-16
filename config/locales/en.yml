@@ -94,7 +94,7 @@ en:
   confirm: Are you sure?
   date:
     formats:
-      default: "%m/%d/%Y"
+      default: "%d/%m/%Y"
   email:
     confirmation:
       confirm_password: Confirm my account

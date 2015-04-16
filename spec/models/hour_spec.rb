@@ -109,4 +109,25 @@ describe Hour do
 
     expect(Hour.with_clients.count).to eq(1)
   end
+
+  describe "#query" do
+    let(:entry_1) { create(:hour, date: 5.days.ago) }
+    let(:entry_2) { create(:hour, date: 4.days.ago) }
+    let(:entry_3) { create(:hour, date: 3.days.ago) }
+    let(:entry_4) { create(:hour, date: 2.days.ago) }
+    let(:entry_5) { create(:hour, date: 1.day.ago) }
+
+    before(:each) do
+      Timecop.freeze DateTime.new(2015, 4, 20)
+      [entry_1, entry_2, entry_3, entry_4, entry_5]
+    end
+
+    it "queries by date" do
+      entry_filter = {}
+      entry_filter[:from_date] = "17/04/2015"
+      entry_filter[:to_date] = "20/04/2015"
+      entries = Hour.query(entry_filter)
+      expect(entries).to include(entry_3, entry_4, entry_5)
+    end
+  end
 end
