@@ -398,7 +398,7 @@ DEPENDENCIES
   pry-rails
   rack-timeout
   rails (~> 4.2.0)
-  rails-assets-chartjs
+  rails-assets-chartjs!
   rails_12factor
   recipient_interceptor
   redcarpet
