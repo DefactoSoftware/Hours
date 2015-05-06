@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-source "https://rails-assets.org"
 
 ruby "2.2.2"
 
@@ -34,7 +33,6 @@ gem "kaminari"
 gem "select2-rails"
 gem "http_accept_language"
 gem "normalize-rails"
-gem "rails-assets-chartjs"
 gem "twitter-text" # hashtag parsing
 gem "jquery-atwho-rails", "~> 1.0.0" # autocomplete
 gem "haml-rails"
@@ -43,6 +41,10 @@ gem "paperclip", "~> 4.2"
 gem "aws-sdk", "< 2.0"
 gem "redcarpet"
 gem "holidays"
+
+source "https://rails-assets.org" do
+  gem "rails-assets-chartjs"
+end
 
 # caching
 
