@@ -14,7 +14,7 @@ module Hours
   def self.helpful_enabled?
     if Hours.helpful_url.try(:empty) || Hours.helpful_account.try(:empty?)
       fail <<-MSG
-      Helpful account not onfigured,
+      Helpful account not configured,
       to disable helpful support remove
       the HELPFUL_URL and HELPFUL_ACCOUNT env variables and restart your server.
       If you do wish to enable support, please configure these.
