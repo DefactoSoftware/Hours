@@ -37,6 +37,10 @@ RSpec.configure do |config|
   config.include Paperclip::Shoulda::Matchers
   config.include ActionDispatch::TestProcess
 
+  config.before(:each) do
+    ENV['SINGLE_TENANT_MODE'] = 'false'
+  end
+
   config.after(:each) do
     Apartment::Tenant.reset
     drop_schemas
