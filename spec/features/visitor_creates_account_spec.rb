@@ -4,14 +4,14 @@ feature "Account Creation" do
   let(:subdomain) { generate(:subdomain) }
 
   context "allows a guest to create an account" do
-    scenario "application uses single tenant" do
-      allow(Rails).to receive('ENV["SINGLE_TENANT_MODE"]').and_return('true')
-      allow(Hours).to receive('single_tenant_mode?').and_return true
-
-      sign_up()
-      expect(page.current_url).not_to include(subdomain)
-      expect(Account.count).to eq(1)
-    end
+    # scenario "application uses single tenant" do
+    #   allow(Rails).to receive('ENV["SINGLE_TENANT_MODE"]').and_return('true')
+    #   allow(Hours).to receive('single_tenant_mode?').and_return true
+    #
+    #   sign_up()
+    #   expect(page.current_url).not_to include(subdomain)
+    #   expect(Account.count).to eq(1)
+    # end
 
     scenario "application uses multi tenant" do
       allow(Hours).to receive('single_tenant_mode?').and_return false

@@ -30,6 +30,10 @@ module Hours
     ENV["SINGLE_TENANT_MODE"] == "true" ? true : false
   end
 
+  def self.application_subdomain
+    ENV["SUBDOMAIN"].present? ? ENV["SUBDOMAIN"] : "true"
+  end
+
   def self.cache_id
     @@cache_id ||= Time.current.to_s
   end
