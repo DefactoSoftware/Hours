@@ -9,10 +9,17 @@ class AccountsController < ApplicationController
   def create
     @signup = Signup.new(signup_params)
     if @signup.valid?
-      Apartment::Tenant.create(@signup.subdomain)
-      Apartment::Tenant.switch(@signup.subdomain)
+      unless Hours.single_tenant_mode?
+        Apartment::Tenant.create(@signup.subdomain)
+        Apartment::Tenant.switch(@signup.subdomain)
+      end
       @signup.save
-      redirect_to new_user_session_url(subdomain: @signup.subdomain)
+
+      if Hours.single_tenant_mode?
+        redirect_to new_user_session_url(subdomain: false)
+      else
+        redirect_to new_user_session_url(subdomain: @signup.subdomain)
+      end
     else
       render action: "new"
     end

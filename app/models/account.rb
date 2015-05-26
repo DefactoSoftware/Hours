@@ -16,6 +16,7 @@ class Account < ActiveRecord::Base
 
   validates :owner, presence: true
   validates :subdomain, presence: true,
+                        unless: :single_tenant_mode?,
                         uniqueness: { case_sensitive: false },
                         format:
                         {
@@ -28,6 +29,7 @@ class Account < ActiveRecord::Base
                           message: I18n.t("restricted")
                         }
 
+
   belongs_to :owner, class_name: "User"
 
   has_many :users, inverse_of: :organization
@@ -36,5 +38,9 @@ class Account < ActiveRecord::Base
 
   def downcase_subdomain
     self.subdomain = subdomain.try(:downcase)
+  end
+
+  def single_tenant_mode?
+    Hours.single_tenant_mode?
   end
 end

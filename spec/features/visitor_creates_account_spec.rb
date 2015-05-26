@@ -3,10 +3,22 @@ require "spec_helper"
 feature "Account Creation" do
   let(:subdomain) { generate(:subdomain) }
 
-  scenario "allows a guest to create an account" do
-    sign_up(subdomain)
-    expect(page.current_url).to include(subdomain)
-    expect(Account.count).to eq(1)
+  context "allows a guest to create an account" do
+    scenario "application uses single tenant" do
+      allow(Rails).to receive('ENV["SINGLE_TENANT_MODE"]').and_return('true')
+      allow(Hours).to receive('single_tenant_mode?').and_return true
+
+      sign_up()
+      expect(page.current_url).not_to include(subdomain)
+      expect(Account.count).to eq(1)
+    end
+
+    scenario "application uses multi tenant" do
+      allow(Hours).to receive('single_tenant_mode?').and_return false
+      sign_up(subdomain)
+      expect(page.current_url).to include(subdomain)
+      expect(Account.count).to eq(1)
+    end
   end
 
   scenario "allows access to the subdomain" do
@@ -28,7 +40,7 @@ feature "Account Creation" do
     expect(page).to have_content("Please review the problems below")
   end
 
-  def sign_up(subdomain, email="john@example.com")
+  def sign_up(subdomain = nil, email="john@example.com")
     visit root_url(subdomain: false)
     click_link "Free trial"
 

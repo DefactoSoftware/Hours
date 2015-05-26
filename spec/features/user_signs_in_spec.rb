@@ -4,9 +4,12 @@ feature "User signs in" do
   let(:user) { build(:user) }
   let!(:account) { create(:account_with_schema, owner: user) }
 
-  scenario "signs in with valid credentials" do
-    sign_in_user(user, subdomain: account.subdomain)
-    expect(page).to have_content(I18n.t("devise.sessions.signed_in"))
+  context "signs in with valid credentials" do
+    scenario "subdomain is set" do
+      ENV["SINGLE_TENANT_MODE"] = "false"
+      sign_in_user(user, subdomain: account.subdomain)
+      expect(page).to have_content(I18n.t("devise.sessions.signed_in"))
+    end
   end
 
   scenario "can not sign in with invalid credentials" do
