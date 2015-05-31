@@ -20,12 +20,12 @@ class Account < ActiveRecord::Base
                         format:
                         {
                           with: /\A[\w\-]+\Z/i,
-                          message: I18n.t("account.invalid_characters")
+                          message: :invalid_characters
                         },
                         exclusion:
                         {
                           in: RESTRICTED_SUBDOMAINS,
-                          message: I18n.t("restricted")
+                          message: :restricted
                         }
 
   belongs_to :owner, class_name: "User"
