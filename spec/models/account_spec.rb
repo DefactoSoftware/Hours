@@ -43,7 +43,7 @@ describe Account do
       account.valid?
 
       expect(account.errors.messages[:subdomain]).
-          to eq ["contains invalid characters"]
+        to eq ["contains invalid characters"]
     end
 
     it "set for restricted subdomain" do
@@ -51,7 +51,7 @@ describe Account do
       account.valid?
 
       expect(account.errors.messages[:subdomain]).
-          to eq ["provided subdomain is restricted"]
+        to eq ["provided subdomain is restricted"]
     end
   end
 end
