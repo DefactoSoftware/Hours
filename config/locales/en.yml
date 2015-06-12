@@ -58,6 +58,13 @@ en:
         value: "Hours"
       mileage:
         value: "Mileages"
+    errors:
+      models:
+        account:
+          attributes:
+            subdomain:
+              invalid_characters: contains invalid characters
+              restricted: provided subdomain is restricted
   back: Back
   billables:
     billable_entries: Billable Entries

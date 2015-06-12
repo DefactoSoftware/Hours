@@ -36,4 +36,22 @@ describe Account do
   describe "associations" do
     it { should belong_to :owner }
   end
+
+  describe "validation messages" do
+    it "set for invalid characters" do
+      account = build(:account, subdomain: "ść")
+      account.valid?
+
+      expect(account.errors.messages[:subdomain]).
+        to eq ["contains invalid characters"]
+    end
+
+    it "set for restricted subdomain" do
+      account = build(:account, subdomain: "admin")
+      account.valid?
+
+      expect(account.errors.messages[:subdomain]).
+        to eq ["provided subdomain is restricted"]
+    end
+  end
 end
