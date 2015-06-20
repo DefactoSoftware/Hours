@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-source "https://rails-assets.org"
 
 ruby "2.2.2"
 
@@ -10,12 +9,12 @@ gem "delayed_job_active_record", "4.0.3"
 gem "email_validator"
 gem "flutie"
 gem "high_voltage"
-gem "jquery-rails"
+gem "jquery-rails", "~> 3.1.3"
 gem "neat"
 gem "bitters"
 gem "pg"
 gem "rack-timeout"
-gem "rails", "~> 4.2.0"
+gem "rails", "~> 4.2.2"
 gem "recipient_interceptor"
 gem "sass-rails", "~> 5.0.1"
 gem "simple_form", "~> 3.1.0"
@@ -34,7 +33,6 @@ gem "kaminari"
 gem "select2-rails"
 gem "http_accept_language"
 gem "normalize-rails"
-gem "rails-assets-chartjs"
 gem "twitter-text" # hashtag parsing
 gem "jquery-atwho-rails", "~> 1.0.0" # autocomplete
 gem "haml-rails"
@@ -43,6 +41,10 @@ gem "paperclip", "~> 4.2"
 gem "aws-sdk", "< 2.0"
 gem "redcarpet"
 gem "holidays"
+
+source "https://rails-assets.org" do
+  gem "rails-assets-chartjs"
+end
 
 # caching
 

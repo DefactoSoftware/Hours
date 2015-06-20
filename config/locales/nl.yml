@@ -70,6 +70,12 @@ nl:
           attributes:
             email:
               invalid_email: "%{attribute} is geen mail van de organisatie"
+        account:
+          attributes:
+            subdomain:
+              invalid_characters: bevat ongeldige tekens
+              restricted: mits subdomein wordt beperkt
+
     models:
       user: Gebruiker
   back: Terug
