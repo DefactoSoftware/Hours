@@ -41,6 +41,7 @@ gem "paperclip", "~> 4.2"
 gem "aws-sdk", "< 2.0"
 gem "redcarpet"
 gem "holidays"
+gem "stripe"
 
 source "https://rails-assets.org" do
   gem "rails-assets-chartjs"

@@ -128,6 +128,8 @@ GEM
       devise (>= 3.2.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    domain_name (0.5.24)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
@@ -164,6 +166,8 @@ GEM
     high_voltage (2.2.0)
     highline (1.6.21)
     holidays (1.2.0)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     http_accept_language (2.0.1)
     i18n (0.7.0)
     jquery-atwho-rails (1.0.0)
@@ -194,6 +198,7 @@ GEM
     neat (1.5.1)
       bourbon (>= 3.1)
       sass (~> 3.2.19)
+    netrc (0.10.3)
     newrelic_rpm (3.9.0.229)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -256,6 +261,10 @@ GEM
     redcarpet (3.2.2)
     responders (2.0.2)
       railties (>= 4.2.0.alpha, < 5)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -311,6 +320,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    stripe (1.22.0)
+      json (~> 1.8.1)
+      rest-client (~> 1.4)
     temple (0.6.7)
     terminal-table (1.4.5)
     thor (0.19.1)
@@ -406,6 +418,7 @@ DEPENDENCIES
   simplecov
   spring
   spring-commands-rspec
+  stripe
   timecop
   title
   twitter-text
@@ -414,4 +427,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.10.3
+   1.10.4
