@@ -2,16 +2,17 @@
   .footer-links
     %ul
       %li
-        = link_to root_path do
-          %h3 Hours
-      %li
-        %a{:href => "#{root_path}#pricing"} Pricing
+        %a{href: "#{root_path}#pricing"} Pricing
       %li= link_to "The Team", page_path("team")
-      %li
-        %a{:href => "mailto:hugo@defacto.nl"} Careers
   %hr/
   %p
-    Greetings from drizzling
-    %a{:href => "https://www.flickr.com/search/?q=groningen"} Groningen.
+
+    Brought to you by
+    %a{href: "http://www.defacto.nl", target: "_blank"} Defacto
+    and our
+    = succeed "." do
+      %a{href: "https://github.com/DefactoSoftware/Hours/graphs/contributors", target: "_blank"} contributors
     %br/
+    Greetings from drizzling
+    %a{href: "https://www.flickr.com/search/?q=groningen", target: "_blank"} Groningen
     \- The Hours team.
