@@ -21,4 +21,11 @@
           %a{:href => "https://github.com/sn3p"}
             = image_tag("matthijs.jpg")
           %p Matthijs Kuiper
+
+      %br
+      %p
+        And thanks to all our
+        = succeed "!" do
+          %a{href: "https://github.com/DefactoSoftware/Hours/graphs/contributors", target: "_blank"} contributors
+
   = render "footer"
