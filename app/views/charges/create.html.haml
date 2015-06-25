@@ -1,0 +1,3 @@
+%h2
+  Thanks, you paid
+  %strong= number_to_currency(ENV["SUBSCRIPTIONS_PRICE"].to_f * @user_count.to_f, precision: 2, unit: "€")

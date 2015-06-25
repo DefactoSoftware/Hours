@@ -1,0 +1,52 @@
+%script{:src => "https://js.stripe.com/v2/", :type => "text/javascript"}
+= form_tag charges_path, method: "POST", id: "payment-form" do
+  %span.payment-errors
+  .form-row
+    %label
+      %span= t "payments.labels.card_number"
+      %input{"data-stripe" => "number", :size => "20", :type => "text"}/
+  .form-row
+    %label
+      %span= t "payments.labels.cvc"
+      %input{"data-stripe" => "cvc", :size => "4", :type => "text"}/
+  .form-row
+    %label
+      %span= t "payments.labels.expiration_date"
+      %input{"data-stripe" => "exp-month", :size => "2", :type => "text"}/
+    %span /
+    %input{"data-stripe" => "exp-year", :size => "4", :type => "text"}/
+  %button{:type => "submit"}= t "payments.pay_button"
+%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"}
+:javascript
+  // This identifies your website in the createToken call below
+  Stripe.setPublishableKey('#{ENV["STRIPE_PUBLIC_KEY"]}');
+  jQuery(function($) {
+    $('#payment-form').submit(function(event) {
+      var $form = $(this);
+
+      // Disable the submit button to prevent repeated clicks
+      $form.find('button').prop('disabled', true);
+
+      Stripe.card.createToken($form, stripeResponseHandler);
+
+      // Prevent the form from submitting with the default action
+      return false;
+    });
+  });
+
+  function stripeResponseHandler(status, response) {
+    var $form = $('#payment-form');
+
+    if (response.error) {
+      // Show the errors on the form
+      $form.find('.payment-errors').text(response.error.message);
+      $form.find('button').prop('disabled', false);
+    } else {
+      // response contains id and card, which contains additional card details
+      var token = response.id;
+      // Insert the token into the form so it gets submitted to the server
+      $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+      // and submit
+      $form.get(0).submit();
+    }
+  };

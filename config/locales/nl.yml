@@ -231,6 +231,12 @@ nl:
       edit_user: Gegevens aanpassen
     entries: Mijn Uren
   no_hours_registered: Niemand heeft nog tijd aan %{project} besteed
+  payments:
+    pay_button: Betalen
+    labels:
+      card_number: Creditcard nummer
+      cvc: CVC
+      expiration_date: Einddatum (MM/YYYY)
   project:
     errors:
       client_missing: Als het project facturabel is moet er een klant geselecteerd worden

@@ -174,6 +174,12 @@ en:
       edit_user: Edit profile
     entries: My Entries
   no_hours_registered: Nobody spent any time on %{project} yet
+  payments:
+    pay_button: Submit Payment
+    labels:
+      card_number: Card Number
+      cvc: CVC
+      expiration_date: Expiration (MM/YYYY)
   project:
     errors:
       client_missing: If the project is billable it needs a client
