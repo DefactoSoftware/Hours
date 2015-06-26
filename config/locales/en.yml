@@ -42,6 +42,7 @@ en:
     invalid_characters: contains invalid characters
     last_name: Last Name
     password: Password
+    payment_link: Payments
     repeat_password: Repeat Password
     subdomain: Subdomain
     warning: Deleting your account will remove you and everyone else's data from %{subdomain}

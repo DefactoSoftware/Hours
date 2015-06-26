@@ -41,6 +41,7 @@ nl:
     invalid_characters: bevat invalide karakters
     last_name: Achternaam
     password: Wachtwoord
+    payment_link: Betalen
     repeat_password: Bevesting wachtwoord
     subdomain: subdomein
     warning: Het verwijderen van je account zal jouw en iedereens gegevens op %{subdomain}
