@@ -1,0 +1,9 @@
+.outer
+  .container
+    %h2
+      = t("payment.show.subscription")
+    .current-subscription
+      = t("payment.current_subscription")
+      = number_to_currency(@user_count * ENV["SUBSCRIPTIONS_PRICE"].to_f )
+
+    = link_to "remove subscription", destroy_charge_path, method: "DELETE"

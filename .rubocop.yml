@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - "vendor/**/*"
+    - "db/**/*"
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  Enabled: true
+Style/FileName:
+  Enabled: false
+Metrics/AbcSize:
+  Description: A calculated magnitude based on number of assignments, branches, and
+    conditions.
+  Enabled: true
+  Max: 15
+Style/DotPosition:
+  EnforcedStyle: trailing
+  Enabled: true

@@ -238,6 +238,7 @@ nl:
       card_number: Creditcard nummer
       cvc: CVC
       expiration_date: Einddatum (MM/YYYY)
+    went_wrong_message: Er ging iets mis
   project:
     errors:
       client_missing: Als het project facturabel is moet er een klant geselecteerd worden

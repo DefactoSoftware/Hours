@@ -181,6 +181,12 @@ en:
       card_number: Card Number
       cvc: CVC
       expiration_date: Expiration (MM/YYYY)
+    went_wrong_message: Something went wrong
+    edit:
+      header: Subscription
+    delete:
+      success: Subscription successful deleted
+      fail: Could not delete you're subscription
   project:
     errors:
       client_missing: If the project is billable it needs a client
