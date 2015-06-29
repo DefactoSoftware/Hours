@@ -1,16 +1,17 @@
 class Subscription
+  include ActiveModel::Model
+  include ActiveModel::Validations
+  attr_reader :number_of_users, :price, :stripe_id, :subscription_id
 
-  def initialize
-    account ||= Account.find_by(subdomain: Apartment::tennant.current)
-
+  def initialize(account)
     @stripe_id  = account.stripe_id
     @subscription_id  = account.subscription_id
     @price = ENV["SUBSCRIPTIONS_PRICE"].to_f
     @number_of_users = User.count
-  def
+  end
 
   def costs
-    @number_of_users * price
+    enabled? ?  @number_of_users * price : 0
   end
 
   def enabled?

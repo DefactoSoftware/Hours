@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
   before_action :chargin_set?
-  before_action :set_user_count
+  before_action :set_subscription
 
   def show
   end
@@ -34,6 +34,8 @@ class ChargesController < ApplicationController
     if cu.delete.deleted
       current_account.update(stripe_id: nil,
                              subscription_id: nil)
+      @subscription = Subscription.new(current_account)
+
       render :show, success: t("payments.delete.success")
     else
       render :show, error: t("payments.delete.fails")
@@ -42,8 +44,8 @@ class ChargesController < ApplicationController
 
   private
 
-  def set_user_count
-    @user_count ||= User.count
+  def set_subscription
+    @subscription ||= Subscription.new(current_account)
   end
 
   def chargin_set?
