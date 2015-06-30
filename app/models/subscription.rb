@@ -4,18 +4,17 @@ class Subscription
   attr_reader :number_of_users, :price, :stripe_id, :subscription_id
 
   def initialize(account)
-    @stripe_id  = account.stripe_id
-    @subscription_id  = account.subscription_id
+    @stripe_id = account.stripe_id
+    @subscription_id = account.subscription_id
     @price = ENV["SUBSCRIPTIONS_PRICE"].to_f
     @number_of_users = User.count
   end
 
   def costs
-    enabled? ?  @number_of_users * price : 0
+    enabled? ? @number_of_users * price : 0
   end
 
   def enabled?
     stripe_id && subscription_id
   end
-
 end
