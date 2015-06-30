@@ -22,6 +22,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    @user.update(active: true)
+  end
+
   private
 
   def resource

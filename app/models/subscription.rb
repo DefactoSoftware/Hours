@@ -6,7 +6,7 @@ class Subscription
   def initialize(account)
     @stripe_id = account.stripe_id
     @subscription_id = account.subscription_id
-    @price = ENV["SUBSCRIPTIONS_PRICE"].to_f
+    @price = Hours.subscriptions_price
     @number_of_users = User.count
   end
 

@@ -239,6 +239,12 @@ nl:
       cvc: CVC
       expiration_date: Einddatum (MM/YYYY)
     went_wrong_message: Er ging iets mis
+    edit:
+      header: Abbonoment
+    delete:
+      success: Abbonoment is verwijderd
+      fail: Uw abbonoment kon niet verwijderd worden.
+    thanks: Bedankt, u betaalde
   project:
     errors:
       client_missing: Als het project facturabel is moet er een klant geselecteerd worden
@@ -349,6 +355,8 @@ nl:
     email: Email
     invitation_sent_at: "%{time_ago} geleden uitgenodigd"
     invite: Nodig uit
+    activate: Activeren
+    de_activate: De-activeren
   views:
     pagination:
       truncate: ...

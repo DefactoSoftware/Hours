@@ -14,7 +14,7 @@ resources :reports, only: [:index]
 
 resources :billables, only: [:index]
 
-resources :users, only: [:index, :update, :show] do
+resources :users, only: [:index, :update, :show, :destroy] do
   resources :entries, only: [:index]
 end
 

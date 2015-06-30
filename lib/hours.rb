@@ -2,7 +2,7 @@ module Hours
   def self.google_analytics_id
     ENV["GOOGLE_ANALYTICS_KEY"]
   end
-  
+
   def self.helpful_url
     ENV["HELPFUL_URL"]
   end
@@ -32,5 +32,9 @@ module Hours
 
   def self.cache_id
     @@cache_id ||= Time.current.to_s
+  end
+
+  def self.subscriptions_price
+    ENV["SUBSCRIPTIONS_PRICE"].to_f
   end
 end

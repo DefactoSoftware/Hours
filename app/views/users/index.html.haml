@@ -9,6 +9,7 @@
               %td
                 = link_to user.full_name, user_path(user) if user.confirmed?
               %td= user.email
+              %td= button_to t("users.de_archive"), user_path(user), method: :delete
               %td
                 - unless user.accepted_or_not_invited?
                   = t("users.invitation_sent_at",                            |

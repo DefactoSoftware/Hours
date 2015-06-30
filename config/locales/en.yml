@@ -187,6 +187,7 @@ en:
     delete:
       success: Subscription successful deleted
       fail: Could not delete you're subscription
+    thanks: Thanks, you paid
   project:
     errors:
       client_missing: If the project is billable it needs a client
@@ -203,6 +204,7 @@ en:
     edit:
       archive_link: Archive
       un_archive_link: Un-archive
+
   project_activity_html:
     one: "<strong>%{full_name}</strong> spent <strong>%{hours}</strong> hours working on <strong>%{project}</strong>"
     other: "<strong>%{count}</strong> people spent <strong>%{hours}</strong> hours working on <strong>%{project}</strong>"
@@ -274,6 +276,8 @@ en:
     invite: Invite User
     invitation_sent_at: Invited %{time_ago} ago
     confirm: Confirm
+    activate: Activate
+    de_activate: De-Activate
   entry_filters:
     title: Filters
     clients: All Clients
