@@ -2,11 +2,13 @@
 #
 # Table name: public.accounts
 #
-#  id         :integer          not null, primary key
-#  subdomain  :string           default(""), not null
-#  owner_id   :integer          default("0"), not null
-#  created_at :datetime
-#  updated_at :datetime
+#  id              :integer          not null, primary key
+#  subdomain       :string           default(""), not null
+#  owner_id        :integer          default("0"), not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#  stripe_id       :string
+#  subscription_id :string
 #
 
 class Account < ActiveRecord::Base

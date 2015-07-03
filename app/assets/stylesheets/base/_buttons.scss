@@ -8,3 +8,8 @@ input[type="submit"] {
   vertical-align: middle;
   white-space: nowrap;
 }
+
+.button-grey {
+  @extend %button;
+  background-color: grey !important;
+}

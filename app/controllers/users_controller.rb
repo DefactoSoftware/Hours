@@ -1,12 +1,13 @@
 include TimeSeriesInitializer
 
 class UsersController < ApplicationController
+  before_action :set_users, only: [:index, :toggle_active]
+
   def show
     @time_series = time_series_for(resource)
   end
 
   def index
-    @users = User.all
   end
 
   def edit
@@ -22,12 +23,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    @user = current_user
-    @user.update(active: true)
+  def toggle_active
+    resource.toggle!(:active)
+    redirect_to users_path
   end
 
   private
+
+  def set_users
+    @users ||= User.all
+  end
 
   def resource
     @user ||= User.find_by_slug(params[:id])

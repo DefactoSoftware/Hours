@@ -15,6 +15,9 @@ resources :reports, only: [:index]
 resources :billables, only: [:index]
 
 resources :users, only: [:index, :update, :show, :destroy] do
+  member do
+    put :toggle_active
+  end
   resources :entries, only: [:index]
 end
 

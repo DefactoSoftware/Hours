@@ -1,3 +1,19 @@
+
+FactoryGirl.define do
+  sequence :email do |n|
+    "test#{n}@example.com"
+  end
+
+  factory :user do
+    first_name "John"
+    last_name "Doe"
+    email
+    password "password"
+    password_confirmation "password"
+    confirmed_at 2.hours.ago
+    active true
+  end
+end
 # == Schema Information
 #
 # Table name: users
@@ -31,21 +47,8 @@
 #  invited_by_id          :integer
 #  invited_by_type        :string
 #  invitations_count      :integer          default("0")
+#  active                 :boolean          default("true")
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
-  sequence :email do |n|
-    "test#{n}@example.com"
-  end
-
-  factory :user do
-    first_name "John"
-    last_name "Doe"
-    email
-    password "password"
-    password_confirmation "password"
-    confirmed_at 2.hours.ago
-  end
-end
