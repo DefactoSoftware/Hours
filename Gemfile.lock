@@ -96,7 +96,7 @@ GEM
       railties (> 3.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cocaine (0.5.4)
+    cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -186,6 +186,7 @@ GEM
     memcachier (0.0.2)
     method_source (0.8.2)
     mime-types (2.6.1)
+    mimemagic (0.3.0)
     mini_portile (0.6.2)
     minitest (5.7.0)
     momentjs-rails (2.7.0)
@@ -199,11 +200,12 @@ GEM
       mini_portile (~> 0.6.0)
     normalize-rails (3.0.1)
     orm_adapter (0.5.0)
-    paperclip (4.2.0)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
+    paperclip (4.3.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
       mime-types
+      mimemagic (= 0.3.0)
     pg (0.17.1)
     pikaday-gem (1.1.0.0)
       railties (>= 3.1)
@@ -414,4 +416,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.10.3
+   1.10.5
