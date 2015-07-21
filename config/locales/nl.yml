@@ -341,6 +341,9 @@ nl:
     email: Email
     invitation_sent_at: "%{time_ago} geleden uitgenodigd"
     invite: Nodig uit
+    update:
+      update_needs_confirmation: U heeft uw account aangepast, maar we moeten uw email valideren. Controlleer uw email en klik op de bevestigingslink om uw nieuw email te valideren.
+      updated: Uw account is aangepast.
   views:
     pagination:
       truncate: ...

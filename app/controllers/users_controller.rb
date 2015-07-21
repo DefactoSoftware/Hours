@@ -15,8 +15,17 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
+    if @user.respond_to?(:unconfirmed_email)
+      prev_unconfirmed_email = @user.unconfirmed_email
+    end
+
     if @user.update_with_password(user_params)
-      redirect_to edit_user_path, notice: t(:user_updated)
+      flash_key = if update_needs_confirmation?(@user, prev_unconfirmed_email)
+                    :update_needs_confirmation
+                  else
+                    :updated
+                  end
+      redirect_to edit_user_path, notice: t(".#{flash_key}")
     else
       render :edit
     end
@@ -35,5 +44,11 @@ class UsersController < ApplicationController
                                  :password,
                                  :password_confirmation,
                                  :current_password)
+  end
+
+  def update_needs_confirmation?(resource, previous)
+    resource.respond_to?(:pending_reconfirmation?) &&
+      resource.pending_reconfirmation? &&
+      previous != resource.unconfirmed_email
   end
 end
