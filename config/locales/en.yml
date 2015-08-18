@@ -261,6 +261,10 @@ en:
     invite: Invite User
     invitation_sent_at: Invited %{time_ago} ago
     confirm: Confirm
+    update:
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
+      updated: You updated your account successfully.
+
   entry_filters:
     title: Filters
     clients: All Clients

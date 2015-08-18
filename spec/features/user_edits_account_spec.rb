@@ -16,7 +16,17 @@ feature "Edit Account" do
       fill_in "user_current_password", with: user.password
       click_button "Update"
 
-      expect(page).to have_content I18n.t(:user_updated)
+      expect(page).to have_content I18n.t("users.update.updated")
+    end
+
+    scenario "changing the email address" do
+      fill_in "user_email", with: "new@example.com"
+      fill_in "user_current_password", with: user.password
+      click_button "Update"
+
+      expect(page).to have_content(
+        I18n.t("users.update.update_needs_confirmation")
+      )
     end
 
     scenario "with invalid data" do
