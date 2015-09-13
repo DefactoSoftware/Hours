@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "User manages their own mileage" do
   let(:subdomain) { generate(:subdomain) }
   let(:user) { build(:user) }

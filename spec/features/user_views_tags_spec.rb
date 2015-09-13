@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "User view tags overview" do
   let(:subdomain) { generate(:subdomain) }
   let(:user) { build(:user) }

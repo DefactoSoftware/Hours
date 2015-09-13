@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "Onboarding" do
   let(:subdomain) { generate(:subdomain) }
 

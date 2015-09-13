@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "User registers time" do
   let(:subdomain) { generate(:subdomain) }
 

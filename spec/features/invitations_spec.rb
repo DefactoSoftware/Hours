@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "Inviting users" do
   let(:subdomain) { generate(:subdomain) }
   let(:owner) { build(:user) }

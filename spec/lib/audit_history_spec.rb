@@ -1,4 +1,3 @@
-require "spec_helper"
 require "audit_history"
 
 describe AuditHistory do

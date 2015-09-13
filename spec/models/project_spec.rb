@@ -14,8 +14,6 @@
 #  description :text
 #
 
-require "spec_helper"
-
 describe Project do
   let(:project) { create(:project) }
 

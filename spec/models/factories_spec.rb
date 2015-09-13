@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe 'factories' do
   FactoryGirl.factories.map(&:name).each do |factory_name|
     specify "#{factory_name} factory is valid", :factory do

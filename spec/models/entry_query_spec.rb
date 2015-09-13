@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe EntryQuery do
   let(:client) { create(:client) }
   let(:project) { create(:project, archived: true, client: client) }

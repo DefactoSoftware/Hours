@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "User manages billables" do
   let(:subdomain) { generate(:subdomain) }
 
