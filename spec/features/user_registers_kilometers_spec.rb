@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "User registers kilometers" do
   let(:user) { build(:user) }
   let(:subdomain) { generate(:subdomain) }

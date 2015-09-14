@@ -1,5 +1,3 @@
-require "spec_helper"
-
 def entry_with_hours_project(hours, project)
   create(:hour, value: hours, project: project)
 end

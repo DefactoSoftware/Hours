@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "User manages categories" do
   let(:subdomain) { generate(:subdomain) }
 

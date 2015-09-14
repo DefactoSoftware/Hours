@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "Delete Account" do
   let(:subdomain) { generate(:subdomain) }
   let(:owner) { build(:user) }

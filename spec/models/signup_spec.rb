@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Signup do
   it "creates an account and a user" do
     signup = Signup.new(signup_params)

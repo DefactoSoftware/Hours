@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe BillableList do
   let(:client1) { create(:client) }
   let(:client2) { create(:client) }
