@@ -52,8 +52,8 @@ class Project < ActiveRecord::Base
   end
 
   def update_user_activity
-    self.user_activity = DateTime.now
-    self.save
+    user_activity = DateTime.now
+    save
   end
 
   private

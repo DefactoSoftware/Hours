@@ -57,6 +57,6 @@ class Hour < Entry
   end
 
   def update_activity_user
-    self.project.update_user_activity
+    project.update_user_activity
   end
 end

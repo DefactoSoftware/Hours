@@ -83,7 +83,7 @@ describe Project do
     it "Update activity project after new entry" do
       project = create(:project)
       create(:project)
-      create(:hour,:project_id => project.id)
+      create(:hour, project_id: project.id)
 
       expect(Project.by_user_activity.first).to eq(project)
     end

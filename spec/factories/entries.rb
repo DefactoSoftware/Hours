@@ -1,1 +1,5 @@
-# no table for this model
+FactoryGirl.define do
+  factory :entry do
+
+  end
+end
