@@ -1,0 +1,2 @@
+class MyProject < Project
+end
