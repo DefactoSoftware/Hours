@@ -16,7 +16,6 @@
   },
   "addons": [
     "heroku-postgresql",
-    "pgbackups",
     "memcachier",
     "papertrail",
     "sendgrid"
