@@ -58,7 +58,7 @@ GEM
     aws-sdk-v1 (1.52.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
-    bcrypt (3.1.9)
+    bcrypt (3.1.10)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -116,7 +116,7 @@ GEM
     delayed_job_active_record (4.0.3)
       activerecord (>= 3.0, < 5.0)
       delayed_job (>= 3.0, < 4.1)
-    devise (3.4.1)
+    devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -187,7 +187,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.6.1)
     mini_portile (0.6.2)
-    minitest (5.8.0)
+    minitest (5.8.2)
     momentjs-rails (2.7.0)
       railties (>= 3.1)
     multi_json (1.11.1)
@@ -254,8 +254,8 @@ GEM
     recipient_interceptor (0.1.2)
       mail
     redcarpet (3.2.2)
-    responders (2.0.2)
-      railties (>= 4.2.0.alpha, < 5)
+    responders (2.1.0)
+      railties (>= 4.2.0, < 5)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -362,7 +362,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   delayed_job_active_record (= 4.0.3)
-  devise (~> 3.4.1)
+  devise (~> 3.5.2)
   devise_invitable
   dotenv-rails
   email_spec
@@ -414,4 +414,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.10.5
+   1.10.6
