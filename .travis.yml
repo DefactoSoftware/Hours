@@ -1,5 +1,5 @@
 rvm:
-- 2.2.2
+- 2.2.3
 bundler_args: "--without debug development"
 cache: bundler
 before_script:
