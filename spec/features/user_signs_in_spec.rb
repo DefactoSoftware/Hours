@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "User signs in" do
   let(:user) { build(:user) }
   let!(:account) { create(:account_with_schema, owner: user) }

@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe CacheHelper do
   describe "#cache_keys_for_all" do
     it "returns an array of cache keys" do

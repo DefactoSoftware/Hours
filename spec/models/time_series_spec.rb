@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe TimeSeries do
   let(:user) { create(:user) }
 

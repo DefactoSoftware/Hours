@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe RemainingCategory do
   let(:project) { create(:project) }
   let(:category) { create(:category) }

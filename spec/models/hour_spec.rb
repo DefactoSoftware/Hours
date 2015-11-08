@@ -14,8 +14,6 @@
 #  billed      :boolean          default("false")
 #
 
-require 'spec_helper'
-
 describe Hour do
   describe "validations" do
     it { should validate_presence_of :user }

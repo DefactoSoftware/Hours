@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Hours do
   context "helpful_enabled" do
     it "returns false when there's no account or url" do

@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "Account Creation" do
   let(:subdomain) { generate(:subdomain) }
 

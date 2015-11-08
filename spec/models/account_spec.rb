@@ -9,8 +9,6 @@
 #  updated_at :datetime
 #
 
-require "spec_helper"
-
 describe Account do
   describe "validations" do
     it { should validate_presence_of :owner }

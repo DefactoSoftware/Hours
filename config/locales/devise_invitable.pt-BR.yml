@@ -1,0 +1,21 @@
+pt-BR:
+  devise:
+    invitations:
+      send_instructions: 'Um e-mail de convite foi enviado para %{email}.'
+      invitation_token_invalid: 'O token de convite inserido não é válido!'
+      updated: 'Sua senha foi definida com sucesso. Você está logado.'
+      no_invitations_remaining: "Nenhum convite restante"
+      invitation_removed: 'Seu convite foi removido.'
+      new:
+        header: "Enviar convite"
+        submit_button: "Enviar convite"
+      edit:
+        header: "Defina sua senha"
+        submit_button: "Definir minha senha"
+    mailer:
+      invitation_instructions:
+        subject: Você foi convidado para o Hours!
+        greeting: Olá
+        someone_invited_you: 'Alguém te convidou para %{url}, Você pode aceitar clicando no link abaixo.'
+        accept: 'Aceitar convite'
+        ignore_html: "Se você não quer aceitar o convite, por favor ignore este email.<br />Sua conta não será criada até você acessar o link abaixo e definir sua senha."

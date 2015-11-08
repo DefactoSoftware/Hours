@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "User views Project Audit Trail" do
   let(:subdomain) { generate(:subdomain) }
   let(:user) { build(:user) }

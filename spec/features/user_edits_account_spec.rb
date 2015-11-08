@@ -1,5 +1,3 @@
-require "spec_helper"
-
 feature "Edit Account" do
   let(:subdomain) { generate(:subdomain) }
   let(:user) { build(:user) }

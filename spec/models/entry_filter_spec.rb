@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe EntryFilter do
   it "sets params" do
     filter = EntryFilter.new({ client_id: 1 })

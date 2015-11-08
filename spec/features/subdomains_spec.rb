@@ -1,5 +1,3 @@
-require "spec_helper"
-
  feature "Subdomains" do
   let!(:account) { create(:account_with_schema) }
 
