@@ -49,7 +49,8 @@ module Hours
     # just silently switch to the default language (:en) instead of throwing
     # an error.
     I18n.config.enforce_available_locales = false
-    I18n.config.available_locales = [:en, :nl, :'pt-BR']
+    I18n.config.available_locales = [:en, :nl, :'pt-BR', :pl]
+
     # The default locale is :en and all translations
     # from config/locales/*.rb,yml are auto loaded
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales',
