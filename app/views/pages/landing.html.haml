@@ -4,14 +4,13 @@
       .hero-copy
         %h1#logo
           = image_tag("logo-white-shadow.png", alt: 'Hours')
-        %h2 Time registration that doesn't suck.
+        %h2
+          = t("pages.slogan")
         = link_to new_accounts_path, class: "button" do
           .flip
             .flip-front
               %span
-                Free
-                %br>/
-                Trial
+                = t("pages.free_trial")
             .flip-back
               %span
                 Free
@@ -41,7 +40,8 @@
         .browser-circle
       .browser-content
   #pricing.pricing
-    %h1 Pricing
+    %h1
+      = t("pages.prices")
     .cards
       .card
         = link_to new_accounts_path do
