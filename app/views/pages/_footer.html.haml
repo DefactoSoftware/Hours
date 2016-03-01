@@ -4,6 +4,9 @@
       %li
         %a{href: "#{root_path}#pricing"} Pricing
       %li= link_to "The Team", page_path("team")
+      %li
+        = form_tag '/', method: 'get', id: 'locale', enforce_utf8: false  do
+          = select_tag 'language', options_for_select(I18n.available_locales, I18n.locale)
   %hr/
   %p
 

@@ -12,6 +12,7 @@
 //= require billables
 //= require date-formatter
 //= require feed
+//= require locale
 //= require_tree .
 
 
