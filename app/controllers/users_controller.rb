@@ -43,7 +43,8 @@ class UsersController < ApplicationController
                                  :email,
                                  :password,
                                  :password_confirmation,
-                                 :current_password)
+                                 :current_password,
+                                 :language)
   end
 
   def update_needs_confirmation?(resource, previous)

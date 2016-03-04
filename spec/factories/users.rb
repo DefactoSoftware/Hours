@@ -47,5 +47,6 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
     confirmed_at 2.hours.ago
+    language "en"
   end
 end

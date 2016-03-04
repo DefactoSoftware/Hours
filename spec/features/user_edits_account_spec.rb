@@ -12,6 +12,10 @@ feature "Edit Account" do
     scenario "with valid data" do
       fill_in "user_first_name", with: "Johnny"
       fill_in "user_current_password", with: user.password
+      within '#user_language' do
+        find("option[value='en']").click
+      end
+
       click_button "Update"
 
       expect(page).to have_content I18n.t("users.update.updated")
