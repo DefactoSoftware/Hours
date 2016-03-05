@@ -1,0 +1,288 @@
+---
+pl:
+  weekdays:
+    monday: Poniedziałek
+    tuesday: Wtorek
+    wednesday: Środa
+    thursday: Czwartek
+    friday: Piątek
+    saturday: Sobota
+    sunday: Niedziela
+  audits:
+    nothing: nic
+    title: Audit Log
+    date: "Data:"
+    action: "Akcja:"
+    user: "Użytkowni:"
+    project: "Projekt:"
+    name: "Nazwa:"
+    client: "klient:"
+    description: "Opis:"
+    billable: "Billable:"
+    archived: "Archiwizuj:"
+    budget: "Budżet:"
+    category: "Kategoria:"
+    hours: "Godziny:"
+    mileages: "Kilometery"
+    from: z
+    to: do
+    actions:
+      update: aktualizuj
+      create: utwórz
+      delete: usun
+  account:
+    back_to_website: powrót do strony
+    confirm_destroy: Jesteś pewnie że chcesz usunąć konto?
+    create: Utwórz konto
+    danger_zone: Danger Zone
+    delete: Usuń moje konto
+    deleted: Twoje konto zostało usunięte
+    email: Email
+    first_name: Imię
+    invalid_characters: zawiera nie dozwolone znaki
+    last_name: Nazwisko
+    password: Hasło
+    repeat_password: Powtórz hasło
+    subdomain: Subdomain
+    warning: Usunięcie Twojego konta spowoduje usunięcie wszystkich danych z domeny %{subdomain}
+      zmiana nie do odrócenia.
+  archives:
+    index:
+      date: Data
+      project: Projekt
+      hours: Godziny
+      un_archive_link: Un-archive
+  activerecord:
+    attributes:
+      hour:
+        value: "Godziny"
+      mileage:
+        value: "Kilometrówka"
+    errors:
+      models:
+        account:
+          attributes:
+            subdomain:
+              invalid_characters: zawiera nie poprawne znaki
+              restricted: pod warunkiem subdomeny jest ograniczona
+  back: Cofnij
+  billables:
+    billable_entries: Wpisy rozliczone
+    select_marked: Wybierz wpisy do rachunku
+    buttons:
+      bill_selected: Bill selected entries
+      filter: Filtruj wpisy
+    table:
+      hours: Godziny
+      date: Data
+      user: Użytkownik
+      category: Kategoria
+      billed: Rozliczone
+  boolean:
+    "true": "tak"
+    "false": "nie"
+  budget_html: "<strong>%{budget_left}</strong> z <strong>%{budget}</strong> godzin pozostałych"
+  category:
+    edit: edytuj
+    remaining: Inne
+  category_created: Kategoria zostałą dodana
+  category_updated: Kategoria zostałą zaktualizowana
+  change_password: Zmień hasło
+  charts:
+    hours_per_day: Godzin na dzień
+    hours_per_week: Godzin na tydzień
+    hours_spent_per_category: Godziny spędzone na kategorię
+    hours_spent_per_project: Godziny spędzone na projekt
+    hours_spent_per_user: Godziny spędzone przez użytkownika
+  client:
+    edit: Edytuj
+  client_created: Klient został dodany
+  client_updated: KLient został zaktualizowany
+  confirm: Jesteś pewien?
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  email:
+    confirmation:
+      confirm_password: Potwierdź moje konto
+      salutation: Witamy %{email}!
+    reset_password:
+      info_text: Your password won't change until you access the link above and create
+        a new one.
+      requested_link: Someone has requested a link to change your password. You can
+        do this through the link below.
+      salutation: Cześć %{email} !
+      wrong_mail: If you didn't request this, please ignore this email.
+  entries:
+    download_csv: Ściągnij wpisy jako plik CSV
+    index:
+      category: Kategoria
+      date: Data
+      delete: usuń
+      description: 'Opis'
+      edit: edytuj
+      edit_hours_entry: Edytuj wpis godzinowy
+      edit_mileages_entry: Edytuj wpis kilometrowy
+      hours: Godziny
+      mileages: Kilometry
+      new: Nowy wpis
+      project: Projekt
+      user_entries: "Wpisy %{user}"
+      changes: zmiany
+  entry_activity_html:
+    one: "%{user} spędził jedną godzinę na %{category} w %{project}"
+    other: "%{user} spedził %{count} godzinny na %{category} w %{project}"
+  entry_created:
+    hours: Wpis godzinowy został dodany
+    mileages: Wpis kilometrowy został dodany
+  entry_deleted:
+    hours: Wpis godzinowy został usuniety
+    mileages: Wpis kilometrowy został usuniety
+  entry_failed: Coś poszło nie tak w trakcie zapisu
+  entry_saved: Wpis został zapisany
+  helpful:
+    heading: Potrzebna pomoc?
+    placeholder: Write your question here...
+    tagline: Have a question about Hours? Need some help getting started?
+  helpers:
+    submit:
+      create: Create Entry
+      update: Update Entry
+      project:
+        create: Create Project
+        update: Update Project
+      category:
+        create: Create Category
+        update: Update Category
+      client:
+        create: Create Client
+        update: Update Client
+  info:
+    here: here
+    no_categories_html: It looks like you don't have any categories set up yet, you
+      can set one up %{categories_path}.
+    no_projects_html: It looks like you don't have any projects set up yet, you can
+      set one up %{new_project_path}.
+    no_billable_projects_html: It looks like you don't have any billable projects yet, you can
+      set one up %{new_project_path}.
+    no_billable_entries_html: It looks like no entries meet your filter requirements yet.
+  loader:
+    saving: Saving
+    signing_in: Sigining in
+  navbar:
+    dropdown:
+      edit_user: Edit profile
+    entries: My Entries
+  no_hours_registered: Nobody spent any time on %{project} yet
+  project:
+    errors:
+      client_missing: If the project is billable it needs a client
+    form:
+      client: Client
+      no_client: No Client
+    show:
+      changes_link: changes
+      edit_link: edit
+      per_user: Per user
+    table_head:
+      hours: Hours
+      tag: Tag
+    edit:
+      archive_link: Archive
+      un_archive_link: Un-archive
+  project_activity_html:
+    one: "<strong>%{full_name}</strong> spent <strong>%{hours}</strong> hours working on <strong>%{project}</strong>"
+    other: "<strong>%{count}</strong> people spent <strong>%{hours}</strong> hours working on <strong>%{project}</strong>"
+  project_created: Projekt został stworzony
+  project_updated: Projekt został zaktualizowany
+  registration:
+    edit: Edytuj %{resource_name}
+    gravatar_instructions_html: Aktualizuj Swój zdjęcie profilowa na <a href="https://www.gravatar.com"
+      target="_blank">Gravatar</a>
+    hint:
+      blank: zostaw puste jeśli nie chcesz tego zmienić
+      current_password: potrzebujemy Twojego aktualnego hasła w celu potwierdzenia zmian
+    update_button: Aktualizuj
+  report:
+    headers:
+      date: Data
+      user: Użytkownik
+      project: Projekt
+      category: Kategoria
+      client: Klient
+      hours: Godziny
+      mileages: Kilometry
+      billable: Billable
+      billed: Billed
+      description: Opis
+    filters: filtry
+    hours_per_day: Godziny na dzień
+    monthly: 1 miesiąc
+    weekly: 1 tydzień
+    yearly: 1 rok
+  restricted: Ograniczony
+  sign_in: Zaloguj się
+  sign_out: Wyloguj sie
+  tags:
+    show:
+      hours_indication_title:
+        one: godzina
+        other: godziny
+      hours_indication: h
+    show_more: pokaż więcej...
+  titles:
+    activities: Aktywność
+    application: Godziny
+    accounts:
+      edit: Edytuj konto
+    archives:
+      index: Archiwa
+    billables:
+      index: Wpis rozliczany
+    categories:
+      index: Kategorie
+      new: Nowa kategoria
+      edit: Edytuj kategorię
+    clients:
+      index: KLienci
+      new: Nowy klient
+    entries:
+      index: Wszystkie wpisy
+    projects:
+      index: Projekty
+      new: Nowy projekty
+      edit: Edytuj projekt
+    users:
+      index: Użytkownicy
+    reports:
+      index: Raprotowanie
+  users:
+    email: Email
+    invite: Zaproś użytkownika
+    invitation_sent_at: Zaproszony %{time_ago} temu
+    confirm: Potwierdź
+    update:
+      update_needs_confirmation: "Zaktualizowałeś Swoje konto, ale proszę sprawdź swoją skrzynkę pocztowę w celu zweryfikowania nowego adresu."
+      updated: Zaktualizowałeś Swoje konto.
+
+  entry_filters:
+    title: Filtry
+    clients: Wszyscy klienci
+    projects: Wszystkie projekty
+    users: Wszyscy użytkownicy
+    from_date_label: Od daty
+    to_date_label: Do daty
+    billed_label: Rozliczone lub nie
+    billed: Rozliczone
+    billable: Rozliczanych
+    not_billed: Nie rozliczone
+    not_billable: Nie rozliczone
+    billed_empty: Billed or not
+    billable_empty: Billable or not
+    archived_empty: Archived and Unarchived
+    archived: Zarchiwizowane
+    not_archived: Nie zarchiwizowane
+  pages:
+    slogan: Rejestracja czasu, która nie zawodzi
+    free_trial: "Darmowy <br/>okres próbny"
+    prices: Ceny
