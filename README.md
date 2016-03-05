@@ -35,7 +35,7 @@ As we're using Hours we're constantly thinking of ways to improve it and we'd lo
 System Dependencies
 -------------------
 
-- Ruby 2.2.3 (install with [rbenv](https://github.com/sstephenson/rbenv))
+- Ruby 2.3.0 (install with [rbenv](https://github.com/sstephenson/rbenv))
 - Rubygems
 - Bundler (`gem install bundler`)
 - PostgreSQL
