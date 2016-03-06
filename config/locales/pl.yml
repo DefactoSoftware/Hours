@@ -284,5 +284,5 @@ pl:
     not_archived: Nie zarchiwizowane
   pages:
     slogan: Rejestracja czasu, która nie zawodzi
-    free_trial: "Darmowy <br/>okres próbny"
+    free_trial_html: "Darmowy <br/>okres próbny"
     prices: Ceny
