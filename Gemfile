@@ -42,6 +42,7 @@ gem "aws-sdk", "< 2.0"
 gem "redcarpet"
 gem "holidays"
 gem "sprockets-rails", "~> 2.3"
+gem "brakeman"
 
 source "https://rails-assets.org" do
   gem "rails-assets-chartjs"
@@ -68,7 +69,6 @@ group :development, :test do
   gem "pry-rails"
   gem "rspec-rails", "~> 3.0"
   gem "annotate"
-  gem "brakeman"
   gem "letter_opener"
   gem "email_spec"
 end
