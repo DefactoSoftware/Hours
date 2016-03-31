@@ -28,5 +28,5 @@
             |
             = link_to t('entries.index.delete'), hour_path(entry), method: :delete, class: "destroy", data: { confirm: t(:confirm) }
         %td.changes.right.hide-for-mobile
-          = link_to t('entries.index.changes'), hour_audits_path(entry) if entry.audits.count > 1
+          = link_to t('entries.index.changes'), hour_audits_path(entry)
 
