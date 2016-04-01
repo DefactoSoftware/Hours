@@ -9,14 +9,3 @@ before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 env: SECRET_KEY_BASE="$(bundle exec rake secret)"
-deploy:
-  provider: heroku
-  api_key:
-    secure: O0D7lq2I0vGTrWlNnv4fv2fB6I6cAhBTVDNM4jRcQ/ZaZowjrRGq6DexRgjdLgmQAmEgCpRGJNIPRGrHEMymv7nmOupCaQ6pbv3mlWGC9f+t5J706P+xXj58mQG8ALq+aEsHoQKEOzxnrfzE+4w/5aM7q12+j6jKnAOMdd+qrN8=
-  app:
-    master: hours-production
-    development: hours-staging
-  on:
-    repo: DefactoSoftware/Hours
-    branch: development
-  run: rake db:migrate
