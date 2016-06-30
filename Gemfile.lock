@@ -93,8 +93,6 @@ GEM
     capybara-webkit (1.2.0)
       capybara (>= 2.0.2, < 2.4.0)
       json
-    chart-js-rails (0.0.6)
-      railties (> 3.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -361,7 +359,6 @@ DEPENDENCIES
   bourbon
   brakeman
   capybara-webkit (>= 1.0.0)
-  chart-js-rails
   coffee-rails
   dalli
   database_cleaner

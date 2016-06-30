@@ -7,7 +7,6 @@
 //= require pikaday
 //= require chartjs
 //= require select2
-//= require charts
 //= require i18n
 //= require billables
 //= require date-formatter
