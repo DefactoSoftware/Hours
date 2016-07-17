@@ -9,7 +9,7 @@ describe Hours do
     it "raises an error when the account or url is empty" do
       allow(Hours).to receive(:helpful_account).and_return ""
       allow(Hours).to receive(:helpful_url).and_return ""
-      expect { Hours.helpful_enabled? }. to raise_error
+      expect { Hours.helpful_enabled? }. to raise_error(RuntimeError)
     end
 
     it "returns true when account and url are set" do
