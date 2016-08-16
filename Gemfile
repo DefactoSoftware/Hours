@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.3.0"
+ruby "2.3.1"
 
 gem "airbrake"
 gem "bourbon"
@@ -28,7 +28,6 @@ gem "pikaday-gem", "~> 1.2.0.0"
 gem "momentjs-rails"
 gem "gravatar_image_tag"
 gem "hashtel", "~> 0.0.2"
-gem "chart-js-rails"
 gem "kaminari"
 gem "select2-rails"
 gem "http_accept_language"
