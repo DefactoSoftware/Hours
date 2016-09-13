@@ -59,6 +59,6 @@ def drop_schemas
   end
 end
 
-Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :poltergeist
 Capybara.app_host = "http://hours.dev"
 WebMock.disable_net_connect!(allow_localhost: true)
