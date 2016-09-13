@@ -1,0 +1,18 @@
+machine:
+  timezone:
+    Europe/Rome
+  ruby:
+    version: 2.3.1
+  environment:
+    RAILS_ENV: test
+
+dependencies:
+  override:
+    - gem install bundler
+    - bundle install --without debug development
+
+test:
+  pre:
+    - mv ${HOME}/hours/.sample.env ${HOME}/hours/.env
+  override:
+    - bundle exec rspec spec/
