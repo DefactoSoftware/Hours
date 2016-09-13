@@ -1,30 +1,10 @@
 Hours
 =====
 
-[![Build Status](https://travis-ci.org/DefactoSoftware/Hours.svg?branch=master)](https://travis-ci.org/DefactoSoftware/Hours)
-[![Code Climate](https://codeclimate.com/github/DefactoSoftware/Hours/badges/gpa.svg)](https://codeclimate.com/github/DefactoSoftware/Hours)
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/DefactoSoftware/Hours)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/acsinfo/hours)
 
 Hours is a dead simple project based time tracking application that we use
-for internal time-tracking. It allows users to register how many hours they've
-worked on a project with a certain category (think `design`, `software development`,
-`testing` for software teams) and add any tag they like to it. This gives us a lot of
-insight on how we spend our time on different projects.
-
-It looks like this:
-
-<img src="http://i.imgur.com/UGotYJu.png" width=500 alt="Projects overview" />
-
-<img src="http://i.imgur.com/SZd6Oaw.png" width=500 alt="Single project" />
-
-<img src="http://i.imgur.com/gJxWWnc.png" width=500 alt="Entries" />
-
-<img src="http://i.imgur.com/QfMsVjb.png" width=500 alt="Audit Log" />
-
-<img src="http://i.imgur.com/y4RLCEg.png" width=500 alt="Entry" />
-
-
+for internal time-tracking.
 
 
 Roadmap
@@ -35,11 +15,11 @@ As we're using Hours we're constantly thinking of ways to improve it and we'd lo
 System Dependencies
 -------------------
 
-- Ruby 2.3.0 (install with [rbenv](https://github.com/sstephenson/rbenv))
+- Ruby 2.3.1 (install with [rbenv](https://github.com/sstephenson/rbenv))
 - Rubygems
 - Bundler (`gem install bundler`)
 - PostgreSQL
-- qmake (`brew install qt`) or read extensive instructions [here](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
+- PhantomJS (`brew install phantomjs`) or read extensive instructions [here](https://github.com/teampoltergeist/poltergeist#installing-phantomjs)
 - memcached (`brew install memcached`, an older version ships with OSX)(optional)
 
 Getting Started
