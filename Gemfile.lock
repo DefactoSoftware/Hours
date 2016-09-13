@@ -38,9 +38,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    airbrake (4.0.0)
-      builder
-      multi_json
     annotate (2.6.5)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -196,11 +193,11 @@ GEM
     neat (1.5.1)
       bourbon (>= 3.1)
       sass (~> 3.2.19)
-    newrelic_rpm (3.9.0.229)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     normalize-rails (3.0.1)
+    oj (2.17.4)
     orm_adapter (0.5.0)
     paperclip (4.2.4)
       activemodel (>= 3.2.0)
@@ -264,6 +261,8 @@ GEM
     redcarpet (3.2.2)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rollbar (2.12.0)
+      multi_json
     rspec-core (3.5.1)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -359,7 +358,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake
   annotate
   apartment (~> 0.26.0)
   audited-activerecord (~> 4.0)
@@ -396,8 +394,8 @@ DEPENDENCIES
   memcachier
   momentjs-rails
   neat
-  newrelic_rpm (>= 3.7.3)
   normalize-rails
+  oj (~> 2.17.4)
   paperclip (= 4.2.4)
   pg
   pikaday-gem (~> 1.2.0.0)
@@ -410,6 +408,7 @@ DEPENDENCIES
   rails_12factor
   recipient_interceptor
   redcarpet
+  rollbar (~> 2.12.0)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0.1)
   select2-rails
