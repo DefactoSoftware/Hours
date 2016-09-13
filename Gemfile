@@ -78,7 +78,7 @@ group :test do
   gem "database_cleaner"
   gem "launchy"
   gem "shoulda-matchers", "~> 2.7.0"
-  gem "simplecov", require: false
+  gem "simplecov", '~> 0.9', require: false
   gem "timecop"
   gem "webmock"
 end
