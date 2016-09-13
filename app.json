@@ -1,15 +1,16 @@
 {
   "name": "Hours",
-  "description": "Time registration that doesn't suck",
-  "repository": "https://github.com/DefactoSoftware/Hours",
-  "logo": "https://raw.githubusercontent.com/DefactoSoftware/Hours/development/app/assets/images/logo.png",
-  "keywords": ["hours"],
+  "description": "",
+  "repository": "https://github.com/acsinfo/hours",
+  "logo": "https://raw.githubusercontent.com/acsinfo/hours/development/app/assets/images/logo.png",
+  "keywords": [""],
   "env": {
-    "SINGLE_TENANT_MODE": "true",
-    "SMTP_ADDRESS": "smtp.sendgrid.net",
-    "SMTP_DOMAIN": "Insert your domain here",
-    "SMTP_PASSWORD": "Your sendgrid password",
-    "SMTP_USERNAME": "Your sendgrid username"
+    "SINGLE_TENANT_MODE": "false",
+    "ROLLBAR_ACCESS_TOKEN": "Rollbar token",
+    "SMTP_ADDRESS": "smtp.mailgun.org",
+    "SMTP_DOMAIN": "domain",
+    "SMTP_PASSWORD": "MailGun password",
+    "SMTP_USERNAME": "MailGun username"
   },
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate"
@@ -18,6 +19,6 @@
     "heroku-postgresql",
     "memcachier",
     "papertrail",
-    "sendgrid"
+    "mailgun"
   ]
 }
