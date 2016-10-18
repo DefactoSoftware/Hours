@@ -1,5 +1,8 @@
 development: &default
   adapter: postgresql
+  host: <%= ENV["POSTGRES_HOST"].presence || "localhost" %>
+  username: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
   database: hours_development
   encoding: utf8
   min_messages: warning
