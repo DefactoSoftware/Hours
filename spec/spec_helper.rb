@@ -5,6 +5,9 @@ end
 
 ENV["RAILS_ENV"] = "test"
 
+require "dotenv"
+Dotenv.overload(".sample.env")
+
 require File.expand_path("../../config/environment", __FILE__)
 
 require "rspec/rails"
