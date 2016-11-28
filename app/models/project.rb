@@ -30,6 +30,7 @@ class Project < ActiveRecord::Base
   belongs_to :client, touch: true
 
   scope :by_last_updated, -> { order("projects.updated_at DESC") }
+  scope :by_user_activity, -> { order("projects.user_activity DESC") }
   scope :by_name, -> { order("lower(name)") }
 
   scope :are_archived, -> { where(archived: true) }
@@ -48,6 +49,11 @@ class Project < ActiveRecord::Base
 
   def budget_status
     budget - hours.sum(:value) if budget
+  end
+
+  def update_user_activity
+    self.user_activity = DateTime.now
+    save
   end
 
   private

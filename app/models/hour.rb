@@ -34,6 +34,7 @@ class Hour < Entry
   }
 
   before_save :set_tags_from_description
+  after_create :update_activity_user
 
   def tag_list
     tags.map(&:name).join(", ")
@@ -53,5 +54,9 @@ class Hour < Entry
         tag.save!
       end
     end
+  end
+
+  def update_activity_user
+    project.update_user_activity
   end
 end

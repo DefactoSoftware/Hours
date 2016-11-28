@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224115957) do
+ActiveRecord::Schema.define(version: 20150921111033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,20 +113,22 @@ ActiveRecord::Schema.define(version: 20150224115957) do
   add_index "mileages", ["user_id"], name: "index_mileages_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name",        default: "",    null: false
+    t.string   "name",          default: "",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
     t.integer  "budget"
-    t.boolean  "billable",    default: false
+    t.boolean  "billable",      default: false
     t.integer  "client_id"
-    t.boolean  "archived",    default: false, null: false
+    t.boolean  "archived",      default: false,        null: false
     t.text     "description"
+    t.date     "user_activity", default: '2015-09-21'
   end
 
   add_index "projects", ["archived"], name: "index_projects_on_archived", using: :btree
   add_index "projects", ["billable"], name: "index_projects_on_billable", using: :btree
   add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree
+  add_index "projects", ["user_activity"], name: "index_projects_on_user_activity", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

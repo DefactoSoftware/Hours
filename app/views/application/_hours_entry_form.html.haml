@@ -1,6 +1,6 @@
 = simple_form_for @hours_entry do |f|
   = f.error_notification
-  = f.association :project, required: true, collection: Project.unarchived.by_name, label: false, placeholder: t("entries.index.project")
+  = f.association :project, required: true, collection: Project.unarchived.by_user_activity, label: false, placeholder: t("entries.index.project")
   = f.association :category, required: true, collection: Category.by_name, label: false, placeholder: t("entries.index.category")
   = f.input :value, required: true, label: false, placeholder: t("entries.index.hours")
   = f.input :date, required: true, as: :string, input_html: { value: (@hours_entry.date || DateTime.current).strftime("%d/%m/%Y"), class: "datepicker"}, label: false

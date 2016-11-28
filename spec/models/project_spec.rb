@@ -71,6 +71,24 @@ describe Project do
     end
   end
 
+  describe "#by_user_activity" do
+    it "orders the projects by user activity" do
+      project = create(:project)
+      create(:project)
+      project.update_user_activity
+
+      expect(Project.by_user_activity.first).to eq(project)
+    end
+
+    it "Update activity project after new entry" do
+      project = create(:project)
+      create(:project)
+      create(:hour, project_id: project.id)
+
+      expect(Project.by_user_activity.first).to eq(project)
+    end
+  end
+
   describe "#by_name" do
     it "orders by name case insensitive" do
       create(:project, name: "B")
