@@ -42,7 +42,7 @@ module ApplicationHelper
 
   def billable_entry_checkbox(entry, entry_type)
     if entry.billed
-      "√"
+      "✓"
     else
       tag(:input,
           type: "checkbox",
