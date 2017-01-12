@@ -18,14 +18,11 @@ class BillablesController < ApplicationController
 
   def projects_with_billable_entries
     billable_projects = Project.where(billable: true, archived: false)
-    projects_with_billable_entries = []
 
-    billable_projects.each do |project|
-      projects_with_billable_entries << project unless
+    billable_projects.select do |project|
+      project unless
         project.hours.where(billed: false).empty? &&
         project.mileages.where(billed: false).empty?
     end
-
-    projects_with_billable_entries
   end
 end
