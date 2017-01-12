@@ -20,9 +20,7 @@ class BillablesController < ApplicationController
     billable_projects = Project.where(billable: true, archived: false)
 
     billable_projects.select do |project|
-      project unless
-        project.hours.where(billed: false).empty? &&
-        project.mileages.where(billed: false).empty?
+      project if project.has_billed_entries?
     end
   end
 end
