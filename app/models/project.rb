@@ -50,6 +50,11 @@ class Project < ActiveRecord::Base
     budget - hours.sum(:value) if budget
   end
 
+  def has_billable_entries?
+    hours.exists?(billed: false) ||
+      mileages.exists?(billed: false)
+  end
+
   private
 
   def slug_source
