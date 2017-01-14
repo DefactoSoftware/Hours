@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature "User manages billables" do
   let(:subdomain) { generate(:subdomain) }
 
@@ -11,7 +13,7 @@ feature "User manages billables" do
     client = create(:client)
     project = create(:project, client: client, billable: true)
     project2 = create(:project, client: client, billable: false)
-    entry = create(:hour, project: project, billed: false)
+    create(:hour, project: project, billed: false)
 
     visit billables_url(subdomain: subdomain)
 
@@ -24,7 +26,7 @@ feature "User manages billables" do
     client = create(:client)
     project = create(:project, client: client, billable: true)
     project2 = create(:project, client: client, billable: true)
-    entry = create(:hour, project: project, billed: false)
+    create(:hour, project: project, billed: false)
 
     visit billables_url(subdomain: subdomain)
 
@@ -54,7 +56,8 @@ feature "User manages billables" do
     project = create(:project, client: client, billable: true)
     user = create(:user)
     entry = create(
-      :mileage, project: project, user: user, value: 2, billed: false)
+      :mileage, project: project, user: user, value: 2, billed: false
+    )
 
     visit billables_url(subdomain: subdomain)
 
