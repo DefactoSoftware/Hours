@@ -42,7 +42,7 @@ module ApplicationHelper
 
   def billable_entry_checkbox(entry, entry_type)
     if entry.billed
-      "√"
+      "✓"
     else
       tag(:input,
           type: "checkbox",
@@ -76,5 +76,10 @@ module ApplicationHelper
   def easter?
     holiday = Holidays.on(Date.today, :nl)
     holiday[0][:name] == "Pasen" if holiday.any?
+  end
+
+  def billable_hours_of(project)
+    Hour.includes(:category, :user, :project).
+      where(project: project, billed: false)
   end
 end

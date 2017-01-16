@@ -8,14 +8,12 @@
     %th= t("billables.table.category")
     %th= t("billables.table.hours")
     %th= t("billables.table.user")
-  - entries.each do |entry|
+  - billable_hours_of(project).each do |hour|
     %tr.info-row
-      %td=billable_entry_checkbox(entry, "hours")
-      %td=I18n.l (entry.date)
-      %td=entry.category.name
-      %td.center= entry.value
+      %td= billable_entry_checkbox(hour, "hours")
+      %td= I18n.l (hour.date)
+      %td= hour.category.name
+      %td.center= hour.value
       %td
-        = link_to entry.user do
-          = entry.user.full_name
-
-
+        = link_to hour.user do
+          = hour.user.full_name
