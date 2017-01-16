@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+# Exit if any subcommand fails
+set -e
+
+# Set up database.yml
+if [ ! -f config/database.yml ]; then
+  cp config/database.yml.example config/database.yml
+fi
+
+# Set up configurable environment variables
+if [ ! -f .env ]; then
+  cp .sample.env .env
+  echo "POSTGRES_HOST=db" >> .env
+  echo "POSTGRES_USER=hours" >> .env
+  echo "POSTGRES_PASSWORD=secure_password" >> .env
+fi

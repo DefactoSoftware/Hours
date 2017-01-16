@@ -8,12 +8,12 @@
     %th
     %th= t("entries.index.mileages")
     %th= t("billables.table.user")
-  - entries.each do |entry|
+  - project.mileages.where(billed: false).each do |mileage|
     %tr.info-row
-      %td=billable_entry_checkbox(entry, "mileages")
-      %td=I18n.l (entry.date)
+      %td= billable_entry_checkbox(mileage, "mileages")
+      %td= I18n.l (mileage.date)
       %td
-      %td.center= entry.value
+      %td.center= mileage.value
       %td
-        = link_to entry.user do
-          = entry.user.full_name
+        = link_to mileage.user do
+          = mileage.user.full_name

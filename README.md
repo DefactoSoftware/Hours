@@ -62,6 +62,27 @@ In order to activate caching in development you can add `CACHE_DEVELOPMENT="anyt
 [foreman]: http://ddollar.github.io/foreman/
 [pow]: http://pow.cx
 
+Getting Started with Docker
+---------------------------
+
+This repository comes equipped to be run within Docker, but this requires a few more local dependencies. For instructions on installing and getting started with Docker go [here](https://www.docker.com/products/docker). You'll also need [`docker-compose`](https://docs.docker.com/compose/overview/), but it will be installed for you through Docker for Mac or Windows.
+
+This repository comes equipped with a self-setup script for using Docker:
+
+    % ./bin/docker_setup
+
+On first boot you'll also need to create your database, for that use:
+
+    % docker-compose run --rm app rake db:create db:migrate
+
+After setting up, you can run the application and dependencies using [docker-compose]:
+
+    % docker-compose up -d
+
+If your Docker host is running on `localhost` then you should be able to use pow, otherwise you'll need to connect to it via:
+
+    http://DOCKER_IP:7000
+
 Feature Flags
 -------------
 
@@ -71,7 +92,7 @@ Single Tenant Mode: Initialize application in single tenant mode. Disabled by de
 
 Usage:
 
-To use the single tenant mode, you can add SINGLE_TENANT_MODE to your enviroment variables with the value `true`. On development you can set this in your .env with `SINGLE_TENANT_MODE=true` and restart foreman. On heroku it's under the `Config Variables`.  
+To use the single tenant mode, you can add SINGLE_TENANT_MODE to your enviroment variables with the value `true`. On development you can set this in your .env with `SINGLE_TENANT_MODE=true` and restart foreman. On heroku it's under the `Config Variables`.
 The first user in single tenant mode can be created by a rake task `rake create_user`. We'll ask you for your credentials.
 
 Guidelines

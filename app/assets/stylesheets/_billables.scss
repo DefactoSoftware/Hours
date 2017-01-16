@@ -26,10 +26,8 @@
 
     max-width: 90em;
 
-    .submit-billable-entries {
-      @include media($laptop-screen) {
-        opacity: 0;
-      }
+    #submit-billable-entries-test {
+      opacity: .0;
     }
   }
 }

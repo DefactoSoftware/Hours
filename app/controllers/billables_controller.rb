@@ -1,12 +1,6 @@
 class BillablesController < ApplicationController
   def index
-    @hours_entries = Hour.query(entry_filter_or_default,
-                                [:user, :project, :category])
-    @mileages_entries = Mileage.query(entry_filter_or_default,
-                                      [:user, :project])
-
-    @billable_list = BillableList.new(@hours_entries, @mileages_entries)
-    @filters = EntryFilter.new(entry_filter_or_default)
+    @projects = projects_with_billable_entries
   end
 
   def bill_entries
@@ -22,7 +16,11 @@ class BillablesController < ApplicationController
 
   private
 
-  def entry_filter_or_default
-    params[:entry_filter] || { billed: false }
+  def projects_with_billable_entries
+    billable_projects = Project.where(billable: true, archived: false)
+
+    billable_projects.select do |project|
+      project if project.has_billable_entries?
+    end
   end
 end
