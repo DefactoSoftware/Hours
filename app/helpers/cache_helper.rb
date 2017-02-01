@@ -6,7 +6,7 @@ module CacheHelper
   end
 
   def cache_key_for_all(klass_name)
-    klass = klass_name.to_s.singularize.capitalize.constantize
+    klass = klass_name.to_s.singularize.camelize.constantize
     count = klass.count
     max_updated_at = klass.maximum(:updated_at).try(:utc).try(:to_s, :number)
     page = params[:page]
