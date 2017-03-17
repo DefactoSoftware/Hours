@@ -2,7 +2,8 @@ source "https://rubygems.org"
 
 ruby "2.3.1"
 
-gem "airbrake"
+gem "rollbar", "~> 2.12.0" # Unless you are using JRuby, we suggest also installing Oj for JSON serialization.
+gem "oj", '~> 2.17.4'
 gem "bourbon"
 gem "coffee-rails"
 gem "delayed_job_active_record", "4.0.3"
@@ -24,7 +25,7 @@ gem "unicorn"
 gem "devise", "~> 3.5.2"
 gem "devise_invitable", "~> 1.5.5"
 gem "apartment", "~> 0.26.0"
-gem "pikaday-gem", "~> 1.2.0.0"
+gem "pikaday-gem", "~> 1.2.0.0"  ### this may be probably removed
 gem "momentjs-rails"
 gem "gravatar_image_tag"
 gem "hashtel", "~> 0.0.2"
@@ -73,16 +74,15 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara-webkit", ">= 1.0.0"
+  gem 'poltergeist', '~> 1.10.0'
   gem "database_cleaner"
   gem "launchy"
   gem "shoulda-matchers", "~> 2.7.0"
-  gem "simplecov", require: false
+  gem "simplecov", '~> 0.9', require: false
   gem "timecop"
   gem "webmock"
 end
 
 group :staging, :production do
-  gem "newrelic_rpm", ">= 3.7.3"
   gem "rails_12factor"
 end

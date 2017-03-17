@@ -1,9 +1,0 @@
-test:
-  adapter: postgresql
-  username: postgres
-  password:
-  database: hours_test
-  encoding: utf8
-  min_messages: warning
-  pool: 2
-  timeout: 5000
