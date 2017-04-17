@@ -9,6 +9,16 @@ describe CacheHelper do
 
       expect(helper.cache_keys_for_all(:projects, :categories).size).to eq(2)
     end
+
+    it "returns an array of cache keys for key with underscore" do
+      expect(helper).to receive(:current_subdomain).
+                          and_return("some_subdomain").exactly(1).times
+
+      keys = helper.cache_keys_for_all(:my_projects)
+
+      expect(keys.size).to eq(1)
+      expect(keys[0]).to include 'some_subdomain/my_projects/all-page'
+    end
   end
 
   describe "#cache_key_for_current_user" do
