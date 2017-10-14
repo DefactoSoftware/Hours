@@ -7,20 +7,20 @@ describe EntryFilter do
 
   it "#clients" do
     filter = EntryFilter.new
-
-    expect(filter.clients).to eq(Client.by_name)
+    expect(Client).to receive(:by_name)
+    filter.clients
   end
 
   it "#users" do
     filter = EntryFilter.new
-
-    expect(filter.users).to eq(User.by_name)
+    expect(User).to receive(:by_name)
+    filter.users
   end
 
   it "#projects" do
     filter = EntryFilter.new
-
-    expect(filter.projects).to eq(Project.by_name)
+    expect(Project).to receive(:by_name)
+    filter.projects
   end
 
   it "billed_options" do
