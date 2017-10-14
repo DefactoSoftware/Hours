@@ -26,28 +26,34 @@ describe EntryFilter do
   it "#billed_options" do
     filter = EntryFilter.new
 
-    expect(filter.billed_options).to eq([
+    billed_options = [
       [I18n.t("entry_filters.not_billed"), false],
       [I18n.t("entry_filters.billed"), true]
-    ])
+    ]
+
+    expect(filter.billed_options).to eq(billed_options)
   end
 
   it "#billable_options" do
     filter = EntryFilter.new
 
-    expect(filter.billable_options).to eq([
+    billable_options = [
       [I18n.t("entry_filters.not_billable"), false],
       [I18n.t("entry_filters.billable"), true]
-    ])
+    ]
+
+    expect(filter.billable_options).to eq(billable_options)
   end
 
   it "#archived_options" do
     filter = EntryFilter.new
 
-    expect(filter.archived_options).to eq([
+    archived_options = [
       [I18n.t("entry_filters.not_archived"), false],
       [I18n.t("entry_filters.archived"), true]
-    ])
+    ]
+
+    expect(filter.archived_options).to eq(archived_options)
   end
 
   describe "#from_date" do
