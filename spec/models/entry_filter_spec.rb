@@ -7,20 +7,32 @@ describe EntryFilter do
 
   it "#clients" do
     filter = EntryFilter.new
-    expect(Client).to receive(:by_name)
-    filter.clients
+
+    client1 = create(:client, name: "Zack")
+    client2 = create(:client, name: "Andy")
+    clients = [client2, client1]
+
+    expect(filter.clients).to eq clients
   end
 
   it "#users" do
     filter = EntryFilter.new
-    expect(User).to receive(:by_name)
-    filter.users
+
+    user1 = create(:user, last_name: "Simpson")
+    user2 = create(:user, last_name: "Burns")
+    users = [user2, user1]
+
+    expect(filter.users).to eq users
   end
 
   it "#projects" do
     filter = EntryFilter.new
-    expect(Project).to receive(:by_name)
-    filter.projects
+
+    project1 = create(:project, name: "Learning Spaces")
+    project2 = create(:project, name: "Defacto")
+    projects = [project2, project1]
+
+    expect(filter.projects).to eq projects
   end
 
   it "#billed_options" do
