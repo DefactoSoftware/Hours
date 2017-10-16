@@ -8,31 +8,28 @@ describe EntryFilter do
   it "#clients" do
     filter = EntryFilter.new
 
-    client1 = create(:client, name: "Zack")
-    client2 = create(:client, name: "Andy")
-    clients = [client2, client1]
+    create(:client, name: "Zack")
+    create(:client, name: "Andy")
 
-    expect(filter.clients).to eq clients
+    expect(filter.clients).to eq Client.by_name
   end
 
   it "#users" do
     filter = EntryFilter.new
 
-    user1 = create(:user, last_name: "Simpson")
-    user2 = create(:user, last_name: "Burns")
-    users = [user2, user1]
+    create(:user, last_name: "Simpson")
+    create(:user, last_name: "Burns")
 
-    expect(filter.users).to eq users
+    expect(filter.users).to eq User.by_name
   end
 
   it "#projects" do
     filter = EntryFilter.new
 
-    project1 = create(:project, name: "Learning Spaces")
-    project2 = create(:project, name: "Defacto")
-    projects = [project2, project1]
+    create(:project, name: "Learning Spaces")
+    create(:project, name: "Defacto")
 
-    expect(filter.projects).to eq projects
+    expect(filter.projects).to eq Project.by_name
   end
 
   it "#billed_options" do
