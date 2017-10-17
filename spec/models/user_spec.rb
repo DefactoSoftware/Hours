@@ -83,4 +83,17 @@ describe User do
       expect(user.email_domain).to eq("example.com")
     end
   end
+
+  describe "#color" do
+    it "is the pastel color for the first and last names" do
+      expect(build(:user).color).to eq "#7BD95C"
+    end
+  end
+
+  describe "#acronyms" do
+    it "is an acronym of the user's name" do
+      user = build(:user, first_name: "Andy", last_name: "Stabler")
+      expect(user.acronyms).to eq "AS"
+    end
+  end
 end
