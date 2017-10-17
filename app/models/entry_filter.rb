@@ -13,13 +13,9 @@ class EntryFilter
   ].freeze
 
   attr_accessor(*KEYS)
-  attr_reader :projects, :clients, :users
 
   def initialize(params = {})
     super(Params.new(params))
-    @clients = Client.by_name
-    @projects = Project.by_name
-    @users = User.by_name
   end
 
   def billed_options
@@ -49,6 +45,18 @@ class EntryFilter
 
   def to_date
     DateTime.parse(@to_date) if @to_date.present?
+  end
+
+  def clients
+    @clients ||= Client.by_name
+  end
+
+  def users
+    @users ||= User.by_name
+  end
+
+  def projects
+    @projects ||= Project.by_name
   end
 end
 
