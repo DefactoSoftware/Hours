@@ -7,27 +7,21 @@ describe EntryFilter do
 
   it "#clients" do
     filter = EntryFilter.new
-
-    create(:client, name: "Zack")
-    create(:client, name: "Andy")
+    create_list(:client, 2)
 
     expect(filter.clients).to eq Client.by_name
   end
 
   it "#users" do
     filter = EntryFilter.new
-
-    create(:user, last_name: "Simpson")
-    create(:user, last_name: "Burns")
+    create_list(:user, 2)
 
     expect(filter.users).to eq User.by_name
   end
 
   it "#projects" do
     filter = EntryFilter.new
-
-    create(:project, name: "Learning Spaces")
-    create(:project, name: "Defacto")
+    create_list(:project, 2)
 
     expect(filter.projects).to eq Project.by_name
   end
