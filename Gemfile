@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.3.1"
+ruby "2.4.2"
 
 gem "airbrake"
 gem "bourbon"
@@ -14,7 +14,7 @@ gem "neat"
 gem "bitters"
 gem "pg"
 gem "rack-timeout"
-gem "rails", "~> 4.2.5"
+gem "rails", "~> 4.2.10"
 gem "recipient_interceptor"
 gem "sass-rails", "~> 5.0.1"
 gem "simple_form", "~> 3.1.0"
@@ -36,7 +36,7 @@ gem "twitter-text" # hashtag parsing
 gem "jquery-atwho-rails", "~> 1.3.2" # autocomplete
 gem "haml-rails"
 gem "audited-activerecord", "~> 4.0"
-gem "paperclip", "4.2.4"
+gem "paperclip", "4.3.7"
 gem "aws-sdk", "< 2.0"
 gem "redcarpet"
 gem "holidays"
