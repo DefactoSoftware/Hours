@@ -175,7 +175,7 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.9.2)
+    kgio (2.11.0)
     launchy (2.4.2)
       addressable (~> 2.3)
     letter_opener (1.2.0)
@@ -256,7 +256,7 @@ GEM
       activesupport (= 4.2.10)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    raindrops (0.13.0)
+    raindrops (0.19.0)
     rake (12.3.0)
     recipient_interceptor (0.1.2)
       mail
@@ -339,9 +339,8 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.6)
-    unicorn (4.8.3)
+    unicorn (5.3.1)
       kgio (~> 2.6)
-      rack
       raindrops (~> 0.7)
     warden (1.2.7)
       rack (>= 1.0)
