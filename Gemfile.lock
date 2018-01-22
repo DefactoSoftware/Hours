@@ -190,7 +190,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mimemagic (0.3.0)
+    mimemagic (0.3.2)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
@@ -205,12 +205,12 @@ GEM
       mini_portile2 (~> 2.3.0)
     normalize-rails (3.0.1)
     orm_adapter (0.5.0)
-    paperclip (4.3.7)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
+    paperclip (5.1.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
       cocaine (~> 0.5.5)
       mime-types
-      mimemagic (= 0.3.0)
+      mimemagic (~> 0.3.0)
     pg (0.18.4)
     pikaday-gem (1.2.0)
       railties (>= 3.1)
@@ -394,7 +394,7 @@ DEPENDENCIES
   neat
   newrelic_rpm (>= 3.7.3)
   normalize-rails
-  paperclip (= 4.3.7)
+  paperclip (~> 5.1.0)
   pg
   pikaday-gem (~> 1.2.0.0)
   pry
@@ -425,4 +425,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
