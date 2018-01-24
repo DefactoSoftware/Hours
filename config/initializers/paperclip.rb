@@ -5,6 +5,8 @@ Paperclip::Attachment.default_options.update({
   path: ":rails_root/public/system/:tenant/:class/:attachment_name/:id_partition/:style/:filename"
 });
 
+Aws::VERSION =  Gem.loaded_specs["aws-sdk"].version
+
 Paperclip.interpolates :tenant do |attachment, style|
   Apartment::Tenant.current
 end
