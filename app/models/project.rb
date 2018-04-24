@@ -21,6 +21,7 @@ class Project < ActiveRecord::Base
 
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false }
+  validates :budget_type, presence: true, if:  -> {Hours.use_dollars?}
   validates_with ClientBillableValidator
   has_many :hours
   has_many :mileages
