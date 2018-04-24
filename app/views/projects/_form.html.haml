@@ -3,7 +3,8 @@
   .form-inputs
     = f.input :name, required: true
     = f.input :description, as: :text, input_html: { rows: 5 }
-    = f.input :budget_type, collection: ["Dollars", "Hours"], required: true if Hours.use_dollars?
+    = f.label :use_dollars, "Budget Type"
+    = f.input :use_dollars, collection: [["Dollars", true], ["Hours", false]], label: false, required: true if Hours.use_dollars?
     = f.input :budget, as: :integer
     = f.association :client, required: false, collection: Client.by_name, placeholder: t("project.form.client"), include_blank: t("project.form.no_client")
     = f.label :billable
