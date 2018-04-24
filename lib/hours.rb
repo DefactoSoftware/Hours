@@ -2,7 +2,7 @@ module Hours
   def self.google_analytics_id
     ENV["GOOGLE_ANALYTICS_KEY"]
   end
-  
+
   def self.helpful_url
     ENV["HELPFUL_URL"]
   end
@@ -28,6 +28,10 @@ module Hours
 
   def self.single_tenant_mode?
     ENV["SINGLE_TENANT_MODE"] == "true" ? true : false
+  end
+
+  def self.use_dollars?
+    ENV["USE_DOLLARS"] == "true" ? true : false
   end
 
   def self.cache_id
