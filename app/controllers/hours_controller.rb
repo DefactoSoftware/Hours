@@ -21,6 +21,7 @@ class HoursController < EntriesController
   def edit
     super
     resource
+    @last_hour_logged = current_user.hours.last
   end
 
   private

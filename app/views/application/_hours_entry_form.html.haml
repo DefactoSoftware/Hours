@@ -1,10 +1,10 @@
 = simple_form_for @hours_entry do |f|
   = f.error_notification
-  = f.association :project, required: true, collection: Project.unarchived.by_name, label: false, placeholder: t("entries.index.project")
-  = f.association :category, required: true, collection: Category.by_name, label: false, placeholder: t("entries.index.category")
-  = f.input :value, required: true, label: false, placeholder: t("entries.index.hours")
+  = f.association :project, required: true, collection: Project.unarchived.by_name, label: false, placeholder: t("entries.index.project"), selected: (@last_hour_logged.project_id if @last_hour_logged)
+  = f.association :category, required: true, collection: Category.by_name, label: false, placeholder: t("entries.index.category"), selected: (@last_hour_logged.category_id if @last_hour_logged)
+  = f.input :value, required: true, label: false, placeholder: t("entries.index.hours"), input_html: {value: (@last_hour_logged.value if @last_hour_logged)}
   = f.input :date, required: true, as: :string, input_html: { value: (@hours_entry.date || DateTime.current).strftime("%d/%m/%Y"), class: "datepicker"}, label: false
   .taggable
-    = f.input :description, input_html: { data: { data: Tag.list }, autocomplete: :off }, label: false, autocomplete: "off", placeholder: t("entries.index.description")
+    = f.input :description, input_html: { data: { data: Tag.list }, autocomplete: :off }, input_html: {value: (@last_hour_logged.description if @last_hour_logged)}, label: false, autocomplete: "off", placeholder: t("entries.index.description")
     %span.background-highlighter
   = f.button :submit, data: { disable_with: t("loader.saving") }

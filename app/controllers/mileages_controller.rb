@@ -24,6 +24,7 @@ class MileagesController < EntriesController
   def edit
     super
     resource
+    @last_mileage_logged = current_user.mileages.last
   end
 
   private
