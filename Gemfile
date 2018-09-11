@@ -40,7 +40,7 @@ gem "paperclip", "~> 5.1.0"
 gem "aws-sdk"
 gem "redcarpet"
 gem "holidays"
-gem "sprockets-rails", "~> 2.3"
+gem "sprockets-rails", "~>3.0"
 gem "brakeman"
 
 source "https://rails-assets.org" do
