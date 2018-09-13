@@ -58,5 +58,6 @@ module Hours
     # config.i18n.default_locale = :de
     config.secret_token = ENV["SECRET_TOKEN"]
     config.active_record.raise_in_transactional_callbacks = true
+    config.assets.precompile << %w(landing.css)
   end
 end
