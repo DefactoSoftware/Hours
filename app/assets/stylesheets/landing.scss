@@ -18,6 +18,7 @@ $header-font-family: 'Abel', $base-font-family;
 @import "landing/team";
 @import "landing/screens";
 @import "landing/cards";
+@import "modal";
 
 h1, h2, h3, h4, h5 {
   font-family: $header-font-family;
@@ -45,6 +46,10 @@ h1, h2, h3, h4, h5 {
   100% {
     @include transform(scale(1));
   }
+}
+
+#flash_notice {
+  @include flash($notice-color);
 }
 
 .copy {

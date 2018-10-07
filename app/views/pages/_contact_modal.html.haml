@@ -1,0 +1,12 @@
+.modal-window
+  %form{:action => '/message', :method => "post", :target => "_b"}>
+    .modal-inner
+      .content
+        %label.modal-close{:for => "modal-1"}
+        %h3= 'Contact Us'
+        %input{:name => "name", :id => 'message_name',  required: true, :type => "text", :placeholder => t('helpful.name'), :value =>''}/
+        %input{:name => "email", :id => 'message_email',   required: true, :type => "email", :placeholder =>  t('helpful.email'), :value => ''}/
+        %input{:name => "title", :id => 'message_title',   required: true, :type => "text", :placeholder =>  t('helpful.name'), :value => ''}/
+        %textarea{:name => "body", :id => 'message_body',   required: true, :placeholder => t('helpful.placeholder2'), :type => "text"}
+      .actions
+        %input.submit-button{:type => "submit", :value => "Submit"}/

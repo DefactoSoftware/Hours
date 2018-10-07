@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224115957) do
+ActiveRecord::Schema.define(version: 20181006231515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,15 @@ ActiveRecord::Schema.define(version: 20150224115957) do
   add_index "hours", ["date"], name: "index_hours_on_date", using: :btree
   add_index "hours", ["project_id"], name: "index_hours_on_project_id", using: :btree
   add_index "hours", ["user_id"], name: "index_hours_on_user_id", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "title"
+    t.string   "name"
+    t.string   "email"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "mileages", force: :cascade do |t|
     t.integer  "project_id",                 null: false

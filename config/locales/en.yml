@@ -141,9 +141,16 @@ en:
   entry_failed: Something went wrong saving your entry
   entry_saved: Entry successfully saved
   helpful:
+    email: Enter your Email
+    name: Enter your name
     heading: Need help?
     placeholder: Write your question here...
     tagline: Have a question about Hours? Need some help getting started?
+    placeholder2: How can we help you?
+    title: Message title
+    success_message: Message sent successfully
+    error_message: Opps... an error occur, please try again later
+  
   helpers:
     submit:
       create: Create Entry

@@ -4,6 +4,13 @@
       %li
         %a{href: "#{root_path}#pricing"} Pricing
       %li= link_to "The Team", page_path("team")
+      %li
+        .modal
+          %label{:for => "modal-1"}
+            %a{id:  "contact-us"} Contact Us
+          %input#modal-1.modal-state{:type => "checkbox"}/
+          = render 'contact_modal'
+
   %hr/
   %p
 
