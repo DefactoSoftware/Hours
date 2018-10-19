@@ -734,7 +734,7 @@ GEM
     newrelic_rpm (3.9.0.229)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
-    normalize-rails (3.0.1)
+    normalize-rails (4.1.1)
     orm_adapter (0.5.0)
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
