@@ -37,9 +37,9 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    airbrake (4.0.0)
-      builder
-      multi_json
+    airbrake (7.4.0)
+      airbrake-ruby (~> 2.12)
+    airbrake-ruby (2.12.0)
     annotate (2.6.5)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -727,7 +727,7 @@ GEM
     minitest (5.11.3)
     momentjs-rails (2.7.0)
       railties (>= 3.1)
-    multi_json (1.11.2)
+    multi_json (1.13.1)
     neat (1.5.1)
       bourbon (>= 3.1)
       sass (~> 3.2.19)
