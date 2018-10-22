@@ -706,7 +706,7 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.11.0)
+    kgio (2.11.2)
     launchy (2.4.2)
       addressable (~> 2.3)
     letter_opener (1.2.0)
