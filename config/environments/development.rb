@@ -36,4 +36,5 @@ Hours::Application.configure do
   config.action_controller.action_on_unpermitted_parameters = :raise
 
   config.action_mailer.default_url_options = { host: "hours.dev" }
+  config.action_dispatch.tld_length = 0
 end
