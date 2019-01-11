@@ -21,9 +21,10 @@ var Hours = Hours || {
 };
 
 $('.datepicker').each(function () {
+  const language = (I18n[$('body').data('language')] === undefined) ? I18n['en'] : I18n[$('body').data('language')]
   new Pikaday({
     field: this,
-    format: I18n[$('body').data('language')].date.format
+    format: language.date.format
   });
 });
 
