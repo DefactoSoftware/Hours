@@ -20,10 +20,19 @@ var Hours = Hours || {
   }
 };
 
+function setLanguage() {
+  if (I18n[$('body').data('language')] === undefined) {
+    return I18n['en'];
+  } else {
+    return I18n[$('body').data('language')];
+  }
+};
+
 $('.datepicker').each(function () {
+  var language = setLanguage();
   new Pikaday({
     field: this,
-    format: I18n[$('body').data('language')].date.format
+    format: language.date.format
   });
 });
 
