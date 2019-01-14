@@ -20,10 +20,14 @@ var Hours = Hours || {
   }
 };
 
+function getLanguage() {
+  return I18n[$('body').data('language')] || I18n['en'];
+};
+
 $('.datepicker').each(function () {
   new Pikaday({
     field: this,
-    format: I18n[$('body').data('language')].date.format
+    format: getLanguage().date.format
   });
 });
 

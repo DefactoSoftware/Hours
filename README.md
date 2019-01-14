@@ -3,6 +3,7 @@ Hours
 
 [![Build Status](https://travis-ci.org/DefactoSoftware/Hours.svg?branch=master)](https://travis-ci.org/DefactoSoftware/Hours)
 [![Code Climate](https://codeclimate.com/github/DefactoSoftware/Hours/badges/gpa.svg)](https://codeclimate.com/github/DefactoSoftware/Hours)
+[![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/DefactoSoftware/Hours)
 
@@ -54,13 +55,14 @@ After setting up, you can run the application using [foreman]:
     % foreman start
 
 Since we're using subdomains to point to accounts, you can't run the app on localhost.
-If you have [pow] set up, it will be automatically configured by the setup script, otherwise
-you need to point apache/nginx to the port foreman is running the app on (7000 by default). With pow the app will run on http://hours.dev
+If you have [pow] set up or if you use linux an alternative is [prax], it will be automatically configured by the setup script, otherwise
+you need to point apache/nginx to the port foreman is running the app on (7000 by default). With pow/prax the app will run on http://hours.dev
 
 In order to activate caching in development you can add `CACHE_DEVELOPMENT="anything"` to your `.env`. Make sure to run `$ memcached` when you do need this.
 
 [foreman]: http://ddollar.github.io/foreman/
 [pow]: http://pow.cx
+[prax]: http://ysbaddaden.github.io/prax/
 
 Getting Started with Docker
 ---------------------------
@@ -79,7 +81,7 @@ After setting up, you can run the application and dependencies using [docker-com
 
     % docker-compose up -d
 
-If your Docker host is running on `localhost` then you should be able to use pow, otherwise you'll need to connect to it via:
+If your Docker host is running on `localhost` then you should be able to use pow/prax, otherwise you'll need to connect to it via:
 
     http://DOCKER_IP:7000
 
