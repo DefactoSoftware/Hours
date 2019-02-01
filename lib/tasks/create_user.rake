@@ -1,3 +1,5 @@
+require 'io/console'
+
 desc "Create a first user for single tenant mode"
 task :create_user => :environment do
   if Hours.single_tenant_mode?
