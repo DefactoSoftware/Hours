@@ -1,28 +1,23 @@
-class ProjectPresenter
+class ProjectPresenter < BasePresenter
   NUMBER_OF_ACTIVITIES = 4
-  attr_reader :template
-  def initialize(project, template)
-    @project = project
-    @template = template
-  end
 
   def show_categories
     template.render partial: "projects/category",
                     collection: categories_with_remainder,
-                    locals: { project: @project }
+                    locals: { project: @model }
   end
 
   def show_categories_bar
     template.render partial: "projects/categories_bar",
                     as: :category,
                     collection: categories_with_remainder,
-                    locals: { project: @project }
+                    locals: { project: @model }
   end
 
   private
 
   def sorted_categories
-    @project.sorted_categories
+    @model.sorted_categories
   end
 
   def categories_with_remainder

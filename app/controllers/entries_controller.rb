@@ -1,10 +1,10 @@
 class EntriesController < ApplicationController
   include CSVDownload
+  before_action :set_user, :set_last_entry, only: %i[index]
 
   DATE_FORMAT = "%d/%m/%Y".freeze
 
   def index
-    @user = User.find_by_slug(params[:user_id])
     @hours_entries = @user.hours.by_date.page(params[:hours_pages]).per(20)
     @mileages_entries = @user.mileages.by_date.page(
       params[:mileages_pages]).per(20)
@@ -36,7 +36,22 @@ class EntriesController < ApplicationController
     params[:controller]
   end
 
+  def set_user
+    @user = User.find_by_slug(params[:user_id])
+  end
+
   def parsed_date(entry_type)
     Date.strptime(params[entry_type][:date], DATE_FORMAT)
+  end
+
+  def set_last_entry
+    hour = @user.hours.by_last_created_at.first
+    mileage = @user.mileages.by_last_created_at.first
+
+    @last_entry = if hour&.created_at.to_i >= mileage&.created_at.to_i
+                    hour
+                  else
+                    mileage
+                  end
   end
 end

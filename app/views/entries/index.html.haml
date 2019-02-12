@@ -4,6 +4,13 @@
     - localized_cache @user do
       = render "/header", title: t('entries.index.user_entries', user: @user.first_name)
       = link_to t("entries.download_csv"), user_entries_path(@user, format: "csv")
+      - if @last_entry.present?
+        - present(@last_entry) do |l|
+          = link_to l.last_entry_link, class: "last-entry" do
+            = t(l.last_entry_time)
+      - else
+        = link_to "javascript:;", class: "last-entry" do
+          = t("You have not created any entries")
     .entries-tabs-container
       %ul.accordion-tabs
         %li.tab-header-and-content-left
