@@ -52,6 +52,13 @@
     }
 }
 
+.links-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
 .edit-entry-wrapper {
   @extend .new-entry-wrapper;
   @include pad(6% 3%);

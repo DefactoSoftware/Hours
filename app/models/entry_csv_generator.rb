@@ -5,19 +5,34 @@ class EntryCSVGenerator
     new(hours_entries, mileages_entries).generate
   end
 
+  def self.generate_to_file_system(hour_entries, mileages_entries, path)
+    new(hour_entries, mileages_entries).generate_to_file_system(path)
+  end
+
   def initialize(hours_entries, mileages_entries)
     @hours_report = Report.new(hours_entries)
     @mileages_report = Report.new(mileages_entries)
   end
 
+  def format_csv(csv)
+    csv << []
+    csv << [I18n.translate("report.headers.hours")]
+    fill_fields("hours", csv)
+    csv << []
+    csv << [I18n.translate("report.headers.mileages")]
+    fill_fields("mileages", csv)
+    csv
+  end
+
   def generate
     CSV.generate(options) do |csv|
-      csv << []
-      csv << [I18n.translate("report.headers.hours")]
-      fill_fields("hours", csv)
-      csv << []
-      csv << [I18n.translate("report.headers.mileages")]
-      fill_fields("mileages", csv)
+      csv = format_csv(csv)
+    end
+  end
+
+  def generate_to_file_system(path)
+    CSV.open(path, "wb") do |csv|
+      csv = format_csv(csv)
     end
   end
 

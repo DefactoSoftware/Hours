@@ -115,6 +115,8 @@ en:
       wrong_mail: If you didn't request this, please ignore this email.
   entries:
     download_csv: Download all entries as CSV
+    send_csv_to_third_party: Send Entries as CSV to email address
+    send_csv_to_third_party_success: Email Sent Successfully.
     index:
       category: Category
       date: Date

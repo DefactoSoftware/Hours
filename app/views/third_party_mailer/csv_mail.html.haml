@@ -1,0 +1,16 @@
+!!! 
+%html 
+  %head 
+    %meta{:contrnt => "tect/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body 
+    %h1 
+      Hey There 
+    %p 
+      #{@user.name} has sent you their entries on
+      %a{:href => "https://happyhours.io"} Happy Hours
+
+      Attached to this mail is the CSV format of their entries.
+      %br/
+    %p
+      Kind Regards.
+
