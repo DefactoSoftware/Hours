@@ -26,13 +26,13 @@ class EntryCSVGenerator
 
   def generate
     CSV.generate(options) do |csv|
-      csv = format_csv(csv)
+      format_csv(csv)
     end
   end
 
   def generate_to_file_system(path)
     CSV.open(path, "wb") do |csv|
-      csv = format_csv(csv)
+      format_csv(csv)
     end
   end
 
