@@ -5,10 +5,17 @@ class EntriesController < ApplicationController
 
   def index
     @user = User.find_by_slug(params[:user_id])
-    @hours_entries = @user.hours.by_date.page(params[:hours_pages]).per(20)
-    @mileages_entries = @user.mileages.by_date.page(
-      params[:mileages_pages]).per(20)
-
+    if params[:project_id]
+      @hours_entries = @user.hours.where(project_id:params[:project_id]).by_date.page(
+        params[:hours_pages]).per(20)
+      @mileages_entries = @user.hours.where(project_id:params[:project_id]).by_date.page(
+        params[:mileages_pages]).per(20)
+    else
+      @hours_entries = @user.hours.by_date.page(params[:hours_pages]).per(20)
+      @mileages_entries = @user.mileages.by_date.page(
+        params[:mileages_pages]).per(20)
+    end
+    
     respond_to do |format|
       format.html { @mileages_entries + @hours_entries }
       format.csv do

@@ -129,6 +129,8 @@ en:
       project: Project
       user_entries: "%{user}'s entries"
       changes: changes
+      select_project_to_view: Select Project to View
+      all_projects: All Projects
   entry_activity_html:
     one: "%{user} spent one hour doing %{category} on %{project}"
     other: "%{user} spent %{count} hours doing %{category} on %{project}"

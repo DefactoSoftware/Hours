@@ -19,4 +19,16 @@ $(document).ready(function () {
     $(this).addClass('is-active');
     $(this).next().toggleClass('is-open').show();
   });
+
+  $('.project-select').on('change', function () {
+    var projectId = $(this).val();
+    if (projectId) {
+      if (projectId === "0") {
+        window.location = window.location.href.split('?')[0];
+      } else {
+        window.location = window.location.href.split('?')[0] + '?project_id=' + projectId;
+      }
+    }
+    return false;
+  });
 });
