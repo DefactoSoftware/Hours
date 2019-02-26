@@ -1,7 +1,24 @@
 .title-container {
   @include clearfix;
 
-  h1 {
-    float: left;
+  .user-detail-container {
+    .user-title {
+      float: left;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.user-stats {
+  .joined-time {
+    margin-left: 0.5em;
+    font-size: 0.8rem
+  }
+
+  .total-hours {
+    float: right;
+    margin-right: 1em;
+    font-weight: bold;
+    text-align: center;
   }
 }

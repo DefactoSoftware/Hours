@@ -3,6 +3,7 @@ include TimeSeriesInitializer
 class UsersController < ApplicationController
   def show
     @time_series = time_series_for(resource)
+    @entry_stats = EntryStats.new(@time_series.entries_for_time_span)
   end
 
   def index
