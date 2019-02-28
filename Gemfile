@@ -66,7 +66,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "pry-rails"
-  gem "rspec-rails", "~> 3.0"
+  gem "rspec-rails", "~> 3.8"
   gem "annotate"
   gem "letter_opener"
   gem "email_spec"
