@@ -692,7 +692,7 @@ GEM
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
     hashtel (0.0.2)
-    high_voltage (2.2.0)
+    high_voltage (3.1.0)
     highline (1.7.8)
     holidays (1.2.0)
     html2haml (2.2.0)
