@@ -217,6 +217,8 @@ pt-BR:
     no_projects_html: Parece que você ainda não tem nenhum projeto definido, você pode definir um em %{new_project_path}.
     no_billable_projects_html: Parece que você ainda não tem nenhum projeto faturável, você pode definir um em %{new_project_path}.
     no_billable_entries_html: Parece que nenhuma entrada preenche os requisitos de filtro.
+    no_entries: You have not created any entries
+    last_entry: Your last entry was %{time} ago
   loader:
     saving: Salvando
     signing_in: Entrando

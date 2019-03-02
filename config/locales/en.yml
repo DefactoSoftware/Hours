@@ -166,6 +166,8 @@ en:
     no_billable_projects_html: It looks like you don't have any billable projects yet, you can
       set one up %{new_project_path}.
     no_billable_entries_html: It looks like no entries meet your filter requirements yet.
+    no_entries: You have not created any entries
+    last_entry: Your last entry was %{time} ago
   loader:
     saving: Saving
     signing_in: Sigining in

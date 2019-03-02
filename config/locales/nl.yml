@@ -223,6 +223,8 @@ nl:
       %{new_project_path} doen.
     no_billable_projects_html: Zo te zien heb je nog geen factureerbare projecten. Dat kun je %{new_project_path} doen.
     no_billable_entries_html: Zo te zien heb je geen entries die voldoen aan je zoekcriteria.
+    no_entries: You have not created any entries
+    last_entry: Your last entry was %{time} ago
   loader:
     saving: Opslaan
     signing_in: Inloggen
