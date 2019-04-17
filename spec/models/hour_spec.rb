@@ -90,6 +90,16 @@ describe Hour do
     end
   end
 
+  describe "#by_last_updated_at" do
+    it "orders the entries by updated_at" do
+      initial_hour = create(:hour)
+      Timecop.scale(600)
+      create(:hour)
+      initial_hour.update_attribute(:value, 2)
+      expect(Hour.by_last_updated_at.first).to eq(initial_hour)
+    end
+  end
+
   describe "#by_date" do
     it "orders the entries by date (latest first)" do
       create(:hour, date: Date.new(2014, 01, 01))
