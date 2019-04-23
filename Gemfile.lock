@@ -588,7 +588,7 @@ GEM
       aws-sigv4 (~> 1.0)
     aws-sigv2 (1.0.1)
     aws-sigv4 (1.0.2)
-    bcrypt (3.1.11)
+    bcrypt (3.1.12)
     better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -644,12 +644,11 @@ GEM
     delayed_job_active_record (4.0.3)
       activerecord (>= 3.0, < 5.0)
       delayed_job (>= 3.0, < 4.1)
-    devise (3.5.10)
+    devise (4.6.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
+      railties (>= 4.1.0, < 6.0)
       responders
-      thread_safe (~> 0.1)
       warden (~> 1.2.3)
     devise_invitable (1.5.5)
       actionmailer (>= 3.2.6, < 5)
@@ -799,9 +798,9 @@ GEM
       mail
     redcarpet (3.4.0)
     regexp_parser (1.4.0)
-    responders (2.4.0)
-      actionpack (>= 4.2.0, < 5.3)
-      railties (>= 4.2.0, < 5.3)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -910,7 +909,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   delayed_job_active_record (= 4.0.3)
-  devise (~> 3.5.2)
+  devise (~> 4.6.0)
   devise_invitable (~> 1.5.5)
   dotenv-rails
   email_spec
