@@ -31,7 +31,17 @@ class HoursController < EntriesController
 
   def entry_params
     params.require(:hour).
-      permit(:project_id, :category_id, :value, :description, :date).
-      merge(date: parsed_date(:hour))
+      permit(:project_id, :category_id, :value, :description, :date,
+             :entry_type_option, :timer_value).
+      merge(date: parsed_date(:hour)).
+      to_h.
+      tap do |attributes|
+        if attributes[:entry_type_option] == 'timer' &&
+           attributes.key?(:timer_value)
+          unless attributes[:timer_value].empty?
+            attributes[:value] = attributes[:timer_value]
+          end
+        end
+      end
   end
 end
