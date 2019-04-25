@@ -17,6 +17,8 @@
 class Hour < Entry
   audited allow_mass_assignment: true
 
+  attr_accessor :entry_type_option, :timer_value
+
   belongs_to :category
 
   has_many :taggings, inverse_of: :hour
