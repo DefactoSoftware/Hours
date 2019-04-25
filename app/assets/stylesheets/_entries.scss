@@ -50,6 +50,61 @@
   .entry-tag-list {
     width: 100%;
     }
+
+  #entry_type_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      margin: 0 1rem;
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: $light-gray;
+        transition: .4s;
+        -webkit-transition: .4s;
+
+        &:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: $base-body-color;
+          transition: .4s;
+          -webkit-transition: .4s;
+        }
+
+        &.round {
+          border-radius: 34px;
+          &:before {
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    .slider.timer {
+      background-color: $blue;
+    }
+
+    .slider.timer:before {
+      transform: translateX(26px);
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+    }
+  }
 }
 
 .edit-entry-wrapper {
@@ -222,4 +277,8 @@
   .right {
     text-align: right;
   }
+}
+
+.hour_timer_value_div, .timer-btn, .stop-timer {
+  display: none;
 }
