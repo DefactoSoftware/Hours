@@ -36,7 +36,7 @@ gem "twitter-text" # hashtag parsing
 gem "jquery-atwho-rails", "~> 1.3.2" # autocomplete
 gem "haml-rails"
 gem "audited-activerecord", "~> 4.0"
-gem "paperclip", "~> 5.1.0"
+gem "paperclip", "~> 6.1.0"
 gem "aws-sdk"
 gem "redcarpet"
 gem "holidays"
@@ -66,14 +66,14 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "pry-rails"
-  gem "rspec-rails", "~> 3.0"
+  gem "rspec-rails", "~> 3.8"
   gem "annotate"
   gem "letter_opener"
   gem "email_spec"
 end
 
 group :test do
-  gem "capybara-webkit", ">= 1.0.0"
+  gem 'capybara', '~> 3.16', '>= 3.16.1'
   gem "database_cleaner"
   gem "launchy"
   gem "shoulda-matchers", "~> 2.7.0"

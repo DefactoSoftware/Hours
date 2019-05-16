@@ -42,6 +42,7 @@ System Dependencies
 - PostgreSQL
 - qmake (`brew install qt`) or read extensive instructions [here](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
 - memcached (`brew install memcached`, an older version ships with OSX)(optional)
+- imagemagick (`brew install imagemagick`)
 
 Getting Started
 ---------------
