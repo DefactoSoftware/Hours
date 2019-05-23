@@ -3,10 +3,23 @@ class HoursController < EntriesController
     @entry = Hour.new(entry_params)
     @entry.user = current_user
 
-    if @entry.save
+    end_date = Date.parse(entry_params["end_date"]) if entry_params["end_date"].present?
+
+    if end_date
+      entry_params["date"].upto(end_date) do |date|
+        @entry = Hour.new(entry_params)
+        @entry.user = current_user
+        @entry.date = date
+
+        @entry.save
+      end
       redirect_to root_path, notice: t("entry_created.hours")
     else
-      redirect_to root_path, notice: @entry.errors.full_messages.join(". ")
+      if @entry.save
+        redirect_to root_path, notice: t("entry_created.hours")
+      else
+        redirect_to root_path, notice: @entry.errors.full_messages.join(". ")
+      end
     end
   end
 
@@ -31,7 +44,7 @@ class HoursController < EntriesController
 
   def entry_params
     params.require(:hour).
-      permit(:project_id, :category_id, :value, :description, :date).
+      permit(:project_id, :category_id, :value, :description, :date, :end_date).
       merge(date: parsed_date(:hour))
   end
 end

@@ -15,6 +15,7 @@
 #
 
 class Hour < Entry
+  attr_accessor :end_date
   audited allow_mass_assignment: true
 
   belongs_to :category
