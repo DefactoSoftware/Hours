@@ -9,8 +9,12 @@ class AccountsController < ApplicationController
   def create
     @signup = Signup.new(signup_params)
     if @signup.valid?
-      Apartment::Tenant.create(@signup.subdomain)
-      Apartment::Tenant.switch(@signup.subdomain)
+      begin 
+        Apartment::Tenant.create(@signup.subdomain)
+        Apartment::Tenant.switch(@signup.subdomain)
+      rescue Apartment::SchemaExists
+        respond_to new_account_url
+      end
       @signup.save
       redirect_to new_user_session_url(subdomain: @signup.subdomain)
     else
