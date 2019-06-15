@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
   def create
     @signup = Signup.new(signup_params)
     if @signup.valid?
-      begin 
+      begin
         Apartment::Tenant.create(@signup.subdomain)
         Apartment::Tenant.switch(@signup.subdomain)
       rescue Apartment::SchemaExists
