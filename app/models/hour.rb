@@ -23,6 +23,7 @@ class Hour < Entry
   has_many :tags, through: :taggings
 
   validates :category, presence: true
+  validates :value, inclusion: { in: 1..24, message: :invalid_hours }
 
   accepts_nested_attributes_for :taggings
 

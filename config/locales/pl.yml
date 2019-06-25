@@ -65,6 +65,10 @@ pl:
             subdomain:
               invalid_characters: zawiera nie poprawne znaki
               restricted: pod warunkiem subdomeny jest ograniczona
+        hour:
+          attributes:
+            value:
+              invalid_hours: Nieprawidłowe godziny w ciągu dnia
   back: Cofnij
   billables:
     billable_entries: Wpisy rozliczone

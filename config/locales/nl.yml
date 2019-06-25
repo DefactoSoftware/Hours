@@ -75,6 +75,10 @@ nl:
             subdomain:
               invalid_characters: bevat ongeldige tekens
               restricted: mits subdomein wordt beperkt
+        hour:
+          attributes:
+            value:
+              invalid_hours: Ongeldige uren op een dag
 
     models:
       user: Gebruiker

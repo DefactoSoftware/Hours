@@ -72,6 +72,10 @@ pt-BR:
             subdomain:
               invalid_characters: contêm caracteres inválidos
               restricted: subdomínio informado é restrito
+        hour:
+          attributes:
+            value:
+              invalid_hours: Horas inválidas em um dia
 
     models:
       user: Usuário
