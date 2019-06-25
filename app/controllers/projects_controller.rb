@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
     @projects = Project.unarchived.by_last_updated.page(params[:page]).per(7)
     @hours_entry = Hour.new
     @mileages_entry = Mileage.new
-    @activities = Hour.by_last_created_at.limit(30)
+    @activities = Hour.by_last_created_at.limit(30).page(params[:hours_pages]).per(11)
   end
 
   def show
