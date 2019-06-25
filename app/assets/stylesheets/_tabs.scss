@@ -4,10 +4,10 @@
 }
 
 .reports-tabs-container {
-  @include media(max-width $medium-screen) {
-    width:100%;
+  @include media($laptop-screen) {
+    width:73%;
   }
-  width:73%;
+  width:100%;
 }
 
 .accordion-tabs {
