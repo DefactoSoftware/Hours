@@ -30,3 +30,4 @@
       %ul
         - localized_cache [cache_key_for_all(:hours), current_locale] do
           = render partial: "entry", collection: @activities
+      = paginate @activities, param_name: :hours_pages
