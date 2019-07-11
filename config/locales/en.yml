@@ -65,6 +65,10 @@ en:
             subdomain:
               invalid_characters: contains invalid characters
               restricted: provided subdomain is restricted
+        hour:
+          attributes:
+            date:
+              future_date: can't be in the future
   back: Back
   billables:
     billable_entries: Billable Entries

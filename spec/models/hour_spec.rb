@@ -23,6 +23,23 @@ describe Hour do
     it { should validate_presence_of :date }
     it { should validate_numericality_of(:value).is_greater_than(0) }
     it { should validate_numericality_of(:value).only_integer }
+
+    it "does not allow entry for a date in the future" do
+      new_project = create(:project)
+      new_category = create(:category)
+      user = build(:user)
+
+      entry = create(:hour, value: 7,
+                      user: user,
+                      project: new_project,
+                      category: new_category,
+                      description: 'worked on Hours today, added a validation')
+      
+      entry.date = 10.days.from_now
+    
+      expect(entry).to_not be_valid
+      expect(entry.errors[:date].first).to include("can't be in the future")
+    end
   end
 
   describe "associations" do
