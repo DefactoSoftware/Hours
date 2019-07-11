@@ -23,6 +23,7 @@ class Hour < Entry
   has_many :tags, through: :taggings
 
   validates :category, presence: true
+  validates :value, inclusion: { in: 1..24, message: :invalid_hours }
   validate :over_budget_entry
 
   accepts_nested_attributes_for :taggings
@@ -44,6 +45,14 @@ class Hour < Entry
     EntryQuery.new(self.includes(includes).by_date, params, "hours").filter
   end
 
+  def over_budget_entry
+    available_hours = Project.new.budget_status
+    # available_hours = project.budget_status
+    if available_hours && value > available_hours
+      errors.add(:value, :over_budget)
+    end
+  end
+
   private
 
   def set_tags_from_description
@@ -53,12 +62,6 @@ class Hour < Entry
         tag.name = tagname.strip
         tag.save!
       end
-    end
-  end
-
-  def over_budget_entry
-    if project.budget_status && value > project.budget_status
-      errors.add(:value, :over_budget)
     end
   end
 end

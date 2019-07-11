@@ -6,7 +6,6 @@ class Entry < ActiveRecord::Base
   validates :user, :project, :date, presence: true
   validates :value, presence: true, numericality: { greater_than: 0,
                                                     only_integer: true }
-                                                
   validate :check_future_date
   audited allow_mass_assignment: true
 

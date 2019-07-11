@@ -71,6 +71,7 @@ en:
               future_date: can't be in the future
             value:
               over_budget: entry is more than the available hours for this project
+              invalid_hours: more than 24 hours available in a day
   back: Back
   billables:
     billable_entries: Billable Entries
