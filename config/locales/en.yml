@@ -69,6 +69,8 @@ en:
           attributes:
             date:
               future_date: can't be in the future
+            value:
+              over_budget: entry is more than the available hours for this project
   back: Back
   billables:
     billable_entries: Billable Entries

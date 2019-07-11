@@ -40,6 +40,22 @@ describe Hour do
       expect(entry).to_not be_valid
       expect(entry.errors[:date].first).to include("can't be in the future")
     end
+
+    it "does not accept hours more than available for project" do
+      new_project = create(:project, budget: 56)
+      new_category = create(:category)
+      user = build(:user)
+
+      entry = create(:hour,
+                      user: user,
+                      project: new_project,
+                      category: new_category,
+                      description: 'Today, victory loves preparation')
+      entry.value = 77
+      entry.save
+      expect(entry).to_not be_valid
+      expect(entry.errors[:value]).to include("entry is more than the available hours for this project")
+    end
   end
 
   describe "associations" do

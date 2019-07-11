@@ -23,6 +23,7 @@ class Hour < Entry
   has_many :tags, through: :taggings
 
   validates :category, presence: true
+  validate :over_budget_entry
 
   accepts_nested_attributes_for :taggings
 
@@ -52,6 +53,12 @@ class Hour < Entry
         tag.name = tagname.strip
         tag.save!
       end
+    end
+  end
+
+  def over_budget_entry
+    if project.budget_status && value > project.budget_status
+      errors.add(:value, :over_budget)
     end
   end
 end
