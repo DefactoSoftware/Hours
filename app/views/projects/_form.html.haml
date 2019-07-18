@@ -4,7 +4,8 @@
     = f.input :name, required: true, placeholder: t("project.form.name")
     = f.input :description, as: :text, input_html: { rows: 5 }, placeholder: t("project.form.description")
     = f.input :budget, as: :integer, placeholder: t("project.form.budget")
-    = f.association :client, required: false, collection: Client.by_name, placeholder: t("project.form.client"), include_blank: t("project.form.no_client")
+    = f.association :client, required: false, collection: Client.by_name, placeholder: t("project.form.client"), 
+      include_blank: t("project.form.no_client")
     = f.label :billable
     = f.input :billable, as: :switch, label: false
     = f.button :submit, data: { disable_with: t("loader.saving") }
