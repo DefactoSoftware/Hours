@@ -180,6 +180,9 @@ en:
     form:
       client: Client
       no_client: No Client
+      name: Name of the project
+      description: Brief description of what the project is about
+      budget: Budget in terms of hours
     show:
       changes_link: changes
       edit_link: edit
