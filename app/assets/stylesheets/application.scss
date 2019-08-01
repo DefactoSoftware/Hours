@@ -200,3 +200,13 @@ h1 {
     height: 35px;
   }
 }
+
+.field_with_errors {
+  input {
+    border: 1px solid red;
+  }
+
+  .error {
+    color: red;
+  }
+}

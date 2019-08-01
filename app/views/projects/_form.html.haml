@@ -3,7 +3,7 @@
   .form-inputs
     = f.input :name, required: true
     = f.input :description, as: :text, input_html: { rows: 5 }
-    = f.input :budget, as: :integer
+    = f.input :budget, as: :integer, input_html: { min: 0 }
     = f.association :client, required: false, collection: Client.by_name, placeholder: t("project.form.client"), include_blank: t("project.form.no_client")
     = f.label :billable
     = f.input :billable, as: :switch, label: false
