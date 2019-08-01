@@ -20,8 +20,15 @@ class Project < ActiveRecord::Base
   audited allow_mass_assignment: true
 
   validates :name, presence: true,
-                   uniqueness: { case_sensitive: false, message: "This name has already been taken."}
-  validates :budget, numericality: { only_integer: true, greater_than_or_equal_to: 0, message: "Budget should be a postive integer."}
+                   uniqueness: {
+                     case_sensitive: false,
+                     message: 'This name has already been taken.'
+                  }
+  validates :budget, numericality: {
+    only_integer: true,
+    greater_than_or_equal_to: 0,
+    message: 'Budget should be a postive integer.'
+  }
   validates_with ClientBillableValidator
   has_many :hours
   has_many :mileages
