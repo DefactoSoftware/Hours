@@ -76,7 +76,7 @@ group :test do
   gem 'capybara', '~> 3.16', '>= 3.16.1'
   gem "database_cleaner"
   gem "launchy"
-  gem "shoulda-matchers", "~> 2.7.0"
+  gem "shoulda-matchers", "~> 4.1.2"
   gem "simplecov", require: false
   gem "timecop"
   gem "webmock"
