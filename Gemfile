@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 
-ruby "2.4.2"
+ruby "2.6.0"
 
 gem "airbrake"
 gem "bourbon"
 gem "coffee-rails"
-gem "delayed_job_active_record", "4.0.3"
+gem "delayed_job_active_record"
 gem "email_validator"
 gem "flutie"
 gem "high_voltage"
