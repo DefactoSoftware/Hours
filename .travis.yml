@@ -2,12 +2,24 @@ rvm:
 - 2.6.0
 bundler_args: "--without debug development"
 cache: bundler
+addons:
+  apt:
+    sources:
+      - ubuntu-sdk-team
+    packages:
+      - libqt5webkit5-dev
+      - qtdeclarative5-dev
+    chrome: stable
 before_script:
 - cp .sample.env .env
 - export SECRET_KEY_BASE="$(bundle exec rake secret)"
 - cp config/database.travis.yml config/database.yml
 - psql -c 'create database hours_test' -U postgres
 - export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
+env:
+  global:
+    - QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 services:
   - postgresql
+  - xvfb
+script: bundle exec rake
