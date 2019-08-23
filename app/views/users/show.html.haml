@@ -3,6 +3,9 @@
 .outer
   .container
     = render "/header", title: @user.full_name
+    %p.user-stats
+      %span.joined-time Joined: #{@user.created_at.strftime("%B %d, %Y")}
+      %span.total-hours Total Hours Spent: #{@entry_stats.total_hours}
     .charts
       = render @time_series.chart, time_series: @time_series
     .charts
