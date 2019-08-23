@@ -22,6 +22,13 @@ class Project < ActiveRecord::Base
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false }
   validates_with ClientBillableValidator
+
+  validates :budget, numericality: {
+    only_integer: true,
+    greater_than_or_equal_to: 0,
+    message: 'Budget must be greater than or equal to zero'
+  }
+
   has_many :hours
   has_many :mileages
   has_many :users, -> { uniq }, through: :hours

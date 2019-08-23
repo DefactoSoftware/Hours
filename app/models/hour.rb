@@ -24,6 +24,12 @@ class Hour < Entry
 
   validates :category, presence: true
 
+  validates :value, numericality: {
+    only_integer: true,
+    greater_than_or_equal_to: 0,
+    message: 'Hours must be greater than zero'
+  }
+
   accepts_nested_attributes_for :taggings
 
   scope :by_last_created_at, -> { order("created_at DESC") }
