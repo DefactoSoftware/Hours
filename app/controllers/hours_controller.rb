@@ -1,14 +1,18 @@
 class HoursController < EntriesController
   def create
     @entry = Hour.new(entry_params)
-    @entry.user = current_user
-
-    if @entry.save
-      redirect_to root_path, notice: t("entry_created.hours")
+  
+    if @entry.value > @entry.project.budget
+      redirect_to root_path, notice: t("entry_failed")
     else
-      redirect_to root_path, notice: @entry.errors.full_messages.join(". ")
+      @entry.user = current_user
+
+      if @entry.save
+        redirect_to root_path, notice: t("entry_created.hours")
+      else
+        redirect_to root_path, notice: @entry.errors.full_messages.join(". ")
+      end
     end
-  end
 
   def update
     if resource.update_attributes(entry_params)
