@@ -12,3 +12,4 @@
 /tags
 /tmp/*
 /config/database.yml
+.idea/

@@ -20,6 +20,12 @@ class Mileage < Entry
     where.not("projects.client_id" => nil).joins(:project)
   }
 
+  validates :value, numericality: {
+    as_integer: true,
+    greater_than_or_equal_to: 0,
+    message: 'Kilometers cannot be a negative value'
+  }
+
   def self.query(params, includes = nil)
     EntryQuery.new(self.includes(includes).by_date, params, "mileages").filter
   end
