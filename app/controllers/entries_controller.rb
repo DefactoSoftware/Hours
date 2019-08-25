@@ -37,6 +37,10 @@ class EntriesController < ApplicationController
   end
 
   def parsed_date(entry_type)
-    Date.strptime(params[entry_type][:date], DATE_FORMAT)
+    begin
+      Date.strptime(params[entry_type][:date], DATE_FORMAT)
+    rescue ArgumentError
+      nil
+    end
   end
 end

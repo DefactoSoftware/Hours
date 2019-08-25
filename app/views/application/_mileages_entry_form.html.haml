@@ -2,5 +2,5 @@
   = f.error_notification
   = f.association :project, required: true, collection: Project.unarchived.by_name, label: false, placeholder: t("entries.index.project")
   = f.input :value, required: true, as: :integer, label:false, placeholder: t("entries.index.mileages")
-  = f.input :date, required: true, as: :string, input_html: { value: (@mileages_entry.date || DateTime.current).strftime("%d/%m/%Y"), class: "datepicker"}, label: false
+  = f.input :date, required: true, readonly: true, as: :string, input_html: { value: (@mileages_entry.date || DateTime.current).strftime("%d/%m/%Y"), class: "datepicker"}, label: false
   = f.button :submit, data: { disable_with: t("loader.saving") }
