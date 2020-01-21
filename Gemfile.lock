@@ -756,7 +756,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
-    rack (1.6.11)
+    rack (1.6.12)
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-timeout (0.0.4)
