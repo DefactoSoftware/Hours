@@ -625,13 +625,13 @@ GEM
       xpath (~> 3.2)
     climate_control (0.2.0)
     coderay (1.1.2)
-    coffee-rails (4.0.1)
+    coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
-    coffee-script (2.2.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.7.0)
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
