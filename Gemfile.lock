@@ -952,7 +952,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.1)
   select2-rails
   shoulda-matchers (~> 2.7.0)
-  simple_form (~> 4.0.0)
+  simple_form
   simplecov
   spring
   spring-commands-rspec
