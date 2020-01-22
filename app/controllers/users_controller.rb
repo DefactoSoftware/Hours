@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 include TimeSeriesInitializer
 
 class UsersController < ApplicationController
