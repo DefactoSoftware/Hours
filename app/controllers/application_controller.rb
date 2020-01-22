@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -10,8 +12,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:accept_invitation).
-      concat([:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:accept_invitation,
+                                      keys: %i[first_name last_name])
   end
 
   def authenticate_inviter!
@@ -27,8 +29,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_subdomain, :current_user_owner?
 
   def current_subdomain
-    @current_subdomain ||=
-      current_account.subdomain unless Hours.single_tenant_mode?
+    unless Hours.single_tenant_mode?
+      @current_subdomain ||=
+        current_account.subdomain
+    end
   end
 
   def current_user_owner?
@@ -40,7 +44,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_schema
-    Apartment::Tenant.switch("public")
+    Apartment::Tenant.switch('public')
     return unless request.subdomain.present?
 
     if current_account
