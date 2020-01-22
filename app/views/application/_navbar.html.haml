@@ -34,4 +34,4 @@
                       %input#modal-1.modal-state{:type => "checkbox"}/
                       = render 'modal'
                 %li.devider
-                %li= link_to t("sign_out"), destroy_user_session_path
+                %li= link_to t("sign_out"), destroy_user_session_path, method: :delete
