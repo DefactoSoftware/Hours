@@ -17,7 +17,7 @@ feature "Delete Account" do
 
       expect(page).to have_content "Your account was deleted. Sorry to see you go."
       expect { Account.find_by!(subdomain: subdomain) }.to raise_error ActiveRecord::RecordNotFound
-      expect { Apartment::Tenant.switch(subdomain) }.to raise_error Apartment::TenantNotFound
+      expect { Apartment::Tenant.switch!(subdomain) }.to raise_error Apartment::TenantNotFound
     end
 
     scenario "has a menu item to edit account" do
@@ -31,7 +31,7 @@ feature "Delete Account" do
 
   context "as a regular user of an account" do
     before(:each) do
-      Apartment::Tenant.switch(subdomain)
+      Apartment::Tenant.switch!(subdomain)
 
       user = create(:user)
       sign_in_user(user, subdomain: subdomain)

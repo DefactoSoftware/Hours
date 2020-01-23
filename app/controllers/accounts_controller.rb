@@ -10,7 +10,7 @@ class AccountsController < ApplicationController
     @signup = Signup.new(signup_params)
     if @signup.valid?
       Apartment::Tenant.create(@signup.subdomain)
-      Apartment::Tenant.switch(@signup.subdomain)
+      Apartment::Tenant.switch!(@signup.subdomain)
       @signup.save
       redirect_to new_user_session_url(subdomain: @signup.subdomain)
     else
