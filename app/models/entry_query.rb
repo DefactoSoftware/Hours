@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EntryQuery
   def initialize(entries, params, entry_type)
     @entries = entries.extending(Scopes)
@@ -18,16 +20,16 @@ class EntryQuery
   attr_reader :entries, :params
 
   def filter_params
-    EntryFilter::Params.new(params).rejecting_nil
+    params&.reject { |_, v| v.nil? } || {}
   end
 
   def present?(value)
-    value != "" && !value.nil?
+    value != '' && !value.nil?
   end
 
   module Scopes
     def client_id(param)
-      joins(:project).where("client_id = ?", param)
+      joins(:project).where('client_id = ?', param)
     end
 
     def project_id(param)
@@ -51,11 +53,11 @@ class EntryQuery
     end
 
     def archived(param)
-      joins(:project).where("archived = ?", param)
+      joins(:project).where('archived = ?', param)
     end
 
     def billable(param)
-      joins(:project).where("billable = ?", param)
+      joins(:project).where('billable = ?', param)
     end
 
     def self.set(entry_type)
