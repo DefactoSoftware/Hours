@@ -20,7 +20,5 @@ if defined?(RSpec)
   task spec: :factory_specs
 end
 
-load "brakeman/brakeman.rake"
-
 task(:default).clear
 task :default => [:spec, "brakeman:check"]
