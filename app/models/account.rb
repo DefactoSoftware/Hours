@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: public.accounts
@@ -9,8 +11,8 @@
 #  updated_at :datetime
 #
 
-class Account < ActiveRecord::Base
-  RESTRICTED_SUBDOMAINS = %w(www admin)
+class Account < ApplicationRecord
+  RESTRICTED_SUBDOMAINS = %w[www admin].freeze
 
   before_validation :downcase_subdomain
 
@@ -28,7 +30,7 @@ class Account < ActiveRecord::Base
                           message: :restricted
                         }
 
-  belongs_to :owner, class_name: "User"
+  belongs_to :owner, class_name: 'User'
 
   has_many :users, inverse_of: :organization
 

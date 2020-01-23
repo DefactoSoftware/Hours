@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: categories
@@ -8,10 +10,10 @@
 #  updated_at :datetime
 #
 
-class Category < ActiveRecord::Base
+class Category < ApplicationRecord
   belongs_to :project
   validates :name, presence: true, uniqueness: { case_sensitive: false }
-  scope :by_name, -> { order("lower(name)") }
+  scope :by_name, -> { order('lower(name)') }
   has_many :hours
 
   def label

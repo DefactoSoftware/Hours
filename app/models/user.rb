@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -33,7 +35,7 @@
 #  invitations_count      :integer          default("0")
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include Sluggable
 
   devise :database_authenticatable,
@@ -46,23 +48,23 @@ class User < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name
 
-  has_one :account, foreign_key: "owner_id", inverse_of: :owner
-  belongs_to :organization, class_name: "Account", inverse_of: :users
+  has_one :account, foreign_key: 'owner_id', inverse_of: :owner
+  belongs_to :organization, class_name: 'Account', inverse_of: :users
   has_many :hours
   has_many :mileages
   has_many :projects, -> { uniq }, through: :hours
 
-  scope :by_name, -> { order("lower(last_name)") }
+  scope :by_name, -> { order('lower(last_name)') }
 
   def full_name
     "#{first_name} #{last_name}"
   end
-  alias_method :slug_source, :full_name
-  alias_method :label, :full_name
-  alias_method :name, :full_name
+  alias slug_source full_name
+  alias label full_name
+  alias name full_name
 
   def email_domain
-    email.split("@").last
+    email.split('@').last
   end
 
   def color

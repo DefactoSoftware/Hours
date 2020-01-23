@@ -1,4 +1,6 @@
-class Entry < ActiveRecord::Base
+# frozen_string_literal: true
+
+class Entry < ApplicationRecord
   self.abstract_class = true
 
   include Twitter::Extractor
