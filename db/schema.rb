@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -38,13 +37,12 @@ ActiveRecord::Schema.define(version: 20200123084904) do
     t.string   "remote_address"
     t.string   "request_uuid"
     t.datetime "created_at"
+    t.index ["associated_type", "associated_id"], name: "associated_index", using: :btree
+    t.index ["auditable_type", "auditable_id"], name: "auditable_index", using: :btree
+    t.index ["created_at"], name: "index_audits_on_created_at", using: :btree
+    t.index ["request_uuid"], name: "index_audits_on_request_uuid", using: :btree
+    t.index ["user_id", "user_type"], name: "user_index", using: :btree
   end
-
-  add_index "audits", ["associated_type", "associated_id"], name: "associated_index", using: :btree
-  add_index "audits", ["auditable_type", "auditable_id"], name: "auditable_index", using: :btree
-  add_index "audits", ["created_at"], name: "index_audits_on_created_at", using: :btree
-  add_index "audits", ["request_uuid"], name: "index_audits_on_request_uuid", using: :btree
-  add_index "audits", ["user_id", "user_type"], name: "user_index", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       default: "", null: false
@@ -75,9 +73,8 @@ ActiveRecord::Schema.define(version: 20200123084904) do
     t.string   "queue"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
-
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "hours", force: :cascade do |t|
     t.integer  "project_id",                  null: false
@@ -89,13 +86,12 @@ ActiveRecord::Schema.define(version: 20200123084904) do
     t.datetime "updated_at"
     t.string   "description"
     t.boolean  "billed",      default: false
+    t.index ["billed"], name: "index_hours_on_billed", using: :btree
+    t.index ["category_id"], name: "index_hours_on_category_id", using: :btree
+    t.index ["date"], name: "index_hours_on_date", using: :btree
+    t.index ["project_id"], name: "index_hours_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_hours_on_user_id", using: :btree
   end
-
-  add_index "hours", ["billed"], name: "index_hours_on_billed", using: :btree
-  add_index "hours", ["category_id"], name: "index_hours_on_category_id", using: :btree
-  add_index "hours", ["date"], name: "index_hours_on_date", using: :btree
-  add_index "hours", ["project_id"], name: "index_hours_on_project_id", using: :btree
-  add_index "hours", ["user_id"], name: "index_hours_on_user_id", using: :btree
 
   create_table "mileages", force: :cascade do |t|
     t.integer  "project_id",                 null: false
@@ -105,12 +101,11 @@ ActiveRecord::Schema.define(version: 20200123084904) do
     t.boolean  "billed",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["billed"], name: "index_mileages_on_billed", using: :btree
+    t.index ["date"], name: "index_mileages_on_date", using: :btree
+    t.index ["project_id"], name: "index_mileages_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_mileages_on_user_id", using: :btree
   end
-
-  add_index "mileages", ["billed"], name: "index_mileages_on_billed", using: :btree
-  add_index "mileages", ["date"], name: "index_mileages_on_date", using: :btree
-  add_index "mileages", ["project_id"], name: "index_mileages_on_project_id", using: :btree
-  add_index "mileages", ["user_id"], name: "index_mileages_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",        default: "",    null: false
@@ -122,30 +117,27 @@ ActiveRecord::Schema.define(version: 20200123084904) do
     t.integer  "client_id"
     t.boolean  "archived",    default: false, null: false
     t.text     "description"
+    t.index ["archived"], name: "index_projects_on_archived", using: :btree
+    t.index ["billable"], name: "index_projects_on_billable", using: :btree
+    t.index ["slug"], name: "index_projects_on_slug", using: :btree
   end
-
-  add_index "projects", ["archived"], name: "index_projects_on_archived", using: :btree
-  add_index "projects", ["billable"], name: "index_projects_on_billable", using: :btree
-  add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "hour_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["hour_id"], name: "index_taggings_on_hour_id", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
   end
-
-  add_index "taggings", ["hour_id"], name: "index_taggings_on_hour_id", using: :btree
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.index ["slug"], name: "index_tags_on_slug", using: :btree
   end
-
-  add_index "tags", ["slug"], name: "index_tags_on_slug", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             default: "", null: false
@@ -176,13 +168,12 @@ ActiveRecord::Schema.define(version: 20200123084904) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+    t.index ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+    t.index ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["slug"], name: "index_users_on_slug", using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
-  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
-  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
 
 end
