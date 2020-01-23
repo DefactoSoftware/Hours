@@ -1,41 +1,44 @@
+# frozen_string_literal: true
+
 class EntryFilter
   include ActiveModel::Model
 
-  KEYS = [
-    :client_id,
-    :project_id,
-    :user,
-    :billed,
-    :to_date,
-    :from_date,
-    :archived,
-    :billable
+  KEYS = %i[
+    client_id
+    project_id
+    user
+    billed
+    to_date
+    from_date
+    archived
+    billable
   ].freeze
 
   attr_accessor(*KEYS)
 
   def initialize(params = {})
-    super(Params.new(params))
+    params = params&.slice(*KEYS)
+    super(params)
   end
 
   def billed_options
     [
-      [I18n.t("entry_filters.not_billed"), false],
-      [I18n.t("entry_filters.billed"), true]
+      [I18n.t('entry_filters.not_billed'), false],
+      [I18n.t('entry_filters.billed'), true]
     ]
   end
 
   def billable_options
     [
-      [I18n.t("entry_filters.not_billable"), false],
-      [I18n.t("entry_filters.billable"), true]
+      [I18n.t('entry_filters.not_billable'), false],
+      [I18n.t('entry_filters.billable'), true]
     ]
   end
 
   def archived_options
     [
-      [I18n.t("entry_filters.not_archived"), false],
-      [I18n.t("entry_filters.archived"), true]
+      [I18n.t('entry_filters.not_archived'), false],
+      [I18n.t('entry_filters.archived'), true]
     ]
   end
 
@@ -57,27 +60,5 @@ class EntryFilter
 
   def projects
     @projects ||= Project.by_name
-  end
-end
-
-class EntryFilter
-  class Params
-    def initialize(hash)
-      @params = filter(hash) || []
-    end
-
-    def rejecting_nil
-      @params.reject { |_, value| value.nil? }
-    end
-
-    def each(&block)
-      @params.each(&block)
-    end
-
-    private
-
-    def filter(hash)
-      hash.slice(*KEYS) if hash
-    end
   end
 end
