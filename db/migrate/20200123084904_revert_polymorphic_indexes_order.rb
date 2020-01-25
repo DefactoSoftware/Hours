@@ -1,12 +1,12 @@
 class RevertPolymorphicIndexesOrder < ActiveRecord::Migration
   def self.up
-    fix_index_order_for [:associated_id, :associated_type], 'associated_index'
-    fix_index_order_for [:auditable_id, :auditable_type], 'auditable_index'
+    fix_index_order_for %i[associated_id associated_type], "associated_index"
+    fix_index_order_for %i[auditable_id auditable_type], "auditable_index"
   end
 
   def self.down
-    fix_index_order_for [:associated_type, :associated_id], 'associated_index'
-    fix_index_order_for [:auditable_type, :auditable_id], 'auditable_index'
+    fix_index_order_for %i[associated_type associated_id], "associated_index"
+    fix_index_order_for %i[auditable_type auditable_id], "auditable_index"
   end
 
   private

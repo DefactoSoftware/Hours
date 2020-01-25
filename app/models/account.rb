@@ -30,7 +30,7 @@ class Account < ApplicationRecord
                           message: :restricted
                         }
 
-  belongs_to :owner, class_name: 'User'
+  belongs_to :owner, class_name: "User"
 
   has_many :users, inverse_of: :organization
 

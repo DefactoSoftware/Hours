@@ -1,12 +1,12 @@
 describe ReportEntry do
   let(:hour) { create(:hour_with_client) }
-  let(:mileage) { create (:mileage_with_client) }
+  let(:mileage) { create :mileage_with_client }
   subject(:report_entry) { ReportEntry.new(hour) }
   subject(:report_entry2) { ReportEntry.new(mileage) }
 
   it "#date localized" do
-    expect(report_entry.date).to eq(I18n.l hour.date)
-    expect(report_entry2.date).to eq(I18n.l mileage.date)
+    expect(report_entry.date).to eq(I18n.l(hour.date))
+    expect(report_entry2.date).to eq(I18n.l(mileage.date))
   end
 
   it "#user" do

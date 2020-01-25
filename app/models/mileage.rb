@@ -16,7 +16,7 @@ class Mileage < Entry
   scope :by_last_created_at, -> { order("created_at DESC") }
   scope :by_date, -> { order("date DESC") }
   scope :billable, -> { where("billable").joins(:project) }
-  scope :with_clients, -> {
+  scope :with_clients, lambda {
     where.not("projects.client_id" => nil).joins(:project)
   }
 

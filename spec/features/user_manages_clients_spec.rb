@@ -9,7 +9,7 @@ feature "User manages clients" do
 
   scenario "creates a client" do
     create_client("New Client", "This is a description")
-    expect(page).to have_content(I18n.t('client_created'))
+    expect(page).to have_content(I18n.t("client_created"))
   end
 
   scenario "creates a client with a duplicate name" do
@@ -78,7 +78,7 @@ feature "User manages clients" do
     expect(page).to have_text(project1.name)
   end
 
-  def create_client(name, description="")
+  def create_client(name, description = "")
     visit clients_url(subdomain: subdomain)
     fill_in "Name", with: name
     fill_in "Description", with: description

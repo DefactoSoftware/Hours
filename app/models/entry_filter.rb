@@ -23,22 +23,22 @@ class EntryFilter
 
   def billed_options
     [
-      [I18n.t('entry_filters.not_billed'), false],
-      [I18n.t('entry_filters.billed'), true]
+      [I18n.t("entry_filters.not_billed"), false],
+      [I18n.t("entry_filters.billed"), true]
     ]
   end
 
   def billable_options
     [
-      [I18n.t('entry_filters.not_billable'), false],
-      [I18n.t('entry_filters.billable'), true]
+      [I18n.t("entry_filters.not_billable"), false],
+      [I18n.t("entry_filters.billable"), true]
     ]
   end
 
   def archived_options
     [
-      [I18n.t('entry_filters.not_archived'), false],
-      [I18n.t('entry_filters.archived'), true]
+      [I18n.t("entry_filters.not_archived"), false],
+      [I18n.t("entry_filters.archived"), true]
     ]
   end
 

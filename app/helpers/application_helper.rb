@@ -2,12 +2,12 @@ module ApplicationHelper
   include Twitter::Autolink
 
   def autolink_tags(text)
-    auto_link(text, hashtag_url_base: '/tags/', hashtag_class: 'hashtag')
+    auto_link(text, hashtag_url_base: "/tags/", hashtag_class: "hashtag")
   end
 
   def nav_path(link_text, link_path, http_method = nil)
-    css_class = 'navigation'
-    css_class << ' current' if
+    css_class = "navigation"
+    css_class << " current" if
       current_page?(link_path)
     content_tag :li, class: css_class do
       link_to(link_text, link_path, http_method)
@@ -22,14 +22,14 @@ module ApplicationHelper
   end
 
   def client_title(client)
-    html = ''
-    html << if client.logo_url != ''
-              image_tag(client.logo_url, class: 'logo')
+    html = ""
+    html << if client.logo_url != ""
+              image_tag(client.logo_url, class: "logo")
             else
               content_tag(
                 :span,
-                '',
-                class: 'color',
+                "",
+                class: "color",
                 style: "background-color:#{client.name.pastel_color};"
               )
             end
@@ -43,20 +43,20 @@ module ApplicationHelper
 
   def billable_entry_checkbox(entry, entry_type)
     if entry.billed
-      '✓'
+      "✓"
     else
       tag(:input,
-          type: 'checkbox',
+          type: "checkbox",
           name: "#{entry_type}_to_bill[]",
-          class: 'bill_checkbox',
+          class: "bill_checkbox",
           value: entry.id.to_s,
-          'data-project-id' => entry.project.id)
+          "data-project-id" => entry.project.id)
     end
   end
 
   def link_to_time_span(span)
-    params_time_span = params.fetch(:time_span) { 'monthly' }
-    link_params = params_time_span == span ? { class: 'active' } : {}
+    params_time_span = params.fetch(:time_span) { "monthly" }
+    link_params = params_time_span == span ? { class: "active" } : {}
     link_to t("report.#{span}"), url_for(time_span: span), link_params
   end
 
@@ -65,7 +65,7 @@ module ApplicationHelper
   end
 
   def download_csv_params
-    params.permit(*EntryFilter::KEYS).merge(format: 'csv')
+    params.permit(*EntryFilter::KEYS).merge(format: "csv")
   end
 
   def colored_span(color, content)
@@ -76,7 +76,7 @@ module ApplicationHelper
 
   def easter?
     holiday = Holidays.on(Date.today, :nl)
-    holiday[0][:name] == 'Pasen' if holiday.any?
+    holiday[0][:name] == "Pasen" if holiday.any?
   end
 
   def billable_hours_of(project)

@@ -30,8 +30,8 @@ class HoursController < EntriesController
   end
 
   def entry_params
-    params.require(:hour).
-      permit(:project_id, :category_id, :value, :description, :date).
-      merge(date: parsed_date(:hour))
+    params.require(:hour)
+          .permit(:project_id, :category_id, :value, :description, :date)
+          .merge(date: parsed_date(:hour))
   end
 end

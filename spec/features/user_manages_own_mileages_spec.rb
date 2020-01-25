@@ -12,7 +12,7 @@ feature "User manages their own mileage" do
     click_link I18n.t("navbar.entries")
 
     expect(page.title).to eq("#{user.full_name} | Hours")
-    expect(page).to have_content("#{user.first_name}")
+    expect(page).to have_content(user.first_name.to_s)
     expect(page).to have_content(user.mileages.last.project.name)
   end
 
@@ -80,6 +80,6 @@ feature "User manages their own mileage" do
     fill_in "mileage_value", with: new_mileages
     fill_in "mileage_date", with: new_date
 
-    click_button (I18n.t("helpers.submit.update"))
+    click_button I18n.t("helpers.submit.update")
   end
 end

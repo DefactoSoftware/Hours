@@ -48,9 +48,9 @@ describe Mileage do
 
   describe "by_date" do
     it "orders the entries by date (latest first)" do
-      create(:mileage, date: Date.new(2014, 01, 01))
-      latest = create(:mileage, date: Date.new(2014, 03, 03))
-      create(:mileage, date: Date.new(2014, 02, 02))
+      create(:mileage, date: Date.new(2014, 0o1, 0o1))
+      latest = create(:mileage, date: Date.new(2014, 0o3, 0o3))
+      create(:mileage, date: Date.new(2014, 0o2, 0o2))
 
       expect(Mileage.by_date.first).to eq(latest)
     end

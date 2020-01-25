@@ -38,9 +38,9 @@ feature "Delete Account" do
     end
 
     scenario "the account cannot be deleted" do
-      expect {
+      expect do
         visit edit_account_url(subdomain: subdomain)
-      }.to raise_error ActiveRecord::RecordNotFound
+      end.to raise_error ActiveRecord::RecordNotFound
     end
 
     scenario "does not have a menu item to edit account" do

@@ -1,6 +1,6 @@
 describe EntryFilter do
   it "sets params" do
-    filter = EntryFilter.new({ client_id: 1 })
+    filter = EntryFilter.new(client_id: 1)
 
     expect(filter.client_id).to eq(1)
   end

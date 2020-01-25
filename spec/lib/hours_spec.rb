@@ -19,4 +19,3 @@ describe Hours do
     end
   end
 end
-

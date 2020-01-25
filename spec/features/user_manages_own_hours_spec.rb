@@ -37,7 +37,8 @@ feature "User manages their own hours" do
     entry = create(
       :hour,
       user: user,
-      description: "met a new prospect for lunch")
+      description: "met a new prospect for lunch"
+    )
 
     click_link I18n.t("navbar.entries")
     click_link I18n.t("entries.index.edit")
@@ -45,10 +46,11 @@ feature "User manages their own hours" do
     expect(page).to have_select("hour_project_id", selected: entry.project.name)
     expect(page).to have_select(
       "hour_category_id",
-      selected: entry.category.name)
+      selected: entry.category.name
+    )
     expect(find_field("hour_value").value).to eq(entry.value.to_s)
-    expect(find_field("hour_date").
-      value).to eq(entry.date.strftime("%d/%m/%Y"))
+    expect(find_field("hour_date")
+      .value).to eq(entry.date.strftime("%d/%m/%Y"))
     expect(find_field("hour_description").value).to eq(entry.description)
   end
 
@@ -111,7 +113,7 @@ feature "User manages their own hours" do
   private
 
   def edit_entry(new_project, new_category, new_value,
-                  new_date, new_description)
+                 new_date, new_description)
     create(:hour, user: user)
     click_link I18n.t("navbar.entries")
     click_link I18n.t("entries.index.edit")

@@ -8,13 +8,12 @@ class AuditsController < ApplicationController
   private
 
   def audit_log
-    case
-    when params.key?(:hour_id)
-      return hour_log
-    when params.key?(:mileage_id)
-      return mileage_log
-    when params.key?(:project_id)
-      return project_log
+    if params.key?(:hour_id)
+      hour_log
+    elsif params.key?(:mileage_id)
+      mileage_log
+    elsif params.key?(:project_id)
+      project_log
     end
   end
 

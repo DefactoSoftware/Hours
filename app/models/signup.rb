@@ -2,13 +2,13 @@ class Signup
   include ActiveModel::Model
 
   attr_accessor :first_name,
-    :last_name,
-    :email,
-    :password,
-    :password_confirmation,
-    :subdomain,
-    :user,
-    :account
+                :last_name,
+                :email,
+                :password,
+                :password_confirmation,
+                :subdomain,
+                :user,
+                :account
 
   validate :validate_children
 
@@ -38,13 +38,9 @@ class Signup
   end
 
   def validate_children
-    if user.invalid?
-      promote_errors(user)
-    end
+    promote_errors(user) if user.invalid?
 
-    if account.invalid?
-      promote_errors(account)
-    end
+    promote_errors(account) if account.invalid?
   end
 
   def promote_errors(child)

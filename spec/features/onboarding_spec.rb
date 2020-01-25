@@ -28,5 +28,4 @@ feature "Onboarding" do
 
     expect(page).to have_no_content I18n.t("info.categories", categories_path: I18n.t("info.here"))
   end
-
 end

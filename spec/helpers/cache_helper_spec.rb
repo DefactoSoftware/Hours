@@ -4,8 +4,8 @@ describe CacheHelper do
       create(:project)
       create(:category)
 
-      expect(helper).to receive(:current_subdomain).
-        and_return("some_subdomain").twice
+      expect(helper).to receive(:current_subdomain)
+        .and_return("some_subdomain").twice
 
       expect(helper.cache_keys_for_all(:projects, :categories).size).to eq(2)
     end

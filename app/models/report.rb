@@ -4,20 +4,21 @@ class Report
   end
 
   def headers(entry_type)
-    if entry_type == "mileages"
-      header = %w(date user project client mileages billable billed)
-    else
-      header = %w(
-        date
-        user
-        project
-        category
-        client
-        hours
-        billable
-        billed
-        description)
-    end
+    header = if entry_type == "mileages"
+               %w[date user project client mileages billable billed]
+             else
+               %w[
+                 date
+                 user
+                 project
+                 category
+                 client
+                 hours
+                 billable
+                 billed
+                 description
+               ]
+             end
     header.map do |headers|
       I18n.translate("report.headers.#{headers}")
     end

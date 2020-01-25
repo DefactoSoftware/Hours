@@ -25,7 +25,7 @@ class ReportsController < ApplicationController
   private
 
   def entries(entries)
-    if params[:format] == 'csv'
+    if params[:format] == "csv"
       entries
     else
       entries.page(params[:page]).per(20)

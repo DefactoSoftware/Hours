@@ -10,7 +10,7 @@ Hours::Application.configure do
   config.eager_load = false
 
   # Show full error reports and disable caching.
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local = true
   if ENV["CACHE_DEVELOPMENT"]
     config.action_controller.perform_caching = true
     config.cache_store = :dalli_store
@@ -36,5 +36,5 @@ Hours::Application.configure do
   config.action_controller.action_on_unpermitted_parameters = :raise
 
   config.action_mailer.default_url_options = { host: "hours.dev" }
-  config.action_dispatch.tld_length = ENV['TLD_LENGTH'].to_i || 1
+  config.action_dispatch.tld_length = ENV["TLD_LENGTH"].to_i || 1
 end

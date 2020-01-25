@@ -33,8 +33,8 @@ class MileagesController < EntriesController
   end
 
   def entry_params
-    params.require(:mileage).
-      permit(:project_id, :value, :date).
-      merge(date: parsed_date(:mileage))
+    params.require(:mileage)
+          .permit(:project_id, :value, :date)
+          .merge(date: parsed_date(:mileage))
   end
 end

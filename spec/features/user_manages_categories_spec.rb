@@ -38,11 +38,14 @@ feature "User manages categories" do
 
     within ".categories" do
       expect(page).to have_selector(
-        "ul.categories-overview li:first-child", text: "A")
+        "ul.categories-overview li:first-child", text: "A"
+      )
       expect(page).to have_selector(
-        "ul.categories-overview li:nth-child(2)", text: "b")
+        "ul.categories-overview li:nth-child(2)", text: "b"
+      )
       expect(page).to have_selector(
-        "ul.categories-overview li:nth-child(3)", text: "C")
+        "ul.categories-overview li:nth-child(3)", text: "C"
+      )
     end
   end
 

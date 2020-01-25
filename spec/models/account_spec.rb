@@ -40,16 +40,16 @@ describe Account do
       account = build(:account, subdomain: "ść")
       account.valid?
 
-      expect(account.errors.messages[:subdomain]).
-        to eq ["contains invalid characters"]
+      expect(account.errors.messages[:subdomain])
+        .to eq ["contains invalid characters"]
     end
 
     it "set for restricted subdomain" do
       account = build(:account, subdomain: "admin")
       account.valid?
 
-      expect(account.errors.messages[:subdomain]).
-        to eq ["provided subdomain is restricted"]
+      expect(account.errors.messages[:subdomain])
+        .to eq ["provided subdomain is restricted"]
     end
   end
 end

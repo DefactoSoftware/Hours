@@ -8,7 +8,7 @@ ENV["RAILS_ENV"] = "test"
 require "dotenv"
 Dotenv.overload(".sample.env")
 
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path("../config/environment", __dir__)
 
 require "rspec/rails"
 require "webmock/rspec"
@@ -51,13 +51,13 @@ end
 
 def drop_schemas
   connection = ActiveRecord::Base.connection.raw_connection
-  schemas = connection.query(%Q{
+  schemas = connection.query(%(
     SELECT 'drop schema ' || nspname || ' cascade;'
     FROM pg_namespace
     WHERE nspname != 'public'
     AND nspname NOT LIKE 'pg_%'
     AND nspname != 'information_schema';
-  })
+  ))
 
   schemas.each do |schema|
     connection.query(schema.values.first)
