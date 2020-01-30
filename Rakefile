@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
-require File.expand_path("../config/application", __FILE__)
+require File.expand_path("config/application", __dir__)
 
 Hours::Application.load_tasks
 if defined?(RSpec)
@@ -20,7 +22,15 @@ if defined?(RSpec)
   task spec: :factory_specs
 end
 
-load "brakeman/brakeman.rake"
+namespace :brakeman do
+  desc "Run Brakeman"
+  task :check, :output_files do |_t, args|
+    require "brakeman"
+
+    files = args[:output_files].split(" ") if args[:output_files]
+    Brakeman.run app_path: ".", output_files: files, print_report: true
+  end
+end
 
 task(:default).clear
-task :default => [:spec, "brakeman:check"]
+task default: [:spec, "brakeman:check"]

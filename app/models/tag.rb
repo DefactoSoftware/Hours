@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tags
@@ -9,7 +11,7 @@
 #  slug       :string
 #
 
-class Tag < ActiveRecord::Base
+class Tag < ApplicationRecord
   attr_reader :total_hours
   include Sluggable
 

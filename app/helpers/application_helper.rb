@@ -23,15 +23,16 @@ module ApplicationHelper
 
   def client_title(client)
     html = ""
-    if client.logo_url != ""
-      html << image_tag(client.logo_url, class: "logo")
-    else
-      html << content_tag(
-        :span,
-        "",
-        class: "color",
-        style: "background-color:#{client.name.pastel_color};")
-    end
+    html << if client.logo_url != ""
+              image_tag(client.logo_url, class: "logo")
+            else
+              content_tag(
+                :span,
+                "",
+                class: "color",
+                style: "background-color:#{client.name.pastel_color};"
+              )
+            end
     html << content_tag(:span, client.name)
     html.html_safe
   end
@@ -48,7 +49,7 @@ module ApplicationHelper
           type: "checkbox",
           name: "#{entry_type}_to_bill[]",
           class: "bill_checkbox",
-          value: "#{entry.id}",
+          value: entry.id.to_s,
           "data-project-id" => entry.project.id)
     end
   end
@@ -64,7 +65,7 @@ module ApplicationHelper
   end
 
   def download_csv_params
-    params.except(:controller, :action).merge(format: "csv")
+    params.permit(*EntryFilter::KEYS).merge(format: "csv")
   end
 
   def colored_span(color, content)
@@ -79,7 +80,7 @@ module ApplicationHelper
   end
 
   def billable_hours_of(project)
-    Hour.includes(:category, :user, :project).
-      where(project: project, billed: false)
+    Hour.includes(:category, :user, :project)
+        .where(project: project, billed: false)
   end
 end

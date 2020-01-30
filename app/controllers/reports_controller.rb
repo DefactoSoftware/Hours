@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   include CSVDownload
 
   def index
-    @filters = EntryFilter.new(params[:entry_filter])
-    @hours_entries = entries(Hour.query(params[:entry_filter])).
-                     page(params[:hours_pages]).per(20)
-    @mileages_entries = entries(Mileage.query(params[:entry_filter])).
-                        page(params[:mileages_pages]).per(20)
+    @filters = EntryFilter.new(entry_filter_params)
+    @hours_entries = entries(Hour.query(params[:entry_filter]))
+                     .page(params[:hours_pages]).per(20)
+    @mileages_entries = entries(Mileage.query(params[:entry_filter]))
+                        .page(params[:mileages_pages]).per(20)
 
     respond_to do |format|
       format.html
@@ -28,5 +30,9 @@ class ReportsController < ApplicationController
     else
       entries.page(params[:page]).per(20)
     end
+  end
+
+  def entry_filter_params
+    params.permit(:entry_filter).permit(*EntryFilter::KEYS)
   end
 end

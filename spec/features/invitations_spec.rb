@@ -1,3 +1,5 @@
+require "spec_helper"
+
 feature "Inviting users" do
   let(:subdomain) { generate(:subdomain) }
   let(:owner) { build(:user) }
@@ -42,7 +44,7 @@ feature "Inviting users" do
 
         open_email "new.invitee@example.com"
 
-        # hack to work around email_spec only using
+        # HACK: to work around email_spec only using
         # relative paths without subdomains
         visit links_in_email(current_email).last
 

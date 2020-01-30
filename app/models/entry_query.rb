@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EntryQuery
   def initialize(entries, params, entry_type)
     @entries = entries.extending(Scopes)
@@ -18,7 +20,7 @@ class EntryQuery
   attr_reader :entries, :params
 
   def filter_params
-    EntryFilter::Params.new(params).rejecting_nil
+    params&.reject { |_, v| v.nil? } || {}
   end
 
   def present?(value)

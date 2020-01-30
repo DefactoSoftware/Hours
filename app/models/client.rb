@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: clients
@@ -13,7 +15,7 @@
 #  updated_at        :datetime
 #
 
-class Client < ActiveRecord::Base
+class Client < ApplicationRecord
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false }
   scope :by_name, -> { order("lower(name)") }
@@ -27,7 +29,7 @@ class Client < ActiveRecord::Base
                     styles: { original: "100x100#" },
                     default_url: "",
                     s3_protocol: ""
-  validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :logo, content_type: %r{\Aimage/.*\Z}
 
   def logo_url
     logo.url(:original)

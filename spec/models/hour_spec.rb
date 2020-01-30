@@ -72,10 +72,10 @@ describe Hour do
     it "updates the tag when the casing changes" do
       hour.description = "did some #tdd"
       hour.save
-      expect {
+      expect do
         hour.description = "did some #TDD"
         hour.save
-      }.to_not raise_error
+      end.to_not raise_error
       expect(Tag.last.name).to eq("TDD")
       expect(hour.reload.tag_list).to include("TDD")
     end
@@ -92,9 +92,9 @@ describe Hour do
 
   describe "#by_date" do
     it "orders the entries by date (latest first)" do
-      create(:hour, date: Date.new(2014, 01, 01))
-      latest = create(:hour, date: Date.new(2014, 03, 03))
-      create(:hour, date: Date.new(2014, 02, 02))
+      create(:hour, date: Date.new(2014, 0o1, 0o1))
+      latest = create(:hour, date: Date.new(2014, 0o3, 0o3))
+      create(:hour, date: Date.new(2014, 0o2, 0o2))
 
       expect(Hour.by_date.first).to eq(latest)
     end

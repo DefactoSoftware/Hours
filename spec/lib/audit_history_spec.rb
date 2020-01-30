@@ -32,7 +32,7 @@ describe AuditChange do
   end
 
   context "remove association" do
-    let(:change) { ["client_id", [1,nil]] }
+    let(:change) { ["client_id", [1, nil]] }
     let(:audit_change) { AuditChange::Update.new(change) }
 
     it "to_string" do
@@ -45,7 +45,7 @@ describe AuditChange do
   end
 
   context "with values" do
-    let(:change) { ["description", ["Foo", "Bar"]] }
+    let(:change) { ["description", %w[Foo Bar]] }
     let(:audit_change) { AuditChange::Update.new(change) }
 
     it "#from" do

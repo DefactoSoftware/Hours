@@ -47,6 +47,7 @@ class AuditChange
   def find_association(id)
     return id unless association?
     return NilAssociation.new unless id
+
     begin
       property_class.find(id)
     rescue ActiveRecord::RecordNotFound, NameError
@@ -73,7 +74,8 @@ end
 
 class AuditChange::DestroyedAssociation
   def initialize(klass_name, id)
-    @klass_name, @id = klass_name, id
+    @klass_name = klass_name
+    @id = id
   end
 
   def destroyed?

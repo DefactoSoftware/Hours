@@ -11,7 +11,7 @@ describe ApplicationHelper do
     it "shows a hashtel circle when there's no logo" do
       client = create(:client)
 
-      expect(client_title(client)).to include("<span class=\"color\"")
+      expect(client_title(client)).to include('<span class="color"')
     end
   end
 end

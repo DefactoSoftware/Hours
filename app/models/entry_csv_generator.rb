@@ -22,9 +22,11 @@ class EntryCSVGenerator
   end
 
   def options
-    return {
-      col_sep: ";"
-    } if I18n.locale.in?([:nl, :de])
+    if I18n.locale.in?(%i[nl de])
+      return {
+        col_sep: ";"
+      }
+    end
 
     CSV::DEFAULT_OPTIONS
   end

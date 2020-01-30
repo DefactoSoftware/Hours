@@ -2,7 +2,7 @@ module Hours
   def self.google_analytics_id
     ENV["GOOGLE_ANALYTICS_KEY"]
   end
-  
+
   def self.helpful_url
     ENV["HELPFUL_URL"]
   end
@@ -13,7 +13,7 @@ module Hours
 
   def self.helpful_enabled?
     if Hours.helpful_url.try(:empty) || Hours.helpful_account.try(:empty?)
-      fail <<-MSG
+      raise <<-MSG
       Helpful account not configured,
       to disable helpful support remove
       the HELPFUL_URL and HELPFUL_ACCOUNT env variables and restart your server.
@@ -27,7 +27,7 @@ module Hours
   end
 
   def self.single_tenant_mode?
-    ENV["SINGLE_TENANT_MODE"] == "true" ? true : false
+    ENV["SINGLE_TENANT_MODE"] == "true"
   end
 
   def self.cache_id

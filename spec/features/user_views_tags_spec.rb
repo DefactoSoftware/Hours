@@ -16,8 +16,7 @@ feature "User view tags overview" do
     click_link tag.name
 
     hours_indication = I18n.t("tags.show.hours_indication")
-    expect(page).to (
-      have_content("#{tag.name} - 12 #{hours_indication}"))
+    expect(page).to have_content("#{tag.name} - 12 #{hours_indication}")
     expect(page).to have_content(tag.name)
   end
 end

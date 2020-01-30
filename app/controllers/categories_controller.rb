@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :find_category, only: [:edit, :update]
+  before_action :find_category, only: %i[edit update]
 
   def index
     @category = Category.new
@@ -16,8 +16,7 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @category.update(category_params)

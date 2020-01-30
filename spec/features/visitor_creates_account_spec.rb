@@ -26,7 +26,7 @@ feature "Account Creation" do
     expect(page).to have_content("Please review the problems below")
   end
 
-  def sign_up(subdomain, email="john@example.com")
+  def sign_up(subdomain, email = "john@example.com")
     visit root_url(subdomain: false)
     click_link "Free trial"
 

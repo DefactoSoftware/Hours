@@ -1,4 +1,4 @@
-require File.expand_path("../boot", __FILE__)
+require File.expand_path("boot", __dir__)
 
 # Pick the frameworks you want:
 require "active_record/railtie"
@@ -49,7 +49,7 @@ module Hours
     # just silently switch to the default language (:en) instead of throwing
     # an error.
     I18n.config.enforce_available_locales = false
-    I18n.config.available_locales = [:en, :nl, :'pt-BR', :pl]
+    I18n.config.available_locales = %i[en nl pt-BR pl]
 
     # The default locale is :en and all translations
     # from config/locales/*.rb,yml are auto loaded
@@ -57,7 +57,6 @@ module Hours
     #                                              '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.secret_token = ENV["SECRET_TOKEN"]
-    config.active_record.raise_in_transactional_callbacks = true
-    config.assets.precompile << %w(landing.css)
+    config.assets.precompile << %w[landing.css]
   end
 end

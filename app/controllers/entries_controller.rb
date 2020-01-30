@@ -7,7 +7,8 @@ class EntriesController < ApplicationController
     @user = User.find_by_slug(params[:user_id])
     @hours_entries = @user.hours.by_date.page(params[:hours_pages]).per(20)
     @mileages_entries = @user.mileages.by_date.page(
-      params[:mileages_pages]).per(20)
+      params[:mileages_pages]
+    ).per(20)
 
     respond_to do |format|
       format.html { @mileages_entries + @hours_entries }
@@ -15,7 +16,8 @@ class EntriesController < ApplicationController
         send_csv(
           name: @user.name,
           hours_entries: @user.hours.by_date,
-          mileages_entries: @user.mileages.by_date)
+          mileages_entries: @user.mileages.by_date
+        )
       end
     end
   end

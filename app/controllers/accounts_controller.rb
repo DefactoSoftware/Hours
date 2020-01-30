@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create]
-  before_action :authorize!, only: [:edit, :destroy]
+  skip_before_action :authenticate_user!, only: %i[new create]
+  before_action :authorize!, only: %i[edit destroy]
 
   def new
     @signup = Signup.new
@@ -10,7 +10,7 @@ class AccountsController < ApplicationController
     @signup = Signup.new(signup_params)
     if @signup.valid?
       Apartment::Tenant.create(@signup.subdomain)
-      Apartment::Tenant.switch(@signup.subdomain)
+      Apartment::Tenant.switch!(@signup.subdomain)
       @signup.save
       redirect_to new_user_session_url(subdomain: @signup.subdomain)
     else
@@ -32,7 +32,7 @@ class AccountsController < ApplicationController
   def signup_params
     params.require(:signup)
           .permit(:subdomain, :first_name, :last_name, :email,
-                    :password, :password_confirmation)
+                  :password, :password_confirmation)
   end
 
   def authorize!

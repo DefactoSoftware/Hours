@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: projects
@@ -14,7 +16,7 @@
 #  description :text
 #
 
-class Project < ActiveRecord::Base
+class Project < ApplicationRecord
   include Sluggable
 
   audited allow_mass_assignment: true
@@ -24,9 +26,9 @@ class Project < ActiveRecord::Base
   validates_with ClientBillableValidator
   has_many :hours
   has_many :mileages
-  has_many :users, -> { uniq }, through: :hours
-  has_many :categories, -> { uniq }, through: :hours
-  has_many :tags, -> { uniq }, through: :hours
+  has_many :users, -> { distinct }, through: :hours
+  has_many :categories, -> { distinct }, through: :hours
+  has_many :tags, -> { distinct }, through: :hours
   belongs_to :client, touch: true
 
   scope :by_last_updated, -> { order("projects.updated_at DESC") }

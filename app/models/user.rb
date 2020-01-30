@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -33,7 +35,7 @@
 #  invitations_count      :integer          default("0")
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include Sluggable
 
   devise :database_authenticatable,
@@ -57,9 +59,9 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
-  alias_method :slug_source, :full_name
-  alias_method :label, :full_name
-  alias_method :name, :full_name
+  alias slug_source full_name
+  alias label full_name
+  alias name full_name
 
   def email_domain
     email.split("@").last
