@@ -7,6 +7,14 @@ Hours
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/DefactoSoftware/Hours)
 
+
+Maintenance mode
+----------------
+
+This project is now in maintenance mode. We will not accept new feature
+development or contributions other than dependency updates, security fixes and
+major bug fixes.
+
 Hours is a dead simple project based time tracking application that we use
 for internal time-tracking. It allows users to register how many hours they've
 worked on a project with a certain category (think `design`, `software development`,
