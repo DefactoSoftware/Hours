@@ -50,7 +50,6 @@ end
 # caching
 
 gem "dalli" # memcached
-gem "kgio" # faster I/O
 gem "memcachier"
 
 group :development do
