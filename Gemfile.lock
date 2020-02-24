@@ -737,7 +737,7 @@ GEM
       sass (~> 3.2.19)
     newrelic_rpm (3.9.0.229)
     nio4r (2.5.2)
-    nokogiri (1.10.7)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     normalize-rails (4.1.1)
     orm_adapter (0.5.0)
