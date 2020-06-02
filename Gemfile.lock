@@ -602,9 +602,8 @@ GEM
       bourbon (>= 3.2)
       sass (>= 3.2)
       thor
-    bourbon (3.2.3)
-      sass (~> 3.2)
-      thor
+    bourbon (6.0.0)
+      thor (~> 0.19)
     brakeman (4.7.2)
     builder (3.2.4)
     capybara (3.30.0)
