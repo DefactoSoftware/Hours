@@ -24,6 +24,7 @@ class Project < ApplicationRecord
   validates :name, presence: true,
                    uniqueness: { case_sensitive: false }
   validates_with ClientBillableValidator
+  validates :description, presence: true
   has_many :hours
   has_many :mileages
   has_many :users, -> { distinct }, through: :hours
