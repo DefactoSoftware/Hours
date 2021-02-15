@@ -96,4 +96,12 @@ describe User do
       expect(user.acronyms).to eq "AS"
     end
   end
+
+  describe "uniqueness of email" do
+    let!(:existing_user) { create(:user, email: "another@email.com") }
+    it "validates the uniqueness of email" do
+      user = build(:user, email: existing_user.email)
+      expect(user).not_to be_valid
+    end
+  end
 end

@@ -47,6 +47,8 @@ class User < ApplicationRecord
          :invitable
 
   validates_presence_of :first_name, :last_name
+  validate :unique_email_address?
+
 
   has_one :account, foreign_key: "owner_id", inverse_of: :owner
   belongs_to :organization, class_name: "Account", inverse_of: :users
@@ -73,5 +75,9 @@ class User < ApplicationRecord
 
   def acronyms
     first_name[0] + last_name[0]
+  end
+
+  def unique_email_address?
+    return false if User.where(email: self.email).any?
   end
 end
