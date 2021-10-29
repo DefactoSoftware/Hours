@@ -605,7 +605,7 @@ GEM
     bourbon (3.2.3)
       sass (~> 3.2)
       thor
-    brakeman (4.7.2)
+    brakeman (5.1.2)
     builder (3.2.4)
     capybara (3.30.0)
       addressable
@@ -725,7 +725,9 @@ GEM
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2018.0812)
-    mimemagic (0.3.2)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
