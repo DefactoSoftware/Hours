@@ -624,7 +624,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.10)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
@@ -690,11 +690,11 @@ GEM
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
     http_accept_language (2.1.1)
-    i18n (1.8.2)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jmespath (1.3.1)
     jquery-atwho-rails (1.3.2)
-    jquery-rails (4.3.5)
+    jquery-rails (4.5.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
@@ -715,7 +715,7 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.7.0)
       launchy (~> 2.2)
-    loofah (2.5.0)
+    loofah (2.19.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -725,10 +725,12 @@ GEM
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2018.0812)
-    mimemagic (0.3.2)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.1)
+    minitest (5.15.0)
     momentjs-rails (2.7.0)
       railties (>= 3.1)
     multi_json (1.14.1)
@@ -737,7 +739,7 @@ GEM
       sass (~> 3.2.19)
     newrelic_rpm (3.9.0.229)
     nio4r (2.5.2)
-    nokogiri (1.10.9)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     normalize-rails (4.1.1)
     orm_adapter (0.5.0)
@@ -758,7 +760,7 @@ GEM
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     public_suffix (4.0.5)
-    rack (2.1.1)
+    rack (2.2.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-timeout (0.0.4)
@@ -778,7 +780,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.3.0)
+    rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
     rails_12factor (0.0.2)
       rails_serve_static_assets
@@ -792,7 +794,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.19.0)
-    rake (13.0.1)
+    rake (13.0.6)
     rbtree3 (0.5.0)
     recipient_interceptor (0.1.2)
       mail
@@ -864,7 +866,7 @@ GEM
       rails (>= 3.1)
     twitter-text (1.9.2)
       unf (~> 0.1.0)
-    tzinfo (1.2.7)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.0.2)
       execjs (>= 0.3.0, < 3)
@@ -919,7 +921,7 @@ DEPENDENCIES
   holidays
   http_accept_language
   jquery-atwho-rails (~> 1.3.2)
-  jquery-rails (~> 4.0)
+  jquery-rails (~> 4.5)
   kaminari
   launchy
   letter_opener
