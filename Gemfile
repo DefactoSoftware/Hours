@@ -22,7 +22,7 @@ gem "high_voltage"
 gem "holidays"
 gem "http_accept_language"
 gem "jquery-atwho-rails", "~> 1.3.2" # autocomplete
-gem "jquery-rails", "~> 4.0"
+gem "jquery-rails", "~> 4.5"
 gem "kaminari"
 gem "momentjs-rails"
 gem "neat"
